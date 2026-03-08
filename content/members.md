@@ -11,21 +11,21 @@ initials: HVT
 ## Members
 
 ### Nguyễn Hồng Hải
-role: Researcher
+role: Member
 initials: NHH
 link: https://hhnguyen.netlify.app
 
 ### Nguyễn Quốc Tiến
-role: Researcher
+role: Member
 initials: NQT
 
 ### Thủy Phạm
-role: Researcher
+role: Member
 initials: TP
 link: https://thithuypham.github.io
 
 ### Tiến Đặng
-role: Researcher
+role: Member
 initials: TD
 link: https://scholar.google.com/citations?user=HXld-VoAAAAJ
 
