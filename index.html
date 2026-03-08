@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CPRL — Causal Perception and Reasoning Lab</title>
+  <meta name="description"
+    content="CPRL is a research group based in HCMC, Vietnam. Our mission: true AI must move beyond correlation-based Perception to achieve Causal Reasoning.">
+  <meta property="og:title" content="CPRL — Causal Perception and Reasoning Lab">
+  <meta property="og:description" content="Advancing Causal AI Research">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <script src="js/theme.js"></script>
+  <style>
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .6s ease, transform .6s ease
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0)
+    }
+  </style>
+</head>
+
+<body>
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="header-left">
+        <a href="index.html" class="logo">
+          <img src="logo.jpg" alt="CPRL Logo" class="logo-img"
+            style="width:2rem;height:2rem;border-radius:var(--radius-sm);object-fit:cover;">
+          Causal Perception and Reasoning
+        </a>
+      </div>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="publications.html">Publications</a>
+        <a href="members.html">Members</a>
+        <a href="achievements.html">Achievements</a>
+      </nav>
+      <div class="header-right">
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light theme">
+          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="5" />
+            <line x1="12" y1="1" x2="12" y2="3" />
+            <line x1="12" y1="21" x2="12" y2="23" />
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+            <line x1="1" y1="12" x2="3" y2="12" />
+            <line x1="21" y1="12" x2="23" y2="12" />
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+          </svg>
+          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+        </button>
+        <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main-content">
+
+    <!-- Hero -->
+    <section class="section hero fade-in">
+      <div class="hero-banner-bg"></div>
+      <h1><span class="gradient-text">Causal Perception</span> and <span class="gradient-text">Reasoning</span></h1>
+      <p>We are the Causal Perception and Reasoning research group based in HCMC, Vietnam. Our mission is built on a
+        simple but powerful belief — true AI must move beyond correlation-based Perception to achieve Causal Reasoning,
+        understanding <em>why</em> it happens.</p>
+      <div class="hero-actions">
+        <a href="publications.html" class="btn btn-primary">
+          View Publications
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+        </a>
+        <a href="members.html" class="btn btn-secondary">Meet Our Team</a>
+      </div>
+    </section>
+
+    <!-- Research Areas -->
+    <section class="section fade-in" style="text-align:center;">
+      <div class="container">
+        <h2 class="section-label">Our Core Research</h2>
+        <div class="card-grid" style="display:flex;flex-wrap:wrap;gap:var(--spacing-6);justify-content:center;"
+          id="research-areas">
+          <style>
+            #research-areas>.card {
+              flex: 0 1 calc(33.333% - 1.5rem);
+              min-width: 280px;
+              text-align: left;
+            }
+          </style>
+
+          <div class="card">
+            <div class="card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <polygon points="23 7 16 12 23 17 23 7" />
+                <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+              </svg>
+            </div>
+            <h3>Causal Video Understanding</h3>
+            <p>Go beyond what is happening in a video to understand why it's happening. Employ VLMs to perceive and
+              "ground" raw video into textual events, and LLMs with causal frameworks to reason about causal triggers
+              and dynamics.</p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+                <line x1="16" y1="13" x2="8" y2="13" />
+                <line x1="16" y1="17" x2="8" y2="17" />
+              </svg>
+            </div>
+            <h3>Causal Document Intelligence</h3>
+            <p>Use VLMs to understand document layout and structure as a causal graph. Employ LLMs to reason over
+              semantic content and infer logical and causal relationships between text, tables, and figures.</p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+              </svg>
+            </div>
+            <h3>Causal AI in Healthcare</h3>
+            <p>Focus on causal inference for trustworthy, safe medical diagnostics. Apply VLMs to find causal
+              biomarkers
+              in medical images and use LLMs to extract causal insights from electronic health records.</p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+              </svg>
+            </div>
+            <h3>Physics-Informed Causal AI</h3>
+            <p>Build causal models for complex physical processes such as battery degradation to discover underlying
+              scientific mechanisms. Develop causal "digital twins" for counterfactual simulations.</p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7z" />
+                <line x1="9" y1="21" x2="15" y2="21" />
+              </svg>
+            </div>
+            <h3>Foundations of Causal LLMs & Neuro-Symbolic AI</h3>
+            <p>Investigate the causal reasoning capabilities of LLMs and VLMs. Develop novel neuro-symbolic
+              architectures that bridge perception and logic, and build models capable of counterfactual reasoning.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Recent News -->
+    <section class="section fade-in">
+      <div class="container">
+        <h2 class="section-label">Recent News</h2>
+        <div class="news-list">
+          <div class="news-item">
+            <span class="news-year">2025</span>
+            <div class="news-content">
+              <h3>New Publications in CVIU and Royal Society</h3>
+              <p>Our latest papers on multilevel spatial-temporal feature analysis and machine learning for affective
+                experience have been published in top venues.</p>
+            </div>
+          </div>
+          <div class="news-item">
+            <span class="news-year">2025</span>
+            <div class="news-content">
+              <h3>MediFusion-Flex at MIWAI 2025</h3>
+              <p>Our adaptive multimodal deep learning framework for clinical deterioration prediction in emergency
+                medicine was presented at MIWAI 2025.</p>
+            </div>
+          </div>
+          <div class="news-item">
+            <span class="news-year">2023</span>
+            <div class="news-content">
+              <h3>Multiple Papers at Top Venues</h3>
+              <p>Papers accepted at BMVC 2023, ACM MM 2023, ACPR 2023, and CVPR 2023 Workshop on Affective Behavior
+                Analysis.</p>
+            </div>
+          </div>
+          <div class="news-item">
+            <span class="news-year">2021</span>
+            <div class="news-content">
+              <h3>🏆 Winner — EEV Challenge at CVPR 2021</h3>
+              <p>Team SML won the Evoked Expressions from Videos Challenge at the Affective Understanding in Video
+                Workshop @ CVPR 2021.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Join Us -->
+    <section class="section fade-in">
+      <div class="container" style="text-align:center;max-width:700px;">
+        <h2 class="section-label">Join Us</h2>
+        <p style="font-size:1.125rem;margin-bottom:var(--spacing-6);">We are actively growing and seeking passionate
+          collaborators to build the future of causal AI.</p>
+        <p style="margin-bottom:var(--spacing-4);"><strong>Prospective Students</strong> (PhD, Master, UG) — if you're
+          driven to explore the <em>why</em> behind AI, not just the <em>what</em>.</p>
+        <p style="margin-bottom:var(--spacing-8);"><strong>Academic Partners</strong> — let's collaborate on fundamental
+          research in Video Understanding, Document Intelligence, Healthcare, and Physics-Informed Causal AI.</p>
+        <a href="mailto:contact@pr.ai.vn" class="btn btn-primary">Get in Touch <svg xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg></a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <img src="logo.jpg" alt="CPRL Logo" class="logo-img"
+              style="width:2rem;height:2rem;border-radius:var(--radius-sm);object-fit:cover;">
+            Causal Perception and Reasoning Lab
+          </a>
+          <p>Causal Perception and Reasoning Lab — advancing causal AI research from HCMC, Vietnam.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Pages</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="members.html">Members</a></li>
+            <li><a href="achievements.html">Achievements</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Connect</h4>
+          <div class="footer-social">
+            <a href="https://github.com" aria-label="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="20"
+                height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+              </svg></a>
+            <a href="mailto:contact@pr.ai.vn" aria-label="Email"><svg xmlns="http://www.w3.org/2000/svg" width="20"
+                height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,13 2,6" />
+              </svg></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 CPRL — Causal Perception and Reasoning Lab. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/navigation.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+
+</html>
