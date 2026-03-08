@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publications — CPRL</title>
+    <meta name="description" content="Research publications by the Causal Perception and Reasoning Lab.">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <script src="js/theme.js"></script>
+    <style>
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity .6s ease, transform .6s ease
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0)
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to content</a>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="header-left"><a href="index.html" class="logo"><img src="logo.jpg" alt="CPRL Logo"
+                        class="logo-img"
+                        style="width:2rem;height:2rem;border-radius:var(--radius-sm);object-fit:cover;"> Causal Perception and Reasoning Lab</a></div>
+            <nav class="main-nav" aria-label="Main navigation">
+                <a href="index.html">Home</a><a href="publications.html">Publications</a><a
+                    href="members.html">Members</a><a href="achievements.html">Achievements</a>
+            </nav>
+            <div class="header-right">
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+                    <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="5" />
+                        <line x1="12" y1="1" x2="12" y2="3" />
+                        <line x1="12" y1="21" x2="12" y2="23" />
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                        <line x1="1" y1="12" x2="3" y2="12" />
+                        <line x1="21" y1="12" x2="23" y2="12" />
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                    </svg>
+                    <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                    </svg>
+                </button>
+                <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><svg
+                        xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="6" x2="21" y2="6" />
+                        <line x1="3" y1="12" x2="21" y2="12" />
+                        <line x1="3" y1="18" x2="21" y2="18" />
+                    </svg></button>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <div class="container">
+            <div class="page-header fade-in">
+                <h1>Publications</h1>
+                <p>Our research contributions to causal AI, computer vision, and affective computing.</p>
+            </div>
+
+            <!-- Journal Papers -->
+            <section class="pub-section fade-in">
+                <h2 class="section-label">Journal Papers</h2>
+                <div class="pub-list">
+
+                    <div class="pub-item">
+                        <div class="pub-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                <polyline points="14 2 14 8 20 8" />
+                            </svg></div>
+                        <div class="pub-content">
+                            <h3>Multilevel Spatial-Temporal Feature Analysis for Generic Event Boundary Detection in
+                                Videos</h3>
+                            <p class="pub-authors">Van Thong Huynh, Seungwon Kim, Hyung-Jeong Yang, Soo-Hyung Kim</p>
+                            <div class="pub-meta"><span class="badge">CVIU 2025</span> <a
+                                    href="https://doi.org/10.1016/j.cviu.2025.104429" class="btn-link" target="_blank"
+                                    rel="noopener">Paper ↗</a></div>
+                        </div>
+                    </div>
+
+                    <div class="pub-item">
+                        <div class="pub-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                <polyline points="14 2 14 8 20 8" />
+                            </svg></div>
+                        <div class="pub-content">
+                            <h3>AI-Driven Early Warning Systems in Emergency Care: Implementing a Multi-Gradient Network
+                                for Real-Time Clinical Deterioration Prediction</h3>
+                            <p class="pub-authors">Trong-Nghia Nguyen, Soo-Hyung Kim, Bo-Gun Kho, Van-Thien Luong,
+                                Hong-Hai Nguyen, Van Thong Huynh</p>
+                            <div class="pub-meta"><span class="badge">Submitted 2025</span></div>
+                        </div>
+                    </div>
+
+                    <div class="pub-item">
+                        <div class="pub-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                <polyline points="14 2 14 8 20 8" />
+                            </svg></div>
+                        <div class="pub-content">
+                            <h3>Big team science reveals promises and limitations of machine learning efforts to model
+                                the physiological basis of affective experience</h3>
+                            <p class="pub-authors">Nicholas A Coles, Bartosz Perz, ..., Van Thong Huynh, et al.</p>
+                            <div class="pub-meta"><span class="badge">RSOS 2025</span> <a
+                                    href="https://royalsocietypublishing.org/doi/10.1098/rsos.241778" class="btn-link"
+                                    target="_blank" rel="noopener">Paper ↗</a></div>
+                        </div>
+                    </div>
+
+                    <div class="pub-item">
+                        <div class="pub-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                <polyline points="14 2 14 8 20 8" />
+                            </svg></div>
+                        <div class="pub-content">
+                            <h3>Switch Fusion for Continuous Emotion Estimation from Multiple Physiological Signals</h3>
+                            <p class="pub-authors">Ngoc Tu Vu, Van Thong Huynh, Seung Won Kim, Ji Eun Shin, Hyung-Jeong
+                                Yang, Soo-Hyung Kim</p>
+                            <div class="pub-meta"><span class="badge">BSPC 2025</span> <a
+                                    href="https://www.sciencedirect.com/science/article/pii/S1746809425003428"
+                                    class="btn-link" target="_blank" rel="noopener">Paper ↗</a></div>
+                        </div>
+                    </div>
+
+                    <div class="pub-item">
+                        <div class="pub-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                <polyline points="14 2 14 8 20 8" />
+                            </svg></div>
+                        <div class="pub-content">
+                            <h3>Prediction of Evoked Expression from Videos with Temporal Position Fusion</h3>
+                            <p class="pub-authors">Van Thong Huynh, Hyung-Jeong Yang, Guee-Sang Lee, Soo-Hyung Kim</p>
+                            <div class="pub-meta"><span class="badge">PRL 2023</span> <a
+                                    href="https://www.sciencedirect.com/science/article/abs/pii/S016786552300199X"
+                                    class="btn-link" target="_blank" rel="noopener">Paper ↗</a> <a
+                                    href="https://pr.ai.vn/publication/evoked_prl23/" class="btn-link" target="_blank"
+                                    rel="noopener">Project ↗</a></div>
+                        </div>
+                    </div>
+
+                    <div class="pub-item">
+                        <div class="pub-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                <polyline points="14 2 14 8 20 8" />
+                            </svg></div>
+                        <div class="pub-content">
+                            <h3>Empirical study for worker engagement in collaborative robot programming</h3>
+                            <p class="pub-authors">J.P.J. Prioli, S. Liu, Y. Shen, Van Thong Huynh, J. Rickli,
+                                Hyung-Jeong Yang, Soo-Hyung Kim, Kyoung-Yun Kim</p>
+                            <div class="pub-meta"><span class="badge">JIDPS 2023</span> <a
+                                    href="https://dl.acm.org/doi/abs/10.3233/JID-221012" class="btn-link"
+                                    target="_blank" rel="noopener">Paper ↗</a></div>
+                        </div>
+                    </div>
+
+                    <div class="pub-item">
+                        <div class="pub-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                <polyline points="14 2 14 8 20 8" />
+                            </svg></div>
+                        <div class="pub-content">
+                            <h3>End-to-End Learning for Multimodal Emotion Recognition in Video with Adaptive Loss</h3>
+                            <p class="pub-authors">Huynh Van Thong, Hyung-Jeong Yang, Guee-Sang Lee, Soo Hyung Kim</p>
+                            <div class="pub-meta"><span class="badge">IEEE MM 2021</span> <a
+                                    href="https://ieeexplore.ieee.org/document/9431699" class="btn-link" target="_blank"
+                                    rel="noopener">Paper ↗</a> <a href="https://pr.ai.vn/publication/e2e_mm21/"
+                                    class="btn-link" target="_blank" rel="noopener">Project ↗</a></div>
+                        </div>
+                    </div>
+
+                    <div class="pub-item">
+                        <div class="pub-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                <polyline points="14 2 14 8 20 8" />
+                            </svg></div>
+                        <div class="pub-content">
+                            <h3>Semantic Segmentation of the Eye with a Lightweight Deep Network and Shape Correction
+                            </h3>
+                            <p class="pub-authors">Van Thong Huynh, Hyung-Jeong Yang, Guee-Sang Lee, Soo-Hyung Kim</p>
+                            <div class="pub-meta"><span class="badge">IEEE Access 2020</span> <a
+                                    href="https://ieeexplore.ieee.org/document/9143078" class="btn-link" target="_blank"
+                                    rel="noopener">Paper ↗</a></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Conference Papers -->
+            <section class="pub-section fade-in">
+                <h2 class="section-label">Conference Papers</h2>
+                <div class="pub-list">
+
+                    <div class="pub-item">
+                        <div class="pub-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                <polyline points="14 2 14 8 20 8" />
+                            </svg></div>
+                        <div class="pub-content">
+                            <h3>MediFusion-Flex: An Adaptive Multimodal Deep Learning Framework for Clinical
+                                Deterioration Prediction in Emergency Medicine</h3>
+                            <p class="pub-authors">Trong-Nghia Nguyen, Hong-Hai Nguyen, Ngoc Tu Vu, Tuan Anh Tran,
+                                Soo-Hyung Kim, Bo-Gun Kho, Van-Thong Huynh</p>
+                            <div class="pub-meta"><span class="badge">MIWAI 2025</span> <a
+                                    href="https://link.springer.com/chapter/10.1007/978-981-95-4963-4_10"
+                                    class="btn-link" target="_blank" rel="noopener">Paper ↗</a></div>
+                        </div>
+                    </div>
+
+                    <div class="pub-item">
+                        <div class="pub-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                <polyline points="14 2 14 8 20 8" />
+                            </svg></div>
+                        <div class="pub-content">
+                            <h3>Multiscale Transformer-Based for Multimodal Affective States Estimation from
+                                Physiological Signals</h3>
+                            <p class="pub-authors">Ngoc Tu Vu, Van Thong Huynh, Hyung-Jeong Yang, Soo-Hyung Kim</p>
+                            <div class="pub-meta"><span class="badge">ACPR 2023</span> <a
+                                    href="https://link.springer.com/chapter/10.1007/978-3-031-47665-5_10"
+                                    class="btn-link" target="_blank" rel="noopener">Paper ↗</a></div>
+                        </div>
+                    </div>
+
+                    <div class="pub-item">
+                        <div class="pub-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                <polyline points="14 2 14 8 20 8" />
+                            </svg></div>
+                        <div class="pub-content">
+                            <h3>Adapt Distinct Semantics for Uncertain Areas in Polyp Segmentation</h3>
+                            <p class="pub-authors">Nguyen Quang Vinh, Van Thong Huynh, Soo-Hyung Kim</p>
+                            <div class="pub-meta"><span class="badge">BMVC 2023</span> <a
+                                    href="https://proceedings.bmvc2023.org/806/" class="btn-link" target="_blank"
+                                    rel="noopener">Paper ↗</a></div>
+                        </div>
+                    </div>
+
+                    <div class="pub-item">
+                        <div class="pub-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                <polyline points="14 2 14 8 20 8" />
+                            </svg></div>
+                        <div class="pub-content">
+                            <h3>DCTM: Dilated Convolutional Transformer Model for Multimodal Engagement Estimation in
+                                Conversation</h3>
+                            <p class="pub-authors">Ngoc Tu Vu, Van Thong Huynh, Hyung-Jeong Yang, Soo-Hyung Kim, Shah
+                                Nawaz, Karthik Nandakumar, M. Zaigham Zaheer</p>
+                            <div class="pub-meta"><span class="badge">ACM MM 2023</span> <a
+                                    href="https://dl.acm.org/doi/10.1145/3581783.3612857" class="btn-link"
+                                    target="_blank" rel="noopener">Paper ↗</a></div>
+                        </div>
+                    </div>
+
+                    <div class="pub-item">
+                        <div class="pub-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                <polyline points="14 2 14 8 20 8" />
+                            </svg></div>
+                        <div class="pub-content">
+                            <h3>Ensemble Spatial and Temporal Vision Transformer for Action Units Detection</h3>
+                            <p class="pub-authors">Ngoc Tu Vu, Van Thong Huynh, Trong Nghia Nguyen, Soo-Hyung Kim</p>
+                            <div class="pub-meta"><span class="badge">CVPRW 2023</span> <a
+                                    href="https://ieeexplore.ieee.org/document/10208411" class="btn-link"
+                                    target="_blank" rel="noopener">Paper ↗</a></div>
+                        </div>
+                    </div>
+
+                    <div class="pub-item">
+                        <div class="pub-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                <polyline points="14 2 14 8 20 8" />
+                            </svg></div>
+                        <div class="pub-content">
+                            <h3>Facial Expression Classification using Fusion of Deep Neural Network in Video</h3>
+                            <p class="pub-authors">Kim Ngan Phan, Hong-Hai Nguyen, Van-Thong Huynh, Soo-Hyung Kim</p>
+                            <div class="pub-meta"><span class="badge">CVPRW 2022</span> <a
+                                    href="https://ieeexplore.ieee.org/document/9856987" class="btn-link" target="_blank"
+                                    rel="noopener">Paper ↗</a></div>
+                        </div>
+                    </div>
+
+                    <div class="pub-item">
+                        <div class="pub-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                <polyline points="14 2 14 8 20 8" />
+                            </svg></div>
+                        <div class="pub-content">
+                            <h3>An Ensemble Approach for Facial Expression Analysis and Action Unit Detection
+                                in-the-wild Video</h3>
+                            <p class="pub-authors">Hong-Hai Nguyen, Van-Thong Huynh, Soo-Hyung Kim</p>
+                            <div class="pub-meta"><span class="badge">CVPRW 2022</span> <a
+                                    href="https://ieeexplore.ieee.org/abstract/document/9857161" class="btn-link"
+                                    target="_blank" rel="noopener">Paper ↗</a></div>
+                        </div>
+                    </div>
+
+                    <div class="pub-item">
+                        <div class="pub-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                <polyline points="14 2 14 8 20 8" />
+                            </svg></div>
+                        <div class="pub-content">
+                            <h3>The 2nd Korean Emotion Recognition Challenge: Methods and Results</h3>
+                            <p class="pub-authors">Songa Kim, Van Thong Huynh, Dung Tran Thi, Aran Oh, Guee-Sang Lee,
+                                Hyung-Jeong Yang, Soo-Hyung Kim</p>
+                            <div class="pub-meta"><span class="badge">IWFCV 2021</span> <a
+                                    href="https://link.springer.com/chapter/10.1007/978-3-030-81638-4_14"
+                                    class="btn-link" target="_blank" rel="noopener">Paper ↗</a></div>
+                        </div>
+                    </div>
+
+                    <div class="pub-item">
+                        <div class="pub-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                <polyline points="14 2 14 8 20 8" />
+                            </svg></div>
+                        <div class="pub-content">
+                            <h3>Multimodality Pain and related Behaviors Recognition based on Attention Learning</h3>
+                            <p class="pub-authors">Van Thong Huynh, Hyung-Jeong Yang, Guee-Sang Lee, Soo-Hyung Kim</p>
+                            <div class="pub-meta"><span class="badge">FG 2020</span> <a
+                                    href="https://ieeexplore.ieee.org/document/9320185" class="btn-link" target="_blank"
+                                    rel="noopener">Paper ↗</a> <a href="https://pr.ai.vn/publication/emopain_fg20/"
+                                    class="btn-link" target="_blank" rel="noopener">Project ↗</a></div>
+                        </div>
+                    </div>
+
+                    <div class="pub-item">
+                        <div class="pub-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                <polyline points="14 2 14 8 20 8" />
+                            </svg></div>
+                        <div class="pub-content">
+                            <h3>Estimate Engagement Intensity with Eye Movements</h3>
+                            <p class="pub-authors">Van Thong Huynh, Aran Oh, Soo-Hyung Kim, Guee-Sang Lee, Hyung-Jeong
+                                Yang</p>
+                            <div class="pub-meta"><span class="badge">IWFCV 2020</span></div>
+                        </div>
+                    </div>
+
+                    <div class="pub-item">
+                        <div class="pub-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                <polyline points="14 2 14 8 20 8" />
+                            </svg></div>
+                        <div class="pub-content">
+                            <h3>Eye Semantic Segmentation with A Lightweight Model</h3>
+                            <p class="pub-authors">Van Thong Huynh, Soo-Hyung Kim, Guee-Sang Lee, Hyung-Jeong Yang</p>
+                            <div class="pub-meta"><span class="badge">ICCVW 2019</span> <a
+                                    href="https://ieeexplore.ieee.org/document/9022251" class="btn-link" target="_blank"
+                                    rel="noopener">Paper ↗</a></div>
+                        </div>
+                    </div>
+
+                    <div class="pub-item">
+                        <div class="pub-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                <polyline points="14 2 14 8 20 8" />
+                            </svg></div>
+                        <div class="pub-content">
+                            <h3>Engagement Intensity Prediction with Facial Behavior Features</h3>
+                            <p class="pub-authors">Van Thong Huynh, Hyung-Jeong Yang, Guee-Sang Lee, Soo-Hyung Kim</p>
+                            <div class="pub-meta"><span class="badge">ICMI 2019</span> <a
+                                    href="https://dl.acm.org/doi/abs/10.1145/3340555.3355714" class="btn-link"
+                                    target="_blank" rel="noopener">Paper ↗</a> <a
+                                    href="https://pr.ai.vn/publication/eg_emotiw19/" class="btn-link" target="_blank"
+                                    rel="noopener">Project ↗</a></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Patents -->
+            <section class="pub-section fade-in">
+                <h2 class="section-label">Patents</h2>
+                <div class="pub-list">
+                    <div class="pub-item">
+                        <div class="pub-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <circle cx="12" cy="8" r="7" />
+                                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
+                            </svg></div>
+                        <div class="pub-content">
+                            <h3>Apparatus and Method for Identifying Emotion by Gaze Movement Analysis</h3>
+                            <p class="pub-authors">Kim, S. H., Lee, G. S., Yang, H. J., Huynh, V. T., &amp; Oh, A. R.
+                            </p>
+                            <div class="pub-meta"><span class="badge">Korea Patent</span> <a
+                                    href="https://doi.org/10.8080/1020190089540" class="btn-link" target="_blank"
+                                    rel="noopener">Patent ↗</a></div>
+                            <p class="pub-note"
+                                style="margin-top:var(--spacing-2);font-size:0.875rem;color:var(--color-text-secondary);">
+                                Registration 10-2204743 · Technology transfer: MayfarmSoft, Sep 2020</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand"><a href="index.html" class="logo"><img src="logo.jpg" alt="CPRL Logo"
+                            class="logo-img"
+                            style="width:2rem;height:2rem;border-radius:var(--radius-sm);object-fit:cover;"> Causal Perception and Reasoning Lab</a>
+                    <p>Causal Perception and Reasoning Lab — advancing causal AI research from HCMC, Vietnam.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Pages</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="publications.html">Publications</a></li>
+                        <li><a href="members.html">Members</a></li>
+                        <li><a href="achievements.html">Achievements</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Connect</h4>
+                    <div class="footer-social"><a href="https://github.com" aria-label="GitHub"><svg
+                                xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <path
+                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                            </svg></a><a href="mailto:contact@pr.ai.vn" aria-label="Email"><svg
+                                xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                <polyline points="22,6 12,13 2,6" />
+                            </svg></a></div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CPRL — Causal Perception and Reasoning Lab. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="js/navigation.js" defer></script>
+    <script src="js/main.js" defer></script>
+</body>
+
+</html>

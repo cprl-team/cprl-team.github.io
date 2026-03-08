@@ -1,0 +1,262 @@
+/* ==========================================================
+   Layout — Container, Header, Footer, Grid
+   ========================================================== */
+
+/* ── Container ──────────────────────────────────────── */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-6);
+}
+
+/* ── Main Content ───────────────────────────────────── */
+main {
+    padding-top: 5rem;
+    /* offset for fixed header */
+}
+
+/* ── Header ─────────────────────────────────────────── */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: var(--color-header-bg);
+    border-bottom: none;
+    transition: background-color var(--transition-slow), border-color var(--transition-slow);
+}
+
+@supports (backdrop-filter: blur(12px)) {
+    .site-header {
+        background: var(--color-header-blur);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+    }
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 4rem;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+    font-weight: var(--font-weight-bold);
+    font-size: 1.125rem;
+    color: var(--color-text-primary);
+    text-decoration: none;
+}
+
+.logo-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    background: var(--color-text-primary);
+    color: var(--color-background);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0.02em;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+}
+
+/* ── Navigation ─────────────────────────────────────── */
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-1);
+}
+
+.main-nav a {
+    padding: var(--spacing-2) var(--spacing-3);
+    font-size: var(--font-size-caption);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-secondary);
+    border-radius: var(--radius-md);
+    transition: color var(--transition-base), background-color var(--transition-base);
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+    color: var(--color-text-primary);
+    background-color: var(--color-surface);
+}
+
+/* Mobile Nav Toggle */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-2);
+    cursor: pointer;
+    color: var(--color-text-primary);
+}
+
+/* ── Section ────────────────────────────────────────── */
+.section {
+    padding: var(--spacing-24) 0;
+}
+
+.section:first-child {
+    padding-top: var(--spacing-16);
+}
+
+/* ── Card Grid ──────────────────────────────────────── */
+.card-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-6);
+}
+
+/* ── Footer ─────────────────────────────────────────── */
+.site-footer {
+    border-top: 1px solid var(--color-border);
+    padding: var(--spacing-16) 0;
+    margin-top: var(--spacing-24);
+    transition: border-color var(--transition-slow);
+}
+
+.footer-inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-8);
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-3);
+}
+
+.footer-brand p {
+    font-size: var(--font-size-caption);
+    color: var(--color-text-muted);
+    max-width: 30ch;
+}
+
+.footer-links h4 {
+    font-size: var(--font-size-caption);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-4);
+}
+
+.footer-links ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2);
+}
+
+.footer-links a {
+    font-size: var(--font-size-caption);
+    color: var(--color-text-muted);
+    transition: color var(--transition-base);
+}
+
+.footer-links a:hover {
+    color: var(--color-text-primary);
+}
+
+.footer-social {
+    display: flex;
+    gap: var(--spacing-4);
+}
+
+.footer-social a {
+    color: var(--color-text-muted);
+    transition: color var(--transition-base);
+}
+
+.footer-social a:hover {
+    color: var(--color-text-primary);
+}
+
+.footer-bottom {
+    margin-top: var(--spacing-8);
+    padding-top: var(--spacing-8);
+    border-top: 1px solid var(--color-border);
+}
+
+.footer-bottom p {
+    font-size: var(--font-size-small);
+    color: var(--color-text-muted);
+}
+
+/* ==========================================================
+   Responsive — Tablet
+   ========================================================== */
+@media (min-width: 768px) {
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-inner {
+        grid-template-columns: 2fr 1fr 1fr;
+    }
+}
+
+/* ==========================================================
+   Responsive — Desktop
+   ========================================================== */
+@media (min-width: 1024px) {
+    .card-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* ==========================================================
+   Responsive — Mobile
+   ========================================================== */
+@media (max-width: 767px) {
+    .main-nav {
+        display: none;
+        position: absolute;
+        top: 4rem;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background: var(--color-background);
+        border-bottom: 1px solid var(--color-border);
+        padding: var(--spacing-4);
+        gap: var(--spacing-1);
+    }
+
+    .main-nav.open {
+        display: flex;
+    }
+
+    .main-nav a {
+        width: 100%;
+        padding: var(--spacing-3) var(--spacing-4);
+    }
+
+    .nav-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .container {
+        padding: 0 var(--spacing-4);
+    }
+}
