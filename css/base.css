@@ -1,0 +1,134 @@
+/* ==========================================================
+   Base Styles — Reset, Typography & Globals
+   ========================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* ── Reset ──────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ── Root ───────────────────────────────────────────── */
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: var(--font-family);
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-relaxed);
+    color: var(--color-text-primary);
+    background-color: var(--color-background);
+    transition: color var(--transition-slow), background-color var(--transition-slow);
+    min-height: 100vh;
+}
+
+/* ── Typography ─────────────────────────────────────── */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-snug);
+    color: var(--color-text-primary);
+}
+
+h1 {
+    font-size: var(--font-size-hero);
+    font-weight: var(--font-weight-extrabold);
+    line-height: var(--line-height-tight);
+    letter-spacing: var(--letter-spacing-tight);
+}
+
+h2 {
+    font-size: var(--font-size-page-title);
+    letter-spacing: var(--letter-spacing-snug);
+}
+
+h3 {
+    font-size: var(--font-size-card-title);
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--line-height-normal);
+}
+
+p {
+    color: var(--color-text-secondary);
+    line-height: var(--line-height-relaxed);
+}
+
+/* ── Links ──────────────────────────────────────────── */
+a {
+    color: var(--color-text-primary);
+    text-decoration: none;
+    transition: color var(--transition-base);
+}
+
+a:hover {
+    color: var(--color-accent-start);
+}
+
+/* ── Lists ──────────────────────────────────────────── */
+ul,
+ol {
+    list-style: none;
+}
+
+/* ── Images ─────────────────────────────────────────── */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ── Focus Styles ───────────────────────────────────── */
+:focus-visible {
+    outline: 2px solid var(--color-accent-start);
+    outline-offset: 2px;
+}
+
+/* ── Selection ──────────────────────────────────────── */
+::selection {
+    background-color: var(--color-accent-start);
+    color: #ffffff;
+}
+
+/* ── Skip Link ──────────────────────────────────────── */
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: var(--spacing-4);
+    padding: var(--spacing-2) var(--spacing-4);
+    background: var(--color-button-bg);
+    color: var(--color-button-text);
+    border-radius: var(--radius-md);
+    z-index: 1000;
+    font-size: var(--font-size-caption);
+}
+
+.skip-link:focus {
+    top: var(--spacing-4);
+}
+
+/* ── Reduced Motion ─────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
