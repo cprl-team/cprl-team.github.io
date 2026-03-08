@@ -1,15 +1,14 @@
 # Members
 
-## Principal Investigator
+## Leaders
 
 ### Huỳnh Văn Thống, PhD
-role: Principal Investigator
+role: Leader
 initials: HVT
-link: https://scholar.google.com/citations?user=sEMY7OoAAAAJ
 
 ---
 
-## Researchers
+## Members
 
 ### Nguyễn Hồng Hải
 role: Researcher
