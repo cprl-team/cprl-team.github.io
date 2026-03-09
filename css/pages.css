@@ -154,6 +154,14 @@
 }
 
 /* ── Publications ───────────────────────────────────── */
+.pub-section {
+    margin-bottom: var(--spacing-16);
+}
+
+.pub-section:last-child {
+    margin-bottom: 0;
+}
+
 .pub-year-group {
     margin-bottom: var(--spacing-12);
 }
