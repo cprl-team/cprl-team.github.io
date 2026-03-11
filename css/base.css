@@ -1,8 +1,8 @@
 /* ==========================================================
-   Base Styles — Reset, Typography & Globals
+   Base Styles — Reset, Typography, Grid Background
    ========================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 /* ── Reset ──────────────────────────────────────────── */
 *,
@@ -30,6 +30,25 @@ body {
     background-color: var(--color-background);
     transition: color var(--transition-slow), background-color var(--transition-slow);
     min-height: 100vh;
+    position: relative;
+}
+
+/* ── Subtle Grid Background ────────────────────────── */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image:
+        linear-gradient(var(--grid-line-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-line-color) 1px, transparent 1px);
+    background-size: 80px 80px;
+    opacity: 0.35;
+    transition: opacity var(--transition-slow);
 }
 
 /* ── Typography ─────────────────────────────────────── */
@@ -46,13 +65,14 @@ h6 {
 
 h1 {
     font-size: var(--font-size-hero);
-    font-weight: var(--font-weight-extrabold);
+    font-weight: var(--font-weight-black);
     line-height: var(--line-height-tight);
     letter-spacing: var(--letter-spacing-tight);
 }
 
 h2 {
     font-size: var(--font-size-page-title);
+    font-weight: var(--font-weight-extrabold);
     letter-spacing: var(--letter-spacing-snug);
 }
 
@@ -75,7 +95,7 @@ a {
 }
 
 a:hover {
-    color: var(--color-accent-start);
+    color: var(--color-accent);
 }
 
 /* ── Lists ──────────────────────────────────────────── */
@@ -93,13 +113,13 @@ img {
 
 /* ── Focus Styles ───────────────────────────────────── */
 :focus-visible {
-    outline: 2px solid var(--color-accent-start);
+    outline: 2px solid var(--color-accent);
     outline-offset: 2px;
 }
 
 /* ── Selection ──────────────────────────────────────── */
 ::selection {
-    background-color: var(--color-accent-start);
+    background-color: var(--color-accent);
     color: #ffffff;
 }
 
@@ -109,8 +129,8 @@ img {
     top: -100%;
     left: var(--spacing-4);
     padding: var(--spacing-2) var(--spacing-4);
-    background: var(--color-button-bg);
-    color: var(--color-button-text);
+    background: var(--color-accent);
+    color: #ffffff;
     border-radius: var(--radius-md);
     z-index: 1000;
     font-size: var(--font-size-caption);
