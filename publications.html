@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -11,50 +11,21 @@
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/pages.css">
-    <script src="js/theme.js"></script>
-    <style>
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity .6s ease, transform .6s ease
-        }
+    <link rel="icon" href="favicon.ico" id="site-favicon">
 
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0)
-        }
-    </style>
+    <script src="js/site-config.js"></script>
 </head>
 
 <body>
     <a href="#main-content" class="skip-link">Skip to content</a>
     <header class="site-header">
         <div class="container header-inner">
-            <div class="header-left"><a href="index.html" class="logo"><img src="logo.jpg" alt="CPRL Logo"
-                        class="logo-img"
-                        style="width:2rem;height:2rem;border-radius:var(--radius-sm);object-fit:cover;"> Causal
-                    Perception and Reasoning</a></div>
+            <div class="header-left"><a href="index.html" class="logo" data-logo="header">Causal Perception and Reasoning</a></div>
             <nav class="main-nav" aria-label="Main navigation">
                 <a href="index.html">Home</a><a href="publications.html">Publications</a><a
                     href="members.html">Members</a><a href="achievements.html">Achievements</a>
             </nav>
             <div class="header-right">
-                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
-                    <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <circle cx="12" cy="12" r="5" />
-                        <line x1="12" y1="1" x2="12" y2="3" />
-                        <line x1="12" y1="21" x2="12" y2="23" />
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-                        <line x1="1" y1="12" x2="3" y2="12" />
-                        <line x1="21" y1="12" x2="23" y2="12" />
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
-                    </svg>
-                    <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-                    </svg>
-                </button>
                 <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><svg
                         xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2">
@@ -199,6 +170,8 @@
                     </div>
                 </div>
             </section>
+
+
 
             <!-- Conference Papers -->
             <section class="pub-section fade-in">
@@ -384,6 +357,8 @@
                 </div>
             </section>
 
+
+
             <!-- Patents -->
             <section class="pub-section fade-in">
                 <h2 class="section-label">Patents</h2>
@@ -401,7 +376,7 @@
                                     href="https://doi.org/10.8080/1020190089540" class="btn-link" target="_blank"
                                     rel="noopener">Patent ↗</a></div>
                             <p class="pub-note"
-                                style="margin-top:var(--spacing-2);font-size:0.875rem;color:var(--color-text-secondary);">
+                                style="margin-top:var(--spacing-2);font-size:0.8rem;color:var(--color-text-muted);font-family:var(--font-mono);">
                                 Registration 10-2204743 · Technology transfer: MayfarmSoft, Sep 2020</p>
                         </div>
                     </div>
@@ -413,10 +388,7 @@
     <footer class="site-footer">
         <div class="container">
             <div class="footer-inner">
-                <div class="footer-brand"><a href="index.html" class="logo"><img src="logo.jpg" alt="CPRL Logo"
-                            class="logo-img"
-                            style="width:2rem;height:2rem;border-radius:var(--radius-sm);object-fit:cover;"> Causal
-                        Perception and Reasoning Lab</a>
+                <div class="footer-brand"><a href="index.html" class="logo" data-logo="footer"></a>
                     <p>Causal Perception and Reasoning Lab — advancing causal AI research from HCMC, Vietnam.</p>
                 </div>
                 <div class="footer-links">
@@ -444,7 +416,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 CPRL — Causal Perception and Reasoning Lab. All rights reserved.</p>
+                <p>&copy; 2026 CPRL — Causal Perception and Reasoning Lab. All rights reserved.</p>
             </div>
         </div>
     </footer>

@@ -1,4 +1,6 @@
 .github/
 .agent/
+.agents/
+.env
 .DS_Store
 .vscode/
