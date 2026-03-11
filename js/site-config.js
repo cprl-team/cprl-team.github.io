@@ -13,8 +13,8 @@ var SITE_CONFIG = {
     /* Footer: theme-aware full logo + text */
     footerLogoSrcLight: 'logo_full_light.png',
     footerLogoSrcDark: 'logo_full_dark.png',
-    footerTitle: 'Causal Perception and Reasoning Lab',
-    footerLogoStyle: 'height:3rem;width:auto;object-fit:contain;',
+    footerTitle: '',
+    footerLogoStyle: 'height:5rem;width:auto;object-fit:contain;',
     /* Shared */
     logoAlt: 'CPRL Logo',
     faviconHref: 'favicon.ico'
@@ -25,8 +25,7 @@ var SITE_CONFIG = {
     'use strict';
 
     function getFooterLogoSrc() {
-        var theme = document.documentElement.getAttribute('data-theme') || 'dark';
-        return theme === 'dark' ? SITE_CONFIG.footerLogoSrcDark : SITE_CONFIG.footerLogoSrcLight;
+        return SITE_CONFIG.footerLogoSrcLight;
     }
 
     function updateFooterLogos() {
@@ -64,7 +63,9 @@ var SITE_CONFIG = {
             el.textContent = '';
             el.appendChild(img);
             if (title) {
-                el.appendChild(document.createTextNode(' ' + title));
+                var span = document.createElement('span');
+                span.textContent = ' ' + title;
+                el.appendChild(span);
             }
         });
 
