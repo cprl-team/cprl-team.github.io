@@ -243,6 +243,22 @@
     align-items: center;
     text-align: center;
     padding: var(--spacing-8) var(--spacing-6);
+    position: relative;
+    cursor: pointer;
+    transition: box-shadow var(--transition-base), transform var(--transition-base);
+}
+
+.member-card:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+}
+
+/* Stretch the link inside h3 to cover full card */
+.member-card h3 a::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
 }
 
 .member-card .avatar-initials {
