@@ -4,35 +4,35 @@
 
 :root {
   /* ── Colors (Light Only) ────────────────────────────── */
-  --color-background: #F9F8F4;
-  --color-surface: #f4f4f5;
-  --color-surface-alt: #ffffff;
-  --color-border: #e4e4e7;
-  --color-border-grid: #e4e4e7;
-  --color-text-primary: #09090b;
-  --color-text-secondary: #71717a;
-  --color-text-muted: #a1a1aa;
+  --color-background: #ffffff;
+  --color-surface: #F2F1EC;
+  --color-surface-alt: #F9F9F9;
+  --color-border: #E5E2DA;
+  --color-border-grid: #E5E2DA;
+  --color-text-primary: #2C1A05;
+  --color-text-secondary: #7A6B55;
+  --color-text-muted: #A89A82;
 
-  /* Accent gradient (original teal-blue) */
-  --color-accent-start: #14b8a6;
-  --color-accent-end: #2563eb;
-  --color-accent: #2563eb;
-  --color-accent-hover: #1d4ed8;
-  --color-accent-glow: rgba(37, 99, 235, 0.15);
+  /* Accent gradient (warm brown-gold) */
+  --color-accent-start: #D16D4F;
+  --color-accent-end: #D16D4F;
+  --color-accent: #D16D4F;
+  --color-accent-hover: #B85A40;
+  --color-accent-glow: rgba(209, 109, 79, 0.15);
 
   /* Interactive */
-  --color-button-bg: #09090b;
+  --color-button-bg: #1a1a1a;
   --color-button-text: #ffffff;
-  --color-button-hover: #27272a;
-  --color-button-secondary-bg: #f4f4f5;
-  --color-button-secondary-text: #09090b;
-  --color-button-secondary-hover: #e4e4e7;
-  --color-button-outline-border: #e4e4e7;
-  --color-button-outline-hover: #f4f4f5;
+  --color-button-hover: #000000;
+  --color-button-secondary-bg: #F2F1EC;
+  --color-button-secondary-text: #2C1A05;
+  --color-button-secondary-hover: #E9E7E0;
+  --color-button-outline-border: #E5E2DA;
+  --color-button-outline-hover: #F2F1EC;
 
   /* Header */
-  --color-header-bg: rgba(249, 248, 244, 0.95);
-  --color-header-blur: rgba(249, 248, 244, 0.6);
+  --color-header-bg: rgba(255, 255, 255, 0.95);
+  --color-header-blur: rgba(255, 255, 255, 0.6);
 
   /* ── Typography ─────────────────────────────────────── */
   --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;

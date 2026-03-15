@@ -9,10 +9,10 @@ var SITE_CONFIG = {
     /* Header: small square logo + text */
     headerLogoSrc: 'logo.png',
     headerTitle: 'Causal Perception and Reasoning',
-    headerLogoStyle: 'width:3.5rem;height:3.5rem;border-radius:var(--radius-sm);object-fit:contain;',
+    headerLogoStyle: 'width:2.75rem;height:2.75rem;border-radius:var(--radius-sm);object-fit:contain;',
     /* Footer: theme-aware full logo + text */
-    footerLogoSrcLight: 'logo_full_light.png',
-    footerLogoSrcDark: 'logo_full_dark.png',
+    footerLogoSrcLight: 'logo_full_dark.png',
+    // footerLogoSrcDark: 'logo_full_dark.png',
     footerTitle: '',
     footerLogoStyle: 'height:5rem;width:auto;object-fit:contain;',
     /* Shared */

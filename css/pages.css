@@ -68,10 +68,7 @@
 .page-header h1 {
     margin-bottom: var(--spacing-4);
     font-size: var(--font-size-page-title);
-    background: linear-gradient(135deg, var(--color-accent-start), var(--color-accent-end));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #D16D4F;
 }
 
 .page-header p {
@@ -450,12 +447,13 @@
 }
 
 .join-section h2.section-label {
-    font-size: var(--font-size-section-label);
+    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
     margin-bottom: var(--spacing-4);
+    justify-content: center;
 }
 
 .join-section h3 {
-    font-size: var(--font-size-page-title);
+    font-size: clamp(2rem, 4vw, 3rem);
     font-weight: var(--font-weight-extrabold);
     margin-bottom: var(--spacing-6);
 }

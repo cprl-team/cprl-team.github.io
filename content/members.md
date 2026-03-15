@@ -10,24 +10,18 @@ initials: HVT
 
 ## Members
 
+### Đặng Xuân Tiến
+role: Member
+initials: DXT
+link: https://scholar.google.com/citations?user=HXld-VoAAAAJ
 ### Nguyễn Hồng Hải
 role: Member
 initials: NHH
 link: https://hhnguyen.netlify.app
-
-### Nguyễn Quốc Tiến
+### Phạm Thị Thủy
 role: Member
-initials: NQT
-
-### Thủy Phạm
-role: Member
-initials: TP
+initials: PTT
 link: https://thithuypham.github.io
-
-### Tiến Đặng
-role: Member
-initials: TD
-link: https://scholar.google.com/citations?user=HXld-VoAAAAJ
 
 ---
 
@@ -47,3 +41,7 @@ link: https://nghianguyen7171.github.io
 role: Collaborator
 initials: VNT
 link: https://scholar.google.com/citations?user=wKyLVp0AAAAJ&hl=en
+
+### Nguyễn Quốc Tiến
+role: Member
+initials: NQT
