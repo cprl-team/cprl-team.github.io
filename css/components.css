@@ -36,6 +36,16 @@
     stroke-linejoin: round;
 }
 
+/* ── Card Illustration (Sketch Images) ──────────────── */
+.card-illustration {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--spacing-4);
+    background: var(--color-surface-alt);
+}
+
 .card h3 {
     margin-bottom: var(--spacing-2);
     font-size: var(--font-size-card-title);
@@ -66,7 +76,7 @@
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: var(--color-accent);
+    background: #D16D4F;
     flex-shrink: 0;
 }
 
@@ -155,7 +165,7 @@
     width: 5px;
     height: 5px;
     border-radius: 50%;
-    background: var(--color-accent);
+    background: #D16D4F;
     flex-shrink: 0;
 }
 
@@ -210,10 +220,7 @@
 
 /* ── Gradient Text ──────────────────────────────────── */
 .gradient-text {
-    background: linear-gradient(135deg, var(--color-accent-start), var(--color-accent-end));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #D16D4F;
 }
 
 /* ── Icon Wrapper ───────────────────────────────────── */

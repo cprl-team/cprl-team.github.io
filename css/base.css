@@ -33,22 +33,9 @@ body {
     position: relative;
 }
 
-/* ── Subtle Grid Background ────────────────────────── */
+/* ── Subtle Grid Background (disabled) ─────────────── */
 body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
-    pointer-events: none;
-    background-image:
-        linear-gradient(var(--grid-line-color) 1px, transparent 1px),
-        linear-gradient(90deg, var(--grid-line-color) 1px, transparent 1px);
-    background-size: 80px 80px;
-    opacity: 0.35;
-    transition: opacity var(--transition-slow);
+    display: none;
 }
 
 /* ── Typography ─────────────────────────────────────── */

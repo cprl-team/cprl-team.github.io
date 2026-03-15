@@ -53,15 +53,16 @@ main {
 .logo {
     display: flex;
     align-items: center;
-    gap: var(--spacing-3);
-    font-weight: var(--font-weight-bold);
-    font-size: 1.05rem;
-    color: var(--color-text-primary);
+    gap: var(--spacing-2);
+    font-weight: var(--font-weight-semibold);
+    font-size: 1.125rem;
+    color: #1a1a1a;
     text-decoration: none;
+    letter-spacing: -0.01em;
 }
 
 .logo:hover {
-    color: var(--color-text-primary);
+    color: #1a1a1a;
 }
 
 .logo-badge {
@@ -168,23 +169,19 @@ main {
 
 /* ── Footer ─────────────────────────────────────────── */
 .site-footer {
-    border-top: 1px solid var(--color-border);
+    border-top: none;
     padding: var(--spacing-16) 0 var(--spacing-8);
     margin-top: var(--spacing-16);
-    transition: border-color var(--transition-slow);
+    transition: background-color var(--transition-slow);
     position: relative;
+    background: #1a1a1a;
+    color: #ffffff;
 }
 
 /* Footer + markers on top border */
 .site-footer::before,
 .site-footer::after {
-    content: '+';
-    position: absolute;
-    top: -0.55em;
-    font-family: var(--font-mono);
-    font-size: var(--grid-marker-size);
-    color: var(--color-text-muted);
-    line-height: 1;
+    display: none;
 }
 
 .site-footer::before {
@@ -210,7 +207,7 @@ main {
 
 .footer-brand p {
     font-size: var(--font-size-body);
-    color: var(--color-text-secondary);
+    color: rgba(255, 255, 255, 0.7);
     max-width: 40ch;
 }
 
@@ -220,7 +217,7 @@ main {
     font-weight: var(--font-weight-semibold);
     text-transform: uppercase;
     letter-spacing: var(--letter-spacing-wide);
-    color: var(--color-text-muted);
+    color: rgba(255, 255, 255, 0.5);
     margin-bottom: var(--spacing-4);
 }
 
@@ -232,12 +229,12 @@ main {
 
 .footer-links a {
     font-size: var(--font-size-body);
-    color: var(--color-text-secondary);
+    color: rgba(255, 255, 255, 0.7);
     transition: color var(--transition-base);
 }
 
 .footer-links a:hover {
-    color: var(--color-text-primary);
+    color: #ffffff;
 }
 
 .footer-social {
@@ -246,7 +243,7 @@ main {
 }
 
 .footer-social a {
-    color: var(--color-text-muted);
+    color: rgba(255, 255, 255, 0.5);
     transition: color var(--transition-base);
     position: relative;
 }
@@ -274,18 +271,18 @@ main {
 }
 
 .footer-social a:hover {
-    color: var(--color-text-primary);
+    color: #ffffff;
 }
 
 .footer-bottom {
     margin-top: var(--spacing-8);
     padding-top: var(--spacing-6);
-    border-top: 1px solid var(--color-border);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .footer-bottom p {
     font-size: var(--font-size-caption);
-    color: var(--color-text-secondary);
+    color: rgba(255, 255, 255, 0.5);
     font-family: var(--font-mono);
 }
 
