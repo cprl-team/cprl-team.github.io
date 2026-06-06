@@ -290,16 +290,6 @@
     font-size: var(--font-size-body);
 }
 
-.member-role {
-    font-family: var(--font-mono);
-    font-size: var(--font-size-xs);
-    color: var(--color-accent);
-    font-weight: var(--font-weight-medium);
-    text-transform: uppercase;
-    letter-spacing: var(--letter-spacing-wide);
-    margin-bottom: var(--spacing-3);
-}
-
 .member-bio {
     font-size: var(--font-size-caption);
     color: var(--color-text-secondary);

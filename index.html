@@ -4,6 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#16110b" media="(prefers-color-scheme: dark)">
 
   <!-- Set theme before paint to avoid a flash of the wrong theme -->
   <script>
@@ -196,6 +198,17 @@
 
 
 
+    <!-- Recent News -->
+    <section class="section fade-in">
+      <div class="container">
+        <h2 class="section-label">Recent News</h2>
+        <!-- Dynamically loaded from content/home.md -->
+        <div id="home-news"></div>
+      </div>
+    </section>
+
+
+
     <!-- Join Us -->
     <section class="section fade-in">
       <div class="join-section">
@@ -255,6 +268,9 @@
     </div>
   </footer>
 
+  <script src="js/content-loader.js"></script>
+  <script src="js/content-renderer.js"></script>
+  <script>ContentRenderer.renderNews('home-news');</script>
   <script src="js/theme.js" defer></script>
   <script src="js/navigation.js" defer></script>
   <script src="js/main.js" defer></script>
