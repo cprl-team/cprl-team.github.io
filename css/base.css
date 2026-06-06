@@ -52,13 +52,15 @@ h6 {
 }
 
 h1 {
+    font-family: var(--font-display);
     font-size: var(--font-size-hero);
     font-weight: var(--font-weight-black);
     line-height: var(--line-height-tight);
-    letter-spacing: var(--letter-spacing-tight);
+    letter-spacing: var(--letter-spacing-snug);
 }
 
 h2 {
+    font-family: var(--font-display);
     font-size: var(--font-size-page-title);
     font-weight: var(--font-weight-extrabold);
     letter-spacing: var(--letter-spacing-snug);

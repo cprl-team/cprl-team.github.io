@@ -466,6 +466,7 @@
 }
 
 .join-section h3 {
+    font-family: var(--font-display);
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: var(--font-weight-extrabold);
     margin-bottom: var(--spacing-6);
