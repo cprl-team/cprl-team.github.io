@@ -30,6 +30,14 @@
   --color-accent-hover: #a8482e;
   --color-accent-glow: rgba(194, 90, 60, 0.18);
   --color-accent-contrast: #ffffff; /* readable text laid over --color-accent */
+
+  /* Secondary accent (cool teal) — the "Reasoning" counterpart to the warm
+     "Perception" terracotta. Use sparingly for structure/logic touches.
+     -text variant is AA-safe on light surfaces for small text. */
+  --color-accent-2: #0f766e;
+  --color-accent-2-text: #0c5f59;
+  --color-accent-2-glow: rgba(15, 118, 110, 0.18);
+
   /* Legacy aliases (kept so older references resolve to the token) */
   --color-accent-start: var(--color-accent);
   --color-accent-end: var(--color-accent);
@@ -137,7 +145,7 @@
   --grid-marker-size: 12px;
 
   /* ── Motifs ─────────────────────────────────────────── */
-  --hero-motif-opacity: 0.05;
+  --hero-motif-opacity: 0.07;
 }
 
 /* ── Colors (Dark) — value overrides only ─────────────── */
@@ -147,8 +155,8 @@
   --color-background: #16110b;
   --color-surface: #1f1810;
   --color-surface-alt: #261e14;
-  --color-border: #352b1e;
-  --color-border-grid: #352b1e;
+  --color-border: #463827;
+  --color-border-grid: #463827;
   --color-text-primary: #f3ece0;
   --color-text-secondary: #c3b6a1;
   --color-text-muted: #9a8c75;
@@ -158,6 +166,11 @@
   --color-accent-hover: #f0a07a;
   --color-accent-glow: rgba(232, 137, 95, 0.22);
   --color-accent-contrast: #16110b; /* dark text reads on lightened accent */
+
+  /* Secondary accent (cool teal) — dark-theme values */
+  --color-accent-2: #4fbfb3;
+  --color-accent-2-text: #6fd3c8;
+  --color-accent-2-glow: rgba(79, 191, 179, 0.22);
 
   --color-button-bg: #e8895f;
   --color-button-text: #16110b;
@@ -185,5 +198,5 @@
   --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.5);
   --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.6);
 
-  --hero-motif-opacity: 0.08;
+  --hero-motif-opacity: 0.12;
 }
