@@ -1,4 +1,4 @@
-# Causal Perception and Reasoning Lab (CPRL)
+# Causal Perception and Reasoning (CPR)
 
 hero_title: Causal Perception and Reasoning
 hero_highlight: Research Group
