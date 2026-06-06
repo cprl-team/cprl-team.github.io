@@ -43,5 +43,5 @@ initials: VNT
 link: https://scholar.google.com/citations?user=wKyLVp0AAAAJ&hl=en
 
 ### Nguyễn Quốc Tiến
-role: Member
+role: Collaborator
 initials: NQT
