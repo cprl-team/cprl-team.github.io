@@ -47,9 +47,6 @@
                     html += escapeHTML(m.name);
                 }
                 html += '</h3>';
-                if (m.role) {
-                    html += '<p class="member-role">' + escapeHTML(m.role) + '</p>';
-                }
                 html += '</div>';
             }
 
@@ -198,10 +195,52 @@
         });
     }
 
+    /**
+     * Render the "Recent News" list on the home page, sourced from
+     * content/home.md (parsed by ContentLoader.parseHome).
+     */
+    async function renderNews(containerId) {
+        var container = document.getElementById(containerId);
+        if (!container) return;
+
+        var text = await ContentLoader.load('content/home.md');
+        if (!text) {
+            container.innerHTML = '<p>Failed to load news.</p>';
+            return;
+        }
+
+        var data = ContentLoader.parseHome(text);
+        var news = data.news || [];
+        if (!news.length) {
+            // Nothing to show — hide the surrounding section if present
+            var section = container.closest('.section');
+            if (section) section.style.display = 'none';
+            return;
+        }
+
+        var html = '<div class="news-list">';
+        for (var i = 0; i < news.length; i++) {
+            var n = news[i];
+            html += '<div class="news-item">';
+            html += '<div class="news-year">' + escapeHTML(n.year) + '</div>';
+            html += '<div class="news-content">';
+            html += '<h3>' + escapeHTML(n.title) + '</h3>';
+            if (n.description) {
+                html += '<p>' + escapeHTML(n.description) + '</p>';
+            }
+            html += '</div></div>';
+        }
+        html += '</div>';
+
+        container.innerHTML = html;
+        if (window.typesetMath) window.typesetMath(container);
+    }
+
     // Expose globally
     window.ContentRenderer = {
         renderMembers: renderMembers,
         renderPublications: renderPublications,
-        renderAchievements: renderAchievements
+        renderAchievements: renderAchievements,
+        renderNews: renderNews
     };
 })();

@@ -10,6 +10,9 @@
    ========================================================== */
 
 :root {
+  /* Hint native UI (scrollbars, form controls) to match the theme */
+  color-scheme: light;
+
   /* ── Colors (Light) ─────────────────────────────────── */
   --color-background: #ffffff;
   --color-surface: #f4f2ed;
@@ -138,6 +141,8 @@
 
 /* ── Colors (Dark) — value overrides only ─────────────── */
 [data-theme="dark"] {
+  color-scheme: dark;
+
   --color-background: #16110b;
   --color-surface: #1f1810;
   --color-surface-alt: #261e14;

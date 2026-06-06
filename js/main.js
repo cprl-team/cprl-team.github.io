@@ -32,7 +32,7 @@
             });
 
             // Also observe individual stagger children
-            var staggerItems = document.querySelectorAll('.card, .pub-item, .milestone-item');
+            var staggerItems = document.querySelectorAll('.card, .pub-item, .milestone-item, .member-card');
             staggerItems.forEach(function (el) {
                 if (!el.closest('.fade-in')) {
                     el.style.opacity = '0';
