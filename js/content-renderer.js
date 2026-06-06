@@ -47,6 +47,9 @@
                     html += escapeHTML(m.name);
                 }
                 html += '</h3>';
+                if (m.role) {
+                    html += '<p class="member-role">' + escapeHTML(m.role) + '</p>';
+                }
                 html += '</div>';
             }
 

@@ -4,8 +4,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CPR - Members</title>
+
+    <!-- Set theme before paint to avoid a flash of the wrong theme -->
+    <script>
+        (function () {
+            try {
+                var t = localStorage.getItem('cprl-theme') ||
+                    (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                document.documentElement.setAttribute('data-theme', t);
+            } catch (e) {}
+        })();
+    </script>
+
+    <title>CPR — Members</title>
     <meta name="description" content="Meet the researchers of the Causal Perception and Reasoning Lab.">
+    <link rel="canonical" href="https://cpr.ai.vn/members.html">
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="CPR — Causal Perception and Reasoning">
+    <meta property="og:title" content="CPR — Members">
+    <meta property="og:description" content="Meet the researchers of the Causal Perception and Reasoning Lab.">
+    <meta property="og:url" content="https://cpr.ai.vn/members.html">
+    <meta property="og:image" content="https://cpr.ai.vn/banner.jpg">
+    <meta property="og:image:alt" content="Causal Perception and Reasoning research group">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CPR — Members">
+    <meta name="twitter:description" content="Meet the researchers of the Causal Perception and Reasoning Lab.">
+    <meta name="twitter:image" content="https://cpr.ai.vn/banner.jpg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap">
+
+    <!-- Styles -->
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/layout.css">
@@ -13,7 +47,7 @@
     <link rel="stylesheet" href="css/pages.css">
     <link rel="icon" href="favicon.ico" id="site-favicon">
 
-    <script src="js/site-config.js"></script>
+    <script src="js/site-config.js" defer></script>
 </head>
 
 <body>
@@ -27,6 +61,26 @@
                     href="members.html">Members</a><a href="achievements.html">Achievements</a>
             </nav>
             <div class="header-right">
+                <button class="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">
+                    <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" aria-hidden="true">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                    </svg>
+                    <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="12" cy="12" r="5" />
+                        <line x1="12" y1="1" x2="12" y2="3" />
+                        <line x1="12" y1="21" x2="12" y2="23" />
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                        <line x1="1" y1="12" x2="3" y2="12" />
+                        <line x1="21" y1="12" x2="23" y2="12" />
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                    </svg>
+                </button>
                 <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><svg
                         xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2">
@@ -67,12 +121,14 @@
                 </div>
                 <div class="footer-links">
                     <h4>Connect</h4>
-                    <div class="footer-social"><a href="https://github.com" aria-label="GitHub"
-                            data-tooltip="https://github.com" target="_blank" rel="noopener"><svg
+                    <div class="footer-social"><a href="https://cpr.ai.vn" aria-label="Website"
+                            data-tooltip="cpr.ai.vn" target="_blank" rel="noopener"><svg
                                 xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10" />
+                                <line x1="2" y1="12" x2="22" y2="12" />
                                 <path
-                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                                    d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
                             </svg></a><a href="mailto:contact@pr.ai.vn" aria-label="Email"
                             data-tooltip="contact@pr.ai.vn" target="_blank" rel="noopener"><svg
                                 xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
@@ -83,13 +139,14 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 CPRL — Causal Perception and Reasoning Lab. All rights reserved.</p>
+                <p>&copy; 2026 CPR — Causal Perception and Reasoning Research Group. All rights reserved.</p>
             </div>
         </div>
     </footer>
     <script src="js/content-loader.js"></script>
     <script src="js/content-renderer.js"></script>
     <script>ContentRenderer.renderMembers('members-content');</script>
+    <script src="js/theme.js" defer></script>
     <script src="js/navigation.js" defer></script>
     <script src="js/main.js" defer></script>
 </body>
