@@ -12,10 +12,11 @@
     z-index: var(--z-base);
 }
 
-/* Signature motif: a faint causal-DAG (nodes + directed edges) watermark.
-   Drawn as a mask so its color follows --color-text-primary and adapts
-   to light/dark; opacity is tokenized per theme. */
-.hero::before {
+/* Signature motif: a faint causal-DAG watermark — warm terracotta nodes
+   ("Perception") joined by cool teal edges ("Reasoning"). Drawn as masks
+   so colors follow the theme tokens; opacity is tokenized per theme. */
+.hero::before,
+.hero::after {
     content: '';
     position: absolute;
     top: 0;
@@ -25,10 +26,27 @@
     aspect-ratio: 200 / 130;
     z-index: calc(var(--z-base) * -1);
     pointer-events: none;
-    background-color: var(--color-text-primary);
     opacity: var(--hero-motif-opacity);
-    -webkit-mask: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20200%20130'%3E%3Cg%20fill='white'%20stroke='white'%20stroke-width='2'%3E%3Cline%20x1='30'%20y1='35'%20x2='100'%20y2='25'/%3E%3Cline%20x1='30'%20y1='35'%20x2='85'%20y2='90'/%3E%3Cline%20x1='100'%20y1='25'%20x2='90'%20y2='88'/%3E%3Cline%20x1='100'%20y1='25'%20x2='165'%20y2='60'/%3E%3Cline%20x1='90'%20y1='88'%20x2='150'%20y2='105'/%3E%3Cline%20x1='165'%20y1='60'%20x2='150'%20y2='105'/%3E%3Ccircle%20cx='30'%20cy='35'%20r='7'/%3E%3Ccircle%20cx='100'%20cy='25'%20r='7'/%3E%3Ccircle%20cx='90'%20cy='88'%20r='7'/%3E%3Ccircle%20cx='165'%20cy='60'%20r='7'/%3E%3Ccircle%20cx='150'%20cy='105'%20r='7'/%3E%3C/g%3E%3C/svg%3E") no-repeat center / contain;
-    mask: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20200%20130'%3E%3Cg%20fill='white'%20stroke='white'%20stroke-width='2'%3E%3Cline%20x1='30'%20y1='35'%20x2='100'%20y2='25'/%3E%3Cline%20x1='30'%20y1='35'%20x2='85'%20y2='90'/%3E%3Cline%20x1='100'%20y1='25'%20x2='90'%20y2='88'/%3E%3Cline%20x1='100'%20y1='25'%20x2='165'%20y2='60'/%3E%3Cline%20x1='90'%20y1='88'%20x2='150'%20y2='105'/%3E%3Cline%20x1='165'%20y1='60'%20x2='150'%20y2='105'/%3E%3Ccircle%20cx='30'%20cy='35'%20r='7'/%3E%3Ccircle%20cx='100'%20cy='25'%20r='7'/%3E%3Ccircle%20cx='90'%20cy='88'%20r='7'/%3E%3Ccircle%20cx='165'%20cy='60'%20r='7'/%3E%3Ccircle%20cx='150'%20cy='105'%20r='7'/%3E%3C/g%3E%3C/svg%3E") no-repeat center / contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+}
+
+/* Edges — cool teal (Reasoning) */
+.hero::before {
+    background-color: var(--color-accent-2);
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20200%20130'%3E%3Cg%20fill='none'%20stroke='white'%20stroke-width='2'%3E%3Cline%20x1='30'%20y1='35'%20x2='100'%20y2='25'/%3E%3Cline%20x1='30'%20y1='35'%20x2='85'%20y2='90'/%3E%3Cline%20x1='100'%20y1='25'%20x2='90'%20y2='88'/%3E%3Cline%20x1='100'%20y1='25'%20x2='165'%20y2='60'/%3E%3Cline%20x1='90'%20y1='88'%20x2='150'%20y2='105'/%3E%3Cline%20x1='165'%20y1='60'%20x2='150'%20y2='105'/%3E%3C/g%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20200%20130'%3E%3Cg%20fill='none'%20stroke='white'%20stroke-width='2'%3E%3Cline%20x1='30'%20y1='35'%20x2='100'%20y2='25'/%3E%3Cline%20x1='30'%20y1='35'%20x2='85'%20y2='90'/%3E%3Cline%20x1='100'%20y1='25'%20x2='90'%20y2='88'/%3E%3Cline%20x1='100'%20y1='25'%20x2='165'%20y2='60'/%3E%3Cline%20x1='90'%20y1='88'%20x2='150'%20y2='105'/%3E%3Cline%20x1='165'%20y1='60'%20x2='150'%20y2='105'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Nodes — warm terracotta (Perception) */
+.hero::after {
+    background-color: var(--color-accent);
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20200%20130'%3E%3Cg%20fill='white'%3E%3Ccircle%20cx='30'%20cy='35'%20r='7'/%3E%3Ccircle%20cx='100'%20cy='25'%20r='7'/%3E%3Ccircle%20cx='90'%20cy='88'%20r='7'/%3E%3Ccircle%20cx='165'%20cy='60'%20r='7'/%3E%3Ccircle%20cx='150'%20cy='105'%20r='7'/%3E%3C/g%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20200%20130'%3E%3Cg%20fill='white'%3E%3Ccircle%20cx='30'%20cy='35'%20r='7'/%3E%3Ccircle%20cx='100'%20cy='25'%20r='7'/%3E%3Ccircle%20cx='90'%20cy='88'%20r='7'/%3E%3Ccircle%20cx='165'%20cy='60'%20r='7'/%3E%3Ccircle%20cx='150'%20cy='105'%20r='7'/%3E%3C/g%3E%3C/svg%3E");
 }
 
 .hero h1 {
@@ -496,14 +514,14 @@
     text-align: left;
 }
 
-/* Mono index label motif on each research card (01–05) */
+/* Mono index label motif on each research card (01–05) — teal "structure" accent */
 .card-grid--research > .card .card-index {
     display: block;
     font-family: var(--font-mono);
     font-size: var(--font-size-xs);
     font-weight: var(--font-weight-semibold);
     letter-spacing: var(--letter-spacing-wide);
-    color: var(--color-accent);
+    color: var(--color-accent-2-text);
     margin-bottom: var(--spacing-2);
 }
 
