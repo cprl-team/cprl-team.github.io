@@ -9,7 +9,26 @@
     max-width: 900px;
     margin: 0 auto;
     position: relative;
-    z-index: 1;
+    z-index: var(--z-base);
+}
+
+/* Signature motif: a faint causal-DAG (nodes + directed edges) watermark.
+   Drawn as a mask so its color follows --color-text-primary and adapts
+   to light/dark; opacity is tokenized per theme. */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(560px, 90%);
+    aspect-ratio: 200 / 130;
+    z-index: calc(var(--z-base) * -1);
+    pointer-events: none;
+    background-color: var(--color-text-primary);
+    opacity: var(--hero-motif-opacity);
+    -webkit-mask: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20200%20130'%3E%3Cg%20fill='white'%20stroke='white'%20stroke-width='2'%3E%3Cline%20x1='30'%20y1='35'%20x2='100'%20y2='25'/%3E%3Cline%20x1='30'%20y1='35'%20x2='85'%20y2='90'/%3E%3Cline%20x1='100'%20y1='25'%20x2='90'%20y2='88'/%3E%3Cline%20x1='100'%20y1='25'%20x2='165'%20y2='60'/%3E%3Cline%20x1='90'%20y1='88'%20x2='150'%20y2='105'/%3E%3Cline%20x1='165'%20y1='60'%20x2='150'%20y2='105'/%3E%3Ccircle%20cx='30'%20cy='35'%20r='7'/%3E%3Ccircle%20cx='100'%20cy='25'%20r='7'/%3E%3Ccircle%20cx='90'%20cy='88'%20r='7'/%3E%3Ccircle%20cx='165'%20cy='60'%20r='7'/%3E%3Ccircle%20cx='150'%20cy='105'%20r='7'/%3E%3C/g%3E%3C/svg%3E") no-repeat center / contain;
+    mask: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20200%20130'%3E%3Cg%20fill='white'%20stroke='white'%20stroke-width='2'%3E%3Cline%20x1='30'%20y1='35'%20x2='100'%20y2='25'/%3E%3Cline%20x1='30'%20y1='35'%20x2='85'%20y2='90'/%3E%3Cline%20x1='100'%20y1='25'%20x2='90'%20y2='88'/%3E%3Cline%20x1='100'%20y1='25'%20x2='165'%20y2='60'/%3E%3Cline%20x1='90'%20y1='88'%20x2='150'%20y2='105'/%3E%3Cline%20x1='165'%20y1='60'%20x2='150'%20y2='105'/%3E%3Ccircle%20cx='30'%20cy='35'%20r='7'/%3E%3Ccircle%20cx='100'%20cy='25'%20r='7'/%3E%3Ccircle%20cx='90'%20cy='88'%20r='7'/%3E%3Ccircle%20cx='165'%20cy='60'%20r='7'/%3E%3Ccircle%20cx='150'%20cy='105'%20r='7'/%3E%3C/g%3E%3C/svg%3E") no-repeat center / contain;
 }
 
 .hero h1 {
@@ -17,7 +36,7 @@
 }
 
 .hero p {
-    font-size: 1.125rem;
+    font-size: var(--font-size-lead);
     color: var(--color-text-secondary);
     max-width: 640px;
     margin: 0 auto var(--spacing-8);
@@ -68,11 +87,11 @@
 .page-header h1 {
     margin-bottom: var(--spacing-4);
     font-size: var(--font-size-page-title);
-    color: #D16D4F;
+    color: var(--color-accent);
 }
 
 .page-header p {
-    font-size: 1.125rem;
+    font-size: var(--font-size-lead);
     color: var(--color-text-secondary);
     max-width: 600px;
     margin: 0 auto;
@@ -154,13 +173,17 @@
     gap: var(--spacing-4);
     padding: var(--spacing-5);
     border: 1px solid var(--color-border);
-    border-radius: var(--radius-sm);
-    transition: border-color var(--transition-base), background-color var(--transition-slow);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    transition: border-color var(--transition-base), background-color var(--transition-slow),
+        box-shadow var(--transition-base), transform var(--transition-base);
     background: var(--color-surface);
 }
 
 .pub-item:hover {
     border-color: var(--color-accent);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
 }
 
 .pub-icon {
@@ -214,7 +237,7 @@
 }
 
 .pub-links a:hover {
-    color: var(--color-accent);
+    color: var(--color-accent-text);
 }
 
 .pub-links a svg {
@@ -246,8 +269,8 @@
 }
 
 .member-card:hover {
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-3px);
 }
 
 /* Stretch the link inside h3 to cover full card */
@@ -407,7 +430,7 @@
 }
 
 .milestone-content a {
-    color: var(--color-accent);
+    color: var(--color-accent-text);
     text-decoration: underline;
     text-underline-offset: 2px;
 }
@@ -459,7 +482,7 @@
 }
 
 .join-section p {
-    font-size: 1.05rem;
+    font-size: var(--font-size-lead);
     margin-bottom: var(--spacing-4);
     color: var(--color-text-secondary);
 }
@@ -469,10 +492,28 @@
 }
 
 /* ── Research Area Cards ────────────────────────────── */
-#research-areas > .card {
-    flex: 0 1 calc(33.333% - 1.5rem);
+.card-grid--research {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-6);
+    justify-content: center;
+}
+
+.card-grid--research > .card {
+    flex: 0 1 calc(33.333% - var(--spacing-6));
     min-width: 280px;
     text-align: left;
+}
+
+/* Mono index label motif on each research card (01–05) */
+.card-grid--research > .card .card-index {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: var(--letter-spacing-wide);
+    color: var(--color-accent);
+    margin-bottom: var(--spacing-2);
 }
 
 @media (max-width: 767px) {
@@ -484,7 +525,7 @@
         font-size: clamp(2rem, 8vw, 2.75rem);
     }
 
-    #research-areas > .card {
+    .card-grid--research > .card {
         flex: 1 1 100%;
     }
 }
