@@ -43,6 +43,15 @@
                     navToggle.setAttribute('aria-expanded', 'false');
                 }
             });
+
+            // Close menu on Escape and return focus to the toggle
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && mainNav.classList.contains('open')) {
+                    mainNav.classList.remove('open');
+                    navToggle.setAttribute('aria-expanded', 'false');
+                    navToggle.focus();
+                }
+            });
         }
     });
 })();

@@ -18,7 +18,7 @@ var SITE_CONFIG = {
     footerLogoSrc: 'logo_full_dark.png',
     footerTitle: '',
     /* Shared */
-    logoAlt: 'CPRL Logo',
+    logoAlt: 'Causal Perception and Reasoning logo',
     faviconHref: 'favicon.ico'
 };
 
