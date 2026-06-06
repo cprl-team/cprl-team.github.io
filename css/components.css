@@ -6,14 +6,18 @@
 .card {
     background: var(--color-surface);
     border: 1px solid var(--color-border);
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-lg);
     padding: var(--spacing-6);
-    transition: border-color var(--transition-base), background-color var(--transition-slow);
+    box-shadow: var(--shadow-sm);
+    transition: border-color var(--transition-base), background-color var(--transition-slow),
+        box-shadow var(--transition-base), transform var(--transition-base);
     position: relative;
 }
 
 .card:hover {
     border-color: var(--color-accent);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-3px);
 }
 
 .card-icon {
@@ -41,7 +45,7 @@
     width: 100%;
     aspect-ratio: 1 / 1;
     object-fit: cover;
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-md);
     margin-bottom: var(--spacing-4);
     background: var(--color-surface-alt);
 }
@@ -75,8 +79,8 @@
     display: inline-block;
     width: 6px;
     height: 6px;
-    border-radius: 50%;
-    background: #D16D4F;
+    border-radius: var(--radius-full);
+    background: var(--color-accent);
     flex-shrink: 0;
 }
 
@@ -89,7 +93,7 @@
     font-family: var(--font-family);
     font-size: var(--font-size-caption);
     font-weight: var(--font-weight-medium);
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-md);
     cursor: pointer;
     transition: all var(--transition-base);
     text-decoration: none;
@@ -110,11 +114,14 @@
 .btn-primary {
     background: var(--color-button-bg);
     color: var(--color-button-text);
+    box-shadow: var(--shadow-sm);
 }
 
 .btn-primary:hover {
     background: var(--color-button-hover);
     color: var(--color-button-text);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
 }
 
 .btn-secondary {
@@ -126,6 +133,8 @@
 .btn-secondary:hover {
     background: var(--color-button-secondary-hover);
     color: var(--color-button-secondary-text);
+    border-color: var(--color-accent);
+    transform: translateY(-2px);
 }
 
 .btn-link {
@@ -139,7 +148,7 @@
 }
 
 .btn-link:hover {
-    color: var(--color-accent);
+    color: var(--color-accent-text);
 }
 
 /* ── Badge / Tag ────────────────────────────────────── */
@@ -164,8 +173,8 @@
     display: inline-block;
     width: 5px;
     height: 5px;
-    border-radius: 50%;
-    background: #D16D4F;
+    border-radius: var(--radius-full);
+    background: var(--color-accent);
     flex-shrink: 0;
 }
 
@@ -173,7 +182,7 @@
 .avatar-initials {
     width: 3.5rem;
     height: 3.5rem;
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-md);
     background: var(--color-accent);
     display: flex;
     align-items: center;
@@ -181,7 +190,7 @@
     font-weight: var(--font-weight-bold);
     font-size: var(--font-size-caption);
     font-family: var(--font-mono);
-    color: #ffffff;
+    color: var(--color-on-accent);
     flex-shrink: 0;
 }
 
@@ -216,11 +225,23 @@
     stroke-linejoin: round;
 }
 
+/* Icon swap is CSS-only, driven by the [data-theme] attribute.
+   Light theme shows the moon ("switch to dark"); dark shows the sun. */
+.theme-toggle .icon-sun {
+    display: none;
+}
 
+[data-theme="dark"] .theme-toggle .icon-sun {
+    display: block;
+}
 
-/* ── Gradient Text ──────────────────────────────────── */
+[data-theme="dark"] .theme-toggle .icon-moon {
+    display: none;
+}
+
+/* ── Accent Text ────────────────────────────────────── */
 .gradient-text {
-    color: #D16D4F;
+    color: var(--color-accent);
 }
 
 /* ── Icon Wrapper ───────────────────────────────────── */
