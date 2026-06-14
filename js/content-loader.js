@@ -261,7 +261,7 @@
 
             if (line.startsWith('### ') && currentSection === 'Research Areas') {
                 if (current) result.researchAreas.push(current);
-                current = { title: line.replace('### ', '').trim(), icon: '', description: '' };
+                current = { title: line.replace('### ', '').trim(), icon: '', image: '', description: '' };
                 continue;
             }
 
@@ -282,6 +282,11 @@
 
             if (current && line.startsWith('icon: ')) {
                 current.icon = line.replace('icon: ', '').trim();
+                continue;
+            }
+
+            if (current && line.startsWith('image: ')) {
+                current.image = line.replace('image: ', '').trim();
                 continue;
             }
 
