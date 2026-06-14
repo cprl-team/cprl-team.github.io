@@ -349,20 +349,42 @@
     transform: scale(1);
 }
 
-.dag-edges .dag-edge:nth-child(2) { transition-delay: calc(var(--motion-stagger-step) * 1); }
-.dag-edges .dag-edge:nth-child(3) { transition-delay: calc(var(--motion-stagger-step) * 2); }
-.dag-edges .dag-edge:nth-child(4) { transition-delay: calc(var(--motion-stagger-step) * 3); }
-.dag-edges .dag-edge:nth-child(5) { transition-delay: calc(var(--motion-stagger-step) * 4); }
-.dag-edges .dag-edge:nth-child(6) { transition-delay: calc(var(--motion-stagger-step) * 5); }
-.dag-edges .dag-edge:nth-child(7) { transition-delay: calc(var(--motion-stagger-step) * 6); }
-.dag-nodes .dag-node:nth-child(n) { transition-delay: calc(var(--motion-stagger-step) * 3); }
+.dag-edges .dag-edge:nth-child(2)  { transition-delay: calc(var(--motion-stagger-step) * 1); }
+.dag-edges .dag-edge:nth-child(3)  { transition-delay: calc(var(--motion-stagger-step) * 1.5); }
+.dag-edges .dag-edge:nth-child(4)  { transition-delay: calc(var(--motion-stagger-step) * 2); }
+.dag-edges .dag-edge:nth-child(5)  { transition-delay: calc(var(--motion-stagger-step) * 2.5); }
+.dag-edges .dag-edge:nth-child(6)  { transition-delay: calc(var(--motion-stagger-step) * 3); }
+.dag-edges .dag-edge:nth-child(7)  { transition-delay: calc(var(--motion-stagger-step) * 3.5); }
+.dag-edges .dag-edge:nth-child(8)  { transition-delay: calc(var(--motion-stagger-step) * 4); }
+.dag-edges .dag-edge:nth-child(9)  { transition-delay: calc(var(--motion-stagger-step) * 4.5); }
+.dag-edges .dag-edge:nth-child(10) { transition-delay: calc(var(--motion-stagger-step) * 5); }
+.dag-edges .dag-edge:nth-child(11) { transition-delay: calc(var(--motion-stagger-step) * 5.5); }
+.dag-edges .dag-edge:nth-child(12) { transition-delay: calc(var(--motion-stagger-step) * 6); }
+.dag-nodes .dag-node { transition-delay: calc(var(--motion-stagger-step) * 6.5); }
+
+/* Arrowheads on the hero graph fade in with the draw (avoid floating heads) */
+.dag .bp-arrow {
+    opacity: 0;
+    transition: opacity var(--motion-node-pop);
+    transition-delay: calc(var(--motion-stagger-step) * 7);
+}
+
+.dag--drawn .bp-arrow {
+    opacity: 1;
+}
 
 /* ── Blueprint schematic illustrations (inlined SVG) ─── */
 /* Shared classes for the research-area / hero diagrams. Colored from
    theme tokens so the inlined SVGs adapt to the manual light/dark toggle. */
 .bp-grid {
     fill: var(--color-border);
-    opacity: 0.5;
+    opacity: 0.65;
+}
+
+.bp-frame {
+    fill: none;
+    stroke: var(--color-border);
+    stroke-width: 1.5;
 }
 
 .bp-edge {
