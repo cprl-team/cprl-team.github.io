@@ -121,81 +121,120 @@
 
     <!-- Hero -->
     <section class="section hero fade-in">
-      <h1><span class="gradient-text">Causal Perception</span> and <span class="gradient-text">Reasoning</span></h1>
-      <p>We are the Causal Perception and Reasoning research group based in HCMC, Vietnam. Our mission is built on a
-        simple but powerful belief — true AI must move beyond correlation-based Perception to achieve Causal Reasoning,
-        understanding <em>why</em> it happens.</p>
-      <div class="hero-actions">
-        <a href="publications.html" class="btn btn-primary">
-          + View Publications
-        </a>
-        <a href="members.html" class="btn btn-secondary">Meet Our Team</a>
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="hero-kicker section-label">Causal AI Research</p>
+            <h1><span class="gradient-text">Causal Perception</span> and <span class="gradient-text">Reasoning</span>
+            </h1>
+            <p class="hero-lead">We build AI that moves beyond correlation-based perception toward genuine causal
+              reasoning — understanding not just <em>what</em> happens, but <em>why</em>.</p>
+            <div class="hero-actions">
+              <a href="publications.html" class="btn btn-primary">+ View Publications</a>
+              <a href="members.html" class="btn btn-secondary">Meet Our Team</a>
+            </div>
+            <p class="hero-meta">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              Ho Chi Minh City, Vietnam
+            </p>
+          </div>
+          <div class="hero-visual">
+            <svg class="dag" viewBox="0 0 380 300" role="img"
+              aria-label="A causal directed graph: perception nodes on the left flow through hidden nodes into a single reasoning node on the right.">
+              <g class="dag-edges">
+                <line class="dag-edge" x1="45" y1="70" x2="190" y2="115" />
+                <line class="dag-edge" x1="45" y1="160" x2="190" y2="115" />
+                <line class="dag-edge" x1="45" y1="160" x2="190" y2="210" />
+                <line class="dag-edge" x1="45" y1="250" x2="190" y2="210" />
+                <line class="dag-edge" x1="190" y1="115" x2="335" y2="160" />
+                <line class="dag-edge" x1="190" y1="210" x2="335" y2="160" />
+              </g>
+              <g class="dag-nodes">
+                <circle class="dag-node" cx="45" cy="70" r="9" />
+                <circle class="dag-node" cx="45" cy="160" r="9" />
+                <circle class="dag-node" cx="45" cy="250" r="9" />
+                <circle class="dag-node" cx="190" cy="115" r="8" />
+                <circle class="dag-node" cx="190" cy="210" r="8" />
+                <circle class="dag-node dag-node--reasoning" cx="335" cy="160" r="14" />
+              </g>
+              <text class="dag-label" x="10" y="292" text-anchor="start">Perception</text>
+              <text class="dag-label" x="370" y="292" text-anchor="end">Reasoning</text>
+            </svg>
+          </div>
+        </div>
       </div>
     </section>
 
+    <div class="edge-divider" aria-hidden="true"></div>
 
+    <!-- Thesis -->
+    <section class="section band fade-in" id="thesis">
+      <div class="container">
+        <h2 class="section-label">Our Thesis</h2>
+        <div class="thesis">
+          <div class="thesis__col thesis__col--perception">
+            <span class="thesis__tag">Perception</span>
+            <h3>Recognizing <em>what</em> is in the data</h3>
+            <p>Modern models excel at correlation — spotting the patterns of what tends to occur together.</p>
+          </div>
+          <div class="thesis__arrow" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <polyline points="14 5 21 12 14 19" />
+            </svg>
+          </div>
+          <div class="thesis__col thesis__col--reasoning">
+            <span class="thesis__tag">Reasoning</span>
+            <h3>Understanding <em>why</em> it happens</h3>
+            <p>We build systems that reason about cause and effect — the mechanisms that actually drive the data.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Research Areas -->
     <section class="section fade-in">
       <div class="container">
         <h2 class="section-label">Our Core Research</h2>
-        <div class="card-grid card-grid--research" id="research-areas">
-
-          <div class="card">
-            <img class="card-illustration" src="images/causal_video.png" alt="Causal Video Understanding illustration"
-              width="600" height="600" loading="lazy" decoding="async">
-            <span class="card-index">01</span>
-            <h3>Causal Video Understanding</h3>
-            <p>Go beyond what is happening in a video to understand why it's happening. Employ VLMs to perceive and
-              "ground" raw video into textual events, and LLMs with causal frameworks to reason about causal triggers
-              and dynamics.</p>
-          </div>
-
-          <div class="card">
-            <img class="card-illustration" src="images/causal_document.png"
-              alt="Causal Document Intelligence illustration" width="600" height="600" loading="lazy"
-              decoding="async">
-            <span class="card-index">02</span>
-            <h3>Causal Document Intelligence</h3>
-            <p>Use VLMs to understand document layout and structure as a causal graph. Employ LLMs to reason over
-              semantic content and infer logical and causal relationships between text, tables, and figures.</p>
-          </div>
-
-          <div class="card">
-            <img class="card-illustration" src="images/causal_healthcare.png"
-              alt="Causal AI in Healthcare illustration" width="600" height="600" loading="lazy" decoding="async">
-            <span class="card-index">03</span>
-            <h3>Causal AI in Healthcare</h3>
-            <p>Focus on causal inference for trustworthy, safe medical diagnostics. Apply VLMs to find causal
-              biomarkers
-              in medical images and use LLMs to extract causal insights from electronic health records.</p>
-          </div>
-
-          <div class="card">
-            <img class="card-illustration" src="images/physics_causal.png"
-              alt="Physics-Informed Causal AI illustration" width="600" height="600" loading="lazy" decoding="async">
-            <span class="card-index">04</span>
-            <h3>Physics-Informed Causal AI</h3>
-            <p>Build causal models for complex physical processes such as battery degradation to discover underlying
-              scientific mechanisms. Develop causal "digital twins" for counterfactual simulations.</p>
-          </div>
-
-          <div class="card">
-            <img class="card-illustration" src="images/neuro_symbolic.png"
-              alt="Foundations of Causal LLMs and Neuro-Symbolic AI illustration" width="600" height="600"
-              loading="lazy" decoding="async">
-            <span class="card-index">05</span>
-            <h3>Foundations of Causal LLMs &amp; Neuro-Symbolic AI</h3>
-            <p>Investigate the causal reasoning capabilities of LLMs and VLMs. Develop novel neuro-symbolic
-              architectures that bridge perception and logic, and build models capable of counterfactual reasoning.
-            </p>
-          </div>
-
-        </div>
+        <!-- Dynamically rendered from content/home.md -->
+        <div id="research-areas"></div>
       </div>
     </section>
 
+    <div class="edge-divider" aria-hidden="true"></div>
 
+    <!-- Selected Publications -->
+    <section class="section fade-in">
+      <div class="container">
+        <h2 class="section-label">Selected Publications</h2>
+        <!-- Dynamically rendered from content/publications.md -->
+        <div id="home-pubs" class="home-pubs"></div>
+        <a class="section-cta" href="publications.html">View all publications →</a>
+      </div>
+    </section>
+
+    <!-- Recognition -->
+    <section class="section band fade-in" id="recognition">
+      <div class="container">
+        <h2 class="section-label">Recognition</h2>
+        <!-- Dynamically rendered from content/achievements.md -->
+        <div id="home-recognition"></div>
+        <a class="section-cta" href="achievements.html">All achievements →</a>
+      </div>
+    </section>
+
+    <!-- People -->
+    <section class="section fade-in">
+      <div class="container">
+        <h2 class="section-label">The Team</h2>
+        <!-- Dynamically rendered from content/members.md -->
+        <div id="home-people"></div>
+        <a class="section-cta" href="members.html">Meet the full team →</a>
+      </div>
+    </section>
 
     <!-- Recent News -->
     <section class="section fade-in">
@@ -205,8 +244,6 @@
         <div id="home-news"></div>
       </div>
     </section>
-
-
 
     <!-- Join Us -->
     <section class="section fade-in">
@@ -269,7 +306,14 @@
 
   <script src="js/content-loader.js"></script>
   <script src="js/content-renderer.js"></script>
-  <script>ContentRenderer.renderNews('home-news');</script>
+  <script>
+    ContentRenderer.renderResearch('research-areas');
+    ContentRenderer.renderSelectedPublications('home-pubs', { limit: 5 });
+    ContentRenderer.renderRecognition('home-recognition', { winnersOnly: true, limit: 3 });
+    ContentRenderer.renderPeoplePreview('home-people');
+    ContentRenderer.renderNews('home-news');
+  </script>
+  <script src="js/dag.js" defer></script>
   <script src="js/theme.js" defer></script>
   <script src="js/navigation.js" defer></script>
   <script src="js/main.js" defer></script>

@@ -146,6 +146,35 @@
 
   /* ── Motifs ─────────────────────────────────────────── */
   --hero-motif-opacity: 0.07;
+
+  /* ── Display Type Scale (editorial reinvention) ─────── */
+  --font-size-display: clamp(3rem, 7vw, 6rem);
+  --font-size-feature: clamp(1.5rem, 3.5vw, 2.5rem);
+  --font-size-node-num: clamp(2.5rem, 6vw, 4.5rem);
+  --font-size-stat: clamp(2rem, 4vw, 3rem);
+  --line-height-display: 0.98;
+  --letter-spacing-display: -0.04em;
+
+  /* ── Editorial layout ───────────────────────────────── */
+  --editorial-gutter: var(--spacing-8);
+  --feature-max-width: 75rem;
+
+  /* ── Sunken surface (alternating editorial bands) ───── */
+  --color-surface-sunken: #efece4;
+
+  /* ── Causal-DAG motif tokens ────────────────────────── */
+  --dag-node-perception: var(--color-accent);   /* nodes = Perception (terracotta) */
+  --dag-edge-reasoning: var(--color-accent-2);  /* edges = Reasoning (teal) */
+  --dag-node-size: 0.875rem;
+  --dag-node-size-lg: 1.25rem;
+  --dag-edge-width: 2px;
+  --dag-node-ring: var(--color-accent-glow);
+
+  /* ── Motion (DAG draw-in; reduced-motion safe) ──────── */
+  --motion-dag-draw: 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-node-pop: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  --motion-stagger-step: 0.09s;
+  --edge-dash-length: 600;
 }
 
 /* ── Colors (Dark) — value overrides only ─────────────── */
@@ -199,4 +228,7 @@
   --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.6);
 
   --hero-motif-opacity: 0.12;
+
+  /* Sunken surface reads as a recess below the dark background */
+  --color-surface-sunken: #120d08;
 }

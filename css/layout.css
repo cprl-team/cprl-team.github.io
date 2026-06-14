@@ -179,6 +179,30 @@ main {
     right: -6px;
 }
 
+/* Directed-edge divider — a teal "edge" + arrowhead between sections */
+.edge-divider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--spacing-6) 0;
+}
+
+.edge-divider::before {
+    content: '';
+    width: var(--dag-edge-width);
+    height: var(--spacing-12);
+    background: linear-gradient(to bottom, var(--color-border), var(--color-accent-2));
+}
+
+.edge-divider::after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 0.35rem solid transparent;
+    border-right: 0.35rem solid transparent;
+    border-top: 0.5rem solid var(--color-accent-2);
+}
+
 /* ── Card Grid ──────────────────────────────────────── */
 .card-grid {
     display: grid;
