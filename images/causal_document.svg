@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" role="img" aria-labelledby="cd-t">
+  <title id="cd-t">Causal document intelligence — layout regions reasoned into relations</title>
+  <defs>
+    <pattern id="bpg-cd" width="16" height="16" patternUnits="userSpaceOnUse">
+      <circle class="bp-grid" cx="1.5" cy="1.5" r="1" />
+    </pattern>
+  </defs>
+  <rect x="0" y="0" width="320" height="200" fill="url(#bpg-cd)" />
+
+  <!-- edges -->
+  <g>
+    <line class="bp-edge" x1="140" y1="72" x2="205" y2="100" />
+    <line class="bp-edge" x1="140" y1="128" x2="205" y2="100" />
+    <line class="bp-edge" x1="205" y1="100" x2="268" y2="100" />
+    <polygon class="bp-arrow" points="244,95 256,100 244,105" />
+  </g>
+
+  <!-- glyph: document with text lines + table grid -->
+  <g class="bp-glyph">
+    <path d="M34 60 h48 l14 14 v64 h-62 z" />
+    <path d="M82 60 v14 h14" />
+    <line x1="42" y1="86" x2="88" y2="86" />
+    <line x1="42" y1="98" x2="88" y2="98" />
+    <rect x="42" y="110" width="46" height="22" />
+    <line x1="65" y1="110" x2="65" y2="132" />
+    <line x1="42" y1="121" x2="88" y2="121" />
+  </g>
+
+  <!-- nodes -->
+  <circle class="bp-ring" cx="268" cy="100" r="16" />
+  <circle class="bp-node" cx="140" cy="72" r="7" />
+  <circle class="bp-node" cx="140" cy="128" r="7" />
+  <circle class="bp-node" cx="205" cy="100" r="7" />
+  <circle class="bp-node--reasoning" cx="268" cy="100" r="10" />
+
+  <!-- labels -->
+  <text class="bp-label" x="34" y="52">[ doc ]</text>
+  <text class="bp-label" x="268" y="134" text-anchor="middle">infer</text>
+</svg>

@@ -629,6 +629,13 @@
     object-fit: cover;
 }
 
+/* Inlined blueprint SVG illustration fills the media frame */
+.research-node__media svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
 .research-node__num {
     display: block;
     font-family: var(--font-mono);

@@ -69,25 +69,32 @@ for name in "${RESEARCH_PNGS[@]}"; do
   fi
 done
 
-# ---- 3a: favicon (currently a 755x755 ~116KB JPEG-in-.ico) ----
+# ---- 3a: favicon.ico fallback, rasterized from favicon.svg ----
+# (Modern browsers use favicon.svg directly; this .ico is the legacy fallback.)
 if have magick || have convert; then
   CONV=$(have magick && echo magick || echo convert)
-  if [ -f logo.png ]; then
-    $CONV logo.png -background none -resize 64x64 -define icon:auto-resize=16,32,48 favicon.ico \
-      && ok "favicon.ico rebuilt from logo.png ($(du -h favicon.ico | cut -f1))"
+  SRC=$([ -f favicon.svg ] && echo favicon.svg || echo logo.png)
+  if [ -f "$SRC" ]; then
+    $CONV -background none "$SRC" -define icon:auto-resize=16,32,48 favicon.ico \
+      && ok "favicon.ico rebuilt from $SRC ($(du -h favicon.ico | cut -f1))"
   fi
 else
-  note "ImageMagick not found — favicon left as-is"
+  note "ImageMagick not found — favicon.ico left as-is (favicon.svg still works)"
 fi
 
-# ---- 3b: 1200x630 og:image from banner.jpg ----------------
-if have magick || have convert; then
-  CONV=$(have magick && echo magick || echo convert)
-  if [ -f banner.jpg ]; then
-    $CONV banner.jpg -resize 1200x630^ -gravity center -extent 1200x630 -quality 82 og-image.jpg \
-      && ok "og-image.jpg generated (1200x630, $(du -h og-image.jpg | cut -f1))" \
-      && note "then point og:image/twitter:image at og-image.jpg in each <head>"
+# ---- 3b: 1200x630 og:image, rasterized from images/og-image.svg ----
+if [ -f images/og-image.svg ]; then
+  if have rsvg-convert; then
+    rsvg-convert -w 1200 -h 630 images/og-image.svg -o og-image.jpg \
+      && ok "og-image.jpg generated via rsvg-convert ($(du -h og-image.jpg | cut -f1))"
+  elif have magick || have convert; then
+    CONV=$(have magick && echo magick || echo convert)
+    $CONV -density 144 -background white images/og-image.svg -resize 1200x630 -quality 82 og-image.jpg \
+      && ok "og-image.jpg generated via ImageMagick ($(du -h og-image.jpg | cut -f1))"
+  else
+    note "no rsvg-convert/ImageMagick — og-image.svg not rasterized"
   fi
+  [ -f og-image.jpg ] && note "then point og:image + twitter:image at og-image.jpg in each <head>"
 fi
 
 echo "▸ Done. Review changes with: git status && git diff --stat"
