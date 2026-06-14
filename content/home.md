@@ -14,27 +14,27 @@ cta_secondary_link: members.html
 
 ### Causal Video Understanding
 icon: video
-image: images/causal_video.png
+image: images/causal_video.svg
 Go beyond what is happening in a video to understand why it's happening. Employ VLMs to perceive and "ground" raw video into a stream of textual events, actions, and expressions. Employ LLMs and causal frameworks to reason about the causal triggers and dynamics that connect these events.
 
 ### Causal Document Intelligence
 icon: document
-image: images/causal_document.png
+image: images/causal_document.svg
 Use VLMs to understand document layout and structure as a causal graph. Employ LLMs to reason over the semantic content of extracted information. Infer the logical and causal relationships between text, tables, and figures.
 
 ### Causal AI in Healthcare
 icon: health
-image: images/causal_healthcare.png
+image: images/causal_healthcare.svg
 Focus on causal inference for trustworthy, safe medical diagnostics. Apply VLMs to find causal biomarkers in medical images by linking them to clinical notes. Use LLMs to extract causal insights from electronic health records (EHRs).
 
 ### Physics-Informed Causal AI
 icon: physics
-image: images/physics_causal.png
+image: images/physics_causal.svg
 Build causal models for complex physical processes, such as battery degradation or impedance spectroscopy, to discover underlying scientific mechanisms. Develop causal "digital twins" that enable counterfactual simulations for process optimization.
 
 ### Foundations of Causal LLMs & Neuro-Symbolic AI
 icon: brain
-image: images/neuro_symbolic.png
+image: images/neuro_symbolic.svg
 Investigate the causal reasoning capabilities (and failures) of LLMs and VLMs. Develop novel neuro-symbolic architectures that bridge perception and logic. Build models capable of counterfactual reasoning by augmenting LLMs.
 
 ---

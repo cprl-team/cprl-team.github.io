@@ -48,6 +48,7 @@
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/pages.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" href="favicon.ico" id="site-favicon">
 
   <!-- Structured data -->
@@ -144,6 +145,12 @@
           <div class="hero-visual">
             <svg class="dag" viewBox="0 0 380 300" role="img"
               aria-label="A causal directed graph: perception nodes on the left flow through hidden nodes into a single reasoning node on the right.">
+              <defs>
+                <pattern id="hero-dots" width="22" height="22" patternUnits="userSpaceOnUse">
+                  <circle class="bp-grid" cx="1.5" cy="1.5" r="1.2" />
+                </pattern>
+              </defs>
+              <rect x="0" y="0" width="380" height="300" fill="url(#hero-dots)" />
               <g class="dag-edges">
                 <line class="dag-edge" x1="45" y1="70" x2="190" y2="115" />
                 <line class="dag-edge" x1="45" y1="160" x2="190" y2="115" />
@@ -160,6 +167,10 @@
                 <circle class="dag-node" cx="190" cy="210" r="8" />
                 <circle class="dag-node dag-node--reasoning" cx="335" cy="160" r="14" />
               </g>
+              <text class="bp-label" x="58" y="66">x1</text>
+              <text class="bp-label" x="58" y="156">x2</text>
+              <text class="bp-label" x="58" y="246">x3</text>
+              <text class="bp-label" x="335" y="133" text-anchor="middle">y</text>
               <text class="dag-label" x="10" y="292" text-anchor="start">Perception</text>
               <text class="dag-label" x="370" y="292" text-anchor="end">Reasoning</text>
             </svg>
