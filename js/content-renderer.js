@@ -10,11 +10,11 @@
 
     /* Maps research-area order → illustration (fallback if home.md lacks image:) */
     var RESEARCH_IMAGES = [
-        'images/causal_video.png',
-        'images/causal_document.png',
-        'images/causal_healthcare.png',
-        'images/physics_causal.png',
-        'images/neuro_symbolic.png'
+        'images/causal_video.svg',
+        'images/causal_document.svg',
+        'images/causal_healthcare.svg',
+        'images/physics_causal.svg',
+        'images/neuro_symbolic.svg'
     ];
 
     /* ── Helpers ────────────────────────────────────────── */
@@ -52,6 +52,21 @@
     /* Strip a leading "🏆 Winner — " prefix for display (markdown stays intact) */
     function cleanTitle(t) {
         return (t || '').replace(/^\s*🏆\s*/, '').replace(/^\s*winner\s*[—–-]\s*/i, '').trim();
+    }
+
+    /* Inline first-party .svg illustrations so they inherit the page's
+       theme tokens (an external <img> svg is color-isolated). Trusted files. */
+    async function inlineSvgs(container) {
+        var holders = container.querySelectorAll('[data-svg]');
+        for (var i = 0; i < holders.length; i++) {
+            var holder = holders[i];
+            try {
+                var markup = await ContentLoader.load(holder.getAttribute('data-svg'));
+                if (markup) holder.innerHTML = markup;
+            } catch (e) {
+                /* leave the empty media frame rather than break the layout */
+            }
+        }
     }
 
     /* Reveal dynamically-injected .fade-in blocks (the IntersectionObserver
@@ -314,7 +329,11 @@
             var a = areas[i];
             var img = a.image || RESEARCH_IMAGES[i] || '';
             html += '<article class="research-node">';
-            if (img) {
+            if (img && /\.svg(\?|$)/i.test(img)) {
+                // Inlined after render so the schematic adapts to the theme toggle
+                html += '<div class="research-node__media" data-svg="' + escapeHTML(img) +
+                    '" role="img" aria-label="' + escapeHTML(a.title) + ' schematic"></div>';
+            } else if (img) {
                 html += '<div class="research-node__media"><img src="' + escapeHTML(img) +
                     '" alt="' + escapeHTML(a.title) + ' illustration" width="600" height="375" loading="lazy" decoding="async"></div>';
             }
@@ -326,6 +345,7 @@
         }
         html += '</div>';
         container.innerHTML = html;
+        inlineSvgs(container);
     }
 
     /**
