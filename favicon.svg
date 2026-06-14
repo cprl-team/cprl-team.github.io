@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="CPR causal graph mark">
+  <style>
+    .bg { fill: #f4f2ed; }
+    .e  { stroke: #0f766e; stroke-width: 2; fill: none; stroke-linecap: round; }
+    .n  { fill: #c25a3c; }
+    .r  { fill: #0f766e; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #1f1810; }
+      .e  { stroke: #4fbfb3; }
+      .n  { fill: #e8895f; }
+      .r  { fill: #4fbfb3; }
+    }
+  </style>
+  <rect class="bg" x="0" y="0" width="32" height="32" rx="7" />
+  <line class="e" x1="9" y1="10" x2="22" y2="16" />
+  <line class="e" x1="9" y1="22" x2="22" y2="16" />
+  <circle class="n" cx="9" cy="10" r="3" />
+  <circle class="n" cx="9" cy="22" r="3" />
+  <circle class="r" cx="22" cy="16" r="4" />
+</svg>
