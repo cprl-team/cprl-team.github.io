@@ -293,3 +293,160 @@
     opacity: 1;
     transform: translateY(0);
 }
+
+/* ── Causal-DAG graphic (inline SVG) ────────────────── */
+/* The signature motif: terracotta "Perception" nodes joined by teal
+   "Reasoning" edges that draw in on scroll. Colors follow theme tokens. */
+.dag {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+}
+
+.dag-edge {
+    fill: none;
+    stroke: var(--dag-edge-reasoning);
+    stroke-width: var(--dag-edge-width);
+    stroke-linecap: round;
+    stroke-dasharray: var(--edge-dash-length);
+    stroke-dashoffset: var(--edge-dash-length);
+    transition: stroke-dashoffset var(--motion-dag-draw);
+}
+
+.dag-node {
+    fill: var(--dag-node-perception);
+    transform-box: fill-box;
+    transform-origin: center;
+    transform: scale(0);
+    opacity: 0;
+    transition: transform var(--motion-node-pop), opacity var(--motion-node-pop);
+}
+
+.dag-node--reasoning {
+    fill: var(--dag-edge-reasoning);
+}
+
+.dag-label {
+    fill: var(--color-text-muted);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+    letter-spacing: var(--letter-spacing-wide);
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity var(--motion-node-pop);
+}
+
+/* Drawn state — applied by js/dag.js on scroll (or immediately if
+   reduced-motion / no IntersectionObserver). Staggered cascade. */
+.dag--drawn .dag-edge {
+    stroke-dashoffset: 0;
+}
+
+.dag--drawn .dag-node,
+.dag--drawn .dag-label {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.dag-edges .dag-edge:nth-child(2) { transition-delay: calc(var(--motion-stagger-step) * 1); }
+.dag-edges .dag-edge:nth-child(3) { transition-delay: calc(var(--motion-stagger-step) * 2); }
+.dag-edges .dag-edge:nth-child(4) { transition-delay: calc(var(--motion-stagger-step) * 3); }
+.dag-edges .dag-edge:nth-child(5) { transition-delay: calc(var(--motion-stagger-step) * 4); }
+.dag-edges .dag-edge:nth-child(6) { transition-delay: calc(var(--motion-stagger-step) * 5); }
+.dag-edges .dag-edge:nth-child(7) { transition-delay: calc(var(--motion-stagger-step) * 6); }
+.dag-nodes .dag-node:nth-child(n) { transition-delay: calc(var(--motion-stagger-step) * 3); }
+
+/* ── Node marker (graph-node section kicker) ─────────── */
+/* Upgrades the existing .section-label dot into a ringed graph node. */
+.section-label::before {
+    box-shadow: 0 0 0 0.25rem var(--dag-node-ring);
+}
+
+/* ── Stat (recognition counters) ────────────────────── */
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+    gap: var(--spacing-8);
+}
+
+.stat__num {
+    display: block;
+    font-family: var(--font-display);
+    font-size: var(--font-size-stat);
+    font-weight: var(--font-weight-black);
+    line-height: var(--line-height-tight);
+    color: var(--color-accent);
+}
+
+.stat__label {
+    display: block;
+    margin-top: var(--spacing-1);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-caption);
+    color: var(--color-text-secondary);
+}
+
+/* ── Publication filter controls ────────────────────── */
+.pub-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--spacing-3);
+    margin-bottom: var(--spacing-10);
+    padding-bottom: var(--spacing-6);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.pub-filter__group {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-2);
+}
+
+.pub-filter {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-caption);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-muted);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-full);
+    padding: var(--spacing-2) var(--spacing-4);
+    cursor: pointer;
+    transition: color var(--transition-base), background-color var(--transition-base),
+        border-color var(--transition-base);
+}
+
+.pub-filter:hover {
+    color: var(--color-text-primary);
+    border-color: var(--color-accent);
+}
+
+.pub-filter[aria-pressed="true"] {
+    color: var(--color-on-accent);
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+}
+
+.pub-filter-select {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-caption);
+    color: var(--color-text-primary);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-full);
+    padding: var(--spacing-2) var(--spacing-4);
+    cursor: pointer;
+}
+
+.pub-count {
+    margin-left: auto;
+    font-family: var(--font-mono);
+    font-size: var(--font-size-caption);
+    color: var(--color-text-muted);
+}
+
+.is-hidden {
+    display: none !important;
+}

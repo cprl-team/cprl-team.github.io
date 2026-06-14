@@ -16,7 +16,7 @@
                         entry.target.classList.add('visible');
 
                         // Stagger children if present
-                        var children = entry.target.querySelectorAll('.card, .pub-item, .milestone-item, .member-card');
+                        var children = entry.target.querySelectorAll('.card, .pub-item, .milestone-item, .member-card, .research-node, .stat');
                         children.forEach(function (child, index) {
                             child.style.transitionDelay = (index * 0.08) + 's';
                             child.classList.add('visible');
@@ -32,7 +32,7 @@
             });
 
             // Also observe individual stagger children
-            var staggerItems = document.querySelectorAll('.card, .pub-item, .milestone-item, .member-card');
+            var staggerItems = document.querySelectorAll('.card, .pub-item, .milestone-item, .member-card, .research-node, .stat');
             staggerItems.forEach(function (el) {
                 if (!el.closest('.fade-in')) {
                     el.style.opacity = '0';
