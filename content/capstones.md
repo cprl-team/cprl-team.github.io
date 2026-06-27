@@ -167,3 +167,107 @@ milestones: (1) schema and annotation protocol; (2) build the benchmark; (3) bas
 read: Background | "Causal Inference in Statistics: A Primer" (Pearl, Glymour & Jewell, 2016) and "Causality" (Pearl, 2009). ISBN 978-1-119-18684-7; 978-0-521-89560-6. |
 read: Core | MMDocBench (MMM 2025). | https://link.springer.com/chapter/10.1007/978-981-95-6950-2_6
 read: Core | DocLLM (ACL 2024). | https://aclanthology.org/2024.acl-long.463/
+
+
+---
+
+## Causal AI in Healthcare
+
+### HC1 | Strong-Baseline ICU Mortality Benchmark
+level: UG
+duration: 8–12 weeks
+goal: Establish a reproducible, leakage-free baseline for in-ICU mortality on MIMIC-IV, comparing a strong tabular model with deep sequence models.
+context: On MIMIC-IV mortality, XGBoost reaches about 0.87 AUROC and often beats LSTM/TCN on irregular, sparse features. A clean, calibrated baseline is the right first step before any deep model.
+questions: Does a tuned XGBoost beat LSTM/TCN on MIMIC-IV mortality? How well calibrated are the predictions, and do patient-level splits change the picture?
+data: MIMIC-IV in-ICU mortality via YAIB (or the arXiv 2401.15290 setup).
+method: Build leakage-free features, train XGBoost vs LSTM/TCN with patient-level splits, and report AUROC, AUPRC, and calibration.
+milestones: (1) cohort and leakage-free features; (2) baselines; (3) calibration analysis; (4) report.
+read: Core | MIMIC-IV benchmark (XGBoost baseline). | https://arxiv.org/pdf/2401.15290
+read: Core | YAIB. | https://arxiv.org/abs/2306.05109
+read: Background | MIMIC-IV (Johnson et al., Scientific Data 2023). | https://physionet.org/content/mimiciv/3.1/
+
+### HC2 | Label-Leakage Replication
+level: UG
+duration: 8–12 weeks
+goal: Show how ICD diagnostic codes inflate same-admission mortality AUROC, and produce a leakage-free feature checklist.
+context: ICD codes are finalized only after discharge, so using them as features inflates AUROC to an implausible 0.97 to 0.98. About 40% of published same-admission models did this.
+questions: How much does ICD-code leakage inflate AUROC versus leakage-free features on MIMIC-IV? Which variables are unsafe for same-admission outcomes?
+data: MIMIC-IV in-hospital mortality.
+method: Train identical models with and without ICD and other post-outcome features; quantify the AUROC gap; write a reusable cohort and feature checklist.
+milestones: (1) cohort; (2) leaky vs clean feature sets; (3) measured AUROC gap; (4) checklist and report.
+read: Core | ICD label-leakage study (2025). | https://www.medrxiv.org/content/10.1101/2025.08.09.25333360.full.pdf
+read: Core | MIMIC-IV benchmark. | https://arxiv.org/pdf/2401.15290
+
+### HC3 | SHAP Explanation Study for ICU Mortality
+level: UG
+duration: 8–12 weeks
+goal: Explain an ICU mortality model with SHAP on the standard MIMIC-III benchmark and audit the drivers.
+context: Explanation is an early-phase focus alongside prediction. SHAP on the Harutyunyan in-hospital-mortality task is a clean, established setup.
+questions: Which features drive the model, are any of them leakage or proxies, and do explanations agree across models?
+data: MIMIC-III via the Harutyunyan in-hospital-mortality benchmark.
+method: Train a baseline, compute SHAP rankings, cross-check agreement across models, and audit for leakage.
+milestones: (1) reproduce the task; (2) SHAP rankings; (3) cross-model agreement; (4) report.
+read: Core | Harutyunyan MIMIC-III benchmark. | https://github.com/YerevaNN/mimic3-benchmarks
+read: Background | Attention-based explainability on MIMIC-IV. | https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9554013/
+
+### HC4 | Mutual-Information Feature Selection
+level: UG
+duration: 8–12 weeks
+goal: Compare information-theoretic feature selection (MI, mRMR, JMI) with tree-based selection for ICU mortality.
+context: Tree-based selection (Boruta/XGBoost) is standard on MIMIC, but an MI-as-headline feature-selection study on MIMIC mortality is essentially missing, so a clean head-to-head is a real contribution.
+questions: Do MI-based methods give a more compact or more interpretable feature set than Boruta/XGBoost at equal accuracy? Which features do they disagree on?
+data: MIMIC-IV mortality (replicate and extend the two-tier AKI selection setup).
+method: Run mRMR/JMI vs Boruta/XGBoost on one fixed cohort; compare accuracy, feature-set size, and selection stability.
+milestones: (1) cohort; (2) selection methods; (3) head-to-head comparison; (4) report.
+read: Core | Two-tier feature selection on MIMIC AKI mortality (Scientific Reports 2024). | https://doi.org/10.1038/s41598-024-63793-3
+read: Background | Estimating CMI for dynamic feature selection (Gadgil et al., ICLR 2024). | https://arxiv.org/abs/2306.03301
+
+### HC5 | Few-Label ICU Mortality with Self-Supervised Pretraining
+level: UG
+duration: 8–12 weeks
+goal: Quantify how much labeled data self-supervised pretraining saves for ICU mortality.
+context: Self-supervised pretraining (STraTS forecasting, TS2Vec contrastive) helps most when labels are scarce; reported gains include +0.17 AUROC with only 1% of labels.
+questions: How does pretrain-then-linear-probe compare to supervised-from-scratch at 1, 5, 10, and 100% of labels?
+data: MIMIC-III via MIMIC-Extract, or the open PhysioNet/CinC 2012 set for a low-friction start.
+method: Pretrain TS2Vec or STraTS on unlabeled series, linear-probe across label fractions, and plot a label-efficiency curve.
+milestones: (1) pretraining; (2) probes at each label fraction; (3) efficiency curve; (4) report.
+read: Core | STraTS (ACM TKDD 2022). | https://arxiv.org/abs/2107.14293
+read: Core | TS2Vec (AAAI 2022). | https://arxiv.org/abs/2106.10466
+read: Background | MIMIC-Extract (CHIL 2020). | https://arxiv.org/abs/1907.08322
+
+### HC6 | Competing-Risks ICU Survival with Correct Metrics
+level: Grad
+duration: 6–9 months
+goal: Model ICU time-to-event with competing risks and evaluate it with task-matched metrics.
+context: SurvTRACE, DeepHit, and DSM handle competing events, but about 72% of recent survival papers use a metric misaligned with their task. Matching the metric to the objective is itself a contribution.
+questions: Does a transformer survival model beat DeepHit/DSM on MIMIC-IV, and does the ranking change under C-index versus Brier versus calibration?
+data: MIMIC-IV survival cohort with competing risks.
+method: Train SurvTRACE vs DeepHit/DSM/Cox; report C-index, integrated Brier score, and calibration; analyze where the metrics disagree.
+milestones: (1) cohort and censoring; (2) models; (3) task-matched evaluation; (4) paper.
+read: Core | SurvTRACE. | https://arxiv.org/pdf/2110.00855
+read: Core | "Stop Chasing the C-index" (2025). | https://arxiv.org/pdf/2506.02075
+
+### HC7 | MIMIC to eICU External Validation with Fairness
+level: Grad
+duration: 6–9 months
+goal: Test whether an ICU mortality model generalizes from MIMIC to eICU, with calibration and subgroup fairness.
+context: Single-center models often fail off-site. YAIB can evaluate a MIMIC-trained model on eICU without retraining, which makes a clean external-validation study feasible.
+questions: How much does AUROC and calibration drop from MIMIC to eICU, and are the drops uneven across demographic subgroups?
+data: MIMIC-IV (train) and eICU-CRD (external) via YAIB.
+method: Train on MIMIC-IV, evaluate on eICU, report calibration and subgroup metrics, and test simple domain-adaptation fixes.
+milestones: (1) harmonized cohorts; (2) cross-center evaluation; (3) fairness slices; (4) paper.
+read: Core | YAIB. | https://arxiv.org/abs/2306.05109
+read: Background | eICU-CRD (Pollard et al., Scientific Data 2018). | https://doi.org/10.1038/sdata.2018.178
+
+### HC8 | Information-Bottleneck Representations and Attribution
+level: Grad
+duration: 9–12 months
+goal: Apply the deep variational Information Bottleneck to MIMIC ICU outcomes and add IB-based temporal attribution.
+context: Deep VIB applied directly to MIMIC ICU outcomes is an open niche; the strong IB methods live on adjacent data (ECG, TCGA), so porting them to MIMIC-IV is both feasible and novel.
+questions: Does an IB beta sweep trade compression for accuracy, calibration, and robustness well, and does IB attribution match known clinical signals?
+data: MIMIC-IV mortality and deterioration.
+method: Train a deep-VIB model with a beta sweep; add TimeX++-style IB attribution; validate the explanations against SOFA/APACHE components.
+milestones: (1) VIB model; (2) beta sweep; (3) IB attribution; (4) clinical validation; (5) paper.
+read: Core | Deep Variational Information Bottleneck (ICLR 2017). | https://arxiv.org/abs/1612.00410
+read: Core | TimeX++ (ICML 2024). | https://arxiv.org/abs/2405.09308
+read: Background | PIBD (ICLR 2024). | https://arxiv.org/abs/2401.01646

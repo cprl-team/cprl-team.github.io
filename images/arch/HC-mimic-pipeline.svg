@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-label="Healthcare MIMIC ICU prediction and explanation overview architecture">
+  <defs>
+    <pattern id="ghc" width="20" height="20" patternUnits="userSpaceOnUse"><circle class="a-grid" cx="2" cy="2" r="1.3"/></pattern>
+    <marker id="arhc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path class="a-arrow" d="M0,0L10,5L0,10z"/></marker>
+  </defs>
+  <rect class="a-bg" width="960" height="540"/>
+  <rect width="960" height="540" fill="url(#ghc)"/>
+
+  <text class="a-kick" x="30" y="38">HEALTHCARE · MIMIC ICU</text>
+  <text class="a-ttl" x="30" y="68">ICU outcome prediction + explanation · overview</text>
+
+  <g>
+    <rect class="a-box" x="30" y="100" width="150" height="92" rx="10"/>
+    <text class="a-lab" x="105" y="130" text-anchor="middle">MIMIC-IV ICU</text>
+    <text class="a-sub" x="105" y="152" text-anchor="middle">vitals · labs · notes</text>
+    <text class="a-mono" x="105" y="172" text-anchor="middle">PhysioNet</text>
+
+    <rect class="a-box" x="214" y="100" width="150" height="92" rx="10"/>
+    <text class="a-lab" x="289" y="130" text-anchor="middle">Cohort + features</text>
+    <text class="a-sub" x="289" y="152" text-anchor="middle">leakage-free</text>
+    <text class="a-mono" x="289" y="172" text-anchor="middle">patient split</text>
+
+    <rect class="a-accent" x="398" y="100" width="150" height="92" rx="10"/>
+    <text class="a-lab" x="473" y="130" text-anchor="middle">Model</text>
+    <text class="a-sub" x="473" y="152" text-anchor="middle">XGBoost / deep</text>
+    <text class="a-mono" x="473" y="172" text-anchor="middle">+ SSL pretrain</text>
+
+    <rect class="a-box" x="582" y="100" width="150" height="92" rx="10"/>
+    <text class="a-lab" x="657" y="130" text-anchor="middle">Predict + explain</text>
+    <text class="a-sub" x="657" y="152" text-anchor="middle">mortality · survival</text>
+    <text class="a-mono" x="657" y="172" text-anchor="middle">SHAP · IB</text>
+
+    <rect class="a-metric" x="766" y="100" width="164" height="92" rx="10"/>
+    <text class="a-lab a-mt" x="848" y="136" text-anchor="middle">AUROC · Brier</text>
+    <text class="a-sub a-mt" x="848" y="158" text-anchor="middle">+ MIMIC → eICU</text>
+
+    <line class="a-edge" x1="180" y1="146" x2="210" y2="146" marker-end="url(#arhc)"/>
+    <line class="a-edge" x1="364" y1="146" x2="394" y2="146" marker-end="url(#arhc)"/>
+    <line class="a-edge" x1="548" y1="146" x2="578" y2="146" marker-end="url(#arhc)"/>
+    <line class="a-edge" x1="732" y1="146" x2="762" y2="146" marker-end="url(#arhc)"/>
+  </g>
+
+  <rect class="a-panel" x="30" y="216" width="900" height="298" rx="12"/>
+  <text class="a-kick" x="50" y="246">SAMPLE DATA · ILLUSTRATIVE (MIMIC-IV ICU stay, first 48h)</text>
+
+  <!-- vitals sparkline -->
+  <line class="a-line" x1="58" y1="286" x2="58" y2="384"/>
+  <line class="a-line" x1="58" y1="384" x2="390" y2="384"/>
+  <polyline class="a-edge" points="64,360 104,338 144,352 184,318 224,332 264,300 300,346 340,312 384,336"/>
+  <circle class="a-node" cx="264" cy="300" r="6"/>
+  <text class="a-mono" x="58" y="404">heart rate, first 48h</text>
+
+  <!-- risk gauge -->
+  <text class="a-lab" x="58" y="436">predicted mortality risk</text>
+  <rect class="a-track" x="58" y="448" width="300" height="14"/>
+  <rect class="a-barem" x="58" y="448" width="222" height="14"/>
+  <text class="a-mono" x="368" y="459">0.74</text>
+  <text class="a-em" x="58" y="486">leakage-free features only</text>
+
+  <!-- explanation -->
+  <line class="a-line" x1="430" y1="280" x2="430" y2="496"/>
+  <text class="a-lab" x="456" y="300">Top risk drivers (SHAP)</text>
+  <text class="a-mono" x="456" y="334">lactate</text>
+  <rect class="a-barem" x="560" y="324" width="170" height="13"/>
+  <text class="a-mono" x="456" y="364">age</text>
+  <rect class="a-barem" x="560" y="354" width="120" height="13"/>
+  <text class="a-mono" x="456" y="394">GCS (low)</text>
+  <rect class="a-barem" x="560" y="384" width="92" height="13"/>
+  <text class="a-sub" x="456" y="426">explanation is the early-phase focus,</text>
+  <text class="a-sub" x="456" y="444">alongside leakage-free prediction.</text>
+  <text class="a-em" x="456" y="476">causal / counterfactual: later phase</text>
+</svg>
