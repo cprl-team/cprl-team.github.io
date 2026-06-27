@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-label="B6 Causal Document QA overview architecture">
+  <defs>
+    <pattern id="gb6" width="20" height="20" patternUnits="userSpaceOnUse"><circle class="a-grid" cx="2" cy="2" r="1.3"/></pattern>
+    <marker id="arb6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path class="a-arrow" d="M0,0L10,5L0,10z"/></marker>
+    <marker id="arb6c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path class="a-arrow-c" d="M0,0L10,5L0,10z"/></marker>
+  </defs>
+  <rect class="a-bg" width="960" height="540"/>
+  <rect width="960" height="540" fill="url(#gb6)"/>
+
+  <text class="a-kick" x="30" y="38">B6 · CAUSAL DOCUMENT INTELLIGENCE</text>
+  <text class="a-ttl" x="30" y="68">Causal Document QA — overview</text>
+
+  <g>
+    <rect class="a-box" x="30" y="100" width="150" height="92" rx="10"/>
+    <text class="a-lab" x="105" y="130" text-anchor="middle">Document</text>
+    <text class="a-sub" x="105" y="152" text-anchor="middle">report / paper</text>
+    <text class="a-mono" x="105" y="172" text-anchor="middle">text + tables</text>
+
+    <rect class="a-box" x="214" y="100" width="150" height="92" rx="10"/>
+    <text class="a-lab" x="289" y="130" text-anchor="middle">Extract premises</text>
+    <text class="a-sub" x="289" y="152" text-anchor="middle">claims / facts</text>
+    <text class="a-mono" x="289" y="172" text-anchor="middle">premise→conclusion</text>
+
+    <rect class="a-accent" x="398" y="100" width="150" height="92" rx="10"/>
+    <text class="a-lab" x="473" y="130" text-anchor="middle">Counterfactual QA</text>
+    <text class="a-sub" x="473" y="152" text-anchor="middle">"what if …"</text>
+    <text class="a-mono" x="473" y="172" text-anchor="middle">interventions</text>
+
+    <rect class="a-box" x="582" y="100" width="150" height="92" rx="10"/>
+    <text class="a-lab" x="657" y="130" text-anchor="middle">Reasoning</text>
+    <text class="a-sub" x="657" y="152" text-anchor="middle">LLM / LVLM</text>
+    <text class="a-mono" x="657" y="172" text-anchor="middle">answer</text>
+
+    <rect class="a-metric" x="766" y="100" width="164" height="92" rx="10"/>
+    <text class="a-lab a-mt" x="848" y="136" text-anchor="middle">causal score</text>
+    <text class="a-sub a-mt" x="848" y="158" text-anchor="middle">+ new benchmark</text>
+
+    <line class="a-edge" x1="180" y1="146" x2="210" y2="146" marker-end="url(#arb6)"/>
+    <line class="a-edge" x1="364" y1="146" x2="394" y2="146" marker-end="url(#arb6)"/>
+    <line class="a-edge" x1="548" y1="146" x2="578" y2="146" marker-end="url(#arb6)"/>
+    <line class="a-edge" x1="732" y1="146" x2="762" y2="146" marker-end="url(#arb6)"/>
+  </g>
+
+  <rect class="a-panel" x="30" y="216" width="900" height="298" rx="12"/>
+  <text class="a-kick" x="50" y="246">SAMPLE DATA · ILLUSTRATIVE (premise → conclusion with a counterfactual)</text>
+
+  <g>
+    <circle class="a-node" cx="110" cy="320" r="30"/><text class="a-nlab" x="110" y="324" text-anchor="middle">cost↑</text>
+    <circle class="a-node" cx="300" cy="320" r="30"/><text class="a-nlab" x="300" y="324" text-anchor="middle">margin↓</text>
+    <circle class="a-rnode" cx="490" cy="320" r="34"/><text class="a-nlab" x="490" y="324" text-anchor="middle">profit↓</text>
+    <line class="a-cedge" x1="140" y1="320" x2="268" y2="320" marker-end="url(#arb6c)"/>
+    <line class="a-cedge" x1="330" y1="320" x2="454" y2="320" marker-end="url(#arb6c)"/>
+    <text class="a-mono" x="110" y="372" text-anchor="middle">premise (from text)</text>
+    <text class="a-mono" x="300" y="372" text-anchor="middle">inferred relation</text>
+    <text class="a-mono" x="490" y="372" text-anchor="middle">conclusion (table)</text>
+  </g>
+
+  <text class="a-lab" x="50" y="420">Q: <tspan class="a-em">Had costs not risen</tspan>, would profit have fallen?</text>
+  <text class="a-sub" x="50" y="446">requires intervening on the cause — not just retrieving the reported number.</text>
+  <text class="a-em" x="50" y="476">moves documents from relation-inference → genuine causal reasoning.</text>
+
+  <line class="a-line" x1="600" y1="280" x2="600" y2="496"/>
+  <text class="a-lab" x="624" y="300">What's new</text>
+  <text class="a-sub" x="624" y="326">Today's "causal" doc work =</text>
+  <text class="a-sub" x="624" y="344">spatial / logical relations only.</text>
+  <text class="a-sub" x="624" y="368">This builds <tspan class="a-em">interventional</tspan></text>
+  <text class="a-sub" x="624" y="386">/ counterfactual document QA</text>
+  <text class="a-sub" x="624" y="404">+ a benchmark to measure it.</text>
+  <text class="a-mono" x="624" y="438">source corpora: scientific /</text>
+  <text class="a-mono" x="624" y="456">financial reports (MMDocBench)</text>
+  <text class="a-em" x="624" y="488">deliverable: dataset + baselines</text>
+</svg>
