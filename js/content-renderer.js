@@ -543,6 +543,17 @@
                 if (p.team) html += '<p class="project-card__team">' + boldMarkup(p.team) + '</p>';
                 var links = projectLink('Publications', p.link) + projectLink('Code', p.code) + projectLink('Demo', p.demo);
                 if (links) html += '<div class="project-card__links">' + links + '</div>';
+                if (p.topics && p.topics.length) {
+                    html += '<details class="project-topics"><summary>Open capstone &amp; thesis topics</summary>';
+                    html += '<ul class="topic-list">';
+                    for (var t = 0; t < p.topics.length; t++) {
+                        var tp = p.topics[t];
+                        var lvl = (tp.level || '').toLowerCase();
+                        html += '<li><span class="topic-level topic-level--' + escapeHTML(lvl) + '">' +
+                            escapeHTML(tp.level) + '</span> ' + escapeHTML(tp.text) + '</li>';
+                    }
+                    html += '</ul></details>';
+                }
                 html += '</article>';
             }
             html += '</div></section>';
