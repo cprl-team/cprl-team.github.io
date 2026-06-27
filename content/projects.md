@@ -11,12 +11,12 @@ status: Active
 area: Perception → Reasoning
 team: **Van-Thong Huynh**
 Going beyond *what* happens in a video to understand *why*. We ground raw video into a stream of textual events and expressions with VLMs, then use LLMs and causal frameworks to reason about the triggers and dynamics that connect those events.
-topic: UG | VLM causal-failure taxonomy: evaluate open VLMs on CausalVQA and break the human-model gap down by question type.
-topic: UG | Counterfactual robustness curve: measure how accuracy drops from single-hop to multi-hop chains on CounterVQA.
-topic: UG | Event-graph captioner: extract (actor, action, object, time) event tuples from short clips with a VLM.
-topic: Grad | Causal-intervention transfer: add CRA-style front/back-door adjustment to an open VLM and test on CausalVQA and BlackSwanSuite.
-topic: Grad | Multi-hop causal-chain reasoner: extend TRACE-style causal-event modeling to hold up on long chains (Causal-VidQA).
-topic: Grad | Anticipation under intervention: use counterfactual training to lift the weakest CausalVQA question types.
+topic: UG | VLM causal-failure taxonomy: evaluate open VLMs on CausalVQA and break the human-model gap down by question type. | a1
+topic: UG | Counterfactual robustness curve: measure how accuracy drops from single-hop to multi-hop chains on CounterVQA. | a2
+topic: UG | Event-graph captioner: extract (actor, action, object, time) event tuples from short clips with a VLM. | a3
+topic: Grad | Causal-intervention transfer: add CRA-style front/back-door adjustment to an open VLM and test on CausalVQA and BlackSwanSuite. | a4
+topic: Grad | Multi-hop causal-chain reasoner: extend TRACE-style causal-event modeling to hold up on long chains (Causal-VidQA). | a5
+topic: Grad | Anticipation under intervention: use counterfactual training to lift the weakest CausalVQA question types. | a6
 figure: images/arch/A4-causal-intervention.svg | A4 · Causal-Intervention Reasoner
 figure: images/arch/A5-multihop-chain.svg | A5 · Multi-Hop Causal-Chain Reasoner
 ref: CausalVQA | https://arxiv.org/abs/2506.09943
@@ -31,12 +31,12 @@ ref: NExT-QA | https://www.semanticscholar.org/arxiv/2105.08276
 status: Active
 area: Structure → Logic
 Treating document layout and structure as a causal graph. VLMs read structure while LLMs reason over semantics, inferring the logical and causal relationships between text, tables, and figures.
-topic: UG | Answer-vs-grounding gap: compare answer accuracy with region IoU across open LVLMs on MMDocBench.
-topic: UG | Layout-graph reproduction: rebuild the DocGraphLM link-prediction baseline on DocLayNet.
-topic: UG | Table-to-text claim linker: match claims to their supporting table cells in financial reports.
-topic: Grad | Document visual-grounding method: add region supervision to raise IoU on MMDocBench.
-topic: Grad | Logical-relation graph reasoner: predict gDSA spatial and logical relations on GraphDoc and beat the 57.6% mAP baseline.
-topic: Grad | Causal document QA: build a counterfactual, premise-to-conclusion benchmark for documents.
+topic: UG | Answer-vs-grounding gap: compare answer accuracy with region IoU across open LVLMs on MMDocBench. | b1
+topic: UG | Layout-graph reproduction: rebuild the DocGraphLM link-prediction baseline on DocLayNet. | b2
+topic: UG | Table-to-text claim linker: match claims to their supporting table cells in financial reports. | b3
+topic: Grad | Document visual-grounding method: add region supervision to raise IoU on MMDocBench. | b4
+topic: Grad | Logical-relation graph reasoner: predict gDSA spatial and logical relations on GraphDoc and beat the 57.6% mAP baseline. | b5
+topic: Grad | Causal document QA: build a counterfactual, premise-to-conclusion benchmark for documents. | b6
 figure: images/arch/B4-doc-grounding.svg | B4 · Document Visual-Grounding
 figure: images/arch/B6-causal-doc-qa.svg | B6 · Causal Document QA
 ref: MMDocBench | https://link.springer.com/chapter/10.1007/978-981-95-6950-2_6
