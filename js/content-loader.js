@@ -276,12 +276,10 @@
             if (current) {
                 // Repeatable topic lines: "topic: UG | <text>" / "topic: Grad | <text>"
                 if (line.indexOf('topic: ') === 0) {
-                    var t = line.substring(7).trim();
-                    var bar = t.indexOf(' | ');
-                    current.topics.push({
-                        level: bar >= 0 ? t.substring(0, bar).trim() : '',
-                        text: bar >= 0 ? t.substring(bar + 3).trim() : t
-                    });
+                    var tparts = line.substring(7).trim().split(' | ');
+                    var lvl = (tparts.shift() || '').trim();
+                    var tid = tparts.length >= 2 ? tparts.pop().trim() : '';
+                    current.topics.push({ level: lvl, text: tparts.join(' | ').trim(), id: tid });
                     continue;
                 }
                 if (line.indexOf('figure: ') === 0) {
@@ -317,6 +315,64 @@
             }
         }
 
+        flush();
+        return sections;
+    }
+
+    /**
+     * Parse capstones markdown — full per-topic detail entries grouped by
+     * section. Each entry has an id/slug, title, single-line fields, and a
+     * repeatable reading list ("read: kind | text | url").
+     */
+    function parseCapstones(text) {
+        var sections = {};
+        var currentSection = '';
+        var entries = [];
+        var current = null;
+        var FIELDS = ['level', 'duration', 'goal', 'context', 'questions', 'data', 'method', 'milestones'];
+
+        function flush() {
+            if (current) entries.push(current);
+            if (currentSection && entries.length) { sections[currentSection] = entries; entries = []; }
+        }
+
+        var lines = text.split('\n');
+        for (var i = 0; i < lines.length; i++) {
+            var line = lines[i].trim();
+
+            if (line.indexOf('### ') === 0) {
+                if (current) entries.push(current);
+                var hdr = line.replace('### ', '').trim();
+                var hb = hdr.indexOf(' | ');
+                var id = hb >= 0 ? hdr.substring(0, hb).trim() : hdr;
+                current = {
+                    id: id, slug: id.toLowerCase().replace(/\s+/g, '-'),
+                    title: hb >= 0 ? hdr.substring(hb + 3).trim() : hdr,
+                    level: '', duration: '', goal: '', context: '', questions: '',
+                    data: '', method: '', milestones: '', reading: []
+                };
+                continue;
+            }
+            if (line.indexOf('## ') === 0) { flush(); currentSection = line.replace('## ', '').trim(); current = null; continue; }
+            if (line === '---') { flush(); current = null; continue; }
+            if (!current) continue;
+
+            if (line.indexOf('read: ') === 0) {
+                var parts = line.substring(6).split(' | ');
+                current.reading.push({
+                    kind: (parts[0] || '').trim(),
+                    text: (parts[1] || '').trim(),
+                    url: (parts[2] || '').trim()
+                });
+                continue;
+            }
+            for (var k = 0; k < FIELDS.length; k++) {
+                if (line.indexOf(FIELDS[k] + ': ') === 0) {
+                    current[FIELDS[k]] = line.substring(FIELDS[k].length + 2).trim();
+                    break;
+                }
+            }
+        }
         flush();
         return sections;
     }
@@ -405,6 +461,7 @@
         parseMembers: parseMembers,
         parseAchievements: parseAchievements,
         parseProjects: parseProjects,
+        parseCapstones: parseCapstones,
         parseHome: parseHome
     };
 })();

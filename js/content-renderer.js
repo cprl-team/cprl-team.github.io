@@ -551,8 +551,11 @@
                     for (var t = 0; t < p.topics.length; t++) {
                         var tp = p.topics[t];
                         var lvl = (tp.level || '').toLowerCase();
+                        var ttext = tp.id
+                            ? '<a href="capstones.html#' + escapeHTML(tp.id) + '">' + escapeHTML(tp.text) + '</a>'
+                            : escapeHTML(tp.text);
                         html += '<li><span class="topic-level topic-level--' + escapeHTML(lvl) + '">' +
-                            escapeHTML(tp.level) + '</span> ' + escapeHTML(tp.text) + '</li>';
+                            escapeHTML(tp.level) + '</span> ' + ttext + '</li>';
                     }
                     html += '</ul></details>';
                 }
@@ -595,6 +598,58 @@
 
         container.innerHTML = html;
         inlineSvgs(container);
+        revealFadeIns(container);
+    }
+
+    /**
+     * Render the capstones page — full per-topic detail with deep-link anchors.
+     */
+    async function renderCapstones(containerId) {
+        var container = document.getElementById(containerId);
+        if (!container) return;
+
+        var text = await ContentLoader.load('content/capstones.md');
+        if (!text) { container.innerHTML = '<p>Failed to load capstones.</p>'; return; }
+
+        var sections = ContentLoader.parseCapstones(text);
+
+        function block(label, val) {
+            return val ? '<div class="capstone__block"><h4>' + label + '</h4><p>' + escapeHTML(val) + '</p></div>' : '';
+        }
+
+        var html = '';
+        for (var sectionName in sections) {
+            var items = sections[sectionName];
+            html += '<section class="capstone-section fade-in">';
+            html += '<h2 class="section-label">' + escapeHTML(sectionName) + '</h2>';
+            for (var i = 0; i < items.length; i++) {
+                var c = items[i];
+                html += '<article class="capstone" id="' + escapeHTML(c.slug) + '">';
+                html += '<div class="capstone__head">';
+                html += '<span class="topic-level topic-level--' + escapeHTML((c.level || '').toLowerCase()) + '">' + escapeHTML(c.level) + '</span>';
+                html += '<h3>' + escapeHTML(c.id) + ' · ' + escapeHTML(c.title) + '</h3>';
+                if (c.duration) html += '<span class="capstone__dur">' + escapeHTML(c.duration) + '</span>';
+                html += '</div>';
+                html += block('Goal', c.goal) + block('Context', c.context) + block('Questions', c.questions) +
+                    block('Data', c.data) + block('Method', c.method) + block('Milestones', c.milestones);
+                if (c.reading.length) {
+                    html += '<div class="capstone__block"><h4>Reading</h4><ul class="capstone__reading">';
+                    for (var r = 0; r < c.reading.length; r++) {
+                        var rd = c.reading[r];
+                        var kind = rd.kind ? '<span class="read-kind">' + escapeHTML(rd.kind) + '</span> ' : '';
+                        var body = rd.url
+                            ? escapeHTML(rd.text) + ' <a href="' + escapeHTML(rd.url) + '" target="_blank" rel="noopener">link ↗</a>'
+                            : escapeHTML(rd.text);
+                        html += '<li>' + kind + body + '</li>';
+                    }
+                    html += '</ul></div>';
+                }
+                html += '</article>';
+            }
+            html += '</section>';
+        }
+
+        container.innerHTML = html;
         revealFadeIns(container);
     }
 
@@ -648,6 +703,7 @@
         renderPeoplePreview: renderPeoplePreview,
         renderAchievements: renderAchievements,
         renderProjects: renderProjects,
+        renderCapstones: renderCapstones,
         renderNews: renderNews
     };
 })();
