@@ -525,6 +525,66 @@
     text-underline-offset: 2px;
 }
 
+/* ── Projects ───────────────────────────────────────── */
+.project-section {
+    margin-bottom: var(--spacing-16);
+}
+
+.project-section:last-child {
+    margin-bottom: 0;
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-2);
+}
+
+.project-card__area {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide);
+    color: var(--color-accent-2-text);
+}
+
+.project-card h3 {
+    font-size: var(--font-size-card-title);
+}
+
+.project-card__desc {
+    font-size: var(--font-size-caption);
+    color: var(--color-text-secondary);
+}
+
+.project-card__team {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-small);
+    color: var(--color-text-muted);
+}
+
+.project-card__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-4);
+    margin-top: var(--spacing-2);
+}
+
+.project-status {
+    margin-bottom: var(--spacing-1);
+}
+
+.project-status--active {
+    color: var(--color-on-accent);
+    background: var(--color-accent-2);
+    border-color: var(--color-accent-2);
+}
+
+.project-status--active::before {
+    background: var(--color-on-accent);
+}
+
 /* ── 404 Page ───────────────────────────────────────── */
 .error-page {
     display: flex;
