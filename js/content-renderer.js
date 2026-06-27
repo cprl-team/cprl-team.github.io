@@ -570,9 +570,10 @@
                 for (var fg = 0; fg < proj.figures.length; fg++) {
                     var fig = proj.figures[fg];
                     var cap = escapeHTML(proj.title) + (fig.caption ? ' — ' + escapeHTML(fig.caption) : '');
-                    html += '<figure class="arch-figure">';
-                    html += '<figcaption class="arch-figcaption">' + cap + '</figcaption>';
-                    html += '<div data-svg="' + escapeHTML(fig.src) + '" role="img" aria-label="' + cap + '"></div>';
+                    html += '<figure class="arch-figure" role="button" tabindex="0" aria-label="' + cap + ' — tap to enlarge">';
+                    html += '<figcaption class="arch-figcaption">' + cap +
+                        '<span class="arch-figcaption__hint">⤢ tap to enlarge</span></figcaption>';
+                    html += '<div data-svg="' + escapeHTML(fig.src) + '"></div>';
                     html += '</figure>';
                 }
             }
