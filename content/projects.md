@@ -50,9 +50,26 @@ ref: FinQA | https://www.semanticscholar.org/arxiv/2109.00122
 
 ### Causal AI in Healthcare
 status: Active
-area: Diagnosis → Cause
+area: Prediction → Explanation
 team: **Trong-Nghia Nguyen**, **Hong-Hai Nguyen**, **Van-Thong Huynh**
-Causal inference for trustworthy, safe medical diagnostics. We look for causal biomarkers in medical images and extract causal insight from electronic health records (for example MediFusion-Flex, for real-time clinical deterioration prediction).
+ICU outcome prediction on the MIMIC critical-care databases (MIMIC-III/IV): in-hospital and ICU mortality, survival, and clinical deterioration. The early phase focuses on leakage-free prediction and model explanation; causal and counterfactual analysis is a later direction.
+topic: UG | Strong-baseline mortality benchmark: XGBoost vs LSTM/TCN on MIMIC-IV, leakage-free, with calibration. | hc1
+topic: UG | Label-leakage replication: how ICD codes inflate same-admission mortality AUROC, with a clean-feature checklist. | hc2
+topic: UG | SHAP explanation study for ICU mortality on the MIMIC-III benchmark. | hc3
+topic: UG | Mutual-information vs tree-based feature selection for ICU mortality. | hc4
+topic: UG | Few-label ICU mortality with self-supervised pretraining (label-efficiency curve). | hc5
+topic: Grad | Competing-risks ICU survival with task-matched metrics (SurvTRACE vs DeepHit/DSM). | hc6
+topic: Grad | MIMIC to eICU external validation with calibration and subgroup fairness. | hc7
+topic: Grad | Information-Bottleneck representations and IB attribution for ICU outcomes. | hc8
+figure: images/arch/HC-mimic-pipeline.svg | Healthcare · MIMIC ICU prediction + explanation
+ref: MIMIC-IV (PhysioNet) | https://physionet.org/content/mimiciv/3.1/
+ref: Harutyunyan MIMIC-III benchmark | https://github.com/YerevaNN/mimic3-benchmarks
+ref: YAIB (multi-center ICU) | https://arxiv.org/abs/2306.05109
+ref: MIMIC-IV benchmark (XGBoost) | https://arxiv.org/pdf/2401.15290
+ref: SurvTRACE (survival) | https://arxiv.org/pdf/2110.00855
+ref: Stop Chasing the C-index | https://arxiv.org/pdf/2506.02075
+ref: ICD label-leakage study | https://www.medrxiv.org/content/10.1101/2025.08.09.25333360.full.pdf
+ref: STraTS (self-supervised) | https://arxiv.org/abs/2107.14293
 
 ### Physics-Informed Causal AI
 status: Active
