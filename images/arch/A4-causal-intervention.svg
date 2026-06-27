@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-label="A4 Causal-Intervention Reasoner overview architecture">
+  <defs>
+    <pattern id="g4" width="20" height="20" patternUnits="userSpaceOnUse"><circle class="a-grid" cx="2" cy="2" r="1.3"/></pattern>
+    <marker id="ar4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path class="a-arrow" d="M0,0L10,5L0,10z"/></marker>
+  </defs>
+  <rect class="a-bg" width="960" height="540"/>
+  <rect width="960" height="540" fill="url(#g4)"/>
+
+  <text class="a-kick" x="30" y="38">A4 · CAUSAL VIDEO UNDERSTANDING</text>
+  <text class="a-ttl" x="30" y="68">Causal-Intervention Reasoner — overview</text>
+
+  <g>
+    <rect class="a-box" x="30" y="100" width="184" height="92" rx="10"/>
+    <text class="a-lab" x="122" y="138" text-anchor="middle">Video + question</text>
+    <text class="a-sub" x="122" y="160" text-anchor="middle">raw clip</text>
+    <text class="a-mono" x="122" y="178" text-anchor="middle">input</text>
+
+    <rect class="a-box" x="268" y="100" width="184" height="92" rx="10"/>
+    <text class="a-lab" x="360" y="138" text-anchor="middle">VLM grounding</text>
+    <text class="a-sub" x="360" y="160" text-anchor="middle">events / regions</text>
+    <text class="a-mono" x="360" y="178" text-anchor="middle">perception</text>
+
+    <rect class="a-accent" x="506" y="100" width="184" height="92" rx="10"/>
+    <text class="a-lab" x="598" y="132" text-anchor="middle">Causal intervention</text>
+    <text class="a-sub" x="598" y="153" text-anchor="middle">front-door (vision)</text>
+    <text class="a-sub" x="598" y="170" text-anchor="middle">back-door (language)</text>
+    <text class="a-mono" x="598" y="186" text-anchor="middle">do( · ) deconfound</text>
+
+    <rect class="a-box" x="744" y="100" width="186" height="92" rx="10"/>
+    <text class="a-lab" x="837" y="138" text-anchor="middle">Reasoning</text>
+    <text class="a-sub" x="837" y="160" text-anchor="middle">answer + why</text>
+    <text class="a-mono" x="837" y="178" text-anchor="middle">output</text>
+
+    <line class="a-edge" x1="214" y1="146" x2="262" y2="146" marker-end="url(#ar4)"/>
+    <line class="a-edge" x1="452" y1="146" x2="500" y2="146" marker-end="url(#ar4)"/>
+    <line class="a-edge" x1="690" y1="146" x2="738" y2="146" marker-end="url(#ar4)"/>
+  </g>
+
+  <text class="a-mono" x="30" y="226">EVALUATE →</text>
+  <g>
+    <rect class="a-chip" x="120" y="214" width="120" height="20" rx="10"/><text class="a-mono" x="180" y="228" text-anchor="middle">CausalVQA</text>
+    <rect class="a-chip" x="250" y="214" width="120" height="20" rx="10"/><text class="a-mono" x="310" y="228" text-anchor="middle">CounterVQA</text>
+    <rect class="a-chip" x="380" y="214" width="130" height="20" rx="10"/><text class="a-mono" x="445" y="228" text-anchor="middle">BlackSwanSuite</text>
+  </g>
+
+  <rect class="a-panel" x="30" y="252" width="900" height="262" rx="12"/>
+  <text class="a-kick" x="50" y="282">SAMPLE DATA · ILLUSTRATIVE (CausalVQA-style counterfactual)</text>
+
+  <g>
+    <rect class="a-frame" x="50" y="300" width="72" height="54" rx="4"/><circle class="a-node" cx="86" cy="327" r="8"/>
+    <rect class="a-frame" x="130" y="300" width="72" height="54" rx="4"/><path class="a-gstroke" d="M150 340 l16 -18 l12 10"/>
+    <rect class="a-frame" x="210" y="300" width="72" height="54" rx="4"/><rect class="a-gstroke" x="232" y="318" width="28" height="20"/>
+    <rect class="a-frame" x="290" y="300" width="72" height="54" rx="4"/><circle class="a-gstroke" cx="326" cy="327" r="8"/>
+    <text class="a-mono" x="50" y="372">video: person lifts kettle → pours → cup fills</text>
+  </g>
+
+  <text class="a-lab" x="50" y="410">Q: <tspan class="a-em">Had the kettle not been lifted</tspan>, would the cup be filled?</text>
+  <text class="a-sub" x="50" y="434">(A) Yes&#160;&#160;&#160;&#160;(B) No&#160;&#160;<tspan class="a-rnode-t">✓</tspan></text>
+
+  <line class="a-line" x1="556" y1="300" x2="556" y2="492"/>
+  <text class="a-lab" x="582" y="318">Why it is causal</text>
+  <text class="a-sub" x="582" y="344">The answer flips under a <tspan class="a-em">hypothetical intervention</tspan></text>
+  <text class="a-sub" x="582" y="362">on the action. Surface co-occurrence (kettle +</text>
+  <text class="a-sub" x="582" y="380">cup) is not enough — the model must reason</text>
+  <text class="a-sub" x="582" y="398">about the <tspan class="a-em">cause</tspan>, which is what the</text>
+  <text class="a-sub" x="582" y="416">front-/back-door intervention is built to do.</text>
+  <text class="a-mono" x="582" y="452">contribution: does deconfounding close</text>
+  <text class="a-mono" x="582" y="470">the human gap on hard counterfactuals?</text>
+</svg>

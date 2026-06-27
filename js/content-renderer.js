@@ -523,6 +523,7 @@
 
         var sections = ContentLoader.parseProjects(text);
         var html = '';
+        var figProjects = [];
 
         for (var sectionName in sections) {
             var items = sections[sectionName];
@@ -532,6 +533,7 @@
             html += '<div class="card-grid">';
             for (var i = 0; i < items.length; i++) {
                 var p = items[i];
+                if (p.figures && p.figures.length) figProjects.push(p);
                 html += '<article class="card project-card">';
                 if (p.status) {
                     html += '<span class="badge project-status project-status--' + escapeHTML(p.status.toLowerCase()) +
@@ -559,7 +561,26 @@
             html += '</div></section>';
         }
 
+        // Full-width "Approach" section with the architecture diagrams
+        if (figProjects.length) {
+            html += '<section class="project-section fade-in">';
+            html += '<h2 class="section-label">Approach &amp; architecture</h2>';
+            for (var fp = 0; fp < figProjects.length; fp++) {
+                var proj = figProjects[fp];
+                for (var fg = 0; fg < proj.figures.length; fg++) {
+                    var fig = proj.figures[fg];
+                    var cap = escapeHTML(proj.title) + (fig.caption ? ' — ' + escapeHTML(fig.caption) : '');
+                    html += '<figure class="arch-figure">';
+                    html += '<figcaption class="arch-figcaption">' + cap + '</figcaption>';
+                    html += '<div data-svg="' + escapeHTML(fig.src) + '" role="img" aria-label="' + cap + '"></div>';
+                    html += '</figure>';
+                }
+            }
+            html += '</section>';
+        }
+
         container.innerHTML = html;
+        inlineSvgs(container);
         revealFadeIns(container);
     }
 
