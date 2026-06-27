@@ -585,6 +585,78 @@
     background: var(--color-on-accent);
 }
 
+/* Collapsible "open capstone & thesis topics" list */
+.project-topics {
+    width: 100%;
+    margin-top: var(--spacing-3);
+    border-top: 1px solid var(--color-border);
+    padding-top: var(--spacing-3);
+}
+
+.project-topics summary {
+    cursor: pointer;
+    list-style: none;
+    font-family: var(--font-mono);
+    font-size: var(--font-size-caption);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-accent-text);
+    transition: color var(--transition-base);
+}
+
+.project-topics summary::-webkit-details-marker {
+    display: none;
+}
+
+.project-topics summary::before {
+    content: '+ ';
+}
+
+.project-topics[open] summary::before {
+    content: '– ';
+}
+
+.project-topics summary:hover {
+    color: var(--color-accent-text);
+}
+
+.topic-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-3);
+    margin-top: var(--spacing-4);
+}
+
+.topic-list li {
+    display: flex;
+    gap: var(--spacing-2);
+    align-items: baseline;
+    font-size: var(--font-size-caption);
+    color: var(--color-text-secondary);
+    line-height: var(--line-height-normal);
+}
+
+.topic-level {
+    flex-shrink: 0;
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide);
+    padding: 0.1rem 0.4rem;
+    border-radius: var(--radius-sm);
+}
+
+.topic-level--ug {
+    color: var(--color-accent-2-text);
+    border: 1px solid var(--color-border);
+}
+
+.topic-level--grad {
+    color: var(--color-on-accent);
+    background: var(--color-accent);
+    border: 1px solid var(--color-accent);
+}
+
 /* ── 404 Page ───────────────────────────────────────── */
 .error-page {
     display: flex;
