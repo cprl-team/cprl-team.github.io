@@ -500,6 +500,58 @@
         revealFadeIns(container);
     }
 
+    function projectLink(label, url) {
+        if (!url) return '';
+        var external = /^https?:/i.test(url);
+        var attrs = external ? ' target="_blank" rel="noopener"' : '';
+        return '<a href="' + escapeHTML(url) + '" class="btn-link"' + attrs + '>' + label + ' ↗</a>';
+    }
+
+    /**
+     * Render the projects page — project cards grouped by section,
+     * sourced from content/projects.md (organized by research area).
+     */
+    async function renderProjects(containerId) {
+        var container = document.getElementById(containerId);
+        if (!container) return;
+
+        var text = await ContentLoader.load('content/projects.md');
+        if (!text) {
+            container.innerHTML = '<p>Failed to load projects.</p>';
+            return;
+        }
+
+        var sections = ContentLoader.parseProjects(text);
+        var html = '';
+
+        for (var sectionName in sections) {
+            var items = sections[sectionName];
+            if (!items.length) continue;
+            html += '<section class="project-section fade-in">';
+            html += '<h2 class="section-label">' + escapeHTML(sectionName) + '</h2>';
+            html += '<div class="card-grid">';
+            for (var i = 0; i < items.length; i++) {
+                var p = items[i];
+                html += '<article class="card project-card">';
+                if (p.status) {
+                    html += '<span class="badge project-status project-status--' + escapeHTML(p.status.toLowerCase()) +
+                        '">' + escapeHTML(p.status) + '</span>';
+                }
+                if (p.area) html += '<p class="project-card__area">' + escapeHTML(p.area) + '</p>';
+                html += '<h3>' + escapeHTML(p.title) + '</h3>';
+                if (p.description) html += '<p class="project-card__desc">' + escapeHTML(p.description) + '</p>';
+                if (p.team) html += '<p class="project-card__team">' + boldMarkup(p.team) + '</p>';
+                var links = projectLink('Publications', p.link) + projectLink('Code', p.code) + projectLink('Demo', p.demo);
+                if (links) html += '<div class="project-card__links">' + links + '</div>';
+                html += '</article>';
+            }
+            html += '</div></section>';
+        }
+
+        container.innerHTML = html;
+        revealFadeIns(container);
+    }
+
     /**
      * Render the "Recent News" list on the home page, sourced from
      * content/home.md (parsed by ContentLoader.parseHome).
@@ -549,6 +601,7 @@
         renderRecognition: renderRecognition,
         renderPeoplePreview: renderPeoplePreview,
         renderAchievements: renderAchievements,
+        renderProjects: renderProjects,
         renderNews: renderNews
     };
 })();
