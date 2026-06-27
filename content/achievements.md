@@ -36,13 +36,13 @@ team: **Van-Thong Huynh**, Soo-Hyung Kim, Guee-Sang Lee, Hyung-Jeong Yang
 type: winner
 
 ### Oct 2019 | 🏆 Winner — Group-level Cohesion Prediction
-event: Seventh Emotion Recognition in the Wild Challenge (EmotiW) — 21st ACM ICMI 2019
+event: Seventh Emotion Recognition in the Wild Challenge (EmotiW), 21st ACM ICMI 2019
 team: **Tien Dang**, Soo-Hyung Kim, Guee-Sang Lee, Hyung-Jeong Yang
 type: winner
 link: https://researchmgt.monash.edu/ws/portalfiles/portal/288645367/288531253_oa.pdf
 
 ### Oct 2019 | 🏆 Winner — Engagement Prediction in the Wild
-event: Seventh Emotion Recognition in the Wild Challenge (EmotiW) — 21st ACM ICMI 2019
+event: Seventh Emotion Recognition in the Wild Challenge (EmotiW), 21st ACM ICMI 2019
 team: **Van-Thong Huynh**, Soo-Hyung Kim, Guee-Sang Lee, Hyung-Jeong Yang
 type: winner
 link: https://researchmgt.monash.edu/ws/portalfiles/portal/288645367/288531253_oa.pdf

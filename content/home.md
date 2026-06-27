@@ -2,7 +2,7 @@
 
 hero_title: Causal Perception and Reasoning
 hero_highlight: Research Group
-hero_description: We are the Causal Perception and Reasoning research group based in HCMC, Vietnam. Our mission is built on a simple but powerful belief — true AI must move beyond correlation-based Perception (recognizing what is in the data) to achieve Causal Reasoning (understanding why it happens).
+hero_description: We are the Causal Perception and Reasoning research group based in HCMC, Vietnam. Our mission is built on a simple but powerful belief: true AI must move beyond correlation-based Perception (recognizing what is in the data) to achieve Causal Reasoning (understanding why it happens).
 cta_primary_text: View Publications
 cta_primary_link: publications.html
 cta_secondary_text: Meet Our Team
@@ -50,7 +50,7 @@ Our adaptive multimodal deep learning framework for clinical deterioration predi
 ### 2023 | Multiple Papers at Top Venues
 Papers accepted at BMVC 2023, ACM MM 2023, ACPR 2023, and CVPR 2023 Workshop.
 
-### 2021 | Winner — EEV Challenge at CVPR 2021
+### 2021 | Winner: EEV Challenge at CVPR 2021
 Team SML won the Evoked Expressions from Videos Challenge at the Affective Understanding in Video Workshop.
 
 ---
@@ -59,5 +59,5 @@ Team SML won the Evoked Expressions from Videos Challenge at the Affective Under
 
 join_title: Join Us
 join_description: We are actively growing and seeking passionate collaborators to build the future of causal AI.
-join_students: Prospective Students (PhD, Master, UG) — if you're driven to explore the *why* behind AI, not just the *what*.
-join_partners: Academic Partners — let's collaborate on fundamental research in Video Understanding, Document Intelligence, Healthcare, and Physics-Informed Causal AI.
+join_students: Prospective Students (PhD, Master, UG): if you're driven to explore the *why* behind AI, not just the *what*.
+join_partners: Academic Partners: let's collaborate on fundamental research in Video Understanding, Document Intelligence, Healthcare, and Physics-Informed Causal AI.
