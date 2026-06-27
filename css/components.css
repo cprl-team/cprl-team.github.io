@@ -540,11 +540,61 @@
     box-shadow: var(--shadow-sm);
 }
 
+.arch-figure { cursor: zoom-in; }
+
 .arch-figcaption {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-2);
+    align-items: baseline;
     font-family: var(--font-mono);
     font-size: var(--font-size-caption);
     color: var(--color-accent-2-text);
     margin-bottom: var(--spacing-3);
+}
+
+.arch-figcaption__hint {
+    color: var(--color-text-muted);
+    margin-left: auto;
+}
+
+/* Enlarged view */
+.arch-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-modal);
+    background: var(--color-overlay);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-6);
+}
+
+.arch-lightbox__inner {
+    cursor: default;
+    margin: 0;
+    max-width: min(1100px, 96vw);
+    max-height: 92vh;
+    overflow: auto;
+}
+
+.arch-lightbox__close {
+    position: absolute;
+    top: var(--spacing-4);
+    right: var(--spacing-4);
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    color: var(--color-text-primary);
+    font-size: var(--font-size-lead);
+    line-height: 1;
+    cursor: pointer;
+}
+
+.arch-lightbox__close:hover {
+    border-color: var(--color-accent);
 }
 
 .arch-figure svg { display: block; width: 100%; height: auto; }

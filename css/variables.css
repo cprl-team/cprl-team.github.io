@@ -139,6 +139,10 @@
   --z-base: 1;
   --z-header: 100;
   --z-skip-link: 1000;
+  --z-modal: 1100;
+
+  /* Scrim behind modal / lightbox overlays */
+  --color-overlay: rgba(0, 0, 0, 0.72);
 
   /* ── Grid Decoration ────────────────────────────────── */
   --grid-line-color: var(--color-border-grid);
@@ -231,4 +235,6 @@
 
   /* Sunken surface reads as a recess below the dark background */
   --color-surface-sunken: #120d08;
+
+  --color-overlay: rgba(0, 0, 0, 0.82);
 }
