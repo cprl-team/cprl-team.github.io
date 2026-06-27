@@ -255,7 +255,7 @@
                 current = {
                     title: line.replace('### ', '').trim(),
                     status: '', area: '', description: '',
-                    team: '', link: '', code: '', demo: ''
+                    team: '', link: '', code: '', demo: '', topics: []
                 };
                 continue;
             }
@@ -274,6 +274,16 @@
             }
 
             if (current) {
+                // Repeatable topic lines: "topic: UG | <text>" / "topic: Grad | <text>"
+                if (line.indexOf('topic: ') === 0) {
+                    var t = line.substring(7).trim();
+                    var bar = t.indexOf(' | ');
+                    current.topics.push({
+                        level: bar >= 0 ? t.substring(0, bar).trim() : '',
+                        text: bar >= 0 ? t.substring(bar + 3).trim() : t
+                    });
+                    continue;
+                }
                 var matched = false;
                 for (var k = 0; k < KEYS.length; k++) {
                     if (line.indexOf(KEYS[k] + ': ') === 0) {

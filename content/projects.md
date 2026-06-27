@@ -11,11 +11,23 @@ status: Active
 area: Perception → Reasoning
 team: **Van-Thong Huynh**
 Going beyond *what* happens in a video to understand *why*. We ground raw video into a stream of textual events and expressions with VLMs, then use LLMs and causal frameworks to reason about the triggers and dynamics that connect those events.
+topic: UG | VLM causal-failure taxonomy — evaluate open VLMs on CausalVQA; per-type human–model gap analysis.
+topic: UG | Counterfactual robustness curve — single- vs multi-hop accuracy on CounterVQA.
+topic: UG | Event-graph captioner — VLM → (actor, action, object, time) tuples on short Kinetics clips.
+topic: Grad | Causal-intervention transfer — port CRA front/back-door deconfounding to an open VLM; test on CausalVQA + BlackSwanSuite.
+topic: Grad | Multi-hop causal-chain reasoner — TRACE-style causal-event modeling on Causal-VidQA.
+topic: Grad | Anticipation under intervention — counterfactual training on CausalVQA anticipation / hypothetical splits.
 
 ### Causal Document Intelligence
 status: Active
 area: Structure → Logic
 Treating document layout and structure as a causal graph. VLMs read structure while LLMs reason over semantics, inferring the logical and causal relationships between text, tables, and figures.
+topic: UG | Answer-vs-grounding gap study — evaluate open LVLMs on MMDocBench (answer EM vs region IoU).
+topic: UG | Layout-graph reproduction — DocGraphLM-style link prediction on DocLayNet.
+topic: UG | Table↔text claim linker — match textual claims to supporting cells in financial reports.
+topic: Grad | Document visual-grounding method — region supervision to raise IoU on MMDocBench.
+topic: Grad | Logical-relation graph reasoner — gDSA spatial+logical relations on GraphDoc; beat the 57.6% mAP baseline.
+topic: Grad | Causal document QA — premise→conclusion counterfactual QA; build a new benchmark.
 
 ### Causal AI in Healthcare
 status: Active
