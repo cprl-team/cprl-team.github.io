@@ -7,7 +7,7 @@
   <rect width="960" height="540" fill="url(#g4)"/>
 
   <text class="a-kick" x="30" y="38">A4 · CAUSAL VIDEO UNDERSTANDING</text>
-  <text class="a-ttl" x="30" y="68">Causal-Intervention Reasoner — overview</text>
+  <text class="a-ttl" x="30" y="68">Causal-Intervention Reasoner · overview</text>
 
   <g>
     <rect class="a-box" x="30" y="100" width="184" height="92" rx="10"/>
@@ -61,7 +61,7 @@
   <text class="a-lab" x="582" y="318">Why it is causal</text>
   <text class="a-sub" x="582" y="344">The answer flips under a <tspan class="a-em">hypothetical intervention</tspan></text>
   <text class="a-sub" x="582" y="362">on the action. Surface co-occurrence (kettle +</text>
-  <text class="a-sub" x="582" y="380">cup) is not enough — the model must reason</text>
+  <text class="a-sub" x="582" y="380">cup) is not enough. The model must reason</text>
   <text class="a-sub" x="582" y="398">about the <tspan class="a-em">cause</tspan>, which is what the</text>
   <text class="a-sub" x="582" y="416">front-/back-door intervention is built to do.</text>
   <text class="a-mono" x="582" y="452">contribution: does deconfounding close</text>
