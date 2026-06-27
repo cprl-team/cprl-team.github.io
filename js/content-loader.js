@@ -228,6 +228,72 @@
     }
 
     /**
+     * Parse projects markdown — sections of project entries with
+     * key:value fields (status/area/team/link/code/demo) + free-form description.
+     */
+    function parseProjects(text) {
+        var sections = {};
+        var currentSection = '';
+        var entries = [];
+        var current = null;
+        var KEYS = ['status', 'area', 'team', 'link', 'code', 'demo'];
+
+        function flush() {
+            if (current) entries.push(current);
+            if (currentSection && entries.length) {
+                sections[currentSection] = entries;
+                entries = [];
+            }
+        }
+
+        var lines = text.split('\n');
+        for (var i = 0; i < lines.length; i++) {
+            var line = lines[i].trim();
+
+            if (line.startsWith('### ')) {
+                if (current) entries.push(current);
+                current = {
+                    title: line.replace('### ', '').trim(),
+                    status: '', area: '', description: '',
+                    team: '', link: '', code: '', demo: ''
+                };
+                continue;
+            }
+
+            if (line.startsWith('## ')) {
+                flush();
+                currentSection = line.replace('## ', '').trim();
+                current = null;
+                continue;
+            }
+
+            if (line === '---') {
+                flush();
+                current = null;
+                continue;
+            }
+
+            if (current) {
+                var matched = false;
+                for (var k = 0; k < KEYS.length; k++) {
+                    if (line.indexOf(KEYS[k] + ': ') === 0) {
+                        current[KEYS[k]] = line.substring(KEYS[k].length + 2).trim();
+                        matched = true;
+                        break;
+                    }
+                }
+                if (matched) continue;
+                if (line && line.charAt(0) !== '#') {
+                    current.description += (current.description ? ' ' : '') + line;
+                }
+            }
+        }
+
+        flush();
+        return sections;
+    }
+
+    /**
      * Parse home markdown — returns key-value pairs and research areas.
      */
     function parseHome(text) {
@@ -310,6 +376,7 @@
         parsePublications: parsePublications,
         parseMembers: parseMembers,
         parseAchievements: parseAchievements,
+        parseProjects: parseProjects,
         parseHome: parseHome
     };
 })();
