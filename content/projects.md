@@ -17,6 +17,8 @@ topic: UG | Event-graph captioner — VLM → (actor, action, object, time) tupl
 topic: Grad | Causal-intervention transfer — port CRA front/back-door deconfounding to an open VLM; test on CausalVQA + BlackSwanSuite.
 topic: Grad | Multi-hop causal-chain reasoner — TRACE-style causal-event modeling on Causal-VidQA.
 topic: Grad | Anticipation under intervention — counterfactual training on CausalVQA anticipation / hypothetical splits.
+figure: images/arch/A4-causal-intervention.svg | A4 · Causal-Intervention Reasoner
+figure: images/arch/A5-multihop-chain.svg | A5 · Multi-Hop Causal-Chain Reasoner
 
 ### Causal Document Intelligence
 status: Active
@@ -28,6 +30,8 @@ topic: UG | Table↔text claim linker — match textual claims to supporting cel
 topic: Grad | Document visual-grounding method — region supervision to raise IoU on MMDocBench.
 topic: Grad | Logical-relation graph reasoner — gDSA spatial+logical relations on GraphDoc; beat the 57.6% mAP baseline.
 topic: Grad | Causal document QA — premise→conclusion counterfactual QA; build a new benchmark.
+figure: images/arch/B4-doc-grounding.svg | B4 · Document Visual-Grounding
+figure: images/arch/B6-causal-doc-qa.svg | B6 · Causal Document QA
 
 ### Causal AI in Healthcare
 status: Active

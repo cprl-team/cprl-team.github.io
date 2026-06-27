@@ -526,3 +526,58 @@
 .is-hidden {
     display: none !important;
 }
+
+/* ── Architecture figures (inlined on the Projects page) ── */
+/* All visual props are scoped under .arch-figure and driven by theme
+   tokens, so the inlined diagrams adapt to the light/dark toggle. */
+.arch-figure {
+    width: 100%;
+    margin-top: var(--spacing-6);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background: var(--color-surface-alt);
+    padding: var(--spacing-4);
+    box-shadow: var(--shadow-sm);
+}
+
+.arch-figcaption {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-caption);
+    color: var(--color-accent-2-text);
+    margin-bottom: var(--spacing-3);
+}
+
+.arch-figure svg { display: block; width: 100%; height: auto; }
+.arch-figure text { font-family: var(--font-family); }
+
+.arch-figure .a-grid { fill: var(--color-border); opacity: 0.55; }
+.arch-figure .a-bg { fill: var(--color-background); }
+.arch-figure .a-box { fill: var(--color-surface); stroke: var(--color-border); stroke-width: 1.5; }
+.arch-figure .a-accent { fill: var(--color-background); stroke: var(--color-accent); stroke-width: 2; }
+.arch-figure .a-metric { fill: var(--color-background); stroke: var(--color-accent-2); stroke-width: 2; }
+.arch-figure .a-panel { fill: var(--color-surface-sunken); stroke: var(--color-border); stroke-width: 1.5; }
+.arch-figure .a-chip { fill: var(--color-surface); stroke: var(--color-border); }
+.arch-figure .a-doc { fill: var(--color-background); stroke: var(--color-border); stroke-width: 1.5; }
+.arch-figure .a-cell { fill: none; stroke: var(--color-border); stroke-width: 1.5; }
+.arch-figure .a-frame { fill: var(--color-background); stroke: var(--color-accent); stroke-width: 1.5; }
+.arch-figure .a-edge { fill: none; stroke: var(--color-accent-2); stroke-width: 2.5; }
+.arch-figure .a-cedge { fill: none; stroke: var(--color-accent); stroke-width: 2.5; }
+.arch-figure .a-arrow { fill: var(--color-accent-2); }
+.arch-figure .a-arrow-c { fill: var(--color-accent); }
+.arch-figure .a-node { fill: var(--color-accent); }
+.arch-figure .a-rnode { fill: var(--color-accent-2); }
+.arch-figure .a-gstroke { fill: none; stroke: var(--color-accent); stroke-width: 2; }
+.arch-figure .a-line { fill: none; stroke: var(--color-border); }
+.arch-figure .a-track { fill: var(--color-border); }
+.arch-figure .a-barem { fill: var(--color-accent-2); }
+.arch-figure .a-bariou { fill: var(--color-accent); }
+.arch-figure .a-ttl { font-family: var(--font-display); fill: var(--color-text-primary); font-size: 1.4rem; font-weight: 800; }
+.arch-figure .a-kick { font-family: var(--font-mono); fill: var(--color-accent-2-text); font-size: 0.8rem; letter-spacing: 0.16em; }
+.arch-figure .a-lab { fill: var(--color-text-primary); font-size: 0.94rem; font-weight: 600; }
+.arch-figure .a-sub { fill: var(--color-text-secondary); font-size: 0.78rem; }
+.arch-figure .a-mono { font-family: var(--font-mono); fill: var(--color-text-muted); font-size: 0.72rem; }
+.arch-figure .a-nlab { fill: var(--color-on-accent); font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; }
+.arch-figure .a-em { fill: var(--color-accent-text); font-weight: 700; }
+.arch-figure .a-mt { fill: var(--color-accent-2-text); }
+.arch-figure .a-mt2 { fill: var(--color-accent-2-text); font-weight: 700; }
+.arch-figure .a-rnode-t { fill: var(--color-accent-2-text); font-weight: 700; }
