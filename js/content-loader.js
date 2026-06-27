@@ -255,7 +255,7 @@
                 current = {
                     title: line.replace('### ', '').trim(),
                     status: '', area: '', description: '',
-                    team: '', link: '', code: '', demo: '', topics: [], figures: []
+                    team: '', link: '', code: '', demo: '', topics: [], figures: [], refs: []
                 };
                 continue;
             }
@@ -290,6 +290,15 @@
                     current.figures.push({
                         src: fbar >= 0 ? fv.substring(0, fbar).trim() : fv,
                         caption: fbar >= 0 ? fv.substring(fbar + 3).trim() : ''
+                    });
+                    continue;
+                }
+                if (line.indexOf('ref: ') === 0) {
+                    var rv = line.substring(5).trim();
+                    var rbar = rv.indexOf(' | ');
+                    current.refs.push({
+                        name: rbar >= 0 ? rv.substring(0, rbar).trim() : rv,
+                        url: rbar >= 0 ? rv.substring(rbar + 3).trim() : ''
                     });
                     continue;
                 }

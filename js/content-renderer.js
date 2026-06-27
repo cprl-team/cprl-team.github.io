@@ -556,6 +556,19 @@
                     }
                     html += '</ul></details>';
                 }
+                if (p.refs && p.refs.length) {
+                    html += '<details class="project-refs"><summary>Key references</summary><ul class="ref-list">';
+                    for (var r = 0; r < p.refs.length; r++) {
+                        var rf = p.refs[r];
+                        if (rf.url) {
+                            html += '<li><a href="' + escapeHTML(rf.url) + '" target="_blank" rel="noopener">' +
+                                escapeHTML(rf.name) + ' ↗</a></li>';
+                        } else {
+                            html += '<li>' + escapeHTML(rf.name) + '</li>';
+                        }
+                    }
+                    html += '</ul></details>';
+                }
                 html += '</article>';
             }
             html += '</div></section>';
