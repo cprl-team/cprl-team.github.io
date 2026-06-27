@@ -255,7 +255,7 @@
                 current = {
                     title: line.replace('### ', '').trim(),
                     status: '', area: '', description: '',
-                    team: '', link: '', code: '', demo: '', topics: []
+                    team: '', link: '', code: '', demo: '', topics: [], figures: []
                 };
                 continue;
             }
@@ -281,6 +281,15 @@
                     current.topics.push({
                         level: bar >= 0 ? t.substring(0, bar).trim() : '',
                         text: bar >= 0 ? t.substring(bar + 3).trim() : t
+                    });
+                    continue;
+                }
+                if (line.indexOf('figure: ') === 0) {
+                    var fv = line.substring(8).trim();
+                    var fbar = fv.indexOf(' | ');
+                    current.figures.push({
+                        src: fbar >= 0 ? fv.substring(0, fbar).trim() : fv,
+                        caption: fbar >= 0 ? fv.substring(fbar + 3).trim() : ''
                     });
                     continue;
                 }
