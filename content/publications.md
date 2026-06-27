@@ -223,4 +223,4 @@ authors: Kim, S. H., Lee, G. S., Yang, H. J., Huynh, V. T., & Oh, A. R.
 venue: Korea Patent Registration Number 10-2204743
 venue_short: Korea Patent
 link: https://doi.org/10.8080/1020190089540
-note: Technology transfer — MayfarmSoft, September 2020
+note: Technology transfer to MayfarmSoft, September 2020
