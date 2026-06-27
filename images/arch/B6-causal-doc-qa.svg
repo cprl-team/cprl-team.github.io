@@ -8,7 +8,7 @@
   <rect width="960" height="540" fill="url(#gb6)"/>
 
   <text class="a-kick" x="30" y="38">B6 · CAUSAL DOCUMENT INTELLIGENCE</text>
-  <text class="a-ttl" x="30" y="68">Causal Document QA — overview</text>
+  <text class="a-ttl" x="30" y="68">Causal Document QA · overview</text>
 
   <g>
     <rect class="a-box" x="30" y="100" width="150" height="92" rx="10"/>
@@ -56,7 +56,7 @@
   </g>
 
   <text class="a-lab" x="50" y="420">Q: <tspan class="a-em">Had costs not risen</tspan>, would profit have fallen?</text>
-  <text class="a-sub" x="50" y="446">requires intervening on the cause — not just retrieving the reported number.</text>
+  <text class="a-sub" x="50" y="446">requires intervening on the cause, not just retrieving the reported number.</text>
   <text class="a-em" x="50" y="476">moves documents from relation-inference → genuine causal reasoning.</text>
 
   <line class="a-line" x1="600" y1="280" x2="600" y2="496"/>
