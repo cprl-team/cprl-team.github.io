@@ -37,11 +37,6 @@ role: Collaborator
 initials: NTN
 link: https://nghianguyen7171.github.io
 
-### Vũ Ngọc Tú
-role: Collaborator
-initials: VNT
-link: https://scholar.google.com/citations?user=wKyLVp0AAAAJ&hl=en
-
 ### Nguyễn Quốc Tiến
 role: Collaborator
 initials: NQT
