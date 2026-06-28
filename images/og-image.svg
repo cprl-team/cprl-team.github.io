@@ -10,24 +10,24 @@
   <rect width="1200" height="630" fill="url(#og-dots)" opacity="0.6" />
 
   <!-- causal DAG motif (right) -->
-  <g fill="none" stroke="#0f766e" stroke-width="4" stroke-linecap="round">
+  <g fill="none" stroke="#c25a3c" stroke-width="4" stroke-linecap="round">
     <line x1="820" y1="200" x2="960" y2="315" />
     <line x1="820" y1="430" x2="960" y2="315" />
     <line x1="900" y1="120" x2="960" y2="315" />
     <line x1="960" y1="315" x2="1090" y2="315" />
   </g>
-  <g fill="#c25a3c">
+  <g fill="#047857">
     <circle cx="820" cy="200" r="16" />
     <circle cx="820" cy="430" r="16" />
     <circle cx="900" cy="120" r="16" />
     <circle cx="960" cy="315" r="16" />
   </g>
-  <circle cx="1090" cy="315" r="26" fill="none" stroke="#0f766e" stroke-width="3" opacity="0.5" />
-  <circle cx="1090" cy="315" r="20" fill="#0f766e" />
+  <circle cx="1090" cy="315" r="26" fill="none" stroke="#c25a3c" stroke-width="3" opacity="0.5" />
+  <circle cx="1090" cy="315" r="20" fill="#c25a3c" />
 
   <!-- wordmark (left) -->
   <text x="100" y="250" font-family="Georgia, 'Times New Roman', serif" font-size="86" font-weight="800" fill="#241606">Causal</text>
-  <text x="100" y="345" font-family="Georgia, 'Times New Roman', serif" font-size="86" font-weight="800" fill="#c25a3c">Perception</text>
+  <text x="100" y="345" font-family="Georgia, 'Times New Roman', serif" font-size="86" font-weight="800" fill="#047857">Perception</text>
   <text x="100" y="440" font-family="Georgia, 'Times New Roman', serif" font-size="86" font-weight="800" fill="#241606">&amp; Reasoning</text>
 
   <text x="104" y="510" font-family="monospace" font-size="30" letter-spacing="3" fill="#6e6451">CPR &#183; RESEARCH GROUP &#183; cpr.ai.vn</text>
