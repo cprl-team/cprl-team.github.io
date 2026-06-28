@@ -105,8 +105,8 @@ read: Core | MMDocBench (MMM 2025). | https://link.springer.com/chapter/10.1007/
 level: UG
 duration: 8–12 weeks
 goal: Reproduce a layout-as-graph baseline (DocGraphLM-style link prediction) on DocLayNet.
-context: DocGraphLM rebuilds the document graph by predicting, for each pair of elements, a direction (eight classes) and a distance (regression). The task is well defined and a good fit for a first research project.
-questions: Can a student match the reported link-prediction quality? Which relation types are hardest to get right?
+context: DocGraphLM rebuilds the document graph by predicting, for each pair of elements, a direction (eight classes) and a distance (regression). The task is well defined, with clear inputs and a single metric, which makes it clean to reproduce and to build on.
+questions: Can a faithful re-implementation match the reported link-prediction quality? Which relation types are hardest to get right?
 data: DocLayNet (CDLA-Permissive-1.0; about 30 GB on Hugging Face, ds4sd/DocLayNet).
 method: Build a graph from the layout, train link prediction (direction classification plus distance regression), and evaluate per relation type.
 milestones: (1) data preparation; (2) graph construction; (3) link-prediction model; (4) evaluation and report.
@@ -281,8 +281,8 @@ read: Background | PIBD (ICLR 2024). | https://arxiv.org/abs/2401.01646
 level: UG
 duration: 8–12 weeks
 goal: Predict battery cycle life from only the first 100 cycles, reproducing the Severson early-prediction result with gradient-boosted trees.
-context: Severson et al. showed that features from the first 100 cycles, especially the variance of the cycle-to-cycle change in the discharge voltage curve, predict eventual cycle life with about 9.1% test error, long before capacity fade shows up. The data and the result are public, which makes it a good first project to reproduce.
-questions: Can a student match the reported early-prediction error with gradient-boosted trees? Which first-100-cycle features carry the signal?
+context: Severson et al. showed that features from the first 100 cycles, especially the variance of the cycle-to-cycle change in the discharge voltage curve, predict eventual cycle life with about 9.1% test error, long before capacity fade shows up. Both the dataset and the published result are open, so the benchmark is straightforward to reproduce and extend.
+questions: Can a tuned gradient-boosted model match the reported 9.1% early-prediction error? Which first-100-cycle features carry the signal?
 data: The Severson/Attia LFP battery dataset (124 cells, MIT/Stanford/TRI).
 method: Engineer the discharge-curve and capacity-fade features, train gradient-boosted trees, and report error against the published splits with a feature-importance analysis.
 milestones: (1) load and clean the cells; (2) feature engineering; (3) model and error; (4) feature analysis and report.
@@ -361,7 +361,7 @@ duration: 8–12 weeks
 goal: Audit whether LLMs infer causal structure or recall memorized causal facts, using Corr2Cause with robustness perturbations.
 context: Corr2Cause tests pure causal inference from correlational statements, and the original paper found that LLMs score close to random and fall apart when the variables are renamed. A robustness audit measures how far they fall.
 questions: How much does accuracy drop under paraphrase and variable renaming? Is any apparent skill explained by memorization rather than inference?
-data: Corr2Cause, with perturbed variants the student generates.
+data: Corr2Cause, with newly generated paraphrase and variable-renaming variants.
 method: Evaluate several open LLMs on Corr2Cause and on renamed and paraphrased copies, measure the robustness gap, and categorize the failure modes.
 milestones: (1) reproduce baseline; (2) perturbation sets; (3) robustness gap; (4) report.
 read: Core | Corr2Cause (Jin et al., ICLR 2024). | https://arxiv.org/abs/2306.05836
