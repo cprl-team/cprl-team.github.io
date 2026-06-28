@@ -74,9 +74,39 @@ ref: STraTS (self-supervised) | https://arxiv.org/abs/2107.14293
 ### Physics-Informed Causal AI
 status: Active
 area: Process → Mechanism
-Causal models of complex physical processes such as battery degradation and impedance spectroscopy, to discover underlying scientific mechanisms and enable counterfactual "digital twin" simulations.
+Causal models of complex physical processes such as battery degradation and impedance spectroscopy, to discover underlying scientific mechanisms and enable counterfactual "digital twin" simulations. Most current work predicts; the differentiator here is interventional and counterfactual reasoning on top of a physical model.
+topic: UG | Early-life RUL prediction on the Severson battery dataset (gradient-boosted trees on first-100-cycle features). | pi1
+topic: UG | Equivalent-circuit-model classification from EIS spectra (BatteryDEV). | pi2
+topic: UG | PINN for a canonical PDE on PDEBench, characterising training failure modes. | pi3
+topic: Grad | Physics-informed state-of-health with calibrated uncertainty (re-implement PINN4SOH). | pi4
+topic: Grad | Discovering battery degradation equations with weak-SINDy / PySR. | pi5
+topic: Grad | Causal digital twin for counterfactual battery aging (discovered dynamics + SCM). | pi6
+figure: images/arch/PI-physics-pipeline.svg | Physics-Informed · battery / PINN / causal twin
+ref: Severson (Nature Energy 2019) | https://doi.org/10.1038/s41560-019-0356-8
+ref: PINN4SOH (Nature Comms 2024) | https://doi.org/10.1038/s41467-024-48779-z
+ref: Zhang EIS (Nature Comms 2020) | https://doi.org/10.1038/s41467-020-15235-7
+ref: Raissi PINNs (JCP 2019) | https://doi.org/10.1016/j.jcp.2018.10.045
+ref: SINDy (PNAS 2016) | https://doi.org/10.1073/pnas.1602614113
+ref: PySINDy | https://github.com/dynamicslab/pysindy
+ref: PDEBench | https://arxiv.org/abs/2210.07182
+ref: EIS ECM benchmark | https://arxiv.org/abs/2302.03362
 
 ### Foundations of Causal LLMs & Neuro-Symbolic AI
 status: Active
 area: Perception ∧ Logic
-Investigating the causal reasoning capabilities (and failures) of LLMs and VLMs, and building neuro-symbolic architectures that bridge perception and logic for genuine counterfactual reasoning.
+Investigating the causal reasoning capabilities (and failures) of LLMs and VLMs, and building neuro-symbolic architectures that bridge perception and logic for genuine counterfactual reasoning. The recurring question: do models infer cause and effect, or recall memorized causal text?
+topic: UG | Does it reason or recall? a robustness audit of LLM correlation-to-causation (Corr2Cause). | ns1
+topic: UG | Solver-in-the-loop: an LLM-to-DoWhy pipeline for interventional queries. | ns2
+topic: UG | Counterfactual consistency probing of open LLMs (CRASS, CounterBench). | ns3
+topic: Grad | Faithful autoformalization for causal queries (LLM-to-SCM with a solver verifier). | ns4
+topic: Grad | Isolating abduction: a diagnostic benchmark and method for LLM counterfactuals. | ns5
+topic: Grad | When are LLM causal claims identifiable? theory and a shortcut-resistant benchmark. | ns6
+figure: images/arch/NS-neurosymbolic-pipeline.svg | Neuro-Symbolic · LLM to SCM / solver to answer
+ref: Corr2Cause (ICLR 2024) | https://arxiv.org/abs/2306.05836
+ref: CLadder (NeurIPS 2023) | https://arxiv.org/abs/2312.04350
+ref: CRASS (LREC 2022) | https://arxiv.org/abs/2112.11941
+ref: CausalBench-LLM | https://arxiv.org/abs/2404.06349
+ref: Kiciman et al. (TMLR 2024) | https://arxiv.org/abs/2305.00050
+ref: Logic-LM (EMNLP Findings 2023) | https://arxiv.org/abs/2305.12295
+ref: CounterBench | https://arxiv.org/abs/2502.11008
+ref: e-CARE (ACL 2022) | https://arxiv.org/abs/2205.05849

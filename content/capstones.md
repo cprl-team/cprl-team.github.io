@@ -271,3 +271,161 @@ milestones: (1) VIB model; (2) beta sweep; (3) IB attribution; (4) clinical vali
 read: Core | Deep Variational Information Bottleneck (ICLR 2017). | https://arxiv.org/abs/1612.00410
 read: Core | TimeX++ (ICML 2024). | https://arxiv.org/abs/2405.09308
 read: Background | PIBD (ICLR 2024). | https://arxiv.org/abs/2401.01646
+
+
+---
+
+## Physics-Informed Causal AI
+
+### PI1 | Early-Life Battery RUL Prediction
+level: UG
+duration: 8–12 weeks
+goal: Predict battery cycle life from only the first 100 cycles, reproducing the Severson early-prediction result with gradient-boosted trees.
+context: Severson et al. showed that features from the first 100 cycles, especially the variance of the cycle-to-cycle change in the discharge voltage curve, predict eventual cycle life with about 9.1% test error, well before capacity fade is visible. This is a clean, well-documented starting point for physics-aware prediction.
+questions: Can a student match the reported early-prediction error with gradient-boosted trees? Which first-100-cycle features carry the signal?
+data: The Severson/Attia LFP battery dataset (124 cells, MIT/Stanford/TRI).
+method: Engineer the discharge-curve and capacity-fade features, train gradient-boosted trees, and report error against the published splits with a feature-importance analysis.
+milestones: (1) load and clean the cells; (2) feature engineering; (3) model and error; (4) feature analysis and report.
+read: Core | Severson et al. (Nature Energy 2019). Data-driven prediction of battery cycle life before capacity degradation. | https://doi.org/10.1038/s41560-019-0356-8
+read: Background | "The Elements of Statistical Learning" (Hastie, Tibshirani & Friedman, 2009). Gradient boosting. ISBN 978-0-387-84857-0. |
+
+### PI2 | Equivalent-Circuit-Model Classification from EIS
+level: UG
+duration: 8–12 weeks
+goal: Classify the correct equivalent-circuit model for an electrochemical impedance spectrum, using the BatteryDEV benchmark.
+context: Electrochemical impedance spectroscopy (EIS) summarizes a cell as a frequency response, and analysts fit an equivalent-circuit model (ECM) to it. Choosing the right circuit topology is a recurring bottleneck. The BatteryDEV challenge framed this as a classification task over EIS spectra.
+questions: How accurately can a model pick the ECM class from a raw spectrum? Which circuit classes get confused with each other?
+data: The BatteryDEV / EIS ECM benchmark dataset (arXiv 2302.03362).
+method: Featurize the impedance spectra, train a classifier, and analyze the confusion structure across circuit classes.
+milestones: (1) data and featurization; (2) classifier; (3) confusion analysis; (4) report.
+read: Core | EIS ECM benchmark / BatteryDEV. | https://arxiv.org/abs/2302.03362
+read: Background | Zhang et al. (Nature Comms 2020). Identifying degradation patterns of lithium-ion batteries from EIS with machine learning. | https://doi.org/10.1038/s41467-020-15235-7
+
+### PI3 | PINN Training Failure Modes on PDEBench
+level: UG
+duration: 8–12 weeks
+goal: Build a physics-informed neural network for a canonical PDE and characterize when and why its training fails.
+context: PINNs solve PDEs by penalizing the residual of the governing equation, but they are known to struggle on stiff or convection-dominated problems. PDEBench provides standard PDEs and reference solutions to test against.
+questions: For a canonical PDE, where does PINN training break down, and which fixes (loss weighting, collocation sampling, curriculum) actually help?
+data: PDEBench (one or two canonical PDEs, for example diffusion-reaction or Burgers).
+method: Implement a PINN, reproduce a known failure mode, sweep the standard remedies, and report error against the PDEBench reference.
+milestones: (1) PINN baseline; (2) reproduce a failure; (3) remedy sweep; (4) report.
+read: Core | Raissi, Perdikaris & Karniadakis (JCP 2019). Physics-informed neural networks. | https://doi.org/10.1016/j.jcp.2018.10.045
+read: Core | PDEBench (NeurIPS 2022). | https://arxiv.org/abs/2210.07182
+
+### PI4 | Physics-Informed State-of-Health with Calibrated Uncertainty
+level: Grad
+duration: 6–9 months
+goal: Re-implement a physics-informed battery state-of-health model and add calibrated predictive uncertainty.
+context: PINN4SOH estimates battery state of health by combining data with a physical degradation prior and reports strong accuracy across chemistries. What it does not emphasize is calibrated uncertainty, which matters for any deployment decision.
+questions: Does a physics-informed prior improve state-of-health accuracy and transfer across chemistries, and can its uncertainty estimates be made calibrated?
+data: The PINN4SOH datasets, plus the Severson cells for cross-chemistry transfer.
+method: Re-implement PINN4SOH, add an uncertainty mechanism (deep ensembles or conformal/quantile), and evaluate accuracy, transfer, and calibration.
+milestones: (1) reproduce PINN4SOH; (2) uncertainty head; (3) cross-chemistry transfer; (4) calibration evaluation; (5) paper.
+read: Core | PINN4SOH (Nature Comms 2024). Physics-informed neural network for state of health. | https://doi.org/10.1038/s41467-024-48779-z
+read: Core | Raissi et al. (JCP 2019). PINNs. | https://doi.org/10.1016/j.jcp.2018.10.045
+
+### PI5 | Discovering Battery Degradation Equations
+level: Grad
+duration: 6–9 months
+goal: Recover interpretable governing equations for battery degradation from data, using sparse regression and symbolic regression.
+context: SINDy recovers governing equations by sparse regression over a library of candidate terms, and symbolic regression (PySR) searches expression space directly. Applied to battery aging, these could yield a compact, interpretable degradation law rather than a black-box predictor.
+questions: Can weak-form SINDy or symbolic regression recover a degradation law that predicts capacity fade and stays stable across cells? How does it compare with a black-box model on accuracy and interpretability?
+data: The Severson LFP cells (capacity-fade trajectories), with NASA or CALCE cells for cross-checking.
+method: Use weak-form SINDy (PySINDy) and PySR to fit degradation dynamics, validate the recovered equations out of sample, and compare against a black-box baseline.
+milestones: (1) trajectory extraction; (2) SINDy/PySR fitting; (3) out-of-sample validation; (4) interpretability comparison; (5) paper.
+read: Core | Brunton, Proctor & Kutz (PNAS 2016). SINDy: discovering governing equations from data. | https://doi.org/10.1073/pnas.1602614113
+read: Core | PySINDy. | https://github.com/dynamicslab/pysindy
+
+### PI6 | Causal Digital Twin for Counterfactual Battery Aging
+level: Grad
+duration: 9–12 months
+goal: Build a causal digital twin that answers counterfactual questions about how a battery would have aged under different operating conditions.
+context: Most battery models predict; few support intervention. Combining discovered dynamics with a structural causal model lets us ask "what if the cell had been charged at a lower C-rate", which is the interventional and counterfactual capability that sets this project apart.
+questions: Can a discovered-dynamics-plus-SCM twin answer counterfactual aging queries that match held-out cells run under those conditions? Does the causal structure improve transfer over a purely predictive model?
+data: Severson and related cycling datasets with varied charging protocols, so interventions on protocol are observable.
+method: Discover the degradation dynamics, embed them in a structural causal model over operating variables, and validate counterfactual predictions against held-out protocol groups.
+milestones: (1) dynamics discovery; (2) SCM construction; (3) counterfactual validation; (4) transfer analysis; (5) paper.
+read: Core | Severson et al. (Nature Energy 2019). | https://doi.org/10.1038/s41560-019-0356-8
+read: Background | "Causality" (Pearl, 2009). Structural causal models and counterfactuals. ISBN 978-0-521-89560-6. |
+read: Core | Brunton et al. (PNAS 2016). SINDy. | https://doi.org/10.1073/pnas.1602614113
+
+
+---
+
+## Foundations of Causal LLMs & Neuro-Symbolic AI
+
+### NS1 | Does It Reason or Recall? Auditing Correlation-to-Causation
+level: UG
+duration: 8–12 weeks
+goal: Audit whether LLMs infer causal structure or recall memorized causal facts, using Corr2Cause with robustness perturbations.
+context: Corr2Cause tests pure causal inference from correlational statements, and the original paper found that LLMs perform close to random and collapse under variable renaming. That fragility is exactly what a robustness audit can quantify.
+questions: How much does accuracy drop under paraphrase and variable renaming? Is any apparent skill explained by memorization rather than inference?
+data: Corr2Cause, with perturbed variants the student generates.
+method: Evaluate several open LLMs on Corr2Cause and on renamed and paraphrased copies, measure the robustness gap, and categorize the failure modes.
+milestones: (1) reproduce baseline; (2) perturbation sets; (3) robustness gap; (4) report.
+read: Core | Corr2Cause (Jin et al., ICLR 2024). | https://arxiv.org/abs/2306.05836
+read: Background | Kiciman et al. (TMLR 2024). Causal reasoning and large language models. | https://arxiv.org/abs/2305.00050
+
+### NS2 | Solver-in-the-Loop: LLM-to-DoWhy for Interventional Queries
+level: UG
+duration: 8–12 weeks
+goal: Build a pipeline where an LLM translates a natural-language causal question into a DoWhy specification and the solver returns the answer.
+context: LLMs are unreliable at numeric causal inference but good at mapping language onto structure. Pairing the LLM with a causal-inference engine (DoWhy) offloads the computation to a verified tool. CLadder is a natural testbed of graded causal questions.
+questions: Can an LLM reliably produce a correct DoWhy specification (graph, treatment, outcome, estimand)? How does the solver-in-the-loop pipeline compare with the LLM answering directly?
+data: CLadder questions, plus small synthetic SCMs with known answers.
+method: Prompt the LLM to emit a DoWhy graph and estimand, run the solver, and compare end-to-end accuracy with direct LLM answering.
+milestones: (1) pipeline; (2) CLadder evaluation; (3) error analysis of the translation step; (4) report.
+read: Core | CLadder (Jin et al., NeurIPS 2023). | https://arxiv.org/abs/2312.04350
+read: Background | Kiciman et al. (TMLR 2024). | https://arxiv.org/abs/2305.00050
+
+### NS3 | Counterfactual Consistency Probing
+level: UG
+duration: 8–12 weeks
+goal: Probe whether open LLMs answer counterfactual questions consistently, using CRASS and CounterBench.
+context: CRASS and CounterBench pose counterfactual conditionals and check the model's answer. Consistency under rephrasing and under logically equivalent variants is a simple but revealing test that aggregate accuracy hides.
+questions: Are LLM counterfactual answers consistent across paraphrase and logically equivalent forms? Where does consistency break?
+data: CRASS and CounterBench.
+method: Evaluate several open LLMs, generate equivalent variants, and measure both accuracy and a consistency score with an error breakdown.
+milestones: (1) reproduce baselines; (2) variant generation; (3) consistency scoring; (4) report.
+read: Core | CRASS (Frohberg & Binder, LREC 2022). | https://arxiv.org/abs/2112.11941
+read: Core | CounterBench (2025). | https://arxiv.org/abs/2502.11008
+
+### NS4 | Faithful Autoformalization for Causal Queries
+level: Grad
+duration: 6–9 months
+goal: Translate natural-language causal questions into structural causal models faithfully, with a solver verifying the answer.
+context: Logic-LM showed that translating language into a formal representation and calling a solver beats end-to-end reasoning. Extending that idea to causal queries means autoformalizing into an SCM, where the hard part is faithfulness of the translation.
+questions: Can an LLM-to-SCM translator be made faithful enough that solver answers are trustworthy? How do we detect and reject unfaithful translations?
+data: CLadder and Corr2Cause for evaluation; synthetic SCMs for translation supervision.
+method: Build an LLM-to-SCM autoformalizer with a solver back end and a faithfulness checker (back-translation or consistency checks), and evaluate accuracy and rejection quality.
+milestones: (1) translator and solver; (2) faithfulness checks; (3) evaluation on CLadder and Corr2Cause; (4) ablations; (5) paper.
+read: Core | Logic-LM (Pan et al., EMNLP Findings 2023). | https://arxiv.org/abs/2305.12295
+read: Core | CLadder (NeurIPS 2023). | https://arxiv.org/abs/2312.04350
+read: Core | Corr2Cause (ICLR 2024). | https://arxiv.org/abs/2306.05836
+
+### NS5 | Isolating Abduction in LLM Counterfactuals
+level: Grad
+duration: 6–9 months
+goal: Build a diagnostic benchmark that isolates the abduction step of counterfactual reasoning, and a method that improves it.
+context: Pearl's counterfactual recipe is abduction, then action, then prediction. LLMs may fail at any of the three, but current benchmarks score only the final answer. A benchmark that isolates abduction would localize the failure.
+questions: Where in the abduction-action-prediction pipeline do LLMs fail, and does an explicit abduction step (infer the latent, then intervene) improve counterfactual accuracy?
+data: A new diagnostic set with annotated intermediate steps, built on CounterBench-style items and synthetic SCMs.
+method: Construct step-annotated counterfactual items, measure per-step accuracy, and test an explicit abduction-then-action method against direct answering.
+milestones: (1) benchmark design; (2) step annotation; (3) per-step evaluation; (4) abduction method; (5) paper.
+read: Core | CounterBench (2025). | https://arxiv.org/abs/2502.11008
+read: Core | e-CARE (Du et al., ACL 2022). Explainable causal reasoning. | https://arxiv.org/abs/2205.05849
+read: Background | "Causality" (Pearl, 2009). The three-step counterfactual recipe. ISBN 978-0-521-89560-6. |
+
+### NS6 | When Are LLM Causal Claims Identifiable?
+level: Grad
+duration: 9–12 months
+goal: Connect identifiability theory to LLM causal evaluation, and build a shortcut-resistant benchmark for it.
+context: A causal claim is only answerable from data when the query is identifiable from the assumed graph. Existing LLM causal benchmarks mix identifiable and non-identifiable cases and are vulnerable to lexical shortcuts. Tying evaluation to identifiability gives a principled scoring axis.
+questions: Do LLMs distinguish identifiable from non-identifiable queries? Can a shortcut-resistant benchmark separate genuine reasoning from pattern matching?
+data: A new benchmark spanning identifiable and non-identifiable queries, built on CausalBench-LLM and synthetic graphs.
+method: Generate queries with known identifiability status, control for lexical shortcuts, evaluate LLMs, and analyze whether confidence tracks identifiability.
+milestones: (1) identifiability generator; (2) shortcut controls; (3) evaluation; (4) analysis; (5) paper.
+read: Core | CausalBench-LLM. | https://arxiv.org/abs/2404.06349
+read: Core | Corr2Cause (ICLR 2024). | https://arxiv.org/abs/2306.05836
+read: Background | "Causality" (Pearl, 2009). Identifiability and the do-calculus. ISBN 978-0-521-89560-6. |
