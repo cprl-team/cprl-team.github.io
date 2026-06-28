@@ -74,7 +74,7 @@ ref: STraTS (self-supervised) | https://arxiv.org/abs/2107.14293
 ### Physics-Informed Causal AI
 status: Active
 area: Process → Mechanism
-Causal models of complex physical processes such as battery degradation and impedance spectroscopy, to discover underlying scientific mechanisms and enable counterfactual "digital twin" simulations. Most current work predicts; the differentiator here is interventional and counterfactual reasoning on top of a physical model.
+Causal models of physical processes like battery degradation and electrochemical impedance. We fit a physical model to the data, then use it to ask counterfactual "digital twin" questions, for example how a cell would have aged under a different charging protocol. Most current work stops at prediction; the part we care about is intervention.
 topic: UG | Early-life RUL prediction on the Severson battery dataset (gradient-boosted trees on first-100-cycle features). | pi1
 topic: UG | Equivalent-circuit-model classification from EIS spectra (BatteryDEV). | pi2
 topic: UG | PINN for a canonical PDE on PDEBench, characterising training failure modes. | pi3
@@ -94,7 +94,7 @@ ref: EIS ECM benchmark | https://arxiv.org/abs/2302.03362
 ### Foundations of Causal LLMs & Neuro-Symbolic AI
 status: Active
 area: Perception ∧ Logic
-Investigating the causal reasoning capabilities (and failures) of LLMs and VLMs, and building neuro-symbolic architectures that bridge perception and logic for genuine counterfactual reasoning. The recurring question: do models infer cause and effect, or recall memorized causal text?
+We test where LLMs and VLMs actually reason about cause and effect, and where they only repeat causal-sounding text, then pair them with symbolic tools that handle the inference the model cannot. The question that runs through the work: does the model infer cause and effect, or recall it?
 topic: UG | Does it reason or recall? a robustness audit of LLM correlation-to-causation (Corr2Cause). | ns1
 topic: UG | Solver-in-the-loop: an LLM-to-DoWhy pipeline for interventional queries. | ns2
 topic: UG | Counterfactual consistency probing of open LLMs (CRASS, CounterBench). | ns3
