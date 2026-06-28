@@ -27,7 +27,7 @@ link: https://thithuypham.github.io
 
 ## Collaborators
 
-### Phạm Văn Cường, PhDc
+### Phạm Văn Cường, PhD
 role: Collaborator
 initials: PVC
 link: https://scholar.google.com/citations?user=ynLxAv0AAAAJ&hl=en
