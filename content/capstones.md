@@ -99,7 +99,7 @@ method: Evaluate three or four open LVLMs on answer exact-match and region IoU, 
 milestones: (1) harness and reproduce the headline numbers; (2) per-type EM/IoU breakdown; (3) prompting experiments; (4) report.
 read: Background | DocVQA (Mathew et al., WACV 2021). Document VQA basics. | https://www.semanticscholar.org/arxiv/2007.00398
 read: Background | LayoutLMv3 (Huang et al., ACM MM 2022). Layout-aware document models. | https://www.semanticscholar.org/arxiv/2204.08387
-read: Core | MMDocBench (MMM 2025). | https://link.springer.com/chapter/10.1007/978-981-95-6950-2_6
+read: Core | MMDocBench (MMM 2026). | https://link.springer.com/chapter/10.1007/978-981-95-6950-2_6
 
 ### B2 | Layout-Graph Reproduction
 level: UG
@@ -126,7 +126,7 @@ method: Build a claim-to-cell matching pipeline, score it with cell accuracy or 
 milestones: (1) prepare the subset; (2) matching method; (3) evaluation; (4) report.
 read: Background | FinQA (Chen et al., EMNLP 2021). Financial table reasoning. | https://www.semanticscholar.org/arxiv/2109.00122
 read: Background | "A Survey on Table Question Answering" (Jin et al., 2022). | https://www.semanticscholar.org/arxiv/2207.05270
-read: Core | MMDocBench (MMM 2025). | https://link.springer.com/chapter/10.1007/978-981-95-6950-2_6
+read: Core | MMDocBench (MMM 2026). | https://link.springer.com/chapter/10.1007/978-981-95-6950-2_6
 
 ### B4 | Document Visual-Grounding Method
 level: Grad
@@ -138,7 +138,7 @@ data: MMDocBench for evaluation; DocLayNet and GraphDoc for structural supervisi
 method: Add a grounding head and layout-aware supervision to an open document LVLM, train with a joint answer-plus-region loss, evaluate EM and IoU, and ablate the structural signal.
 milestones: (1) reproduce a baseline; (2) grounding head and losses; (3) layout-graph supervision; (4) IoU/EM and faithfulness evaluation; (5) paper.
 read: Background | Visual grounding and referring-expression methods: "Towards Visual Grounding: A Survey" (Xiao et al., 2024). | https://www.semanticscholar.org/arxiv/2412.20206
-read: Core | MMDocBench (MMM 2025). | https://link.springer.com/chapter/10.1007/978-981-95-6950-2_6
+read: Core | MMDocBench (MMM 2026). | https://link.springer.com/chapter/10.1007/978-981-95-6950-2_6
 read: Core | DocLLM (ACL 2024). | https://aclanthology.org/2024.acl-long.463/
 read: Core | gDSA / GraphDoc (ICLR 2025). | https://proceedings.iclr.cc/paper_files/paper/2025/file/cf3d7d8e79703fe947deffb587a83639-Paper-Conference.pdf
 
@@ -165,7 +165,7 @@ data: Scientific and financial report corpora (for example the MMDocBench source
 method: Build the benchmark (premise-to-conclusion items with counterfactual variants), run baselines, add intervention-style methods, and validate with human checks.
 milestones: (1) schema and annotation protocol; (2) build the benchmark; (3) baselines; (4) intervention analysis; (5) paper.
 read: Background | "Causal Inference in Statistics: A Primer" (Pearl, Glymour & Jewell, 2016) and "Causality" (Pearl, 2009). ISBN 978-1-119-18684-7; 978-0-521-89560-6. |
-read: Core | MMDocBench (MMM 2025). | https://link.springer.com/chapter/10.1007/978-981-95-6950-2_6
+read: Core | MMDocBench (MMM 2026). | https://link.springer.com/chapter/10.1007/978-981-95-6950-2_6
 read: Core | DocLLM (ACL 2024). | https://aclanthology.org/2024.acl-long.463/
 
 
@@ -322,7 +322,7 @@ questions: Does a physics-informed prior improve state-of-health accuracy and tr
 data: The PINN4SOH datasets, plus the Severson cells for cross-chemistry transfer.
 method: Re-implement PINN4SOH, add an uncertainty mechanism (deep ensembles or conformal/quantile), and evaluate accuracy, transfer, and calibration.
 milestones: (1) reproduce PINN4SOH; (2) uncertainty head; (3) cross-chemistry transfer; (4) calibration evaluation; (5) paper.
-read: Core | PINN4SOH (Nature Comms 2024). Physics-informed neural network for state of health. | https://doi.org/10.1038/s41467-024-48779-z
+read: Core | PINN4SOH (Wang et al., Nature Comms 2024). Physics-informed neural network for lithium-ion battery degradation modeling and prognosis. | https://doi.org/10.1038/s41467-024-48779-z
 read: Core | Raissi et al. (JCP 2019). PINNs. | https://doi.org/10.1016/j.jcp.2018.10.045
 
 ### PI5 | Discovering Battery Degradation Equations
@@ -334,7 +334,7 @@ questions: Can weak-form SINDy or symbolic regression recover a degradation law 
 data: The Severson LFP cells (capacity-fade trajectories), with NASA or CALCE cells for cross-checking.
 method: Use weak-form SINDy (PySINDy) and PySR to fit degradation dynamics, validate the recovered equations out of sample, and compare against a black-box baseline.
 milestones: (1) trajectory extraction; (2) SINDy/PySR fitting; (3) out-of-sample validation; (4) interpretability comparison; (5) paper.
-read: Core | Brunton, Proctor & Kutz (PNAS 2016). SINDy: discovering governing equations from data. | https://doi.org/10.1073/pnas.1602614113
+read: Core | Brunton, Proctor & Kutz (PNAS 2016). SINDy: discovering governing equations from data. | https://doi.org/10.1073/pnas.1517384113
 read: Core | PySINDy. | https://github.com/dynamicslab/pysindy
 
 ### PI6 | Causal Digital Twin for Counterfactual Battery Aging
@@ -348,7 +348,7 @@ method: Discover the degradation dynamics, embed them in a structural causal mod
 milestones: (1) dynamics discovery; (2) SCM construction; (3) counterfactual validation; (4) transfer analysis; (5) paper.
 read: Core | Severson et al. (Nature Energy 2019). | https://doi.org/10.1038/s41560-019-0356-8
 read: Background | "Causality" (Pearl, 2009). Structural causal models and counterfactuals. ISBN 978-0-521-89560-6. |
-read: Core | Brunton et al. (PNAS 2016). SINDy. | https://doi.org/10.1073/pnas.1602614113
+read: Core | Brunton et al. (PNAS 2016). SINDy. | https://doi.org/10.1073/pnas.1517384113
 
 
 ---
@@ -423,9 +423,9 @@ duration: 9–12 months
 goal: Connect identifiability theory to LLM causal evaluation, and build a shortcut-resistant benchmark for it.
 context: A causal claim can only be answered from data when the query is identifiable from the assumed graph. Existing LLM causal benchmarks mix identifiable and non-identifiable cases, and many can be gamed by lexical shortcuts. Scoring against identifiability gives a more honest measure.
 questions: Do LLMs distinguish identifiable from non-identifiable queries? Can a shortcut-resistant benchmark separate genuine reasoning from pattern matching?
-data: A new benchmark spanning identifiable and non-identifiable queries, built on CausalBench-LLM and synthetic graphs.
+data: A new benchmark spanning identifiable and non-identifiable queries, built on the CausalBench LLM benchmark and synthetic graphs.
 method: Generate queries with known identifiability status, control for lexical shortcuts, evaluate LLMs, and analyze whether confidence tracks identifiability.
 milestones: (1) identifiability generator; (2) shortcut controls; (3) evaluation; (4) analysis; (5) paper.
-read: Core | CausalBench-LLM. | https://arxiv.org/abs/2404.06349
+read: Core | CausalBench: causal learning capability of LLMs (Zhou et al., 2024). | https://arxiv.org/abs/2404.06349
 read: Core | Corr2Cause (ICLR 2024). | https://arxiv.org/abs/2306.05836
 read: Background | "Causality" (Pearl, 2009). Identifiability and the do-calculus. ISBN 978-0-521-89560-6. |

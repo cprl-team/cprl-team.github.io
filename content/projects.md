@@ -86,7 +86,7 @@ ref: Severson (Nature Energy 2019) | https://doi.org/10.1038/s41560-019-0356-8
 ref: PINN4SOH (Nature Comms 2024) | https://doi.org/10.1038/s41467-024-48779-z
 ref: Zhang EIS (Nature Comms 2020) | https://doi.org/10.1038/s41467-020-15235-7
 ref: Raissi PINNs (JCP 2019) | https://doi.org/10.1016/j.jcp.2018.10.045
-ref: SINDy (PNAS 2016) | https://doi.org/10.1073/pnas.1602614113
+ref: SINDy (PNAS 2016) | https://doi.org/10.1073/pnas.1517384113
 ref: PySINDy | https://github.com/dynamicslab/pysindy
 ref: PDEBench | https://arxiv.org/abs/2210.07182
 ref: EIS ECM benchmark | https://arxiv.org/abs/2302.03362
@@ -105,7 +105,7 @@ figure: images/arch/NS-neurosymbolic-pipeline.svg | Neuro-Symbolic · LLM to SCM
 ref: Corr2Cause (ICLR 2024) | https://arxiv.org/abs/2306.05836
 ref: CLadder (NeurIPS 2023) | https://arxiv.org/abs/2312.04350
 ref: CRASS (LREC 2022) | https://arxiv.org/abs/2112.11941
-ref: CausalBench-LLM | https://arxiv.org/abs/2404.06349
+ref: CausalBench for LLMs (Zhou et al., 2024) | https://arxiv.org/abs/2404.06349
 ref: Kiciman et al. (TMLR 2024) | https://arxiv.org/abs/2305.00050
 ref: Logic-LM (EMNLP Findings 2023) | https://arxiv.org/abs/2305.12295
 ref: CounterBench | https://arxiv.org/abs/2502.11008
