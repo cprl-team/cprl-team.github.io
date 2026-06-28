@@ -577,8 +577,10 @@
 
 .project-status--active {
     color: var(--color-on-accent);
-    background: var(--color-accent-2);
-    border-color: var(--color-accent-2);
+    /* accent-2-text is the AA-safe (vs white) darker terracotta, so white
+       text on it clears WCAG AA at badge size; plain accent-2 is 4.36:1. */
+    background: var(--color-accent-2-text);
+    border-color: var(--color-accent-2-text);
 }
 
 .project-status--active::before {
