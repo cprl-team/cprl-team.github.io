@@ -281,7 +281,7 @@ read: Background | PIBD (ICLR 2024). | https://arxiv.org/abs/2401.01646
 level: UG
 duration: 8–12 weeks
 goal: Predict battery cycle life from only the first 100 cycles, reproducing the Severson early-prediction result with gradient-boosted trees.
-context: Severson et al. showed that features from the first 100 cycles, especially the variance of the cycle-to-cycle change in the discharge voltage curve, predict eventual cycle life with about 9.1% test error, well before capacity fade is visible. This is a clean, well-documented starting point for physics-aware prediction.
+context: Severson et al. showed that features from the first 100 cycles, especially the variance of the cycle-to-cycle change in the discharge voltage curve, predict eventual cycle life with about 9.1% test error, long before capacity fade shows up. The data and the result are public, which makes it a good first project to reproduce.
 questions: Can a student match the reported early-prediction error with gradient-boosted trees? Which first-100-cycle features carry the signal?
 data: The Severson/Attia LFP battery dataset (124 cells, MIT/Stanford/TRI).
 method: Engineer the discharge-curve and capacity-fade features, train gradient-boosted trees, and report error against the published splits with a feature-importance analysis.
@@ -293,7 +293,7 @@ read: Background | "The Elements of Statistical Learning" (Hastie, Tibshirani & 
 level: UG
 duration: 8–12 weeks
 goal: Classify the correct equivalent-circuit model for an electrochemical impedance spectrum, using the BatteryDEV benchmark.
-context: Electrochemical impedance spectroscopy (EIS) summarizes a cell as a frequency response, and analysts fit an equivalent-circuit model (ECM) to it. Choosing the right circuit topology is a recurring bottleneck. The BatteryDEV challenge framed this as a classification task over EIS spectra.
+context: Electrochemical impedance spectroscopy (EIS) summarizes a cell as a frequency response, and analysts fit an equivalent-circuit model (ECM) to it. Choosing the right circuit topology is often the hard part. The BatteryDEV challenge framed this as a classification task over EIS spectra.
 questions: How accurately can a model pick the ECM class from a raw spectrum? Which circuit classes get confused with each other?
 data: The BatteryDEV / EIS ECM benchmark dataset (arXiv 2302.03362).
 method: Featurize the impedance spectra, train a classifier, and analyze the confusion structure across circuit classes.
@@ -317,7 +317,7 @@ read: Core | PDEBench (NeurIPS 2022). | https://arxiv.org/abs/2210.07182
 level: Grad
 duration: 6–9 months
 goal: Re-implement a physics-informed battery state-of-health model and add calibrated predictive uncertainty.
-context: PINN4SOH estimates battery state of health by combining data with a physical degradation prior and reports strong accuracy across chemistries. What it does not emphasize is calibrated uncertainty, which matters for any deployment decision.
+context: PINN4SOH estimates battery state of health by combining data with a physical degradation prior and reports strong accuracy across chemistries. What it does not give you is calibrated uncertainty, which you want before trusting a number in practice.
 questions: Does a physics-informed prior improve state-of-health accuracy and transfer across chemistries, and can its uncertainty estimates be made calibrated?
 data: The PINN4SOH datasets, plus the Severson cells for cross-chemistry transfer.
 method: Re-implement PINN4SOH, add an uncertainty mechanism (deep ensembles or conformal/quantile), and evaluate accuracy, transfer, and calibration.
@@ -329,7 +329,7 @@ read: Core | Raissi et al. (JCP 2019). PINNs. | https://doi.org/10.1016/j.jcp.20
 level: Grad
 duration: 6–9 months
 goal: Recover interpretable governing equations for battery degradation from data, using sparse regression and symbolic regression.
-context: SINDy recovers governing equations by sparse regression over a library of candidate terms, and symbolic regression (PySR) searches expression space directly. Applied to battery aging, these could yield a compact, interpretable degradation law rather than a black-box predictor.
+context: SINDy recovers governing equations by sparse regression over a library of candidate terms, and symbolic regression (PySR) searches expression space directly. Applied to battery aging, they could give a short, readable degradation law instead of a black box.
 questions: Can weak-form SINDy or symbolic regression recover a degradation law that predicts capacity fade and stays stable across cells? How does it compare with a black-box model on accuracy and interpretability?
 data: The Severson LFP cells (capacity-fade trajectories), with NASA or CALCE cells for cross-checking.
 method: Use weak-form SINDy (PySINDy) and PySR to fit degradation dynamics, validate the recovered equations out of sample, and compare against a black-box baseline.
@@ -341,7 +341,7 @@ read: Core | PySINDy. | https://github.com/dynamicslab/pysindy
 level: Grad
 duration: 9–12 months
 goal: Build a causal digital twin that answers counterfactual questions about how a battery would have aged under different operating conditions.
-context: Most battery models predict; few support intervention. Combining discovered dynamics with a structural causal model lets us ask "what if the cell had been charged at a lower C-rate", which is the interventional and counterfactual capability that sets this project apart.
+context: Most battery models predict; few support intervention. Combining discovered dynamics with a structural causal model lets us ask "what if the cell had been charged at a lower C-rate". That counterfactual question is the point of the project.
 questions: Can a discovered-dynamics-plus-SCM twin answer counterfactual aging queries that match held-out cells run under those conditions? Does the causal structure improve transfer over a purely predictive model?
 data: Severson and related cycling datasets with varied charging protocols, so interventions on protocol are observable.
 method: Discover the degradation dynamics, embed them in a structural causal model over operating variables, and validate counterfactual predictions against held-out protocol groups.
@@ -359,7 +359,7 @@ read: Core | Brunton et al. (PNAS 2016). SINDy. | https://doi.org/10.1073/pnas.1
 level: UG
 duration: 8–12 weeks
 goal: Audit whether LLMs infer causal structure or recall memorized causal facts, using Corr2Cause with robustness perturbations.
-context: Corr2Cause tests pure causal inference from correlational statements, and the original paper found that LLMs perform close to random and collapse under variable renaming. That fragility is exactly what a robustness audit can quantify.
+context: Corr2Cause tests pure causal inference from correlational statements, and the original paper found that LLMs score close to random and fall apart when the variables are renamed. A robustness audit measures how far they fall.
 questions: How much does accuracy drop under paraphrase and variable renaming? Is any apparent skill explained by memorization rather than inference?
 data: Corr2Cause, with perturbed variants the student generates.
 method: Evaluate several open LLMs on Corr2Cause and on renamed and paraphrased copies, measure the robustness gap, and categorize the failure modes.
@@ -383,7 +383,7 @@ read: Background | Kiciman et al. (TMLR 2024). | https://arxiv.org/abs/2305.0005
 level: UG
 duration: 8–12 weeks
 goal: Probe whether open LLMs answer counterfactual questions consistently, using CRASS and CounterBench.
-context: CRASS and CounterBench pose counterfactual conditionals and check the model's answer. Consistency under rephrasing and under logically equivalent variants is a simple but revealing test that aggregate accuracy hides.
+context: CRASS and CounterBench pose counterfactual conditionals and check the model's answer. Whether the answer holds up under rephrasing, and under logically equivalent variants, is something an aggregate score hides.
 questions: Are LLM counterfactual answers consistent across paraphrase and logically equivalent forms? Where does consistency break?
 data: CRASS and CounterBench.
 method: Evaluate several open LLMs, generate equivalent variants, and measure both accuracy and a consistency score with an error breakdown.
@@ -408,7 +408,7 @@ read: Core | Corr2Cause (ICLR 2024). | https://arxiv.org/abs/2306.05836
 level: Grad
 duration: 6–9 months
 goal: Build a diagnostic benchmark that isolates the abduction step of counterfactual reasoning, and a method that improves it.
-context: Pearl's counterfactual recipe is abduction, then action, then prediction. LLMs may fail at any of the three, but current benchmarks score only the final answer. A benchmark that isolates abduction would localize the failure.
+context: Pearl's counterfactual recipe is abduction, then action, then prediction. An LLM can fail at any of the three, but current benchmarks score only the final answer. A benchmark that isolates abduction would show which step breaks.
 questions: Where in the abduction-action-prediction pipeline do LLMs fail, and does an explicit abduction step (infer the latent, then intervene) improve counterfactual accuracy?
 data: A new diagnostic set with annotated intermediate steps, built on CounterBench-style items and synthetic SCMs.
 method: Construct step-annotated counterfactual items, measure per-step accuracy, and test an explicit abduction-then-action method against direct answering.
@@ -421,7 +421,7 @@ read: Background | "Causality" (Pearl, 2009). The three-step counterfactual reci
 level: Grad
 duration: 9–12 months
 goal: Connect identifiability theory to LLM causal evaluation, and build a shortcut-resistant benchmark for it.
-context: A causal claim is only answerable from data when the query is identifiable from the assumed graph. Existing LLM causal benchmarks mix identifiable and non-identifiable cases and are vulnerable to lexical shortcuts. Tying evaluation to identifiability gives a principled scoring axis.
+context: A causal claim can only be answered from data when the query is identifiable from the assumed graph. Existing LLM causal benchmarks mix identifiable and non-identifiable cases, and many can be gamed by lexical shortcuts. Scoring against identifiability gives a more honest measure.
 questions: Do LLMs distinguish identifiable from non-identifiable queries? Can a shortcut-resistant benchmark separate genuine reasoning from pattern matching?
 data: A new benchmark spanning identifiable and non-identifiable queries, built on CausalBench-LLM and synthetic graphs.
 method: Generate queries with known identifiability status, control for lexical shortcuts, evaluate LLMs, and analyze whether confidence tracks identifiability.
