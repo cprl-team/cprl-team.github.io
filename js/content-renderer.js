@@ -205,7 +205,14 @@
             var y = it.p.year;
             if (y && !yearSeen[y]) { yearSeen[y] = true; years.push(y); }
         });
-        years.sort(function (a, b) { return (parseInt(b, 10) || 0) - (parseInt(a, 10) || 0); });
+        years.sort(function (a, b) {
+            var na = parseInt(a, 10), nb = parseInt(b, 10);
+            var aNum = !isNaN(na), bNum = !isNaN(nb);
+            if (aNum && bNum) return nb - na;   // both years: newest first
+            if (aNum) return 1;                 // non-numeric (e.g. "Ongoing") sorts to the top
+            if (bNum) return -1;
+            return 0;
+        });
 
         var html = '';
 
