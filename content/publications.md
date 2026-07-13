@@ -1,5 +1,44 @@
 # Publications
 
+## Ongoing Papers
+
+### Ongoing | The Circumplex Degeneracy Behind the Rare-Class Limit in Affect Recognition
+authors: **Van Thong Huynh**, **Hong Hai Nguyen**, Soo-Hyung Kim
+venue: In preparation
+venue_short: In progress
+
+### Ongoing | Faithful Action-unit Causal Reasoning for Counterfactually Faithful Emotion Explanations
+authors: **Van Thong Huynh**, **Hong Hai Nguyen**, **Thuy Pham**, **Trong Nghia Nguyen**, Soo-Hyung Kim
+venue: In preparation
+venue_short: In progress
+
+### Ongoing | A Shared Latent for Partially-Labeled Multi-Task Facial Affect Recognition
+authors: **Hong Hai Nguyen**, Sy Phan Van, Soo-Hyung Kim, **Van-Thong Huynh**
+venue: In preparation
+venue_short: In progress
+
+### Ongoing | From Recognition to Reasoning: A Survey of Audio-Visual Emotion Understanding with Multimodal Large Language Models
+authors: **Van Thong Huynh**, **Hong Hai Nguyen**, **Trong Nghia Nguyen**, **Quoc Tien Nguyen**, Hyung-Jeong Yang, Soo-Hyung Kim
+venue: In preparation
+venue_short: In progress
+
+### Ongoing | Probing the Temporal Facial-Affect Content of Image and Video Foundation Representations
+authors: **Van Thong Huynh**, **Hong Hai Nguyen**, **Quoc Tien Nguyen**, Hyungjeong Yang, Soo-Hyung Kim
+venue: In preparation
+venue_short: In progress
+
+### Ongoing | Subject Self-Calibration and Channel-Agnostic Encoding for Cross-Corpus Pain Assessment from Autonomic Signals
+authors: **Van Thong Huynh**, **Hong Hai Nguyen**, **Trong Nghia Nguyen**, **Quoc Tien Nguyen**, Hyungjeong Yang, Soo-Hyung Kim
+venue: In preparation
+venue_short: In progress
+
+### Ongoing | Pain Presence, Not Location: A Causal and Information-Theoretic Analysis of Pain Assessment from Peripheral Physiology
+authors: **Hong-Hai Nguyen**, **Thuy Pham**, **Trong-Nghia Nguyen**, **Van-Thong Huynh**
+venue: In preparation
+venue_short: In progress
+
+---
+
 ## Journal Papers
 
 ### 2025 | Dual-Channel Prior-Based Deep Unfolding with Contrastive Learning for Underwater Image Enhancement
