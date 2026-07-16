@@ -79,7 +79,6 @@ authors: **Van Thong Huynh**, Hyung-Jeong Yang, Guee-Sang Lee, Soo-Hyung Kim
 venue: Pattern Recognition Letters (IF: 5.1)
 venue_short: PRL 2023
 link: https://www.sciencedirect.com/science/article/abs/pii/S016786552300199X
-project: https://pr.ai.vn/publication/evoked_prl23/
 
 ### 2023 | Empirical study for worker engagement in collaborative robot programming
 authors: J.P.J. Prioli, S. Liu, Y. Shen, **Van Thong Huynh**, J. Rickli, Hyung-Jeong Yang, Soo-Hyung Kim, Kyoung-Yun Kim
@@ -92,7 +91,6 @@ authors: **Van Thong Huynh**, Hyung-Jeong Yang, Guee-Sang Lee, Soo Hyung Kim
 venue: IEEE MultiMedia (IF: 5.633, JCR10%)
 venue_short: IEEE MM 2021
 link: https://ieeexplore.ieee.org/document/9431699
-project: https://pr.ai.vn/publication/e2e_mm21/
 
 ### 2021 | D2C-Based Hybrid Network for Predicting Group Cohesion Scores
 authors: **Dang Xuan Tien**, Hyung-Jeong Yang, Guee-Sang Lee, Soo-Hyung Kim
@@ -184,7 +182,6 @@ authors: **Van Thong Huynh**, Hyung-Jeong Yang, Guee-Sang Lee, Soo-Hyung Kim
 venue: 15th IEEE International Conference on Automatic Face and Gesture Recognition (FG 2020)
 venue_short: FG 2020
 link: https://ieeexplore.ieee.org/document/9320185
-project: https://pr.ai.vn/publication/emopain_fg20/
 
 ### 2020 | Vietnamese Punctuation Prediction Using Deep Neural Networks
 authors: **Thuy Thi Pham**, Nhu Nguyen, Quang Pham, Han Cao, Binh T. Nguyen
@@ -228,7 +225,6 @@ authors: **Van Thong Huynh**, Hyung-Jeong Yang, Guee-Sang Lee, Soo-Hyung Kim
 venue: 21st ACM International Conference on Multimodal Interaction (ICMI 2019)
 venue_short: ICMI 2019
 link: https://dl.acm.org/doi/abs/10.1145/3340555.3355714
-project: https://pr.ai.vn/publication/eg_emotiw19/
 
 ### 2019 | Group-level Cohesion Prediction using Deep Learning Models with A Multi-stream Hybrid Network
 authors: **Tien X. Dang**, Thanh-Hung Vo, Hyung-Jeong Yang, Guee-Sang Lee, Soo-Hyung Kim 
