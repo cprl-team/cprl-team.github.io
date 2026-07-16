@@ -32,6 +32,11 @@ authors: **Van Thong Huynh**, **Hong Hai Nguyen**, **Trong Nghia Nguyen**, **Quo
 venue: In preparation
 venue_short: In progress
 
+### Ongoing | AI-Driven Early Warning Systems in Emergency Care: Implementing a Multi-Gradient Network for Real-Time Clinical Deterioration Prediction
+authors: **Trong-Nghia Nguyen**, Soo-Hyung Kim, Bo-Gun Kho, Van-Thien Luong, **Hong-Hai Nguyen**, **Van Thong Huynh**
+venue: Journal, under review
+venue_short: Submitted
+
 ---
 
 ## Journal Papers
@@ -46,11 +51,6 @@ authors: **Van Thong Huynh**, Seungwon Kim, Hyung-Jeong Yang, Soo-Hyung Kim
 venue: Computer Vision and Image Understanding
 venue_short: CVIU 2025
 link: https://doi.org/10.1016/j.cviu.2025.104429
-
-### 2025 | AI-Driven Early Warning Systems in Emergency Care: Implementing a Multi-Gradient Network for Real-Time Clinical Deterioration Prediction
-authors: **Trong-Nghia Nguyen**, Soo-Hyung Kim, Bo-Gun Kho, Van-Thien Luong, **Hong-Hai Nguyen**, **Van Thong Huynh**
-venue: Journal Submitted
-venue_short: Submitted 2025
 
 ### 2025 | Big team science reveals promises and limitations of machine learning efforts to model the physiological basis of affective experience
 authors: Nicholas A Coles, Bartosz Perz, ..., **Van Thong Huynh**, et al.
