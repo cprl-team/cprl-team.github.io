@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#16110b" media="(prefers-color-scheme: dark)">
+
+    <!-- Set theme before paint to avoid a flash of the wrong theme -->
+    <script>
+        (function () {
+            try {
+                var t = localStorage.getItem('cprl-theme') ||
+                    (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                document.documentElement.setAttribute('data-theme', t);
+            } catch (e) {}
+        })();
+    </script>
+
+    <title>CPR — Pain Presence, Not Location (ACIIW 2026)</title>
+    <meta name="description" content="Pain Presence, Not Location: a causal and information-theoretic analysis showing peripheral physiology encodes pain presence but not stimulus location. AI4Pain 2026 Grand Challenge, ACIIW 2026.">
+    <link rel="canonical" href="https://cpr.ai.vn/pain-presence.html">
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="CPR — Causal Perception and Reasoning">
+    <meta property="og:title" content="Pain Presence, Not Location — CPR">
+    <meta property="og:description" content="A causal and information-theoretic analysis of pain assessment from peripheral physiology. AI4Pain 2026 Grand Challenge, ACIIW 2026.">
+    <meta property="og:url" content="https://cpr.ai.vn/pain-presence.html">
+    <meta property="og:image" content="https://cpr.ai.vn/banner.jpg">
+    <meta property="og:image:alt" content="Causal Perception and Reasoning research group">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pain Presence, Not Location — CPR">
+    <meta name="twitter:description" content="A causal and information-theoretic analysis of pain assessment from peripheral physiology. AI4Pain 2026 Grand Challenge, ACIIW 2026.">
+    <meta name="twitter:image" content="https://cpr.ai.vn/banner.jpg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" href="favicon.ico" id="site-favicon">
+
+    <!-- Page-scoped styling (tokens only) -->
+    <style>
+        .paper-lede { max-width: 60rem; }
+        .paper-authors { font-size: var(--font-size-lead); color: var(--color-text-secondary); margin-top: var(--spacing-4); }
+        .paper-authors sup { color: var(--color-accent-text); font-weight: var(--font-weight-semibold); }
+        .paper-venue { margin-top: var(--spacing-3); color: var(--color-text-muted); font-family: var(--font-mono); font-size: var(--font-size-caption); }
+        .paper-actions { display: flex; flex-wrap: wrap; gap: var(--spacing-3); margin-top: var(--spacing-6); }
+        .paper-section { margin-top: var(--spacing-12); }
+        .paper-section > .section-label { margin-bottom: var(--spacing-5); }
+        .paper-prose { max-width: 60rem; color: var(--color-text-secondary); line-height: var(--line-height-relaxed); }
+        .paper-prose p { margin-bottom: var(--spacing-4); }
+        .paper-findings { max-width: 60rem; list-style: none; display: grid; gap: var(--spacing-4); }
+        .paper-findings li { position: relative; padding-left: var(--spacing-6); color: var(--color-text-secondary); line-height: var(--line-height-relaxed); }
+        .paper-findings li::before { content: ""; position: absolute; left: 0; top: 0.55em; width: 0.6rem; height: 0.6rem; border-radius: 50%; background: var(--color-accent); }
+        .paper-stats { margin-top: var(--spacing-6); }
+        .affil-list { max-width: 60rem; list-style: none; display: grid; gap: var(--spacing-2); color: var(--color-text-secondary); }
+        .affil-list sup { color: var(--color-accent-text); font-weight: var(--font-weight-semibold); margin-right: var(--spacing-1); }
+        .bibtex { max-width: 60rem; margin-top: var(--spacing-5); background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--spacing-5); overflow-x: auto; }
+        .bibtex pre { font-family: var(--font-mono); font-size: var(--font-size-caption); line-height: var(--line-height-normal); color: var(--color-text-primary); white-space: pre; }
+    </style>
+
+    <script src="js/site-config.js" defer></script>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to content</a>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="header-left"><a href="index.html" class="logo" data-logo="header">Causal Perception and
+                    Reasoning</a></div>
+            <nav class="main-nav" aria-label="Main navigation">
+                <a href="index.html">Home</a><a href="publications.html">Publications</a><a
+                    href="projects.html">Projects</a><a
+                    href="members.html">Members</a><a href="achievements.html">Achievements</a>
+            </nav>
+            <div class="header-right">
+                <button class="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">
+                    <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" aria-hidden="true">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                    </svg>
+                    <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="12" cy="12" r="5" />
+                        <line x1="12" y1="1" x2="12" y2="3" />
+                        <line x1="12" y1="21" x2="12" y2="23" />
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                        <line x1="1" y1="12" x2="3" y2="12" />
+                        <line x1="21" y1="12" x2="23" y2="12" />
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                    </svg>
+                </button>
+                <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false"><svg
+                        xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="6" x2="21" y2="6" />
+                        <line x1="3" y1="12" x2="21" y2="12" />
+                        <line x1="3" y1="18" x2="21" y2="18" />
+                    </svg></button>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <div class="container">
+            <div class="page-header fade-in paper-lede">
+                <p class="section-label">Paper · ACIIW 2026 · AI4Pain</p>
+                <h1>Pain Presence, Not Location</h1>
+                <p>A Causal and Information-Theoretic Analysis of Pain Assessment from Peripheral Physiology</p>
+                <p class="paper-authors">
+                    Hong Hai Nguyen<sup>1</sup>, Thuy Thi Pham<sup>2</sup>, Trong Nghia Nguyen<sup>3</sup>, Van Thong Huynh<sup>2</sup>
+                </p>
+                <p class="paper-venue">14th International Conference on Affective Computing and Intelligent Interaction Workshops and Demos (ACIIW), 2026 · AI4Pain 2026 Grand Challenge</p>
+                <div class="paper-actions">
+                    <a class="btn btn-primary" href="papers/pain-presence-aciiw2026.pdf" target="_blank" rel="noopener">Read the paper (PDF)</a>
+                    <a class="btn btn-secondary" href="https://sites.google.com/view/ai4pain" target="_blank" rel="noopener">AI4Pain 2026 dataset ↗</a>
+                    <a class="btn btn-secondary" href="publications.html">All publications</a>
+                </div>
+            </div>
+
+            <section class="paper-section fade-in">
+                <h2 class="section-label">Abstract</h2>
+                <div class="paper-prose">
+                    <p>Automated pain assessment from physiological signals has advanced rapidly, yet has focused almost entirely on detecting the presence or intensity of pain. Whether peripheral physiological signals also encode the anatomical location of a painful stimulus remains largely unexamined. We study this on the AI4Pain 2026 dataset, which provides electrodermal activity, blood volume pulse, respiration, and oxygen saturation for a balanced three-class problem: No Pain, Pain Arm, and Pain Hand.</p>
+                    <p>We build a simple, reproducible subject-independent pipeline that combines label-free per-subject normalization, interpretable features, and standard classifiers. On the official validation set our best model reaches 56.5% accuracy (95% CI 49.8 to 62.5) against a 41.7% challenge baseline, and 56.2% on the held-out test set, confirming that the accuracy generalizes to unseen subjects.</p>
+                    <p>A controlled analysis, however, traces this accuracy almost entirely to pain detection: No-Pain versus Pain separates cleanly, whereas Arm-vs-Hand localization stays at chance under standard features, a null that holds across four classifier families, individual subjects, a label-permutation control, and a model-independent information bound. The usable signal is carried by blood volume pulse and electrodermal activity, whereas respiration and oxygen saturation are uninformative and dilute naive fusion. Systemic autonomic responses thus index pain arousal but not stimulus site under standard peripheral features, with direct implications for physiological pain-localization systems.</p>
+                </div>
+            </section>
+
+            <section class="paper-section fade-in">
+                <h2 class="section-label">Key results</h2>
+                <div class="stat-grid paper-stats">
+                    <div class="stat"><span class="stat__num">56.5%</span><span class="stat__label">validation accuracy (95% CI 49.8&ndash;62.5)</span></div>
+                    <div class="stat"><span class="stat__num">56.2%</span><span class="stat__label">held-out test accuracy</span></div>
+                    <div class="stat"><span class="stat__num">41.7%</span><span class="stat__label">challenge baseline</span></div>
+                    <div class="stat"><span class="stat__num">~0 bits</span><span class="stat__label">information about pain site (vs 0.21 about pain)</span></div>
+                </div>
+            </section>
+
+            <section class="paper-section fade-in">
+                <h2 class="section-label">What we found</h2>
+                <ul class="paper-findings">
+                    <li>We decompose the task into <strong>detection</strong> and <strong>localization</strong>, and show that all achievable accuracy comes from detection. Arm-vs-Hand localization stays at chance across four classifier families, individual subjects, a label-permutation control, and a within-subject test.</li>
+                    <li>Convergent causal effect-size and information-theoretic evidence (about 0 bits about the site versus 0.21 bits about pain) confirms the stimulus site is undecodable from standard features, so the benchmark's three-class accuracy should be read as a detection score.</li>
+                    <li>An ablation explains why detection works: blood volume pulse and electrodermal activity carry the usable signal, while respiration and oxygen saturation are uninformative and dilute naive fusion.</li>
+                    <li>The pipeline is deliberately simple and reproducible: label-free per-subject normalization, interpretable features, and standard classifiers, evaluated subject-independent (leave-one-subject-out and a held-out test).</li>
+                </ul>
+            </section>
+
+            <section class="paper-section fade-in">
+                <h2 class="section-label">Authors</h2>
+                <ul class="affil-list">
+                    <li><sup>1</sup>Hong Hai Nguyen, Department of AI, FPT University, Ho Chi Minh City, Vietnam</li>
+                    <li><sup>2</sup>Thuy Thi Pham and Van Thong Huynh, Faculty of Computer Science and Engineering, Ho Chi Minh City University of Technology (HCMUT), VNU-HCM, Vietnam</li>
+                    <li><sup>3</sup>Trong Nghia Nguyen, Faculty of Data Science and Artificial Intelligence, National Economics University, Hanoi, Vietnam</li>
+                </ul>
+            </section>
+
+            <section class="paper-section fade-in">
+                <h2 class="section-label">Cite</h2>
+                <div class="bibtex">
+<pre>@inproceedings{nguyen2026painpresence,
+  title     = {Pain Presence, Not Location: A Causal and
+               Information-Theoretic Analysis of Pain Assessment
+               from Peripheral Physiology},
+  author    = {Nguyen, Hong Hai and Pham, Thuy Thi and
+               Nguyen, Trong Nghia and Huynh, Van Thong},
+  booktitle = {2026 14th International Conference on Affective Computing
+               and Intelligent Interaction Workshops and Demos (ACIIW)},
+  year      = {2026},
+  publisher = {IEEE},
+  note      = {AI4Pain 2026 Grand Challenge},
+}</pre>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand"><a href="index.html" class="logo" data-logo="footer"></a>
+                    <p>Causal Perception and Reasoning Research Group, advancing causal AI research from HCMC, Vietnam.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Pages</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="publications.html">Publications</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="capstones.html">Capstones</a></li>
+                        <li><a href="members.html">Members</a></li>
+                        <li><a href="achievements.html">Achievements</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Connect</h4>
+                    <div class="footer-social"><a href="https://cpr.ai.vn" aria-label="Website"
+                            data-tooltip="cpr.ai.vn" target="_blank" rel="noopener"><svg
+                                xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10" />
+                                <line x1="2" y1="12" x2="22" y2="12" />
+                                <path
+                                    d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                            </svg></a><a href="mailto:contact@pr.ai.vn" aria-label="Email"
+                            data-tooltip="contact@pr.ai.vn" target="_blank" rel="noopener"><svg
+                                xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                <polyline points="22,6 12,13 2,6" />
+                            </svg></a></div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 CPR — Causal Perception and Reasoning Research Group. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="js/theme.js" defer></script>
+    <script src="js/navigation.js" defer></script>
+    <script src="js/main.js" defer></script>
+</body>
+
+</html>
