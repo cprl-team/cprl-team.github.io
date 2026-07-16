@@ -34,8 +34,8 @@ venue_short: In progress
 
 ### Ongoing | AI-Driven Early Warning Systems in Emergency Care: Implementing a Multi-Gradient Network for Real-Time Clinical Deterioration Prediction
 authors: **Trong-Nghia Nguyen**, Soo-Hyung Kim, Bo-Gun Kho, Van-Thien Luong, **Hong-Hai Nguyen**, **Van Thong Huynh**
-venue: Journal, under review
-venue_short: Submitted
+venue: In preparation
+venue_short: In progress
 
 ---
 
