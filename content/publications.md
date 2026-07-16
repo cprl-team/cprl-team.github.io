@@ -32,11 +32,6 @@ authors: **Van Thong Huynh**, **Hong Hai Nguyen**, **Trong Nghia Nguyen**, **Quo
 venue: In preparation
 venue_short: In progress
 
-### Ongoing | Pain Presence, Not Location: A Causal and Information-Theoretic Analysis of Pain Assessment from Peripheral Physiology
-authors: **Hong-Hai Nguyen**, **Thuy Pham**, **Trong-Nghia Nguyen**, **Van-Thong Huynh**
-venue: In preparation
-venue_short: In progress
-
 ---
 
 ## Journal Papers
@@ -114,6 +109,11 @@ link: https://ieeexplore.ieee.org/document/9143078
 ---
 
 ## Conference Papers
+
+### 2026 | Pain Presence, Not Location: A Causal and Information-Theoretic Analysis of Pain Assessment from Peripheral Physiology
+authors: **Hong Hai Nguyen**, **Thuy Thi Pham**, **Trong Nghia Nguyen**, **Van Thong Huynh**
+venue: 14th International Conference on Affective Computing and Intelligent Interaction Workshops and Demos (ACIIW), AI4Pain 2026 Grand Challenge
+venue_short: ACIIW 2026 (AI4Pain)
 
 ### 2025 | MediFusion-Flex: An Adaptive Multimodal Deep Learning Framework for Clinical Deterioration Prediction in Emergency Medicine
 authors: **Trong-Nghia Nguyen**, **Hong-Hai Nguyen**, **Ngoc Tu Vu**, Tuan Anh Tran, Soo-Hyung Kim, Bo-Gun Kho, **Van-Thong Huynh**
