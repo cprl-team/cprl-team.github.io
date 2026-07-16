@@ -1,6 +1,6 @@
 # CPRL — Causal Perception and Reasoning Lab
 
-A minimalist static website for the [CPRL research group](https://pr.ai.vn/), built with vanilla HTML, CSS, and JavaScript. Deployed on GitHub Pages.
+A minimalist static website for the [CPRL research group](https://cpr.ai.vn/), built with vanilla HTML, CSS, and JavaScript. Deployed on GitHub Pages.
 
 ## 🚀 Quick Start
 
