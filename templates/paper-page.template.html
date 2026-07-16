@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- =====================================================================
+     PAPER / PROJECT PAGE TEMPLATE
+     ---------------------------------------------------------------------
+     HOW TO USE
+       1. Copy this file to the repo ROOT as <slug>.html
+          (e.g. cp templates/paper-page.template.html my-paper.html)
+       2. Find/replace every {{TOKEN}} below with the paper's details.
+       3. DELETE the <meta name="robots" content="noindex"> line so the
+          real page gets indexed (it is here only to hide the template).
+       4. Figures are OPTIONAL and paper-specific. Keep the "Figures"
+          section and redraw the diagrams (see the class list in that
+          section's comment), or delete the whole section.
+       5. Wire it up: in content/publications.md, add a line
+              project: <slug>.html
+          under the paper's entry. A "Project" link then appears on it.
+       6. (optional) add the page to the header/footer nav if you want it
+          reachable outside Publications.
+       7. Verify + ship via the usual branch -> PR -> merge flow.
+
+     NOTES
+       - No build step. Styling comes from css/*.css design tokens, so the
+         page inherits light/dark, emerald brand, header/footer, and fonts.
+       - Keep prose em-dash-free (use commas / "and"); brand titles like
+         "CPR — X" keep their em-dash on purpose.
+       - Diagrams use the shared .a-* classes (theme-aware) and are
+         tap-to-enlarge via js/lightbox.js.
+     ===================================================================== -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#16110b" media="(prefers-color-scheme: dark)">
+
+    <!-- TEMPLATE ONLY: delete this line on the real page -->
+    <meta name="robots" content="noindex">
+
+    <!-- Set theme before paint to avoid a flash of the wrong theme -->
+    <script>
+        (function () {
+            try {
+                var t = localStorage.getItem('cprl-theme') ||
+                    (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                document.documentElement.setAttribute('data-theme', t);
+            } catch (e) {}
+        })();
+    </script>
+
+    <title>CPR — {{PAPER_TITLE}}</title>
+    <meta name="description" content="{{META_DESCRIPTION}}">
+    <link rel="canonical" href="https://cpr.ai.vn/{{PAGE_SLUG}}.html">
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="CPR — Causal Perception and Reasoning">
+    <meta property="og:title" content="{{PAPER_TITLE}} — CPR">
+    <meta property="og:description" content="{{META_DESCRIPTION}}">
+    <meta property="og:url" content="https://cpr.ai.vn/{{PAGE_SLUG}}.html">
+    <meta property="og:image" content="https://cpr.ai.vn/banner.jpg">
+    <meta property="og:image:alt" content="Causal Perception and Reasoning research group">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{PAPER_TITLE}} — CPR">
+    <meta name="twitter:description" content="{{META_DESCRIPTION}}">
+    <meta name="twitter:image" content="https://cpr.ai.vn/banner.jpg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" href="favicon.ico" id="site-favicon">
+
+    <!-- Page-scoped styling (tokens only) -->
+    <style>
+        .paper-lede { max-width: 60rem; }
+        .paper-authors { font-size: var(--font-size-lead); color: var(--color-text-secondary); margin-top: var(--spacing-4); }
+        .paper-authors sup { color: var(--color-accent-text); font-weight: var(--font-weight-semibold); }
+        .paper-affil { margin-top: var(--spacing-3); display: flex; flex-direction: column; gap: 3px; font-size: var(--font-size-small); font-style: italic; color: var(--color-text-muted); line-height: var(--line-height-snug); letter-spacing: var(--letter-spacing-normal); }
+        .paper-affil sup { font-style: normal; color: var(--color-accent-text); font-weight: var(--font-weight-semibold); margin-right: var(--spacing-1); }
+        .paper-venue { margin-top: var(--spacing-3); color: var(--color-text-muted); font-family: var(--font-mono); font-size: var(--font-size-caption); }
+        .paper-actions { display: flex; flex-wrap: wrap; gap: var(--spacing-3); margin-top: var(--spacing-6); }
+        .paper-section { margin-top: var(--spacing-12); }
+        .paper-section > .section-label { margin-bottom: var(--spacing-5); }
+        .paper-prose { max-width: 60rem; color: var(--color-text-secondary); line-height: var(--line-height-relaxed); text-align: justify; -webkit-hyphens: auto; hyphens: auto; }
+        .paper-prose p { margin-bottom: var(--spacing-4); }
+        .paper-section .arch-figure + .arch-figure { margin-top: var(--spacing-8); }
+        .bibtex { max-width: 60rem; margin-top: var(--spacing-5); background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--spacing-5); overflow-x: auto; }
+        .bibtex pre { font-family: var(--font-mono); font-size: var(--font-size-caption); line-height: var(--line-height-normal); color: var(--color-text-primary); white-space: pre; }
+    </style>
+
+    <script src="js/site-config.js" defer></script>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to content</a>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="header-left"><a href="index.html" class="logo" data-logo="header">Causal Perception and
+                    Reasoning</a></div>
+            <nav class="main-nav" aria-label="Main navigation">
+                <a href="index.html">Home</a><a href="publications.html">Publications</a><a
+                    href="projects.html">Projects</a><a
+                    href="members.html">Members</a><a href="achievements.html">Achievements</a>
+            </nav>
+            <div class="header-right">
+                <button class="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">
+                    <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" aria-hidden="true">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                    </svg>
+                    <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="12" cy="12" r="5" />
+                        <line x1="12" y1="1" x2="12" y2="3" />
+                        <line x1="12" y1="21" x2="12" y2="23" />
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                        <line x1="1" y1="12" x2="3" y2="12" />
+                        <line x1="21" y1="12" x2="23" y2="12" />
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                    </svg>
+                </button>
+                <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false"><svg
+                        xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="6" x2="21" y2="6" />
+                        <line x1="3" y1="12" x2="21" y2="12" />
+                        <line x1="3" y1="18" x2="21" y2="18" />
+                    </svg></button>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <div class="container">
+
+            <!-- ===== Header: kicker, title, subtitle, authors, affiliations, venue, actions ===== -->
+            <div class="page-header fade-in paper-lede">
+                <p class="section-label">{{VENUE_KICKER}}</p> <!-- e.g. Paper · ACIIW 2026 · AI4Pain -->
+                <h1>{{PAPER_TITLE}}</h1>
+                <p>{{PAPER_SUBTITLE}}</p> <!-- the long/second half of the title, or a one-line summary -->
+
+                <!-- Author names. Add <sup>N</sup> after each name to key an affiliation below. -->
+                <p class="paper-authors">
+                    {{AUTHOR_NAME_1}}<sup>1</sup>, {{AUTHOR_NAME_2}}<sup>2</sup>
+                </p>
+
+                <!-- One <span> per distinct affiliation, numbered to match the sups above. -->
+                <p class="paper-affil">
+                    <span><sup>1</sup>{{AFFILIATION_1}}</span>
+                    <span><sup>2</sup>{{AFFILIATION_2}}</span>
+                </p>
+
+                <p class="paper-venue">{{VENUE_FULL}}</p> <!-- full conference/journal name, year, track -->
+
+                <div class="paper-actions">
+                    <!-- Primary action: dataset, code, or (if you host it) the paper link.
+                         Do NOT host the publisher PDF unless you have the rights to. -->
+                    <a class="btn btn-primary" href="{{PRIMARY_ACTION_URL}}" target="_blank" rel="noopener">{{PRIMARY_ACTION_LABEL}} ↗</a>
+                    <a class="btn btn-secondary" href="publications.html">All publications</a>
+                </div>
+            </div>
+
+            <!-- ===== Abstract: one justified paragraph ===== -->
+            <section class="paper-section fade-in">
+                <h2 class="section-label">Abstract</h2>
+                <div class="paper-prose">
+                    <p>{{ABSTRACT}}</p>
+                </div>
+            </section>
+
+            <!-- ===== Figures (OPTIONAL, paper-specific): delete this whole section if unused =====
+                 Each figure is a theme-aware inline SVG in a .arch-figure (tap-to-enlarge).
+                 Use only these classes so it recolors in light/dark and matches the brand:
+                   Emerald (primary):  .a-node (fill) · .a-accent/.a-frame (stroked box) ·
+                                       .a-cedge (edge) · .a-arrow-c (arrowhead) · .a-bariou (bar) ·
+                                       .a-em (accent text)
+                   Terracotta (2nd):   .a-rnode (fill) · .a-metric (stroked box) · .a-edge (edge) ·
+                                       .a-arrow (arrowhead) · .a-barem (bar) · .a-mt/.a-mt2 (text)
+                   Neutral:            .a-bg · .a-grid · .a-box · .a-panel · .a-line · .a-track ·
+                                       .a-lab (label) · .a-sub (subtext) · .a-mono (mono) · .a-ttl (title)
+                 Give <marker> and <pattern> ids a per-file prefix so multiple SVGs don't clash.
+                 Starter example below (a 3-box pipeline) — replace with your own diagram. -->
+            <section class="paper-section fade-in">
+                <h2 class="section-label">{{FIGURES_HEADING}}</h2>
+
+                <figure class="arch-figure" role="button" tabindex="0" aria-label="{{FIGURE_CAPTION}} (tap to enlarge)">
+                    <figcaption class="arch-figcaption">{{FIGURE_CAPTION}}<span class="arch-figcaption__hint">⤢ tap to enlarge</span></figcaption>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-label="{{FIGURE_ALT_TEXT}}">
+                        <defs>
+                            <pattern id="tmplGrid" width="20" height="20" patternUnits="userSpaceOnUse"><circle class="a-grid" cx="2" cy="2" r="1.3"/></pattern>
+                            <marker id="tmplArr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path class="a-arrow-c" d="M0,0L10,5L0,10z"/></marker>
+                        </defs>
+                        <rect class="a-bg" width="960" height="540"/>
+                        <rect width="960" height="540" fill="url(#tmplGrid)"/>
+                        <text class="a-ttl" x="30" y="58">{{FIGURE_TITLE}}</text>
+
+                        <rect class="a-box" x="60" y="220" width="200" height="100" rx="10"/>
+                        <text class="a-lab" x="160" y="266" text-anchor="middle">Input</text>
+                        <text class="a-sub" x="160" y="288" text-anchor="middle">data / signals</text>
+
+                        <rect class="a-accent" x="380" y="220" width="200" height="100" rx="10"/>
+                        <text class="a-lab" x="480" y="266" text-anchor="middle">Method</text>
+                        <text class="a-sub" x="480" y="288" text-anchor="middle">model</text>
+
+                        <rect class="a-metric" x="700" y="220" width="200" height="100" rx="10"/>
+                        <text class="a-lab" x="800" y="266" text-anchor="middle">Result</text>
+                        <text class="a-sub" x="800" y="288" text-anchor="middle">metric</text>
+
+                        <path class="a-cedge" d="M260,270 L376,270" marker-end="url(#tmplArr)"/>
+                        <path class="a-cedge" d="M580,270 L696,270" marker-end="url(#tmplArr)"/>
+                    </svg>
+                </figure>
+            </section>
+
+            <!-- ===== Cite ===== -->
+            <section class="paper-section fade-in">
+                <h2 class="section-label">Cite</h2>
+                <div class="bibtex">
+<pre>{{BIBTEX}}</pre>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand"><a href="index.html" class="logo" data-logo="footer"></a>
+                    <p>Causal Perception and Reasoning Research Group, advancing causal AI research from HCMC, Vietnam.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Pages</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="publications.html">Publications</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="capstones.html">Capstones</a></li>
+                        <li><a href="members.html">Members</a></li>
+                        <li><a href="achievements.html">Achievements</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Connect</h4>
+                    <div class="footer-social"><a href="https://cpr.ai.vn" aria-label="Website"
+                            data-tooltip="cpr.ai.vn" target="_blank" rel="noopener"><svg
+                                xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10" />
+                                <line x1="2" y1="12" x2="22" y2="12" />
+                                <path
+                                    d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                            </svg></a><a href="mailto:contact@pr.ai.vn" aria-label="Email"
+                            data-tooltip="contact@pr.ai.vn" target="_blank" rel="noopener"><svg
+                                xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                <polyline points="22,6 12,13 2,6" />
+                            </svg></a></div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 CPR — Causal Perception and Reasoning Research Group. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="js/theme.js" defer></script>
+    <script src="js/navigation.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/lightbox.js" defer></script>
+</body>
+
+</html>
