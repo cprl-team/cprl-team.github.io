@@ -37,6 +37,16 @@ authors: **Trong-Nghia Nguyen**, Soo-Hyung Kim, Bo-Gun Kho, Van-Thien Luong, **H
 venue: In preparation
 venue_short: In progress
 
+### Ongoing | CF-Net: Conflict Fusion with Speaker Normalisation and Certainty Weighting for Hesitancy Recognition
+authors: Tung Hung Bui, **Hong Hai Nguyen**, **Van Thong Huynh**
+venue: In preparation
+venue_short: In progress
+
+### Ongoing | Parameter-Isolated Experts for Multi-Task Affect Recognition
+authors: **Hong Hai Nguyen**, **Van Thong Huynh**
+venue: In preparation
+venue_short: In progress
+
 ---
 
 ## Journal Papers
