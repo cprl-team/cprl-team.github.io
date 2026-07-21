@@ -227,7 +227,10 @@
         html += '<label class="pub-year-filter">Year ';
         html += '<select class="pub-filter-select" data-filter-year>';
         html += '<option value="all">All</option>';
-        years.forEach(function (y) { html += '<option value="' + escapeHTML(y) + '">' + escapeHTML(y) + '</option>'; });
+        years.forEach(function (y) {
+            if (isNaN(parseInt(y, 10))) return; // skip non-year buckets (e.g. "Ongoing") in the Year filter
+            html += '<option value="' + escapeHTML(y) + '">' + escapeHTML(y) + '</option>';
+        });
         html += '</select></label>';
         html += '<span class="pub-count" aria-live="polite"></span>';
         html += '</div>';
