@@ -43,7 +43,7 @@ venue: In preparation
 venue_short: In progress
 
 ### Ongoing | Parameter-Isolated Experts for Multi-Task Affect Recognition
-authors: **Hong Hai Nguyen**, **Van Thong Huynh**
+authors: Tung Hung Bui, **Hong Hai Nguyen**, **Van Thong Huynh**
 venue: In preparation
 venue_short: In progress
 
