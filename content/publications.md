@@ -52,6 +52,11 @@ authors: Thanh Tri Pham, **Hong Hai Nguyen**, **Thi Thuy Pham**, **Trong Nghia N
 venue: In preparation
 venue_short: In progress
 
+### Ongoing | Decomposing Facial Emotion Recognition Accuracy with a Leakage-Safe Instrument
+authors: **Van Thong Huynh** et al.
+venue: In preparation
+venue_short: In progress
+
 ---
 
 ## Journal Papers
