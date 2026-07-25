@@ -47,6 +47,11 @@ authors: Tung Hung Bui, **Hong Hai Nguyen**, **Van Thong Huynh**
 venue: In preparation
 venue_short: In progress
 
+### Ongoing | Trustworthy Multimodal Fusion of Physiological Signals for Pain Decoding
+authors: Thanh Tri Pham, **Hong Hai Nguyen**, **Thi Thuy Pham**, **Trong Nghia Nguyen**, **Van Thong Huynh**
+venue: In preparation
+venue_short: In progress
+
 ---
 
 ## Journal Papers
