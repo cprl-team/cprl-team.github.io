@@ -1,4 +1,7 @@
+# This site intentionally opts out of search-engine indexing.
+# Every page sends: <meta name="robots" content="noindex, nofollow">
+# Crawling is left allowed on purpose so crawlers can fetch the pages and
+# read that noindex tag (blocking crawl here would stop Google from seeing
+# it, which can leave already-indexed URLs stuck in results).
 User-agent: *
 Allow: /
-
-Sitemap: https://cpr.ai.vn/sitemap.xml
