@@ -134,6 +134,11 @@ venue: 14th International Conference on Affective Computing and Intelligent Inte
 venue_short: ACIIW 2026 (AI4Pain)
 project: pain-presence.html
 
+### 2026 | KAN-SegFormer: Kolmogorov-Arnold Decoding for Brain Tumor Segmentation
+authors: Van Hieu Dao, **Van Thong Huynh**
+venue: MIWAI 2026
+venue_short: MIWAI 2026
+
 ### 2025 | MediFusion-Flex: An Adaptive Multimodal Deep Learning Framework for Clinical Deterioration Prediction in Emergency Medicine
 authors: **Trong-Nghia Nguyen**, **Hong-Hai Nguyen**, **Ngoc Tu Vu**, Tuan Anh Tran, Soo-Hyung Kim, Bo-Gun Kho, **Van-Thong Huynh**
 venue: MIWAI 2025, Lecture Notes in Computer Science (Springer)
