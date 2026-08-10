@@ -41,17 +41,14 @@ Investigate the causal reasoning capabilities (and failures) of LLMs and VLMs. D
 
 ## Recent News
 
-### 2026 | Two papers accepted at ABAW @ ECCV 2026
-CF-Net and Parameter-Isolated Experts for Multi-Task Affect Recognition were accepted to the ABAW workshop at ECCV 2026 (LNCS).
-
-### 2026 | "Pain Presence, Not Location" accepted at ACIIW 2026
-Our study of pain decoding from peripheral physiology was accepted to the AI4Pain 2026 Grand Challenge at the ACII 2026 workshops.
-
-### 2026 | KAN-SegFormer accepted at MIWAI 2026
-Our Kolmogorov-Arnold decoding approach for brain tumor segmentation was accepted at MIWAI 2026 (LNAI).
-
-### 2025 | New publications in CVIU and Royal Society Open Science
-Our papers on multilevel spatial-temporal feature analysis and machine learning for affective experience were published.
+<!-- Recent News is HYBRID: the most recent accepted papers are pulled in
+     automatically from content/publications.md (newest first, capped at 5),
+     so paper acceptances do NOT need to be added here.
+     Add only NON-paper highlights (awards, grants, talks, events) below.
+     Format each one as a heading line "three-hashes YEAR | Headline", then a
+     one-line description, then an optional link line ("link:" followed by a
+     URL) to make the headline clickable. Curated items lead within their
+     year; the whole list is capped at 5. -->
 
 ---
 

@@ -441,6 +441,11 @@
                 continue;
             }
 
+            if (current && line.startsWith('link: ')) {
+                current.link = line.replace('link: ', '').trim();
+                continue;
+            }
+
             // Description text
             if (current && line && !line.startsWith('#')) {
                 current.description += (current.description ? ' ' : '') + line;
