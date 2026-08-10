@@ -194,41 +194,48 @@
             return 0;
         });
 
-        var html = '';
+        function yslug(y) { return 'pubyear-' + String(y).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); }
+
+        // Table of contents — jump links to each year group
+        var toc = '<nav class="pub-toc" aria-label="Jump to year"><span class="pub-toc__label">Contents</span><ul>';
+        years.forEach(function (y) {
+            toc += '<li><a href="#' + yslug(y) + '" data-toc="' + escapeHTML(y) + '">' + escapeHTML(y) + '</a></li>';
+        });
+        toc += '</ul></nav>';
 
         // Controls
-        html += '<div class="pub-controls">';
-        html += '<div class="pub-filter__group" role="group" aria-label="Filter by type">';
-        html += '<button type="button" class="pub-filter" data-filter-type="all" aria-pressed="true">All</button>';
+        var controls = '<div class="pub-controls">';
+        controls += '<div class="pub-filter__group" role="group" aria-label="Filter by type">';
+        controls += '<button type="button" class="pub-filter" data-filter-type="all" aria-pressed="true">All</button>';
         flat.types.forEach(function (t) {
-            html += '<button type="button" class="pub-filter" data-filter-type="' + escapeHTML(t.slug) + '" aria-pressed="false">' + escapeHTML(t.label) + '</button>';
+            controls += '<button type="button" class="pub-filter" data-filter-type="' + escapeHTML(t.slug) + '" aria-pressed="false">' + escapeHTML(t.label) + '</button>';
         });
-        html += '</div>';
-        html += '<label class="pub-year-filter">Year ';
-        html += '<select class="pub-filter-select" data-filter-year>';
-        html += '<option value="all">All</option>';
+        controls += '</div>';
+        controls += '<label class="pub-year-filter">Year ';
+        controls += '<select class="pub-filter-select" data-filter-year>';
+        controls += '<option value="all">All</option>';
         years.forEach(function (y) {
             if (isNaN(parseInt(y, 10))) return; // skip non-year buckets (e.g. "Ongoing") in the Year filter
-            html += '<option value="' + escapeHTML(y) + '">' + escapeHTML(y) + '</option>';
+            controls += '<option value="' + escapeHTML(y) + '">' + escapeHTML(y) + '</option>';
         });
-        html += '</select></label>';
-        html += '<span class="pub-count" aria-live="polite"></span>';
-        html += '</div>';
+        controls += '</select></label>';
+        controls += '<span class="pub-count" aria-live="polite"></span>';
+        controls += '</div>';
 
         // Year groups
-        html += '<div class="pub-results">';
+        var results = '<div class="pub-results">';
         years.forEach(function (y) {
-            html += '<div class="pub-year-group fade-in" data-year-group="' + escapeHTML(y) + '">';
-            html += '<h2 class="pub-year">' + escapeHTML(y) + '</h2>';
-            html += '<div class="pub-list">';
+            results += '<div class="pub-year-group fade-in" id="' + yslug(y) + '" data-year-group="' + escapeHTML(y) + '">';
+            results += '<h2 class="pub-year">' + escapeHTML(y) + '</h2>';
+            results += '<div class="pub-list">';
             all.forEach(function (it) {
-                if (it.p.year === y) html += renderPubItem(it.p, it.slug);
+                if (it.p.year === y) results += renderPubItem(it.p, it.slug);
             });
-            html += '</div></div>';
+            results += '</div></div>';
         });
-        html += '</div>';
+        results += '</div>';
 
-        container.innerHTML = html;
+        container.innerHTML = '<div class="pub-layout">' + toc + '<div class="pub-main">' + controls + results + '</div></div>';
         wirePublicationFilters(container);
         revealFadeIns(container);
     }
@@ -255,8 +262,26 @@
                 groups.forEach(function (g) {
                     var any = g.querySelectorAll('.pub-item:not(.is-hidden)').length > 0;
                     g.classList.toggle('is-hidden', !any);
+                    var y = g.getAttribute('data-year-group');
+                    var link = container.querySelector('.pub-toc a[data-toc="' + y + '"]');
+                    if (link) link.classList.toggle('is-hidden', !any);
                 });
                 if (countEl) countEl.textContent = visible + (visible === 1 ? ' publication' : ' publications');
+            }
+
+            // Scroll-spy: highlight the TOC entry whose year group is in view
+            if ('IntersectionObserver' in window) {
+                var tocLinks = container.querySelectorAll('.pub-toc a[data-toc]');
+                var spy = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (en) {
+                        if (!en.isIntersecting) return;
+                        var y = en.target.getAttribute('data-year-group');
+                        tocLinks.forEach(function (a) {
+                            a.classList.toggle('is-active', a.getAttribute('data-toc') === y);
+                        });
+                    });
+                }, { rootMargin: '-15% 0px -75% 0px' });
+                groups.forEach(function (g) { spy.observe(g); });
             }
 
             typeButtons.forEach(function (btn) {

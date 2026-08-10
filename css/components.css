@@ -125,6 +125,26 @@ main { padding-bottom: var(--spacing-8); }
 .pub-filter-select { font-size: var(--font-size-caption); padding: 3px 8px; border: 1px solid var(--color-border); border-radius: var(--radius-sm); background: var(--color-surface); color: var(--color-text-primary); }
 .pub-count { margin-left: auto; font-size: var(--font-size-caption); color: var(--color-text-muted); }
 
+/* ── Publications table of contents (year jump-nav) ─── */
+.pub-wide { max-width: 62rem; }
+.pub-layout { display: grid; grid-template-columns: 1fr; gap: var(--spacing-5); }
+.pub-toc__label { display: block; font-family: var(--font-mono); font-size: var(--font-size-xs); text-transform: uppercase; letter-spacing: var(--letter-spacing-wide); color: var(--color-text-muted); margin-bottom: var(--spacing-2); }
+.pub-toc ul { display: flex; flex-wrap: wrap; gap: var(--spacing-2); }
+.pub-toc a { display: block; padding: 3px 10px; font-size: var(--font-size-caption); font-variant-numeric: tabular-nums; color: var(--color-text-muted); border: 1px solid var(--color-border); border-radius: var(--radius-sm); }
+.pub-toc a:hover { color: var(--color-accent-text); border-color: var(--color-accent); }
+.pub-toc a.is-active { color: var(--color-accent-text); border-color: var(--color-accent); font-weight: var(--font-weight-semibold); }
+.pub-toc a.is-hidden { display: none; }
+.pub-year-group { scroll-margin-top: 4.5rem; }
+
+@media (min-width: 820px) {
+    .pub-layout { grid-template-columns: 7.5rem minmax(0, 1fr); gap: var(--spacing-8); align-items: start; }
+    .pub-toc { position: sticky; top: 4.75rem; align-self: start; }
+    .pub-toc ul { flex-direction: column; flex-wrap: nowrap; gap: 2px; }
+    .pub-toc a { border: 0; border-left: 2px solid transparent; border-radius: 0; padding: 3px 10px; }
+    .pub-toc a:hover { border-left-color: var(--color-accent); background: var(--color-surface); }
+    .pub-toc a.is-active { border-left-color: var(--color-accent); background: transparent; }
+}
+
 .pub-year-group { margin-bottom: var(--spacing-8); }
 .pub-year { font-size: 1.15rem; font-weight: var(--font-weight-bold); color: var(--color-text-primary); margin-bottom: var(--spacing-3); }
 .pub-list { display: flex; flex-direction: column; }
