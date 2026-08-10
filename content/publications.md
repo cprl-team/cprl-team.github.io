@@ -37,16 +37,6 @@ authors: **Trong-Nghia Nguyen**, Soo-Hyung Kim, Bo-Gun Kho, Van-Thien Luong, **H
 venue: In preparation
 venue_short: In progress
 
-### Ongoing | CF-Net: Conflict Fusion with Speaker Normalisation and Certainty Weighting for Hesitancy Recognition
-authors: Tung Hung Bui, **Hong Hai Nguyen**, **Van Thong Huynh**
-venue: In preparation
-venue_short: In progress
-
-### Ongoing | Parameter-Isolated Experts for Multi-Task Affect Recognition
-authors: Tung Hung Bui, **Hong Hai Nguyen**, **Van Thong Huynh**
-venue: In preparation
-venue_short: In progress
-
 ### Ongoing | Trustworthy Multimodal Fusion of Physiological Signals for Pain Decoding
 authors: Thanh Tri Pham, **Hong Hai Nguyen**, **Thi Thuy Pham**, **Trong Nghia Nguyen**, **Van Thong Huynh**
 venue: In preparation
@@ -138,6 +128,16 @@ project: pain-presence.html
 authors: Van Hieu Dao, **Van Thong Huynh**
 venue: MIWAI 2026
 venue_short: MIWAI 2026
+
+### 2026 | CF-Net: Conflict Fusion with Speaker Normalisation and Certainty Weighting for Hesitancy Recognition
+authors: Tung Hung Bui, **Hong Hai Nguyen**, **Van Thong Huynh**
+venue: ABAW Workshop at ECCV 2026, Lecture Notes in Computer Science (Springer)
+venue_short: ABAW @ ECCV 2026
+
+### 2026 | Parameter-Isolated Experts for Multi-Task Affect Recognition
+authors: Tung Hung Bui, **Hong Hai Nguyen**, **Van Thong Huynh**
+venue: ABAW Workshop at ECCV 2026, Lecture Notes in Computer Science (Springer)
+venue_short: ABAW @ ECCV 2026
 
 ### 2025 | MediFusion-Flex: An Adaptive Multimodal Deep Learning Framework for Clinical Deterioration Prediction in Emergency Medicine
 authors: **Trong-Nghia Nguyen**, **Hong-Hai Nguyen**, **Ngoc Tu Vu**, Tuan Anh Tran, Soo-Hyung Kim, Bo-Gun Kho, **Van-Thong Huynh**
