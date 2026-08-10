@@ -47,6 +47,11 @@ authors: **Hong Hai Nguyen**, Thanh Tri Pham, **Quoc Tien Nguyen**, Hyungjeong Y
 venue: In preparation
 venue_short: In progress
 
+### Ongoing | Input Calibration and Algorithm Choice in Subject-Incremental EEG Emotion Recognition
+authors: Kim Truyen Huynh, **Hong Hai Nguyen**, **Van Thong Huynh**
+venue: In preparation
+venue_short: In progress
+
 ---
 
 ## Journal Papers
