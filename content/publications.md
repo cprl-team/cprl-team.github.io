@@ -128,25 +128,25 @@ project: pain-presence.html
 authors: Van Hieu Dao, **Van Thong Huynh**
 venue: MIWAI 2026, Lecture Notes in Artificial Intelligence (Springer)
 venue_short: MIWAI 2026
-series: Lecture Notes in Artificial Intelligence (LNAI)
+series: LNAI
 
 ### 2026 | CF-Net: Conflict Fusion with Speaker Normalisation and Certainty Weighting for Hesitancy Recognition
 authors: Tung Hung Bui, **Hong Hai Nguyen**, **Van Thong Huynh**
 venue: ABAW Workshop at ECCV 2026, Lecture Notes in Computer Science (Springer)
 venue_short: ABAW @ ECCV 2026
-series: Lecture Notes in Computer Science (LNCS)
+series: LNCS
 
 ### 2026 | Parameter-Isolated Experts for Multi-Task Affect Recognition
 authors: Tung Hung Bui, **Hong Hai Nguyen**, **Van Thong Huynh**
 venue: ABAW Workshop at ECCV 2026, Lecture Notes in Computer Science (Springer)
 venue_short: ABAW @ ECCV 2026
-series: Lecture Notes in Computer Science (LNCS)
+series: LNCS
 
 ### 2025 | MediFusion-Flex: An Adaptive Multimodal Deep Learning Framework for Clinical Deterioration Prediction in Emergency Medicine
 authors: **Trong-Nghia Nguyen**, **Hong-Hai Nguyen**, **Ngoc Tu Vu**, Tuan Anh Tran, Soo-Hyung Kim, Bo-Gun Kho, **Van-Thong Huynh**
 venue: MIWAI 2025, Lecture Notes in Artificial Intelligence (Springer)
 venue_short: MIWAI 2025
-series: Lecture Notes in Artificial Intelligence (LNAI)
+series: LNAI
 link: https://link.springer.com/chapter/10.1007/978-981-95-4963-4_10
 
 ### 2023 | Model-Driven Deep Unfolding Approach to Underwater Image Enhancement
@@ -168,7 +168,7 @@ venue_short: APSIPA ASC 2023
 authors: **Ngoc Tu Vu**, **Van Thong Huynh**, Hyung-Jeong Yang, Soo-Hyung Kim
 venue: Asian Conference on Pattern Recognition (ACPR 2023), LNCS (Springer)
 venue_short: ACPR 2023
-series: Lecture Notes in Computer Science (LNCS)
+series: LNCS
 link: https://link.springer.com/chapter/10.1007/978-3-031-47665-5_10
 
 ### 2023 | Adapt Distinct Semantics for Uncertain Areas in Polyp Segmentation
@@ -217,7 +217,7 @@ link: https://ieeexplore.ieee.org/document/9320185
 authors: **Thuy Thi Pham**, Nhu Nguyen, Quang Pham, Han Cao, Binh T. Nguyen
 venue: SOFSEM 2020: Theory and Practice of Computer Science (Springer)
 venue_short: SOFSEM 2020
-series: Lecture Notes in Computer Science (LNCS)
+series: LNCS
 
 ### 2020 | ATGW: A Machine Learning Framework for Automation Testing in Game Woody
 authors: **Thuy Thi Pham**, **Tien X. Dang**, Nhu Nguyen, Van Thao Ha, Binh T. Nguyen
