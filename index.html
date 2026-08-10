@@ -139,6 +139,13 @@
         </div>
       </header>
 
+      <!-- News -->
+      <section class="section fade-in">
+        <h2 class="section-label">News</h2>
+        <div id="home-news"></div>
+        <a class="section-cta" href="publications.html">View all publications &rarr;</a>
+      </section>
+
       <!-- Research areas -->
       <section class="section fade-in">
         <h2 class="section-label">Research areas</h2>
@@ -150,19 +157,6 @@
           <div class="area"><h3>Causal LLMs &amp; Neuro-Symbolic AI</h3><p>Do models infer cause and effect, or recall it? Pairing LLMs with symbolic reasoning.</p></div>
         </div>
         <a class="section-cta" href="projects.html">See all projects &rarr;</a>
-      </section>
-
-      <!-- Selected publications -->
-      <section class="section fade-in">
-        <h2 class="section-label">Selected publications</h2>
-        <div id="home-pubs"></div>
-        <a class="section-cta" href="publications.html">View all publications &rarr;</a>
-      </section>
-
-      <!-- News -->
-      <section class="section fade-in">
-        <h2 class="section-label">News</h2>
-        <div id="home-news"></div>
       </section>
 
       <!-- Join -->
@@ -220,7 +214,6 @@
   <script src="js/content-loader.js"></script>
   <script src="js/content-renderer.js"></script>
   <script>
-    ContentRenderer.renderSelectedPublications('home-pubs', { limit: 5 });
     ContentRenderer.renderNews('home-news');
   </script>
   <script src="js/theme.js" defer></script>
