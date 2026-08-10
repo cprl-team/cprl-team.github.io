@@ -536,81 +536,28 @@
 
         var sections = ContentLoader.parseProjects(text);
         var html = '';
-        var figProjects = [];
-
         for (var sectionName in sections) {
             var items = sections[sectionName];
             if (!items.length) continue;
-            html += '<section class="project-section fade-in">';
-            html += '<h2 class="section-label">' + escapeHTML(sectionName) + '</h2>';
-            html += '<div class="card-grid">';
+            html += '<section class="project-section fade-in"><div class="project-grid">';
             for (var i = 0; i < items.length; i++) {
                 var p = items[i];
-                if (p.figures && p.figures.length) figProjects.push(p);
-                html += '<article class="card project-card">';
+                html += '<article class="project-card">';
                 if (p.status) {
-                    html += '<span class="badge project-status project-status--' + escapeHTML(p.status.toLowerCase()) +
-                        '">' + escapeHTML(p.status) + '</span>';
+                    html += '<span class="project-status project-status--' + escapeHTML(p.status.toLowerCase()) + '">' + escapeHTML(p.status) + '</span>';
                 }
                 if (p.area) html += '<p class="project-card__area">' + escapeHTML(p.area) + '</p>';
                 html += '<h3>' + escapeHTML(p.title) + '</h3>';
-                if (p.description) html += '<p class="project-card__desc">' + escapeHTML(p.description) + '</p>';
+                if (p.description) html += '<p class="project-card__desc">' + escapeHTML(p.description).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\*(.+?)\*/g, '<em>$1</em>') + '</p>';
                 if (p.team) html += '<p class="project-card__team">' + boldMarkup(p.team) + '</p>';
                 var links = projectLink('Publications', p.link) + projectLink('Code', p.code) + projectLink('Demo', p.demo);
                 if (links) html += '<div class="project-card__links">' + links + '</div>';
-                if (p.topics && p.topics.length) {
-                    html += '<details class="project-topics"><summary>Open capstone &amp; thesis topics</summary>';
-                    html += '<ul class="topic-list">';
-                    for (var t = 0; t < p.topics.length; t++) {
-                        var tp = p.topics[t];
-                        var lvl = (tp.level || '').toLowerCase();
-                        var ttext = tp.id
-                            ? '<a href="capstones.html#' + escapeHTML(tp.id) + '">' + escapeHTML(tp.text) + '</a>'
-                            : escapeHTML(tp.text);
-                        html += '<li><span class="topic-level topic-level--' + escapeHTML(lvl) + '">' +
-                            escapeHTML(tp.level) + '</span> ' + ttext + '</li>';
-                    }
-                    html += '</ul></details>';
-                }
-                if (p.refs && p.refs.length) {
-                    html += '<details class="project-refs"><summary>Key references</summary><ul class="ref-list">';
-                    for (var r = 0; r < p.refs.length; r++) {
-                        var rf = p.refs[r];
-                        if (rf.url) {
-                            html += '<li><a href="' + escapeHTML(rf.url) + '" target="_blank" rel="noopener">' +
-                                escapeHTML(rf.name) + ' ↗</a></li>';
-                        } else {
-                            html += '<li>' + escapeHTML(rf.name) + '</li>';
-                        }
-                    }
-                    html += '</ul></details>';
-                }
                 html += '</article>';
             }
             html += '</div></section>';
         }
 
-        // Full-width "Approach" section with the architecture diagrams
-        if (figProjects.length) {
-            html += '<section class="project-section fade-in">';
-            html += '<h2 class="section-label">Approach &amp; architecture</h2>';
-            for (var fp = 0; fp < figProjects.length; fp++) {
-                var proj = figProjects[fp];
-                for (var fg = 0; fg < proj.figures.length; fg++) {
-                    var fig = proj.figures[fg];
-                    var cap = escapeHTML(proj.title) + (fig.caption ? ' · ' + escapeHTML(fig.caption) : '');
-                    html += '<figure class="arch-figure" role="button" tabindex="0" aria-label="' + cap + ' (tap to enlarge)">';
-                    html += '<figcaption class="arch-figcaption">' + cap +
-                        '<span class="arch-figcaption__hint">⤢ tap to enlarge</span></figcaption>';
-                    html += '<div data-svg="' + escapeHTML(fig.src) + '"></div>';
-                    html += '</figure>';
-                }
-            }
-            html += '</section>';
-        }
-
         container.innerHTML = html;
-        inlineSvgs(container);
         revealFadeIns(container);
     }
 

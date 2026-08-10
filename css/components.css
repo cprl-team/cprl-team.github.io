@@ -1,542 +1,169 @@
 /* ==========================================================
-   Components — Agno Blueprint Style
+   Components — simple al-folio-inspired UI
+   (variables.css tokens; base.css reset/type stay in place)
    ========================================================== */
 
-/* ── Card ───────────────────────────────────────────── */
-.card {
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
-    padding: var(--spacing-6);
-    box-shadow: var(--shadow-sm);
-    transition: border-color var(--transition-base), background-color var(--transition-slow),
-        box-shadow var(--transition-base), transform var(--transition-base);
-    position: relative;
-}
+/* Normalize headings to the sans family + modest sizes */
+h1 { font-family: var(--font-family); font-size: 1.9rem; font-weight: var(--font-weight-bold); letter-spacing: -0.02em; line-height: 1.2; }
+h2 { font-family: var(--font-family); font-size: 1.35rem; font-weight: var(--font-weight-bold); letter-spacing: -0.01em; line-height: 1.25; }
+h3 { font-family: var(--font-family); font-size: 1.05rem; font-weight: var(--font-weight-semibold); line-height: 1.35; }
 
-.card:hover {
-    border-color: var(--color-accent);
-    box-shadow: var(--shadow-lg);
-    transform: translateY(-3px);
-}
+/* ── Reveal on scroll (main.js toggles .visible) ─────── */
+.fade-in { opacity: 0; transform: translateY(10px); transition: opacity 0.5s ease, transform 0.5s ease; }
+.fade-in.visible { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .fade-in { opacity: 1; transform: none; } }
 
-.card-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 2.5rem;
-    height: 2.5rem;
-    margin-bottom: var(--spacing-4);
-    color: var(--color-accent);
-}
+/* ── Sections ───────────────────────────────────────── */
+main { padding-bottom: var(--spacing-8); }
+.section { margin-top: var(--spacing-12); }
 
-.card-icon svg {
-    width: 24px;
-    height: 24px;
-    stroke: currentColor;
-    fill: none;
-    stroke-width: 2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-}
-
-/* ── Card Illustration (Sketch Images) ──────────────── */
-.card-illustration {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    border-radius: var(--radius-md);
-    margin-bottom: var(--spacing-4);
-    background: var(--color-surface-alt);
-}
-
-.card h3 {
-    margin-bottom: var(--spacing-2);
-    font-size: var(--font-size-card-title);
-}
-
-.card p {
-    font-size: var(--font-size-caption);
-    color: var(--color-text-secondary);
-}
-
-/* ── Section Label (Monospace Technical) ────────────── */
 .section-label {
-    font-family: var(--font-mono);
-    font-size: var(--font-size-section-label);
-    font-weight: var(--font-weight-semibold);
-    text-transform: uppercase;
-    letter-spacing: var(--letter-spacing-wide);
-    color: var(--color-accent);
-    margin-bottom: var(--spacing-8);
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-2);
-}
-
-.section-label::before {
-    content: '';
-    display: inline-block;
-    width: 6px;
-    height: 6px;
-    border-radius: var(--radius-full);
-    background: var(--color-accent);
-    flex-shrink: 0;
-}
-
-/* ── Buttons ────────────────────────────────────────── */
-.btn {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--spacing-2);
-    padding: var(--spacing-3) var(--spacing-5);
-    font-family: var(--font-family);
-    font-size: var(--font-size-caption);
-    font-weight: var(--font-weight-medium);
-    border-radius: var(--radius-md);
-    cursor: pointer;
-    transition: all var(--transition-base);
-    text-decoration: none;
-    border: none;
-    line-height: 1;
-}
-
-.btn svg {
-    width: 14px;
-    height: 14px;
-    stroke: currentColor;
-    fill: none;
-    stroke-width: 2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-}
-
-.btn-primary {
-    background: var(--color-button-bg);
-    color: var(--color-button-text);
-    box-shadow: var(--shadow-sm);
-}
-
-.btn-primary:hover {
-    background: var(--color-button-hover);
-    color: var(--color-button-text);
-    box-shadow: var(--shadow-md);
-    transform: translateY(-2px);
-}
-
-.btn-secondary {
-    background: var(--color-button-secondary-bg);
-    color: var(--color-button-secondary-text);
-    border: 1px solid var(--color-button-outline-border);
-}
-
-.btn-secondary:hover {
-    background: var(--color-button-secondary-hover);
-    color: var(--color-button-secondary-text);
-    border-color: var(--color-accent);
-    transform: translateY(-2px);
-}
-
-.btn-link {
-    background: none;
-    border: none;
-    color: var(--color-text-muted);
-    padding: 0;
-    font-size: var(--font-size-caption);
-    font-weight: var(--font-weight-medium);
-    font-family: var(--font-mono);
-}
-
-.btn-link:hover {
-    color: var(--color-accent-text);
-}
-
-/* ── Badge / Tag ────────────────────────────────────── */
-.badge {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--spacing-2);
-    padding: 0.2rem 0.6rem;
-    font-family: var(--font-mono);
-    font-size: var(--font-size-xs);
-    font-weight: var(--font-weight-medium);
-    border-radius: var(--radius-sm);
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    color: var(--color-text-secondary);
-    transition: background-color var(--transition-slow), border-color var(--transition-slow),
-        color var(--transition-slow);
-}
-
-.badge::before {
-    content: '';
-    display: inline-block;
-    width: 5px;
-    height: 5px;
-    border-radius: var(--radius-full);
-    background: var(--color-accent-2);
-    flex-shrink: 0;
-}
-
-/* Series tag (e.g. LNCS / LNAI) — a quieter companion to the venue badge */
-.badge--series {
-    color: var(--color-text-muted);
-    background: transparent;
-}
-
-.badge--series::before {
-    display: none;
-}
-
-/* ── Avatar Initials ────────────────────────────────── */
-.avatar-initials {
-    width: 3.5rem;
-    height: 3.5rem;
-    border-radius: var(--radius-md);
-    background: var(--color-accent);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    font-size: 1.3rem;
     font-weight: var(--font-weight-bold);
-    font-size: var(--font-size-caption);
-    font-family: var(--font-mono);
-    color: var(--color-on-accent);
-    flex-shrink: 0;
-}
-
-/* ── Theme Toggle ───────────────────────────────────── */
-.theme-toggle {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 2.25rem;
-    height: 2.25rem;
-    background: none;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-sm);
-    cursor: pointer;
+    letter-spacing: -0.01em;
     color: var(--color-text-primary);
-    transition: background-color var(--transition-base), border-color var(--transition-base),
-        color var(--transition-slow);
-}
-
-.theme-toggle:hover {
-    background: var(--color-surface);
-    border-color: var(--color-accent);
-}
-
-.theme-toggle svg {
-    width: 16px;
-    height: 16px;
-    stroke: currentColor;
-    fill: none;
-    stroke-width: 2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-}
-
-/* Icon swap is CSS-only, driven by the [data-theme] attribute.
-   Light theme shows the moon ("switch to dark"); dark shows the sun. */
-.theme-toggle .icon-sun {
-    display: none;
-}
-
-[data-theme="dark"] .theme-toggle .icon-sun {
-    display: block;
-}
-
-[data-theme="dark"] .theme-toggle .icon-moon {
-    display: none;
-}
-
-/* ── Accent Text ────────────────────────────────────── */
-.gradient-text {
-    color: var(--color-accent);
-}
-
-/* ── Icon Wrapper ───────────────────────────────────── */
-.icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
-
-.icon svg {
-    width: 20px;
-    height: 20px;
-    stroke: currentColor;
-    fill: none;
-    stroke-width: 2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-}
-
-/* ── Divider ────────────────────────────────────────── */
-.divider {
-    border: none;
-    border-top: 1px solid var(--color-border);
-    margin: var(--spacing-8) 0;
-    transition: border-color var(--transition-slow);
-}
-
-/* ── Fade-in Animation ──────────────────────────────── */
-.fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Stagger children */
-.stagger-in > * {
-    opacity: 0;
-    transform: translateY(16px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.stagger-in > *.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* ── Causal-DAG graphic (inline SVG) ────────────────── */
-/* The signature motif: terracotta "Perception" nodes joined by teal
-   "Reasoning" edges that draw in on scroll. Colors follow theme tokens. */
-.dag {
-    display: block;
-    width: 100%;
-    height: auto;
-    overflow: visible;
-}
-
-.dag-edge {
-    fill: none;
-    stroke: var(--dag-edge-reasoning);
-    stroke-width: var(--dag-edge-width);
-    stroke-linecap: round;
-    stroke-dasharray: var(--edge-dash-length);
-    stroke-dashoffset: var(--edge-dash-length);
-    transition: stroke-dashoffset var(--motion-dag-draw);
-}
-
-.dag-node {
-    fill: var(--dag-node-perception);
-    transform-box: fill-box;
-    transform-origin: center;
-    transform: scale(0);
-    opacity: 0;
-    transition: transform var(--motion-node-pop), opacity var(--motion-node-pop);
-}
-
-.dag-node--reasoning {
-    fill: var(--dag-edge-reasoning);
-}
-
-.dag-label {
-    fill: var(--color-text-muted);
-    font-family: var(--font-mono);
-    font-size: var(--font-size-xs);
-    letter-spacing: var(--letter-spacing-wide);
-    text-transform: uppercase;
-    opacity: 0;
-    transition: opacity var(--motion-node-pop);
-}
-
-/* Drawn state — applied by js/dag.js on scroll (or immediately if
-   reduced-motion / no IntersectionObserver). Staggered cascade. */
-.dag--drawn .dag-edge {
-    stroke-dashoffset: 0;
-}
-
-.dag--drawn .dag-node,
-.dag--drawn .dag-label {
-    opacity: 1;
-    transform: scale(1);
-}
-
-.dag-edges .dag-edge:nth-child(2)  { transition-delay: calc(var(--motion-stagger-step) * 1); }
-.dag-edges .dag-edge:nth-child(3)  { transition-delay: calc(var(--motion-stagger-step) * 1.5); }
-.dag-edges .dag-edge:nth-child(4)  { transition-delay: calc(var(--motion-stagger-step) * 2); }
-.dag-edges .dag-edge:nth-child(5)  { transition-delay: calc(var(--motion-stagger-step) * 2.5); }
-.dag-edges .dag-edge:nth-child(6)  { transition-delay: calc(var(--motion-stagger-step) * 3); }
-.dag-edges .dag-edge:nth-child(7)  { transition-delay: calc(var(--motion-stagger-step) * 3.5); }
-.dag-edges .dag-edge:nth-child(8)  { transition-delay: calc(var(--motion-stagger-step) * 4); }
-.dag-edges .dag-edge:nth-child(9)  { transition-delay: calc(var(--motion-stagger-step) * 4.5); }
-.dag-edges .dag-edge:nth-child(10) { transition-delay: calc(var(--motion-stagger-step) * 5); }
-.dag-edges .dag-edge:nth-child(11) { transition-delay: calc(var(--motion-stagger-step) * 5.5); }
-.dag-edges .dag-edge:nth-child(12) { transition-delay: calc(var(--motion-stagger-step) * 6); }
-.dag-nodes .dag-node { transition-delay: calc(var(--motion-stagger-step) * 6.5); }
-
-/* Arrowheads on the hero graph fade in with the draw (avoid floating heads) */
-.dag .bp-arrow {
-    opacity: 0;
-    transition: opacity var(--motion-node-pop);
-    transition-delay: calc(var(--motion-stagger-step) * 7);
-}
-
-.dag--drawn .bp-arrow {
-    opacity: 1;
-}
-
-/* ── Blueprint schematic illustrations (inlined SVG) ─── */
-/* Shared classes for the research-area / hero diagrams. Colored from
-   theme tokens so the inlined SVGs adapt to the manual light/dark toggle. */
-.bp-grid {
-    fill: var(--color-border);
-    opacity: 0.65;
-}
-
-.bp-frame {
-    fill: none;
-    stroke: var(--color-border);
-    stroke-width: 1.5;
-}
-
-.bp-edge {
-    fill: none;
-    stroke: var(--dag-edge-reasoning);
-    stroke-width: var(--dag-edge-width);
-    stroke-linecap: round;
-}
-
-.bp-arrow {
-    fill: var(--dag-edge-reasoning);
-}
-
-.bp-node {
-    fill: var(--dag-node-perception);
-}
-
-.bp-node--reasoning {
-    fill: var(--dag-edge-reasoning);
-}
-
-.bp-ring {
-    fill: none;
-    stroke: var(--dag-edge-reasoning);
-    stroke-width: var(--dag-edge-width);
-    opacity: 0.45;
-}
-
-.bp-glyph {
-    fill: none;
-    stroke: var(--color-accent);
-    stroke-width: 2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-}
-
-.bp-label {
-    fill: var(--color-text-muted);
-    font-family: var(--font-mono);
-    font-size: var(--font-size-small);
-    letter-spacing: var(--letter-spacing-wide);
-}
-
-.bp-label--sym {
-    fill: var(--color-accent-2-text);
-    font-size: var(--font-size-card-title);
-}
-
-/* ── Node marker (graph-node section kicker) ─────────── */
-/* Upgrades the existing .section-label dot into a ringed graph node. */
-.section-label::before {
-    box-shadow: 0 0 0 0.25rem var(--dag-node-ring);
-}
-
-/* ── Stat (recognition counters) ────────────────────── */
-.stat-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
-    gap: var(--spacing-8);
-}
-
-.stat__num {
-    display: block;
-    font-family: var(--font-display);
-    font-size: var(--font-size-stat);
-    font-weight: var(--font-weight-black);
-    line-height: var(--line-height-tight);
-    color: var(--color-accent);
-}
-
-.stat__label {
-    display: block;
-    margin-top: var(--spacing-1);
-    font-family: var(--font-mono);
-    font-size: var(--font-size-caption);
-    color: var(--color-text-secondary);
-}
-
-/* ── Publication filter controls ────────────────────── */
-.pub-controls {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: var(--spacing-3);
-    margin-bottom: var(--spacing-10);
-    padding-bottom: var(--spacing-6);
+    margin-bottom: var(--spacing-5);
+    padding-bottom: var(--spacing-2);
     border-bottom: 1px solid var(--color-border);
 }
 
-.pub-filter__group {
-    display: inline-flex;
-    flex-wrap: wrap;
-    gap: var(--spacing-2);
-}
+.page-header { margin: var(--spacing-10) 0 var(--spacing-6); }
+.page-header h1 { margin-bottom: var(--spacing-2); }
+.page-header p { color: var(--color-text-muted); max-width: 46rem; }
 
-.pub-filter {
-    font-family: var(--font-mono);
-    font-size: var(--font-size-caption);
-    font-weight: var(--font-weight-medium);
-    color: var(--color-text-muted);
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-full);
-    padding: var(--spacing-2) var(--spacing-4);
-    cursor: pointer;
-    transition: color var(--transition-base), background-color var(--transition-base),
-        border-color var(--transition-base);
-}
+.section-cta { display: inline-block; margin-top: var(--spacing-4); font-size: var(--font-size-caption); color: var(--color-accent-text); }
 
-.pub-filter:hover {
-    color: var(--color-text-primary);
-    border-color: var(--color-accent);
+/* ── Buttons ────────────────────────────────────────── */
+.btn {
+    display: inline-flex; align-items: center; gap: var(--spacing-2);
+    padding: 0.5rem 1rem; border-radius: var(--radius-md);
+    font-size: var(--font-size-caption); font-weight: var(--font-weight-semibold);
+    border: 1px solid var(--color-border); cursor: pointer; transition: all var(--transition-base);
 }
+.btn-primary { background: var(--color-accent); color: var(--color-on-accent); border-color: var(--color-accent); }
+.btn-primary:hover { background: var(--color-accent-hover); color: var(--color-on-accent); }
+.btn-secondary { background: var(--color-surface); color: var(--color-text-primary); }
+.btn-secondary:hover { border-color: var(--color-accent); color: var(--color-accent-text); }
 
-.pub-filter[aria-pressed="true"] {
-    color: var(--color-on-accent);
-    background: var(--color-accent);
-    border-color: var(--color-accent);
+.btn-link { font-size: var(--font-size-small); border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 2px 9px; color: var(--color-accent-text); }
+.btn-link:hover { background: var(--color-accent-glow); text-decoration: none; }
+
+/* ── Theme toggle ───────────────────────────────────── */
+.theme-toggle {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 2rem; height: 2rem; border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm); background: none; color: var(--color-text-secondary); cursor: pointer;
 }
+.theme-toggle:hover { color: var(--color-accent-text); border-color: var(--color-accent); }
+.theme-toggle .icon-sun { display: none; }
+.theme-toggle .icon-moon { display: block; }
+[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
 
-.pub-filter-select {
-    font-family: var(--font-mono);
-    font-size: var(--font-size-caption);
-    color: var(--color-text-primary);
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-full);
-    padding: var(--spacing-2) var(--spacing-4);
-    cursor: pointer;
+/* ── Badges ─────────────────────────────────────────── */
+.badge {
+    display: inline-flex; align-items: center;
+    font-family: var(--font-mono); font-size: var(--font-size-xs); font-weight: var(--font-weight-medium);
+    padding: 2px 8px; border-radius: var(--radius-sm);
+    border: 1px solid color-mix(in srgb, var(--color-accent) 40%, var(--color-border));
+    color: var(--color-accent-text); background: transparent;
 }
+.badge--series { color: var(--color-text-muted); border-color: var(--color-border); }
 
-.pub-count {
-    margin-left: auto;
-    font-family: var(--font-mono);
-    font-size: var(--font-size-caption);
-    color: var(--color-text-muted);
+/* ── About / hero (home) ────────────────────────────── */
+.about { display: flex; gap: var(--spacing-8); align-items: center; flex-wrap: wrap; margin: var(--spacing-12) 0 var(--spacing-4); }
+.about__media { flex: 0 0 auto; }
+.about__logo {
+    width: 6.5rem; height: 6.5rem; border-radius: var(--radius-lg);
+    background: var(--color-accent-glow); color: var(--color-accent-text);
+    display: flex; align-items: center; justify-content: center; font-weight: var(--font-weight-black); font-size: 2rem; letter-spacing: 0.02em;
 }
+.about__logo img { width: 4.4rem; height: 4.4rem; object-fit: contain; }
+.about__body { flex: 1; min-width: 16rem; }
+.about__name { margin-bottom: var(--spacing-1); }
+.about__tag { color: var(--color-text-muted); font-size: 1.05rem; margin-bottom: var(--spacing-4); }
+.about__body p { margin-bottom: var(--spacing-4); }
+.about__contacts { display: flex; flex-wrap: wrap; gap: var(--spacing-4); font-size: var(--font-size-caption); }
+.about__contacts a { color: var(--color-text-muted); }
+.about__contacts a:hover { color: var(--color-accent-text); }
 
-.is-hidden {
-    display: none !important;
-}
+/* short research-areas list on home */
+.areas { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: var(--spacing-4); }
+.area { border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--spacing-4); background: var(--color-surface); }
+.area h3 { margin-bottom: 4px; }
+.area p { font-size: var(--font-size-caption); color: var(--color-text-muted); }
 
+/* ── News ───────────────────────────────────────────── */
+.news-list { display: flex; flex-direction: column; gap: var(--spacing-3); }
+.news-item { display: flex; gap: var(--spacing-4); }
+.news-year { flex: 0 0 6rem; color: var(--color-text-muted); font-size: var(--font-size-caption); font-variant-numeric: tabular-nums; padding-top: 2px; }
+.news-content h3 { font-size: var(--font-size-body); font-weight: var(--font-weight-semibold); margin-bottom: 2px; }
+.news-content h3 a { color: inherit; text-decoration: none; }
+.news-content h3 a:hover, .news-content h3 a:focus-visible { color: var(--color-accent-text); text-decoration: underline; }
+.news-content p { font-size: var(--font-size-caption); color: var(--color-text-muted); }
+
+/* ── Publications ───────────────────────────────────── */
+.pub-controls { display: flex; flex-wrap: wrap; align-items: center; gap: var(--spacing-3); margin-bottom: var(--spacing-6); padding-bottom: var(--spacing-4); border-bottom: 1px solid var(--color-border); }
+.pub-filter__group { display: inline-flex; flex-wrap: wrap; gap: var(--spacing-2); }
+.pub-filter { font-size: var(--font-size-caption); padding: 3px 10px; border: 1px solid var(--color-border); border-radius: var(--radius-sm); background: var(--color-surface); color: var(--color-text-secondary); cursor: pointer; }
+.pub-filter[aria-pressed="true"] { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-on-accent); }
+.pub-year-filter { font-size: var(--font-size-caption); color: var(--color-text-muted); display: inline-flex; align-items: center; gap: var(--spacing-2); }
+.pub-filter-select { font-size: var(--font-size-caption); padding: 3px 8px; border: 1px solid var(--color-border); border-radius: var(--radius-sm); background: var(--color-surface); color: var(--color-text-primary); }
+.pub-count { margin-left: auto; font-size: var(--font-size-caption); color: var(--color-text-muted); }
+
+.pub-year-group { margin-bottom: var(--spacing-8); }
+.pub-year { font-size: 1.15rem; font-weight: var(--font-weight-bold); color: var(--color-text-primary); margin-bottom: var(--spacing-3); }
+.pub-list { display: flex; flex-direction: column; }
+.pub-item { display: flex; gap: var(--spacing-3); padding: var(--spacing-4) 0; border-bottom: 1px solid var(--color-border); }
+.pub-item:last-child { border-bottom: 0; }
+.pub-item.is-hidden { display: none; }
+.pub-icon { display: none; }
+.pub-content { flex: 1; }
+.pub-content h3 { font-size: var(--font-size-body); font-weight: var(--font-weight-semibold); margin-bottom: 2px; }
+.pub-authors { font-size: var(--font-size-caption); color: var(--color-text-muted); margin-bottom: 4px; }
+.pub-authors strong { color: var(--color-text-primary); font-weight: var(--font-weight-semibold); }
+.pub-meta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--spacing-2); margin-top: 4px; }
+.pub-note { font-size: var(--font-size-caption); color: var(--color-text-muted); margin-top: 4px; }
+
+/* ── Cards / members ────────────────────────────────── */
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr)); gap: var(--spacing-4); }
+.card, .member-card { border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--spacing-5); background: var(--color-surface); text-align: center; }
+.member-card h3 { font-size: var(--font-size-body); }
+.member-card__role { font-size: var(--font-size-caption); color: var(--color-text-muted); margin-top: 2px; }
+.avatar-initials { width: 3rem; height: 3rem; border-radius: var(--radius-full); background: var(--color-accent-glow); color: var(--color-accent-text); display: flex; align-items: center; justify-content: center; font-weight: var(--font-weight-bold); margin: 0 auto var(--spacing-3); }
+
+.member-section { margin-top: var(--spacing-10); }
+.member-leader { margin-bottom: var(--spacing-2); }
+.feature--leader { display: flex; align-items: center; gap: var(--spacing-4); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--spacing-5); background: var(--color-surface); }
+.feature--leader .avatar-initials { margin: 0; flex: 0 0 auto; }
+.feature__role { font-size: var(--font-size-caption); color: var(--color-text-muted); }
+.feature__name { font-size: 1.1rem; font-weight: var(--font-weight-bold); }
+
+/* ── Achievements (simple list) ─────────────────────── */
+.milestones { display: flex; flex-direction: column; gap: var(--spacing-4); }
+.milestone-item { display: flex; gap: var(--spacing-4); padding-bottom: var(--spacing-4); border-bottom: 1px solid var(--color-border); }
+.milestone-item:last-child { border-bottom: 0; }
+.milestone-dot, .milestone-line, .milestone-marker { display: none; }
+.milestone-year { flex: 0 0 5rem; color: var(--color-text-muted); font-variant-numeric: tabular-nums; font-size: var(--font-size-caption); padding-top: 2px; }
+.milestone-content h3 { font-size: var(--font-size-body); font-weight: var(--font-weight-semibold); }
+.milestone-team { font-size: var(--font-size-caption); color: var(--color-text-muted); }
+
+/* ── Projects (simple cards) ────────────────────────── */
+.project-section { margin-top: var(--spacing-6); }
+.project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr)); gap: var(--spacing-5); }
+.project-card { border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--spacing-5); background: var(--color-surface); display: flex; flex-direction: column; }
+.project-card__area { font-family: var(--font-mono); font-size: var(--font-size-xs); text-transform: uppercase; letter-spacing: var(--letter-spacing-wide); color: var(--color-accent-text); margin-bottom: var(--spacing-2); }
+.project-card h3 { margin-bottom: var(--spacing-2); }
+.project-card__desc { font-size: var(--font-size-caption); color: var(--color-text-muted); flex: 1; }
+.project-card__team { font-size: var(--font-size-caption); color: var(--color-text-secondary); margin-top: var(--spacing-3); }
+.project-card__links { display: flex; flex-wrap: wrap; gap: var(--spacing-2); margin-top: var(--spacing-3); }
+.project-status { display: inline-flex; align-items: center; font-size: var(--font-size-xs); font-family: var(--font-mono); color: var(--color-text-muted); margin-bottom: var(--spacing-2); }
+.project-status--active { color: var(--color-accent-text); }
+/* dropped in the simplified design */
+.project-topics, .project-refs { display: none; }
+
+
+/* ══ Architecture figures + lightbox (used by the paper page) ══ */
 /* ── Architecture figures (inlined on the Projects page) ── */
 /* All visual props are scoped under .arch-figure and driven by theme
    tokens, so the inlined diagrams adapt to the light/dark toggle. */
@@ -640,4 +267,3 @@
 .arch-figure .a-em { fill: var(--color-accent-text); font-weight: 700; }
 .arch-figure .a-mt { fill: var(--color-accent-2-text); }
 .arch-figure .a-mt2 { fill: var(--color-accent-2-text); font-weight: 700; }
-.arch-figure .a-rnode-t { fill: var(--color-accent-2-text); font-weight: 700; }

@@ -1,402 +1,154 @@
 /* ==========================================================
-   Layout — Container, Header, Footer, Grid, Sections
+   Layout — container, top navbar, footer, responsive
+   Simple centered-column design (al-folio-inspired).
    ========================================================== */
 
-/* ── Container ──────────────────────────────────────── */
 .container {
     width: 100%;
-    max-width: var(--content-max-width);
+    max-width: 52rem;              /* ~832px centered column */
     margin: 0 auto;
-    padding: 0 var(--spacing-6);
+    padding: 0 var(--spacing-5);
 }
 
-/* ── Main Content ───────────────────────────────────── */
-main {
-    padding-top: var(--spacing-20);
-}
-
-/* ── Header ─────────────────────────────────────────── */
+/* ── Top navbar ─────────────────────────────────────── */
 .site-header {
-    position: fixed;
+    position: sticky;
     top: 0;
-    left: 0;
-    right: 0;
-    z-index: var(--z-header);
-    background: var(--color-header-bg);
+    z-index: var(--z-header, 50);
+    background: color-mix(in srgb, var(--color-background) 88%, transparent);
+    backdrop-filter: saturate(180%) blur(8px);
+    -webkit-backdrop-filter: saturate(180%) blur(8px);
     border-bottom: 1px solid var(--color-border);
-    transition: background-color var(--transition-slow), border-color var(--transition-slow);
-}
-
-@supports (backdrop-filter: blur(16px)) {
-    .site-header {
-        background: var(--color-header-blur);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
-    }
 }
 
 .header-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    min-height: var(--header-height);
-    padding-top: var(--spacing-2);
-    padding-bottom: var(--spacing-2);
-}
-
-.header-left {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-3);
+    gap: var(--spacing-4);
+    height: 3.5rem;
 }
 
 .logo {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-2);
-    font-weight: var(--font-weight-semibold);
-    font-size: var(--font-size-lead);
-    color: var(--color-text-primary);
-    text-decoration: none;
-    letter-spacing: var(--letter-spacing-normal);
-}
-
-.logo:hover {
-    color: var(--color-text-primary);
-}
-
-/* Logo images injected by site-config.js (styled here, not inline) */
-.logo-img {
-    display: block;
-}
-
-.logo-img--header {
-    width: 2.75rem;
-    height: 2.75rem;
-    border-radius: var(--radius-md);
-    object-fit: contain;
-}
-
-.logo-img--footer {
-    height: 5rem;
-    width: auto;
-    object-fit: contain;
-}
-
-.logo-badge {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    width: 2rem;
-    height: 2rem;
-    background: var(--color-text-primary);
-    color: var(--color-background);
-    border-radius: var(--radius-sm);
-    font-size: var(--font-size-small);
+    gap: var(--spacing-2);
     font-weight: var(--font-weight-bold);
-    letter-spacing: 0.02em;
+    font-size: 1.02rem;
+    color: var(--color-text-primary);
+    letter-spacing: -0.01em;
+}
+
+.logo:hover { color: var(--color-text-primary); }
+
+.logo-img--header {
+    width: 1.7rem;
+    height: 1.7rem;
+    border-radius: var(--radius-sm);
+    object-fit: contain;
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-5);
+}
+
+.main-nav a {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+    color: var(--color-accent-text);
 }
 
 .header-right {
     display: flex;
     align-items: center;
-    gap: var(--spacing-2);
+    gap: var(--spacing-3);
 }
 
-/* ── Navigation ─────────────────────────────────────── */
-.main-nav {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-1);
-}
-
-.main-nav a {
-    padding: var(--spacing-2) var(--spacing-3);
-    font-size: var(--font-size-caption);
-    font-weight: var(--font-weight-medium);
-    color: var(--color-text-muted);
-    border-radius: var(--radius-md);
-    transition: color var(--transition-base), background-color var(--transition-base);
-}
-
-.main-nav a:hover {
-    color: var(--color-text-primary);
-    background-color: var(--color-surface);
-}
-
-.main-nav a.active {
-    color: var(--color-text-primary);
-    background-color: var(--color-surface);
-    font-weight: var(--font-weight-semibold);
-}
-
-/* Mobile Nav Toggle */
 .nav-toggle {
     display: none;
     background: none;
     border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    padding: var(--spacing-2);
-    cursor: pointer;
-    color: var(--color-text-primary);
-}
-
-/* ── Section ────────────────────────────────────────── */
-.section {
-    padding: var(--spacing-24) 0;
-    position: relative;
-}
-
-.section:first-child {
-    padding-top: var(--spacing-16);
-}
-
-/* Grid-line section separator */
-.section-divider {
-    position: relative;
-    border: none;
-    border-top: 1px solid var(--color-border-grid);
-    margin: 0;
-}
-
-/* + markers at section intersections */
-.section-divider::before,
-.section-divider::after {
-    content: '+';
-    position: absolute;
-    top: -0.55em;
-    font-family: var(--font-mono);
-    font-size: var(--grid-marker-size);
-    color: var(--color-text-muted);
-    line-height: 1;
-}
-
-.section-divider::before {
-    left: -6px;
-}
-
-.section-divider::after {
-    right: -6px;
-}
-
-/* Directed-edge divider — a teal "edge" + arrowhead between sections */
-.edge-divider {
-    display: flex;
-    flex-direction: column;
+    border-radius: var(--radius-sm);
+    color: var(--color-text-secondary);
+    width: 2rem;
+    height: 2rem;
     align-items: center;
-    padding: var(--spacing-6) 0;
-}
-
-.edge-divider::before {
-    content: '';
-    width: var(--dag-edge-width);
-    height: var(--spacing-12);
-    background: linear-gradient(to bottom, var(--color-border), var(--color-accent-2));
-}
-
-.edge-divider::after {
-    content: '';
-    width: 0;
-    height: 0;
-    border-left: 0.35rem solid transparent;
-    border-right: 0.35rem solid transparent;
-    border-top: 0.5rem solid var(--color-accent-2);
-}
-
-/* ── Card Grid ──────────────────────────────────────── */
-.card-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--spacing-6);
+    justify-content: center;
+    cursor: pointer;
 }
 
 /* ── Footer ─────────────────────────────────────────── */
 .site-footer {
-    border-top: 1px solid transparent;
-    padding: var(--spacing-16) 0 var(--spacing-8);
-    margin-top: var(--spacing-16);
-    transition: background-color var(--transition-slow), border-color var(--transition-slow);
-    position: relative;
-    background: var(--color-footer-bg);
-    color: var(--color-footer-text-strong);
-}
-
-/* In dark theme the footer is a raised surface, not a slab — separate it */
-[data-theme="dark"] .site-footer {
-    border-top-color: var(--color-border);
-}
-
-/* Footer + markers on top border */
-.site-footer::before,
-.site-footer::after {
-    display: none;
-}
-
-.site-footer::before {
-    left: var(--spacing-6);
-}
-
-.site-footer::after {
-    right: var(--spacing-6);
+    margin-top: var(--spacing-24);
+    border-top: 1px solid var(--color-border);
+    padding: var(--spacing-8) 0;
+    color: var(--color-text-muted);
+    font-size: var(--font-size-caption);
 }
 
 .footer-inner {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--spacing-8);
-}
-
-.footer-brand {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     align-items: flex-start;
-    gap: var(--spacing-3);
+    justify-content: space-between;
+    gap: var(--spacing-6);
 }
 
-.footer-brand p {
-    font-size: var(--font-size-body);
-    color: var(--color-footer-text);
-    max-width: 40ch;
-}
+.footer-brand { max-width: 26rem; }
+.footer-brand .logo-img--footer { height: 1.5rem; width: auto; margin-bottom: var(--spacing-2); }
+.footer-brand p { color: var(--color-text-muted); font-size: var(--font-size-caption); }
 
 .footer-links h4 {
-    font-family: var(--font-mono);
-    font-size: var(--font-size-caption);
-    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-size-small);
     text-transform: uppercase;
     letter-spacing: var(--letter-spacing-wide);
-    color: var(--color-footer-text-muted);
-    margin-bottom: var(--spacing-4);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-2);
+    font-weight: var(--font-weight-semibold);
 }
 
-.footer-links ul {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-2);
-}
+.footer-links ul { display: flex; flex-direction: column; gap: 4px; }
+.footer-links a { color: var(--color-text-muted); }
+.footer-links a:hover { color: var(--color-accent-text); }
 
-.footer-links a {
-    font-size: var(--font-size-body);
-    color: var(--color-footer-text);
-    transition: color var(--transition-base);
-}
-
-.footer-links a:hover {
-    color: var(--color-footer-text-strong);
-}
-
-.footer-social {
-    display: flex;
-    gap: var(--spacing-4);
-}
-
-.footer-social a {
-    color: var(--color-footer-text-muted);
-    transition: color var(--transition-base);
-    position: relative;
-}
-
-.footer-social a::after {
-    content: attr(data-tooltip);
-    position: absolute;
-    bottom: calc(100% + 6px);
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--color-text-primary);
-    color: var(--color-background);
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    padding: 4px 8px;
-    border-radius: var(--radius-sm);
-    white-space: nowrap;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0s;
-}
-
-.footer-social a:hover::after {
-    opacity: 1;
-}
-
-.footer-social a:hover {
-    color: var(--color-footer-text-strong);
-}
+.footer-social { display: flex; gap: var(--spacing-3); }
+.footer-social a { color: var(--color-text-muted); }
+.footer-social a:hover { color: var(--color-accent-text); }
 
 .footer-bottom {
-    margin-top: var(--spacing-8);
-    padding-top: var(--spacing-6);
-    border-top: 1px solid var(--color-footer-border);
+    margin-top: var(--spacing-6);
+    padding-top: var(--spacing-4);
+    border-top: 1px solid var(--color-border);
+    color: var(--color-text-muted);
+    font-size: var(--font-size-small);
 }
 
-.footer-bottom p {
-    font-size: var(--font-size-caption);
-    color: var(--color-footer-text-muted);
-    font-family: var(--font-mono);
-}
+/* ── Responsive: collapsible nav ────────────────────── */
+@media (max-width: 640px) {
+    .nav-toggle { display: inline-flex; }
 
-/* ==========================================================
-   Responsive — Tablet
-   ========================================================== */
-@media (min-width: 768px) {
-    .card-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .footer-inner {
-        grid-template-columns: 2fr 1fr 1fr;
-    }
-}
-
-/* ==========================================================
-   Responsive — Desktop
-   ========================================================== */
-@media (min-width: 1024px) {
-    .card-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-/* ==========================================================
-   Responsive — Mobile
-   ========================================================== */
-@media (max-width: 767px) {
     .main-nav {
         display: none;
         position: absolute;
-        top: var(--header-height);
-        left: 0;
-        right: 0;
+        top: 3.5rem;
+        right: var(--spacing-5);
         flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-3);
+        padding: var(--spacing-4) var(--spacing-5);
         background: var(--color-background);
-        border-bottom: 1px solid var(--color-border);
-        padding: var(--spacing-4);
-        gap: var(--spacing-1);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-md);
     }
 
-    .main-nav.open {
-        display: flex;
-    }
+    .main-nav.open { display: flex; }
 
-    .main-nav a {
-        width: 100%;
-        padding: var(--spacing-3) var(--spacing-4);
-    }
-
-    .nav-toggle {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .container {
-        padding: 0 var(--spacing-4);
-    }
-
-    .site-footer::before {
-        left: var(--spacing-4);
-    }
-
-    .site-footer::after {
-        right: var(--spacing-4);
-    }
+    .footer-inner { flex-direction: column; gap: var(--spacing-5); }
 }
