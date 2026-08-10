@@ -40,7 +40,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Slab:wght@500;700;800&family=Roboto+Mono:wght@400;500&display=swap">
 
     <!-- Styles -->
     <link rel="stylesheet" href="css/variables.css">
@@ -65,6 +65,7 @@
         .paper-prose { max-width: 60rem; color: var(--color-text-secondary); line-height: var(--line-height-relaxed); text-align: justify; -webkit-hyphens: auto; hyphens: auto; }
         .paper-prose p { margin-bottom: var(--spacing-4); }
         .paper-section .arch-figure + .arch-figure { margin-top: var(--spacing-8); }
+        .paper-cite { color: var(--color-text-secondary); font-size: var(--font-size-lead); margin-top: var(--spacing-2); }
         .bibtex { max-width: 60rem; margin-top: var(--spacing-5); background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--spacing-5); overflow-x: auto; }
         .bibtex pre { font-family: var(--font-mono); font-size: var(--font-size-caption); line-height: var(--line-height-normal); color: var(--color-text-primary); white-space: pre; }
     </style>
@@ -144,125 +145,7 @@
             </section>
 
             <section class="paper-section fade-in">
-                <h2 class="section-label">The finding at a glance</h2>
-
-                <figure class="arch-figure" role="button" tabindex="0" aria-label="Detection versus localization (tap to enlarge)">
-                    <figcaption class="arch-figcaption">Presence is decodable, location is not<span class="arch-figcaption__hint">⤢ tap to enlarge</span></figcaption>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-label="Two scatter panels. No Pain versus Pain separates cleanly and scores 56.5% accuracy against a 41.7% baseline. Arm versus Hand overlaps completely and stays at chance. Below, mutual information is 0.21 bits about pain presence and near zero about pain site.">
-                        <defs>
-                            <pattern id="gpp1" width="20" height="20" patternUnits="userSpaceOnUse"><circle class="a-grid" cx="2" cy="2" r="1.3"/></pattern>
-                        </defs>
-                        <rect class="a-bg" width="960" height="540"/>
-                        <rect width="960" height="540" fill="url(#gpp1)"/>
-                        <text class="a-ttl" x="30" y="58">Presence is decodable, location is not</text>
-
-                        <!-- Panel A: detection -->
-                        <rect class="a-panel" x="30" y="96" width="430" height="322" rx="12"/>
-                        <text class="a-lab" x="52" y="130">Detection: No Pain vs Pain</text>
-                        <line class="a-line" x1="250" y1="150" x2="250" y2="352" stroke-dasharray="5 7"/>
-                        <g>
-                            <circle class="a-rnode" cx="95" cy="190" r="6"/><circle class="a-rnode" cx="140" cy="205" r="6"/><circle class="a-rnode" cx="110" cy="235" r="6"/><circle class="a-rnode" cx="165" cy="250" r="6"/><circle class="a-rnode" cx="90" cy="278" r="6"/><circle class="a-rnode" cx="135" cy="292" r="6"/><circle class="a-rnode" cx="178" cy="300" r="6"/><circle class="a-rnode" cx="115" cy="322" r="6"/><circle class="a-rnode" cx="158" cy="336" r="6"/><circle class="a-rnode" cx="100" cy="352" r="6"/>
-                        </g>
-                        <g>
-                            <circle class="a-node" cx="322" cy="188" r="6"/><circle class="a-node" cx="366" cy="202" r="6"/><circle class="a-node" cx="335" cy="230" r="6"/><circle class="a-node" cx="392" cy="246" r="6"/><circle class="a-node" cx="312" cy="272" r="6"/><circle class="a-node" cx="356" cy="286" r="6"/><circle class="a-node" cx="402" cy="300" r="6"/><circle class="a-node" cx="332" cy="322" r="6"/><circle class="a-node" cx="376" cy="336" r="6"/><circle class="a-node" cx="346" cy="352" r="6"/>
-                        </g>
-                        <path class="a-cedge" d="M58,388 l12,14 l22,-30" stroke-linecap="round" stroke-linejoin="round"/>
-                        <text class="a-em" x="104" y="392">56.5% accuracy</text>
-                        <text class="a-mono" x="104" y="408">baseline 41.7%</text>
-                        <circle class="a-rnode" cx="272" cy="386" r="6"/><text class="a-mono" x="286" y="390">No Pain</text>
-                        <circle class="a-node" cx="272" cy="406" r="6"/><text class="a-mono" x="286" y="410">Pain</text>
-
-                        <!-- Panel B: localization -->
-                        <rect class="a-panel" x="500" y="96" width="430" height="322" rx="12"/>
-                        <text class="a-lab" x="522" y="130">Localization: Arm vs Hand</text>
-                        <g>
-                            <circle class="a-node" cx="650" cy="200" r="6"/><circle class="a-node" cx="700" cy="190" r="6"/><circle class="a-node" cx="670" cy="230" r="6"/><circle class="a-node" cx="730" cy="220" r="6"/><circle class="a-node" cx="640" cy="262" r="6"/><circle class="a-node" cx="710" cy="266" r="6"/><circle class="a-node" cx="760" cy="242" r="6"/><circle class="a-node" cx="682" cy="300" r="6"/><circle class="a-node" cx="740" cy="300" r="6"/><circle class="a-node" cx="700" cy="332" r="6"/>
-                        </g>
-                        <g>
-                            <circle class="a-rnode" cx="670" cy="210" r="6"/><circle class="a-rnode" cx="720" cy="202" r="6"/><circle class="a-rnode" cx="690" cy="246" r="6"/><circle class="a-rnode" cx="750" cy="236" r="6"/><circle class="a-rnode" cx="660" cy="278" r="6"/><circle class="a-rnode" cx="730" cy="286" r="6"/><circle class="a-rnode" cx="775" cy="258" r="6"/><circle class="a-rnode" cx="702" cy="312" r="6"/><circle class="a-rnode" cx="758" cy="312" r="6"/><circle class="a-rnode" cx="716" cy="344" r="6"/>
-                        </g>
-                        <line class="a-edge" x1="528" y1="384" x2="550" y2="406"/><line class="a-edge" x1="550" y1="384" x2="528" y2="406"/>
-                        <text class="a-mt2" x="566" y="392">at chance</text>
-                        <text class="a-mono" x="566" y="408">~50%, not decodable</text>
-                        <circle class="a-node" cx="742" cy="386" r="6"/><text class="a-mono" x="756" y="390">Arm</text>
-                        <circle class="a-rnode" cx="742" cy="406" r="6"/><text class="a-mono" x="756" y="410">Hand</text>
-
-                        <!-- Information strip -->
-                        <text class="a-kick" x="30" y="454">MUTUAL INFORMATION (BITS)</text>
-                        <text class="a-mono" x="30" y="484">about pain</text>
-                        <rect class="a-track" x="150" y="474" width="360" height="12" rx="6"/>
-                        <rect class="a-bariou" x="150" y="474" width="302" height="12" rx="6"/>
-                        <text class="a-em" x="522" y="485">0.21</text>
-                        <text class="a-mono" x="30" y="512">about site</text>
-                        <rect class="a-track" x="150" y="502" width="360" height="12" rx="6"/>
-                        <rect class="a-barem" x="150" y="502" width="10" height="12" rx="6"/>
-                        <text class="a-mt2" x="522" y="513">~0</text>
-                    </svg>
-                </figure>
-
-                <figure class="arch-figure" role="button" tabindex="0" aria-label="Which signals carry the information (tap to enlarge)">
-                    <figcaption class="arch-figcaption">Two of four signals carry the information<span class="arch-figcaption__hint">⤢ tap to enlarge</span></figcaption>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-label="Blood volume pulse and electrodermal activity feed the classifier with informative signals, while respiration and oxygen saturation are uninformative. The classifier detects that pain is present but cannot decode its location.">
-                        <defs>
-                            <pattern id="gpp2" width="20" height="20" patternUnits="userSpaceOnUse"><circle class="a-grid" cx="2" cy="2" r="1.3"/></pattern>
-                            <marker id="appc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path class="a-arrow-c" d="M0,0L10,5L0,10z"/></marker>
-                            <marker id="appm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path class="a-arrow" d="M0,0L10,5L0,10z"/></marker>
-                        </defs>
-                        <rect class="a-bg" width="960" height="540"/>
-                        <rect width="960" height="540" fill="url(#gpp2)"/>
-                        <text class="a-ttl" x="30" y="58">Two of four signals carry the information</text>
-
-                        <!-- Signal cards -->
-                        <rect class="a-accent" x="40" y="104" width="238" height="70" rx="10"/>
-                        <text class="a-lab" x="60" y="136">BVP</text><text class="a-sub" x="60" y="158">blood volume pulse</text>
-                        <polyline class="a-cedge" points="182,150 196,150 204,124 214,158 222,140 238,140 246,128 256,150 268,150"/>
-
-                        <rect class="a-accent" x="40" y="190" width="238" height="70" rx="10"/>
-                        <text class="a-lab" x="60" y="222">EDA</text><text class="a-sub" x="60" y="244">electrodermal activity</text>
-                        <path class="a-cedge" d="M182,246 C202,246 206,216 230,216 C252,216 256,228 268,228"/>
-
-                        <rect class="a-box" x="40" y="290" width="238" height="70" rx="10"/>
-                        <text class="a-lab" x="60" y="322">RESP</text><text class="a-sub" x="60" y="344">respiration</text>
-                        <path class="a-line" d="M182,328 C200,310 216,346 234,328 C246,316 256,340 268,328"/>
-
-                        <rect class="a-box" x="40" y="376" width="238" height="70" rx="10"/>
-                        <text class="a-lab" x="60" y="408">SpO2</text><text class="a-sub" x="60" y="430">oxygen saturation</text>
-                        <line class="a-line" x1="182" y1="414" x2="268" y2="414"/>
-
-                        <!-- Classifier -->
-                        <rect class="a-accent" x="470" y="210" width="150" height="110" rx="12"/>
-                        <text class="a-lab" x="545" y="258" text-anchor="middle">Classifier</text>
-                        <text class="a-mono" x="545" y="280" text-anchor="middle">subject-indep.</text>
-
-                        <!-- informative signals in (solid emerald) -->
-                        <path class="a-cedge" d="M278,139 C360,139 400,250 466,258" marker-end="url(#appc)"/>
-                        <path class="a-cedge" d="M278,225 C360,235 410,258 466,264" marker-end="url(#appc)"/>
-                        <!-- uninformative signals in (dashed, muted) -->
-                        <path class="a-line" d="M278,325 C360,320 410,285 466,276" stroke-dasharray="5 6" marker-end="url(#appm)"/>
-                        <path class="a-line" d="M278,411 C370,400 410,300 466,282" stroke-dasharray="5 6" marker-end="url(#appm)"/>
-
-                        <!-- Outputs -->
-                        <rect class="a-accent" x="700" y="180" width="220" height="70" rx="10"/>
-                        <path class="a-cedge" d="M718,216 l10,12 l18,-24" stroke-linecap="round" stroke-linejoin="round"/>
-                        <text class="a-lab" x="756" y="212">Pain present</text><text class="a-mono" x="756" y="234">detected reliably</text>
-                        <line class="a-cedge" x1="620" y1="252" x2="696" y2="220" marker-end="url(#appc)"/>
-
-                        <rect class="a-metric" x="700" y="286" width="220" height="70" rx="10"/>
-                        <line class="a-edge" x1="716" y1="308" x2="734" y2="330"/><line class="a-edge" x1="734" y1="308" x2="716" y2="330"/>
-                        <text class="a-lab" x="748" y="314">Pain location</text><text class="a-mono" x="748" y="336">not decodable</text>
-                        <path class="a-line" d="M620,278 C660,290 670,312 696,318" stroke-dasharray="5 6" marker-end="url(#appm)"/>
-
-                        <!-- Legend -->
-                        <line class="a-cedge" x1="40" y1="490" x2="82" y2="490"/>
-                        <text class="a-mono" x="92" y="494">carries signal (BVP, EDA)</text>
-                        <line class="a-line" x1="360" y1="490" x2="402" y2="490" stroke-dasharray="5 6"/>
-                        <text class="a-mono" x="412" y="494">no usable signal, dilutes fusion (RESP, SpO2)</text>
-                    </svg>
-                </figure>
-            </section>
-
-            <section class="paper-section fade-in">
-                <h2 class="section-label">Cite</h2>
+                <p class="paper-cite">Please cite our work if you build on it or find it useful:</p>
                 <div class="bibtex">
 <pre>@inproceedings{nguyen2026painpresence,
   title     = {Pain Presence, Not Location: A Causal and

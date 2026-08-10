@@ -3,10 +3,10 @@
    (variables.css tokens; base.css reset/type stay in place)
    ========================================================== */
 
-/* Normalize headings to the sans family + modest sizes */
-h1 { font-family: var(--font-family); font-size: 1.9rem; font-weight: var(--font-weight-bold); letter-spacing: -0.02em; line-height: 1.2; }
-h2 { font-family: var(--font-family); font-size: 1.35rem; font-weight: var(--font-weight-bold); letter-spacing: -0.01em; line-height: 1.25; }
-h3 { font-family: var(--font-family); font-size: 1.05rem; font-weight: var(--font-weight-semibold); line-height: 1.35; }
+/* Headings in the display (slab-serif) family, modest sizes */
+h1 { font-family: var(--font-display); font-size: 1.9rem; font-weight: var(--font-weight-bold); letter-spacing: -0.01em; line-height: 1.2; }
+h2 { font-family: var(--font-display); font-size: 1.35rem; font-weight: var(--font-weight-bold); letter-spacing: -0.005em; line-height: 1.25; }
+h3 { font-family: var(--font-display); font-size: 1.05rem; font-weight: var(--font-weight-semibold); line-height: 1.35; }
 
 /* ── Reveal on scroll (main.js toggles .visible) ─────── */
 .fade-in { opacity: 0; transform: translateY(10px); transition: opacity 0.5s ease, transform 0.5s ease; }

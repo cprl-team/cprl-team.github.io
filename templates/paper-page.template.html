@@ -70,7 +70,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Slab:wght@500;700;800&family=Roboto+Mono:wght@400;500&display=swap">
 
     <!-- Styles -->
     <link rel="stylesheet" href="css/variables.css">
@@ -95,6 +95,7 @@
         .paper-prose { max-width: 60rem; color: var(--color-text-secondary); line-height: var(--line-height-relaxed); text-align: justify; -webkit-hyphens: auto; hyphens: auto; }
         .paper-prose p { margin-bottom: var(--spacing-4); }
         .paper-section .arch-figure + .arch-figure { margin-top: var(--spacing-8); }
+        .paper-cite { color: var(--color-text-secondary); font-size: var(--font-size-lead); margin-top: var(--spacing-2); }
         .bibtex { max-width: 60rem; margin-top: var(--spacing-5); background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--spacing-5); overflow-x: auto; }
         .bibtex pre { font-family: var(--font-mono); font-size: var(--font-size-caption); line-height: var(--line-height-normal); color: var(--color-text-primary); white-space: pre; }
     </style>
@@ -229,7 +230,7 @@
 
             <!-- ===== Cite ===== -->
             <section class="paper-section fade-in">
-                <h2 class="section-label">Cite</h2>
+                <p class="paper-cite">Please cite our work if you build on it or find it useful:</p>
                 <div class="bibtex">
 <pre>{{BIBTEX}}</pre>
                 </div>
