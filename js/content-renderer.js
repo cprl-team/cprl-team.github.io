@@ -8,14 +8,6 @@
     var SVG_PAPER = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>';
     var SVG_PATENT = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>';
 
-    /* Maps research-area order → illustration (fallback if home.md lacks image:) */
-    var RESEARCH_IMAGES = [
-        'images/causal_video.svg',
-        'images/causal_document.svg',
-        'images/causal_healthcare.svg',
-        'images/physics_causal.svg',
-        'images/neuro_symbolic.svg'
-    ];
 
     /* ── Helpers ────────────────────────────────────────── */
     function escapeHTML(str) {
@@ -52,21 +44,6 @@
     /* Strip a leading "🏆 Winner — " prefix for display (markdown stays intact) */
     function cleanTitle(t) {
         return (t || '').replace(/^\s*🏆\s*/, '').replace(/^\s*winner\s*[—–-]\s*/i, '').trim();
-    }
-
-    /* Inline first-party .svg illustrations so they inherit the page's
-       theme tokens (an external <img> svg is color-isolated). Trusted files. */
-    async function inlineSvgs(container) {
-        var holders = container.querySelectorAll('[data-svg]');
-        for (var i = 0; i < holders.length; i++) {
-            var holder = holders[i];
-            try {
-                var markup = await ContentLoader.load(holder.getAttribute('data-svg'));
-                if (markup) holder.innerHTML = markup;
-            } catch (e) {
-                /* leave the empty media frame rather than break the layout */
-            }
-        }
     }
 
     /* Reveal dynamically-injected .fade-in blocks (the IntersectionObserver
@@ -326,136 +303,6 @@
     }
 
     /**
-     * Render the research areas as a "causal graph" of editorial nodes.
-     * Sourced from content/home.md (parseHome().researchAreas).
-     */
-    async function renderResearch(containerId) {
-        var container = document.getElementById(containerId);
-        if (!container) return;
-
-        var text = await ContentLoader.load('content/home.md');
-        if (!text) { container.innerHTML = '<p>Failed to load research areas.</p>'; return; }
-
-        var areas = ContentLoader.parseHome(text).researchAreas || [];
-        var html = '<div class="research-graph">';
-        for (var i = 0; i < areas.length; i++) {
-            var a = areas[i];
-            var img = a.image || RESEARCH_IMAGES[i] || '';
-            html += '<article class="research-node">';
-            if (img && /\.svg(\?|$)/i.test(img)) {
-                // Inlined after render so the schematic adapts to the theme toggle
-                html += '<div class="research-node__media" data-svg="' + escapeHTML(img) +
-                    '" role="img" aria-label="' + escapeHTML(a.title) + ' schematic"></div>';
-            } else if (img) {
-                html += '<div class="research-node__media"><img src="' + escapeHTML(img) +
-                    '" alt="' + escapeHTML(a.title) + ' illustration" width="600" height="375" loading="lazy" decoding="async"></div>';
-            }
-            html += '<div class="research-node__body">';
-            html += '<span class="research-node__num">' + pad2(i + 1) + '</span>';
-            html += '<h3>' + escapeHTML(a.title) + '</h3>';
-            html += '<p>' + escapeHTML(a.description) + '</p>';
-            html += '</div></article>';
-        }
-        html += '</div>';
-        container.innerHTML = html;
-        inlineSvgs(container);
-    }
-
-    /**
-     * Render the recognition highlight band (stats + featured wins).
-     */
-    async function renderRecognition(containerId, opts) {
-        opts = opts || {};
-        var limit = opts.limit || 3;
-        var container = document.getElementById(containerId);
-        if (!container) return;
-
-        var text = await ContentLoader.load('content/achievements.md');
-        if (!text) { container.innerHTML = '<p>Failed to load achievements.</p>'; return; }
-
-        var sections = ContentLoader.parseAchievements(text);
-        var all = [];
-        for (var name in sections) { sections[name].forEach(function (a) { all.push(a); }); }
-        var wins = all.filter(function (a) { return a.type === 'winner'; });
-        var featured = (opts.winnersOnly ? wins : all).slice(0, limit);
-
-        var html = '<div class="recognition-grid">';
-
-        html += '<div class="stat-grid">';
-        html += '<div class="stat"><span class="stat__num">' + wins.length + '</span><span class="stat__label">challenge wins</span></div>';
-        html += '<div class="stat"><span class="stat__num">' + all.length + '</span><span class="stat__label">competitions entered</span></div>';
-        html += '</div>';
-
-        html += '<div class="milestones">';
-        featured.forEach(function (a, idx) {
-            var isLast = idx === featured.length - 1;
-            html += '<div class="milestone-item">';
-            html += '<div class="milestone-marker">';
-            html += '<div class="milestone-dot' + (a.type === 'winner' ? ' winner-dot' : '') + '"></div>';
-            if (!isLast) html += '<div class="milestone-line"></div>';
-            html += '</div>';
-            html += '<div class="milestone-content">';
-            if (a.type === 'winner') html += '<span class="badge winner-badge">Winner</span>';
-            html += '<h3>' + escapeHTML(cleanTitle(a.title)) + '</h3>';
-            html += '<p class="milestone-year">' + escapeHTML(a.date) + '</p>';
-            if (a.event) {
-                html += '<p>';
-                if (a.link) html += '<a href="' + escapeHTML(a.link) + '" target="_blank" rel="noopener">' + escapeHTML(a.event) + '</a>';
-                else html += escapeHTML(a.event);
-                html += '</p>';
-            }
-            html += '</div></div>';
-        });
-        html += '</div>';
-
-        html += '</div>';
-        container.innerHTML = html;
-    }
-
-    /**
-     * Render a people preview for the homepage: featured leader + avatar strip.
-     */
-    async function renderPeoplePreview(containerId) {
-        var container = document.getElementById(containerId);
-        if (!container) return;
-
-        var text = await ContentLoader.load('content/members.md');
-        if (!text) { container.innerHTML = '<p>Failed to load team.</p>'; return; }
-
-        var sections = ContentLoader.parseMembers(text);
-        var leader = null;
-        var others = [];
-        for (var name in sections) {
-            var isLeaders = name.toLowerCase().indexOf('leader') !== -1;
-            sections[name].forEach(function (m) {
-                if (isLeaders && !leader) leader = m;
-                else others.push(m);
-            });
-        }
-
-        var html = '<div class="people-preview">';
-        if (leader) {
-            html += '<div class="feature feature--leader">';
-            html += '<div class="avatar-initials">' + escapeHTML(leader.initials) + '</div>';
-            html += '<div>';
-            if (leader.role) html += '<p class="feature__role">' + escapeHTML(leader.role) + '</p>';
-            html += '<p class="feature__name">' + escapeHTML(leader.name) + '</p>';
-            html += '</div></div>';
-        }
-        html += '<div class="people-strip">';
-        others.forEach(function (m) {
-            if (m.link) {
-                html += '<a href="' + escapeHTML(m.link) + '" target="_blank" rel="noopener" title="' + escapeHTML(m.name) + '" aria-label="' + escapeHTML(m.name) + '"><span class="avatar-initials">' + escapeHTML(m.initials) + '</span></a>';
-            } else {
-                html += '<span class="avatar-initials" title="' + escapeHTML(m.name) + '">' + escapeHTML(m.initials) + '</span>';
-            }
-        });
-        html += '</div>';
-        html += '</div>';
-        container.innerHTML = html;
-    }
-
-    /**
      * Render achievements page content — causal timeline with winner badges.
      */
     async function renderAchievements(containerId) {
@@ -562,58 +409,6 @@
     }
 
     /**
-     * Render the capstones page — full per-topic detail with deep-link anchors.
-     */
-    async function renderCapstones(containerId) {
-        var container = document.getElementById(containerId);
-        if (!container) return;
-
-        var text = await ContentLoader.load('content/capstones.md');
-        if (!text) { container.innerHTML = '<p>Failed to load capstones.</p>'; return; }
-
-        var sections = ContentLoader.parseCapstones(text);
-
-        function block(label, val) {
-            return val ? '<div class="capstone__block"><h4>' + label + '</h4><p>' + escapeHTML(val) + '</p></div>' : '';
-        }
-
-        var html = '';
-        for (var sectionName in sections) {
-            var items = sections[sectionName];
-            html += '<section class="capstone-section fade-in">';
-            html += '<h2 class="section-label">' + escapeHTML(sectionName) + '</h2>';
-            for (var i = 0; i < items.length; i++) {
-                var c = items[i];
-                html += '<article class="capstone" id="' + escapeHTML(c.slug) + '">';
-                html += '<div class="capstone__head">';
-                html += '<span class="topic-level topic-level--' + escapeHTML((c.level || '').toLowerCase()) + '">' + escapeHTML(c.level) + '</span>';
-                html += '<h3>' + escapeHTML(c.id) + ' · ' + escapeHTML(c.title) + '</h3>';
-                if (c.duration) html += '<span class="capstone__dur">' + escapeHTML(c.duration) + '</span>';
-                html += '</div>';
-                html += block('Goal', c.goal) + block('Context', c.context) + block('Questions', c.questions) +
-                    block('Data', c.data) + block('Method', c.method) + block('Milestones', c.milestones);
-                if (c.reading.length) {
-                    html += '<div class="capstone__block"><h4>Reading</h4><ul class="capstone__reading">';
-                    for (var r = 0; r < c.reading.length; r++) {
-                        var rd = c.reading[r];
-                        var kind = rd.kind ? '<span class="read-kind">' + escapeHTML(rd.kind) + '</span> ' : '';
-                        var body = rd.url
-                            ? escapeHTML(rd.text) + ' <a href="' + escapeHTML(rd.url) + '" target="_blank" rel="noopener">link ↗</a>'
-                            : escapeHTML(rd.text);
-                        html += '<li>' + kind + body + '</li>';
-                    }
-                    html += '</ul></div>';
-                }
-                html += '</article>';
-            }
-            html += '</section>';
-        }
-
-        container.innerHTML = html;
-        revealFadeIns(container);
-    }
-
-    /**
      * Render the "Recent News" list on the home page, sourced from
      * content/home.md (parsed by ContentLoader.parseHome).
      */
@@ -697,12 +492,8 @@
         renderMembers: renderMembers,
         renderPublications: renderPublications,
         renderSelectedPublications: renderSelectedPublications,
-        renderResearch: renderResearch,
-        renderRecognition: renderRecognition,
-        renderPeoplePreview: renderPeoplePreview,
         renderAchievements: renderAchievements,
         renderProjects: renderProjects,
-        renderCapstones: renderCapstones,
         renderNews: renderNews
     };
 })();
