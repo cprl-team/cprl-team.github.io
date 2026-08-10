@@ -188,6 +188,17 @@
     margin-bottom: var(--spacing-1);
 }
 
+.news-content h3 a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.news-content h3 a:hover,
+.news-content h3 a:focus-visible {
+    color: var(--color-accent-text);
+    text-decoration: underline;
+}
+
 .news-content p {
     font-size: var(--font-size-caption);
 }

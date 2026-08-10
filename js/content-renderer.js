@@ -680,26 +680,65 @@
             return;
         }
 
-        var data = ContentLoader.parseHome(text);
-        var news = data.news || [];
-        if (!news.length) {
+        var LIMIT = 5;
+
+        // Curated highlights authored in home.md (awards, grants, events, ...)
+        var manual = (ContentLoader.parseHome(text).news || []).map(function (n) {
+            return { year: n.year, title: n.title, description: n.description || '', url: n.link || '' };
+        });
+
+        // Auto items: most recent accepted papers, derived from publications.md
+        // (any numeric-year publication that is not a patent). This keeps the
+        // news current whenever a paper is added, with no separate edit here.
+        var auto = [];
+        var pubText = await ContentLoader.load('content/publications.md');
+        if (pubText) {
+            var sections = ContentLoader.parsePublications(pubText);
+            for (var name in sections) {
+                if (sectionSlug(name) === 'patent') continue;
+                sections[name].forEach(function (p) {
+                    if (isNaN(parseInt(p.year, 10))) return; // skip Ongoing / non-year buckets
+                    auto.push({
+                        year: p.year,
+                        title: p.title,
+                        description: p.venue_short || p.venue || '',
+                        url: p.link || p.project || ''
+                    });
+                });
+            }
+        }
+
+        // Merge curated + auto, drop auto duplicates of a curated title, sort
+        // newest-first (curated leads within a year), and cap the list.
+        function titleKey(t) { return (t || '').toLowerCase().replace(/\s+/g, ' ').trim(); }
+        var seen = {};
+        manual.forEach(function (m) { seen[titleKey(m.title)] = true; });
+        var items = manual.concat(auto.filter(function (a) { return !seen[titleKey(a.title)]; }));
+        items.sort(function (a, b) { return (parseInt(b.year, 10) || 0) - (parseInt(a.year, 10) || 0); });
+        items = items.slice(0, LIMIT);
+
+        if (!items.length) {
             var section = container.closest('.section');
             if (section) section.style.display = 'none';
             return;
         }
 
         var html = '<div class="news-list">';
-        for (var i = 0; i < news.length; i++) {
-            var n = news[i];
+        items.forEach(function (n) {
+            var titleHtml = escapeHTML(n.title);
+            if (n.url) {
+                var ext = /^https?:/i.test(n.url) ? ' target="_blank" rel="noopener"' : '';
+                titleHtml = '<a href="' + escapeHTML(n.url) + '"' + ext + '>' + escapeHTML(n.title) + '</a>';
+            }
             html += '<div class="news-item">';
             html += '<div class="news-year">' + escapeHTML(n.year) + '</div>';
             html += '<div class="news-content">';
-            html += '<h3>' + escapeHTML(n.title) + '</h3>';
+            html += '<h3>' + titleHtml + '</h3>';
             if (n.description) {
                 html += '<p>' + escapeHTML(n.description) + '</p>';
             }
             html += '</div></div>';
-        }
+        });
         html += '</div>';
 
         container.innerHTML = html;
