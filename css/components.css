@@ -160,18 +160,29 @@ main { padding-bottom: var(--spacing-8); }
 .pub-note { font-size: var(--font-size-caption); color: var(--color-text-muted); margin-top: 4px; }
 
 /* ── Cards / members ────────────────────────────────── */
-.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr)); gap: var(--spacing-4); }
-.card, .member-card { border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--spacing-5); background: var(--color-surface); text-align: center; }
-.member-card h3 { font-size: var(--font-size-body); }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr)); gap: var(--spacing-4); }
+.card, .member-card {
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+    border: 1px solid var(--color-border); border-radius: var(--radius-md);
+    padding: var(--spacing-5); background: var(--color-surface);
+    transition: border-color var(--transition-base), transform var(--transition-base), box-shadow var(--transition-base);
+}
+.member-card:hover { border-color: var(--color-accent); transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+.member-card__name { font-size: var(--font-size-body); margin: 0; }
 .member-card__role { font-size: var(--font-size-caption); color: var(--color-text-muted); margin-top: 2px; }
+.member-card__link {
+    display: inline-flex; align-items: center; gap: 0.25rem;
+    margin-top: var(--spacing-3); font-size: var(--font-size-caption);
+    font-weight: var(--font-weight-medium); color: var(--color-accent-text);
+}
+.member-card__link:hover { color: var(--color-accent-text); text-decoration: underline; }
 .avatar-initials { width: 3rem; height: 3rem; border-radius: var(--radius-full); background: var(--color-accent-glow); color: var(--color-accent-text); display: flex; align-items: center; justify-content: center; font-weight: var(--font-weight-bold); margin: 0 auto var(--spacing-3); }
 
+/* Leader gets a larger avatar and an accent ring so it reads as primary */
+.member-card--lead { border-color: var(--color-accent); box-shadow: inset 0 0 0 1px var(--color-accent); }
+.member-card--lead .avatar-initials { width: 3.75rem; height: 3.75rem; font-size: 1.1rem; background: var(--color-accent); color: var(--color-on-accent); }
+
 .member-section { margin-top: var(--spacing-10); }
-.member-leader { margin-bottom: var(--spacing-2); }
-.feature--leader { display: flex; align-items: center; gap: var(--spacing-4); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--spacing-5); background: var(--color-surface); }
-.feature--leader .avatar-initials { margin: 0; flex: 0 0 auto; }
-.feature__role { font-size: var(--font-size-caption); color: var(--color-text-muted); }
-.feature__name { font-size: 1.1rem; font-weight: var(--font-weight-bold); }
 
 /* ── Achievements (simple list) ─────────────────────── */
 .milestones { display: flex; flex-direction: column; gap: var(--spacing-4); }

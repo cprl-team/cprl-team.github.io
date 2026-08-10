@@ -120,40 +120,23 @@
             html += '<section class="member-section fade-in">';
             html += '<h2 class="section-label">' + escapeHTML(sectionName) + '</h2>';
 
-            if (isLeaders) {
-                html += '<div class="member-leader">';
-                for (var li = 0; li < members.length; li++) {
-                    var lm = members[li];
-                    html += '<div class="feature feature--leader">';
-                    html += '<div class="avatar-initials">' + escapeHTML(lm.initials) + '</div>';
-                    html += '<div>';
-                    if (lm.role) html += '<p class="feature__role">' + escapeHTML(lm.role) + '</p>';
-                    if (lm.link) {
-                        html += '<p class="feature__name"><a href="' + escapeHTML(lm.link) + '" target="_blank" rel="noopener">' + escapeHTML(lm.name) + '</a></p>';
-                    } else {
-                        html += '<p class="feature__name">' + escapeHTML(lm.name) + '</p>';
-                    }
-                    html += '</div></div>';
-                }
-                html += '</div>';
-            } else {
-                html += '<div class="card-grid">';
-                for (var i = 0; i < members.length; i++) {
-                    var m = members[i];
-                    html += '<div class="card member-card">';
-                    html += '<div class="avatar-initials">' + escapeHTML(m.initials) + '</div>';
-                    html += '<h3>';
-                    if (m.link) {
-                        html += '<a href="' + escapeHTML(m.link) + '" target="_blank" rel="noopener">' + escapeHTML(m.name) + '</a>';
-                    } else {
-                        html += escapeHTML(m.name);
-                    }
-                    html += '</h3>';
-                    if (m.role) html += '<p class="member-card__role">' + escapeHTML(m.role) + '</p>';
-                    html += '</div>';
+            html += '<div class="card-grid">';
+            for (var i = 0; i < members.length; i++) {
+                var m = members[i];
+                var cardClass = 'card member-card' + (isLeaders ? ' member-card--lead' : '');
+                html += '<div class="' + cardClass + '">';
+                html += '<div class="avatar-initials">' + escapeHTML(m.initials) + '</div>';
+                html += '<h3 class="member-card__name">' + escapeHTML(m.name) + '</h3>';
+                if (m.role) html += '<p class="member-card__role">' + escapeHTML(m.role) + '</p>';
+                if (m.link) {
+                    html += '<a class="member-card__link" href="' + escapeHTML(m.link) + '"' +
+                        ' target="_blank" rel="noopener"' +
+                        ' aria-label="View profile of ' + escapeHTML(m.name) + '">' +
+                        'View profile <span aria-hidden="true">↗</span></a>';
                 }
                 html += '</div>';
             }
+            html += '</div>';
 
             html += '</section>';
         }
