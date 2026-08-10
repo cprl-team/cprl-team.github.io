@@ -41,7 +41,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Slab:wght@500;700;800&family=Roboto+Mono:wght@400;500&display=swap">
 
   <!-- Styles -->
   <link rel="stylesheet" href="css/variables.css">
@@ -119,172 +119,60 @@
 
   <!-- Main Content -->
   <main id="main-content">
+    <div class="container">
 
-    <!-- Hero -->
-    <section class="section hero fade-in">
-      <div class="container">
-        <div class="hero-grid">
-          <div class="hero-copy">
-            <p class="hero-kicker section-label">Causal AI Research</p>
-            <h1><span class="gradient-text">Causal Perception</span> and <span class="gradient-text">Reasoning</span>
-            </h1>
-            <p class="hero-lead">We build AI that moves beyond correlation-based perception toward genuine causal
-              reasoning, understanding not just <em>what</em> happens, but <em>why</em>.</p>
-            <div class="hero-actions">
-              <a href="publications.html" class="btn btn-primary">+ View Publications</a>
-              <a href="members.html" class="btn btn-secondary">Meet Our Team</a>
-            </div>
-            <p class="hero-meta">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                <circle cx="12" cy="10" r="3" />
-              </svg>
-              Ho Chi Minh City, Vietnam
-            </p>
-          </div>
-          <div class="hero-visual">
-            <svg class="dag" viewBox="0 0 420 320" role="img"
-              aria-label="A causal directed graph: three perception inputs on the left flow through two hidden layers into a single reasoning output on the right.">
-              <defs>
-                <pattern id="hero-dots" width="20" height="20" patternUnits="userSpaceOnUse">
-                  <circle class="bp-grid" cx="2" cy="2" r="1.4" />
-                </pattern>
-                <marker id="hero-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7"
-                  orient="auto-start-reverse">
-                  <path class="bp-arrow" d="M0,0 L10,5 L0,10 z" />
-                </marker>
-              </defs>
-              <rect x="0" y="0" width="420" height="320" fill="url(#hero-dots)" />
-              <rect class="bp-frame" x="16" y="16" width="388" height="288" rx="12" />
-              <g class="dag-edges">
-                <line class="dag-edge" x1="60" y1="85" x2="175" y2="125" />
-                <line class="dag-edge" x1="60" y1="85" x2="175" y2="205" />
-                <line class="dag-edge" x1="60" y1="165" x2="175" y2="125" />
-                <line class="dag-edge" x1="60" y1="165" x2="175" y2="205" />
-                <line class="dag-edge" x1="60" y1="245" x2="175" y2="125" />
-                <line class="dag-edge" x1="60" y1="245" x2="175" y2="205" />
-                <line class="dag-edge" x1="175" y1="125" x2="290" y2="100" />
-                <line class="dag-edge" x1="175" y1="125" x2="290" y2="230" />
-                <line class="dag-edge" x1="175" y1="205" x2="290" y2="100" />
-                <line class="dag-edge" x1="175" y1="205" x2="290" y2="230" />
-                <line class="dag-edge" x1="290" y1="100" x2="355" y2="151" marker-end="url(#hero-arrow)" />
-                <line class="dag-edge" x1="290" y1="230" x2="355" y2="179" marker-end="url(#hero-arrow)" />
-              </g>
-              <g class="dag-nodes">
-                <circle class="dag-node" cx="60" cy="85" r="9" />
-                <circle class="dag-node" cx="60" cy="165" r="9" />
-                <circle class="dag-node" cx="60" cy="245" r="9" />
-                <circle class="dag-node" cx="175" cy="125" r="8" />
-                <circle class="dag-node" cx="175" cy="205" r="8" />
-                <circle class="dag-node" cx="290" cy="100" r="8" />
-                <circle class="dag-node" cx="290" cy="230" r="8" />
-                <circle class="dag-node dag-node--reasoning" cx="372" cy="165" r="14" />
-              </g>
-              <circle class="bp-ring" cx="372" cy="165" r="20" />
-              <text class="bp-label" x="46" y="89" text-anchor="end">x1</text>
-              <text class="bp-label" x="46" y="169" text-anchor="end">x2</text>
-              <text class="bp-label" x="46" y="249" text-anchor="end">x3</text>
-              <text class="bp-label" x="372" y="138" text-anchor="middle">y</text>
-              <text class="dag-label" x="30" y="296" text-anchor="start">Perception</text>
-              <text class="dag-label" x="390" y="296" text-anchor="end">Reasoning</text>
-            </svg>
+      <!-- About -->
+      <header class="about fade-in">
+        <div class="about__media">
+          <div class="about__logo"><img src="logo.png" alt="CPR logo"></div>
+        </div>
+        <div class="about__body">
+          <h1 class="about__name">Causal Perception and Reasoning</h1>
+          <p class="about__tag">Causal AI research group &middot; Ho Chi Minh City, Vietnam</p>
+          <p>We aim to move beyond correlation-based perception toward genuine causal reasoning, developing models that explain not only <em>what</em> happens but <em>why</em> it happens. Our research spans causal video understanding, document intelligence, healthcare, physics-informed modeling, and neuro-symbolic AI.</p>
+          <div class="about__contacts">
+            <a href="mailto:contact@cpr.ai.vn">contact@cpr.ai.vn</a>
+            <a href="https://cpr.ai.vn" target="_blank" rel="noopener">cpr.ai.vn</a>
+            <a href="publications.html">Publications</a>
+            <a href="members.html">Team</a>
           </div>
         </div>
-      </div>
-    </section>
+      </header>
 
-    <div class="edge-divider" aria-hidden="true"></div>
-
-    <!-- Thesis -->
-    <section class="section band fade-in" id="thesis">
-      <div class="container">
-        <h2 class="section-label">Our Thesis</h2>
-        <div class="thesis">
-          <div class="thesis__col thesis__col--perception">
-            <span class="thesis__tag">Perception</span>
-            <h3>Recognizing <em>what</em> is in the data</h3>
-            <p>Modern models excel at correlation, spotting the patterns of what tends to occur together.</p>
-          </div>
-          <div class="thesis__arrow" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-              <line x1="3" y1="12" x2="21" y2="12" />
-              <polyline points="14 5 21 12 14 19" />
-            </svg>
-          </div>
-          <div class="thesis__col thesis__col--reasoning">
-            <span class="thesis__tag">Reasoning</span>
-            <h3>Understanding <em>why</em> it happens</h3>
-            <p>We build systems that reason about cause and effect, the mechanisms that actually drive the data.</p>
-          </div>
+      <!-- Research areas -->
+      <section class="section fade-in">
+        <h2 class="section-label">Research areas</h2>
+        <div class="areas">
+          <div class="area"><h3>Causal Video Understanding</h3><p>Grounding video into events, then reasoning about the triggers that connect them.</p></div>
+          <div class="area"><h3>Causal Document Intelligence</h3><p>Treating document layout and structure as a causal graph over text, tables, and figures.</p></div>
+          <div class="area"><h3>Causal AI in Healthcare</h3><p>ICU outcome prediction on MIMIC: leakage-free prediction, explanation, and counterfactuals.</p></div>
+          <div class="area"><h3>Physics-Informed Causal AI</h3><p>Mechanistic models of physical processes, from prediction to intervention and digital twins.</p></div>
+          <div class="area"><h3>Causal LLMs &amp; Neuro-Symbolic AI</h3><p>Do models infer cause and effect, or recall it? Pairing LLMs with symbolic reasoning.</p></div>
         </div>
-      </div>
-    </section>
+        <a class="section-cta" href="projects.html">See all projects &rarr;</a>
+      </section>
 
-    <!-- Research Areas -->
-    <section class="section fade-in">
-      <div class="container">
-        <h2 class="section-label">Our Core Research</h2>
-        <!-- Dynamically rendered from content/home.md -->
-        <div id="research-areas"></div>
-      </div>
-    </section>
+      <!-- Selected publications -->
+      <section class="section fade-in">
+        <h2 class="section-label">Selected publications</h2>
+        <div id="home-pubs"></div>
+        <a class="section-cta" href="publications.html">View all publications &rarr;</a>
+      </section>
 
-    <div class="edge-divider" aria-hidden="true"></div>
-
-    <!-- Selected Publications -->
-    <section class="section fade-in">
-      <div class="container">
-        <h2 class="section-label">Selected Publications</h2>
-        <!-- Dynamically rendered from content/publications.md -->
-        <div id="home-pubs" class="home-pubs"></div>
-        <a class="section-cta" href="publications.html">View all publications →</a>
-      </div>
-    </section>
-
-    <!-- Recognition -->
-    <section class="section band fade-in" id="recognition">
-      <div class="container">
-        <h2 class="section-label">Recognition</h2>
-        <!-- Dynamically rendered from content/achievements.md -->
-        <div id="home-recognition"></div>
-        <a class="section-cta" href="achievements.html">All achievements →</a>
-      </div>
-    </section>
-
-    <!-- People -->
-    <section class="section fade-in">
-      <div class="container">
-        <h2 class="section-label">The Team</h2>
-        <!-- Dynamically rendered from content/members.md -->
-        <div id="home-people"></div>
-        <a class="section-cta" href="members.html">Meet the full team →</a>
-      </div>
-    </section>
-
-    <!-- Recent News -->
-    <section class="section fade-in">
-      <div class="container">
-        <h2 class="section-label">Recent News</h2>
-        <!-- Dynamically loaded from content/home.md -->
+      <!-- News -->
+      <section class="section fade-in">
+        <h2 class="section-label">News</h2>
         <div id="home-news"></div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Join Us -->
-    <section class="section fade-in">
-      <div class="join-section">
-        <h2 class="section-label">Join Us</h2>
-        <h3>Build the future of causal AI</h3>
-        <p>We are actively growing and seeking passionate
-          collaborators to advance causal AI.</p>
-        <p><strong>Prospective Students</strong> (PhD, Master, UG): if you're
-          driven to explore the <em>why</em> behind AI, not just the <em>what</em>.</p>
-        <p><strong>Academic Partners</strong>: let's collaborate on fundamental
-          research in Video Understanding, Document Intelligence, Healthcare, and Physics-Informed Causal AI.</p>
-        <a href="mailto:contact@cpr.ai.vn" class="btn btn-primary">+ Get in Touch</a>
-      </div>
-    </section>
+      <!-- Join -->
+      <section class="section fade-in">
+        <h2 class="section-label">Join us</h2>
+        <p>We are growing and welcome collaborators. Prospective students (PhD, Master, UG) drawn to the <em>why</em> behind AI, and academic partners in video understanding, document intelligence, healthcare, and physics-informed causal AI, are encouraged to reach out.</p>
+        <p><a class="btn btn-primary" href="mailto:contact@cpr.ai.vn">Get in touch</a></p>
+      </section>
 
+    </div>
   </main>
 
   <!-- Footer -->
@@ -299,7 +187,7 @@
           <h4>Pages</h4>
           <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="publications.html">Publications</a></li><li><a href="projects.html">Projects</a></li><li><a href="capstones.html">Capstones</a></li>
+            <li><a href="publications.html">Publications</a></li><li><a href="projects.html">Projects</a></li>
             <li><a href="members.html">Members</a></li>
             <li><a href="achievements.html">Achievements</a></li>
           </ul>
@@ -332,13 +220,9 @@
   <script src="js/content-loader.js"></script>
   <script src="js/content-renderer.js"></script>
   <script>
-    ContentRenderer.renderResearch('research-areas');
     ContentRenderer.renderSelectedPublications('home-pubs', { limit: 5 });
-    ContentRenderer.renderRecognition('home-recognition', { winnersOnly: true, limit: 3 });
-    ContentRenderer.renderPeoplePreview('home-people');
     ContentRenderer.renderNews('home-news');
   </script>
-  <script src="js/dag.js" defer></script>
   <script src="js/theme.js" defer></script>
   <script src="js/navigation.js" defer></script>
   <script src="js/main.js" defer></script>

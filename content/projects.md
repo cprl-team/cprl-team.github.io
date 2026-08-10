@@ -17,8 +17,6 @@ topic: UG | Event-graph captioner: extract (actor, action, object, time) event t
 topic: Grad | Causal-intervention transfer: add CRA-style front/back-door adjustment to an open VLM and test on CausalVQA and BlackSwanSuite. | a4
 topic: Grad | Multi-hop causal-chain reasoner: extend TRACE-style causal-event modeling to hold up on long chains (Causal-VidQA). | a5
 topic: Grad | Anticipation under intervention: use counterfactual training to lift the weakest CausalVQA question types. | a6
-figure: images/arch/A4-causal-intervention.svg | A4 · Causal-Intervention Reasoner
-figure: images/arch/A5-multihop-chain.svg | A5 · Multi-Hop Causal-Chain Reasoner
 ref: CausalVQA | https://arxiv.org/abs/2506.09943
 ref: CounterVQA | https://arxiv.org/html/2511.19923v1
 ref: BlackSwanSuite | https://arxiv.org/abs/2412.05725
@@ -37,8 +35,6 @@ topic: UG | Table-to-text claim linker: match claims to their supporting table c
 topic: Grad | Document visual-grounding method: add region supervision to raise IoU on MMDocBench. | b4
 topic: Grad | Logical-relation graph reasoner: predict gDSA spatial and logical relations on GraphDoc and beat the 57.6% mAP baseline. | b5
 topic: Grad | Causal document QA: build a counterfactual, premise-to-conclusion benchmark for documents. | b6
-figure: images/arch/B4-doc-grounding.svg | B4 · Document Visual-Grounding
-figure: images/arch/B6-causal-doc-qa.svg | B6 · Causal Document QA
 ref: MMDocBench | https://link.springer.com/chapter/10.1007/978-981-95-6950-2_6
 ref: DocLLM | https://aclanthology.org/2024.acl-long.463/
 ref: DocGraphLM | https://arxiv.org/html/2401.02823v1
@@ -61,7 +57,6 @@ topic: UG | Few-label ICU mortality with self-supervised pretraining (label-effi
 topic: Grad | Competing-risks ICU survival with task-matched metrics (SurvTRACE vs DeepHit/DSM). | hc6
 topic: Grad | MIMIC to eICU external validation with calibration and subgroup fairness. | hc7
 topic: Grad | Information-Bottleneck representations and IB attribution for ICU outcomes. | hc8
-figure: images/arch/HC-mimic-pipeline.svg | Healthcare · MIMIC ICU prediction + explanation
 ref: MIMIC-IV (PhysioNet) | https://physionet.org/content/mimiciv/3.1/
 ref: Harutyunyan MIMIC-III benchmark | https://github.com/YerevaNN/mimic3-benchmarks
 ref: YAIB (multi-center ICU) | https://arxiv.org/abs/2306.05109
@@ -81,7 +76,6 @@ topic: UG | PINN for a canonical PDE on PDEBench, characterising training failur
 topic: Grad | Physics-informed state-of-health with calibrated uncertainty (re-implement PINN4SOH). | pi4
 topic: Grad | Discovering battery degradation equations with weak-SINDy / PySR. | pi5
 topic: Grad | Causal digital twin for counterfactual battery aging (discovered dynamics + SCM). | pi6
-figure: images/arch/PI-physics-pipeline.svg | Physics-Informed · battery / PINN / causal twin
 ref: Severson (Nature Energy 2019) | https://doi.org/10.1038/s41560-019-0356-8
 ref: PINN4SOH (Nature Comms 2024) | https://doi.org/10.1038/s41467-024-48779-z
 ref: Zhang EIS (Nature Comms 2020) | https://doi.org/10.1038/s41467-020-15235-7
@@ -101,7 +95,6 @@ topic: UG | Counterfactual consistency probing of open LLMs (CRASS, CounterBench
 topic: Grad | Faithful autoformalization for causal queries (LLM-to-SCM with a solver verifier). | ns4
 topic: Grad | Isolating abduction: a diagnostic benchmark and method for LLM counterfactuals. | ns5
 topic: Grad | When are LLM causal claims identifiable? theory and a shortcut-resistant benchmark. | ns6
-figure: images/arch/NS-neurosymbolic-pipeline.svg | Neuro-Symbolic · LLM to SCM / solver to answer
 ref: Corr2Cause (ICLR 2024) | https://arxiv.org/abs/2306.05836
 ref: CLadder (NeurIPS 2023) | https://arxiv.org/abs/2312.04350
 ref: CRASS (LREC 2022) | https://arxiv.org/abs/2112.11941

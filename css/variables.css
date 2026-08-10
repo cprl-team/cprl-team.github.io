@@ -67,9 +67,17 @@
   --color-on-accent: #ffffff;
 
   /* ── Typography ─────────────────────────────────────── */
-  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-display: 'Fraunces', 'Iowan Old Style', Georgia, 'Times New Roman', serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, monospace;
+  /* Current: al-folio-style Roboto family.
+     PREVIOUS combo (to switch back, restore these 3 values AND swap the
+     Google Fonts <link> in every *.html — see the URLs below):
+       --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+       --font-display: 'Fraunces', 'Iowan Old Style', Georgia, 'Times New Roman', serif;
+       --font-mono:   'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, monospace;
+     PREVIOUS <link>: https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap
+     CURRENT  <link>: https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Slab:wght@500;700;800&family=Roboto+Mono:wght@400;500&display=swap */
+  --font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-display: 'Roboto Slab', Georgia, 'Times New Roman', serif;
+  --font-mono: 'Roboto Mono', 'JetBrains Mono', 'SF Mono', Consolas, monospace;
 
   --font-size-hero: clamp(2.5rem, 5vw, 4rem);
   --font-size-page-title: clamp(2rem, 4vw, 3rem);
