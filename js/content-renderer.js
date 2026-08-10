@@ -89,6 +89,9 @@
         h += '<p class="pub-authors">' + boldMarkup(p.authors) + '</p>';
         h += '<div class="pub-meta">';
         h += '<span class="badge">' + escapeHTML(p.venue_short) + '</span>';
+        if (p.series) {
+            h += ' <span class="badge badge--series">' + escapeHTML(p.series) + '</span>';
+        }
         if (p.link) {
             h += ' <a href="' + escapeHTML(p.link) + '" class="btn-link" target="_blank" rel="noopener">' +
                 (isPatent ? 'Patent' : 'Paper') + ' ↗</a>';

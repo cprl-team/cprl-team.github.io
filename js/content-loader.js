@@ -57,6 +57,7 @@
                     authors: '',
                     venue: '',
                     venue_short: '',
+                    series: '',
                     link: '',
                     project: '',
                     note: ''
