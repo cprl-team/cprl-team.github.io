@@ -116,7 +116,7 @@ main { padding-bottom: var(--spacing-8); }
 .pub-list { display: flex; flex-direction: column; }
 .pub-item { display: flex; gap: var(--spacing-3); padding: var(--spacing-4) 0; border-bottom: 1px solid var(--color-border); }
 .pub-item:last-child { border-bottom: 0; }
-.pub-item.is-hidden { display: none; }
+.is-hidden { display: none; }
 .pub-icon { display: none; }
 .pub-content { flex: 1; }
 .pub-content h3 { font-size: var(--font-size-body); font-weight: var(--font-weight-semibold); margin-bottom: 2px; }

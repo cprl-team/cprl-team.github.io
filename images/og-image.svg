@@ -1,34 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="og-t">
   <title id="og-t">Causal Perception and Reasoning — research group</title>
-  <defs>
-    <pattern id="og-dots" width="32" height="32" patternUnits="userSpaceOnUse">
-      <circle cx="2" cy="2" r="1.6" fill="#e2ded5" />
-    </pattern>
-  </defs>
+  <rect width="1200" height="630" fill="#ffffff"/>
+  <rect width="1200" height="8" fill="#047857"/>
 
-  <rect width="1200" height="630" fill="#ffffff" />
-  <rect width="1200" height="630" fill="url(#og-dots)" opacity="0.6" />
+  <!-- logo block -->
+  <rect x="110" y="215" width="200" height="200" rx="28" fill="#e7f3ee"/>
+  <text x="210" y="347" text-anchor="middle" font-family="'Roboto Slab', Georgia, 'Times New Roman', serif" font-size="92" font-weight="800" fill="#047857">CPR</text>
 
-  <!-- causal DAG motif (right) -->
-  <g fill="none" stroke="#c25a3c" stroke-width="4" stroke-linecap="round">
-    <line x1="820" y1="200" x2="960" y2="315" />
-    <line x1="820" y1="430" x2="960" y2="315" />
-    <line x1="900" y1="120" x2="960" y2="315" />
-    <line x1="960" y1="315" x2="1090" y2="315" />
-  </g>
-  <g fill="#047857">
-    <circle cx="820" cy="200" r="16" />
-    <circle cx="820" cy="430" r="16" />
-    <circle cx="900" cy="120" r="16" />
-    <circle cx="960" cy="315" r="16" />
-  </g>
-  <circle cx="1090" cy="315" r="26" fill="none" stroke="#c25a3c" stroke-width="3" opacity="0.5" />
-  <circle cx="1090" cy="315" r="20" fill="#c25a3c" />
+  <!-- wordmark -->
+  <text x="360" y="292" font-family="'Roboto Slab', Georgia, 'Times New Roman', serif" font-size="68" font-weight="700" fill="#212529">Causal Perception</text>
+  <text x="360" y="370" font-family="'Roboto Slab', Georgia, 'Times New Roman', serif" font-size="68" font-weight="700" fill="#212529">and Reasoning</text>
 
-  <!-- wordmark (left) -->
-  <text x="100" y="250" font-family="Georgia, 'Times New Roman', serif" font-size="86" font-weight="800" fill="#241606">Causal</text>
-  <text x="100" y="345" font-family="Georgia, 'Times New Roman', serif" font-size="86" font-weight="800" fill="#047857">Perception</text>
-  <text x="100" y="440" font-family="Georgia, 'Times New Roman', serif" font-size="86" font-weight="800" fill="#241606">&amp; Reasoning</text>
-
-  <text x="104" y="510" font-family="monospace" font-size="30" letter-spacing="3" fill="#6e6451">CPR &#183; RESEARCH GROUP &#183; cpr.ai.vn</text>
+  <!-- tagline + url -->
+  <text x="362" y="422" font-family="Roboto, Helvetica, Arial, sans-serif" font-size="28" fill="#6c757d">Causal AI research group &#183; Ho Chi Minh City, Vietnam</text>
+  <text x="362" y="470" font-family="'Roboto Mono', 'JetBrains Mono', monospace" font-size="24" fill="#047857">cpr.ai.vn</text>
 </svg>
