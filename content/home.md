@@ -41,17 +41,17 @@ Investigate the causal reasoning capabilities (and failures) of LLMs and VLMs. D
 
 ## Recent News
 
-### 2025 | New Publications in CVIU and Royal Society
-Our latest papers on multilevel spatial-temporal feature analysis and machine learning for affective experience have been published.
+### 2026 | Two papers accepted at ABAW @ ECCV 2026
+CF-Net and Parameter-Isolated Experts for Multi-Task Affect Recognition were accepted to the ABAW workshop at ECCV 2026 (LNCS).
 
-### 2025 | MediFusion-Flex at MIWAI 2025
-Our adaptive multimodal deep learning framework for clinical deterioration prediction was presented at MIWAI 2025.
+### 2026 | "Pain Presence, Not Location" accepted at ACIIW 2026
+Our study of pain decoding from peripheral physiology was accepted to the AI4Pain 2026 Grand Challenge at the ACII 2026 workshops.
 
-### 2023 | Multiple Papers at Top Venues
-Papers accepted at BMVC 2023, ACM MM 2023, ACPR 2023, and CVPR 2023 Workshop.
+### 2026 | KAN-SegFormer accepted at MIWAI 2026
+Our Kolmogorov-Arnold decoding approach for brain tumor segmentation was accepted at MIWAI 2026 (LNAI).
 
-### 2021 | Winner: EEV Challenge at CVPR 2021
-Team SML won the Evoked Expressions from Videos Challenge at the Affective Understanding in Video Workshop.
+### 2025 | New publications in CVIU and Royal Society Open Science
+Our papers on multilevel spatial-temporal feature analysis and machine learning for affective experience were published.
 
 ---
 
