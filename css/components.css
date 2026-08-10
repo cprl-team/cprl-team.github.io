@@ -178,6 +178,16 @@
     flex-shrink: 0;
 }
 
+/* Series tag (e.g. LNCS / LNAI) — a quieter companion to the venue badge */
+.badge--series {
+    color: var(--color-text-muted);
+    background: transparent;
+}
+
+.badge--series::before {
+    display: none;
+}
+
 /* ── Avatar Initials ────────────────────────────────── */
 .avatar-initials {
     width: 3.5rem;
