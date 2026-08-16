@@ -343,7 +343,8 @@
                 if (!isLast) html += '<div class="milestone-line"></div>';
                 html += '</div>';
                 html += '<div class="milestone-content">';
-                if (isWinner) html += '<span class="badge winner-badge">Winner</span>';
+                if (isWinner) html += '<span class="badge badge--winner">Winner</span>';
+                else html += '<span class="badge badge--series">Competition</span>';
                 html += '<h3>' + escapeHTML(cleanTitle(a.title)) + '</h3>';
                 html += '<p class="milestone-year">' + escapeHTML(a.date) + '</p>';
 
