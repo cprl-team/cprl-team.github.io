@@ -47,5 +47,30 @@
                 el.classList.add('visible');
             });
         }
+
+        // ── Back-to-top button ────────────────────────────
+        var backBtn = document.createElement('button');
+        backBtn.type = 'button';
+        backBtn.className = 'back-to-top';
+        backBtn.setAttribute('aria-label', 'Back to top');
+        backBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" ' +
+            'viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" ' +
+            'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+            '<polyline points="18 15 12 9 6 15" /></svg>';
+        document.body.appendChild(backBtn);
+
+        var prefersReduced = window.matchMedia &&
+            window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        backBtn.addEventListener('click', function () {
+            window.scrollTo({ top: 0, behavior: prefersReduced ? 'auto' : 'smooth' });
+        });
+
+        var toggleBackBtn = function () {
+            if (window.pageYOffset > 600) backBtn.classList.add('is-visible');
+            else backBtn.classList.remove('is-visible');
+        };
+        window.addEventListener('scroll', toggleBackBtn, { passive: true });
+        toggleBackBtn();
     });
 })();
