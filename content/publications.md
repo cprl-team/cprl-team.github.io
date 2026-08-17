@@ -135,7 +135,7 @@ venue: MIWAI 2026, Lecture Notes in Artificial Intelligence (Springer)
 venue_short: MIWAI 2026
 series: LNAI
 
-### 2026 | CF-Net: Conflict Fusion with Speaker Normalisation and Certainty Weighting for Hesitancy Recognition
+### 2026 | CF-Net: Conflict Fusion with Speaker Normalization and Certainty Weighting for Hesitancy Recognition
 authors: Tung Hung Bui, **Hong Hai Nguyen**, **Van Thong Huynh**
 venue: ABAW Workshop at ECCV 2026, Lecture Notes in Computer Science (Springer)
 venue_short: ABAW @ ECCV 2026
