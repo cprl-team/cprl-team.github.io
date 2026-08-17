@@ -10,16 +10,19 @@
    ========================================================== */
 
 var SITE_CONFIG = {
-    /* Header: small square logo + text */
-    headerLogoSrc: 'logo.png',
+    /* Header: small square logo + text.
+       Paths are root-relative so they resolve from any depth
+       (e.g. /members/vthuynh.html), on both localhost and the
+       custom domain, which both serve from the site root. */
+    headerLogoSrc: '/logo.png',
     headerTitle: 'Causal Perception and Reasoning',
     /* Footer: full logo (the footer is a dark slab in both themes,
        so the light-on-dark logo is always valid) */
-    footerLogoSrc: 'logo_full_dark.png',
+    footerLogoSrc: '/logo_full_dark.png',
     footerTitle: '',
     /* Shared */
     logoAlt: 'Causal Perception and Reasoning logo',
-    faviconHref: 'favicon.ico'
+    faviconHref: '/favicon.ico'
 };
 
 /* ── Apply config on page load ────────────────────────────── */
