@@ -113,6 +113,7 @@ main { padding-bottom: var(--spacing-8); }
 .about__name { margin-bottom: var(--spacing-1); }
 .about__tag { color: var(--color-text-muted); font-size: 1.05rem; margin-bottom: var(--spacing-4); }
 .about__body p { margin-bottom: var(--spacing-4); }
+.about__body > p:not(.about__tag):not(.profile-alt) { text-align: justify; -webkit-hyphens: auto; hyphens: auto; }
 .about__contacts { display: flex; flex-wrap: wrap; gap: var(--spacing-4); font-size: var(--font-size-caption); }
 .about__contacts a { color: var(--color-text-muted); }
 .about__contacts a:hover { color: var(--color-accent-text); }
