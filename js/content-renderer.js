@@ -323,7 +323,7 @@
         opts = opts || {};
         var names = opts.names || [];
 
-        var text = await ContentLoader.load('content/publications.md');
+        var text = await ContentLoader.load(opts.source || 'content/publications.md');
         if (!text) { container.innerHTML = '<p>Failed to load publications.</p>'; return; }
 
         var flat = flattenPublications(ContentLoader.parsePublications(text));
