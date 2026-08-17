@@ -76,6 +76,23 @@
         }
         .profile-section { margin-top: var(--spacing-12); }
         .profile-section > .section-label { margin-bottom: var(--spacing-5); }
+        .teach-group { margin-bottom: var(--spacing-6); }
+        .teach-group:last-child { margin-bottom: 0; }
+        .teach-org { font-size: var(--font-size-body); font-weight: var(--font-weight-semibold); color: var(--color-text-primary); }
+        .teach-level {
+            font-family: var(--font-mono); font-size: var(--font-size-xs); text-transform: uppercase;
+            letter-spacing: var(--letter-spacing-wide); color: var(--color-accent-text);
+            margin-top: var(--spacing-4); margin-bottom: var(--spacing-2);
+        }
+        .teach-list {
+            list-style: none; margin-top: var(--spacing-2);
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+            gap: 0 var(--spacing-6);
+        }
+        .teach-list li {
+            padding: var(--spacing-2) 0; color: var(--color-text-secondary);
+            font-size: var(--font-size-caption); border-bottom: 1px solid var(--color-border);
+        }
     </style>
 
     <script src="js/site-config.js" defer></script>
@@ -174,6 +191,40 @@
                     <span class="profile-tag">Physiological signal analysis</span>
                     <span class="profile-tag">Causal reasoning for perception</span>
                     <span class="profile-tag">Video understanding</span>
+                </div>
+            </section>
+
+            <!-- Teaching -->
+            <section class="profile-section fade-in">
+                <h2 class="section-label">Teaching</h2>
+
+                <div class="teach-group">
+                    <h3 class="teach-org">FPT University</h3>
+                    <ul class="teach-list">
+                        <li>Deep Learning</li>
+                        <li>Computer Vision</li>
+                        <li>AI Development with TensorFlow</li>
+                        <li>Data Mining</li>
+                        <li>Text Mining</li>
+                        <li>Search Engine</li>
+                        <li>Data Science Project</li>
+                    </ul>
+                </div>
+
+                <div class="teach-group">
+                    <h3 class="teach-org">Ho Chi Minh City University of Technology (HCMUT)</h3>
+                    <p class="teach-level">Undergraduate</p>
+                    <ul class="teach-list">
+                        <li>Machine Learning</li>
+                        <li>Deep Learning and Its Application</li>
+                        <li>Digital Image Processing and Computer Vision</li>
+                        <li>Programming for AI and DS</li>
+                    </ul>
+                    <p class="teach-level">Graduate (Master's)</p>
+                    <ul class="teach-list">
+                        <li>Deep Learning and Its Application in Computer Vision</li>
+                        <li>Programming Foundation for Data Analytics and Visualization</li>
+                    </ul>
                 </div>
             </section>
 
