@@ -5,7 +5,7 @@
 ### Huỳnh Văn Thống, PhD
 role: Leader
 initials: HVT
-link: van-thong-huynh.html
+link: vthuynh.html
 
 ---
 
