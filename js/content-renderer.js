@@ -129,10 +129,12 @@
                 html += '<h3 class="member-card__name">' + escapeHTML(m.name) + '</h3>';
                 if (m.role) html += '<p class="member-card__role">' + escapeHTML(m.role) + '</p>';
                 if (m.link) {
-                    html += '<a class="member-card__link" href="' + escapeHTML(m.link) + '"' +
-                        ' target="_blank" rel="noopener"' +
+                    var isExternal = /^https?:\/\//i.test(m.link);
+                    var linkAttrs = isExternal ? ' target="_blank" rel="noopener"' : '';
+                    var linkArrow = isExternal ? ' <span aria-hidden="true">↗</span>' : '';
+                    html += '<a class="member-card__link" href="' + escapeHTML(m.link) + '"' + linkAttrs +
                         ' aria-label="View profile of ' + escapeHTML(m.name) + '">' +
-                        'View profile <span aria-hidden="true">↗</span></a>';
+                        'View profile' + linkArrow + '</a>';
                 }
                 html += '</div>';
             }
@@ -308,6 +310,53 @@
         picked.forEach(function (it) { html += renderPubItem(it.p, it.slug); });
         html += '</div>';
         container.innerHTML = html;
+    }
+
+    /**
+     * Render one author's publications, auto-filtered from publications.md.
+     * opts.names: array of name variants to match (hyphen/space insensitive).
+     * Groups by year (Ongoing first, then newest year first).
+     */
+    async function renderAuthorPublications(containerId, opts) {
+        var container = document.getElementById(containerId);
+        if (!container) return;
+        opts = opts || {};
+        var names = opts.names || [];
+
+        var text = await ContentLoader.load('content/publications.md');
+        if (!text) { container.innerHTML = '<p>Failed to load publications.</p>'; return; }
+
+        var flat = flattenPublications(ContentLoader.parsePublications(text));
+
+        function norm(s) { return (s || '').toLowerCase().replace(/\*\*/g, '').replace(/[-\s]+/g, ' '); }
+        var needles = names.map(norm);
+        var mine = flat.all.filter(function (it) {
+            var a = norm(it.p.authors);
+            return needles.some(function (n) { return n && a.indexOf(n) !== -1; });
+        });
+
+        if (!mine.length) { container.innerHTML = '<p>No publications found.</p>'; return; }
+
+        var byYear = {};
+        mine.forEach(function (it) { (byYear[it.p.year] = byYear[it.p.year] || []).push(it); });
+
+        var years = Object.keys(byYear).sort(function (a, b) {
+            var na = parseInt(a, 10), nb = parseInt(b, 10);
+            if (isNaN(na) && isNaN(nb)) return 0;
+            if (isNaN(na)) return -1;   // "Ongoing" and other non-numeric groups first
+            if (isNaN(nb)) return 1;
+            return nb - na;
+        });
+
+        var html = '<p class="pub-count">' + mine.length + ' publications</p>';
+        years.forEach(function (y) {
+            html += '<div class="pub-year-group"><h2 class="pub-year">' + escapeHTML(y) + '</h2>';
+            byYear[y].forEach(function (it) { html += renderPubItem(it.p, it.slug); });
+            html += '</div>';
+        });
+
+        container.innerHTML = html;
+        revealFadeIns(container);
     }
 
     /**
@@ -500,6 +549,7 @@
     window.ContentRenderer = {
         renderMembers: renderMembers,
         renderPublications: renderPublications,
+        renderAuthorPublications: renderAuthorPublications,
         renderSelectedPublications: renderSelectedPublications,
         renderAchievements: renderAchievements,
         renderProjects: renderProjects,
