@@ -13,55 +13,55 @@
   /* Hint native UI (scrollbars, form controls) to match the theme */
   color-scheme: light;
 
-  /* ── Colors (Light) ─────────────────────────────────── */
+  /* ── Colors (Light) — blue academic palette ─────────── */
   --color-background: #ffffff;
-  --color-surface: #f4f2ed;
-  --color-surface-alt: #fbfaf7;
-  --color-border: #e2ded5;
-  --color-border-grid: #e2ded5;
-  --color-text-primary: #241606;
-  --color-text-secondary: #5c4f3d;
-  --color-text-muted: #6e6451;
+  --color-surface: #f5f7fb;
+  --color-surface-alt: #fbfcfe;
+  --color-border: #e4e9f1;
+  --color-border-grid: #e4e9f1;
+  --color-text-primary: #17233a;
+  --color-text-secondary: #46536b;
+  --color-text-muted: #5f6a80;
 
-  /* Accent (emerald) — `accent` for non-text & large bold;
+  /* Accent (royal blue) — `accent` for non-text & large bold;
      `accent-text` is the AA-safe variant for body-sized links. */
-  --color-accent: #047857;
-  --color-accent-text: #065f46;
-  --color-accent-hover: #065f46;
-  --color-accent-glow: rgba(4, 120, 87, 0.18);
+  --color-accent: #1e50a0;
+  --color-accent-text: #1a4794;
+  --color-accent-hover: #163c7c;
+  --color-accent-glow: rgba(30, 80, 160, 0.12);
   --color-accent-contrast: #ffffff; /* readable text laid over --color-accent */
 
-  /* Secondary accent (warm terracotta) — the counterpart to the emerald
-     primary. Use sparingly for structure/logic touches.
+  /* Secondary accent (warm orange) — the counterpart to the blue
+     primary (mirrors the active-state accent on the reference site).
      -text variant is AA-safe on light surfaces for small text. */
-  --color-accent-2: #c25a3c;
-  --color-accent-2-text: #a8482e;
-  --color-accent-2-glow: rgba(194, 90, 60, 0.18);
+  --color-accent-2: #dd6a3c;
+  --color-accent-2-text: #b0512b;
+  --color-accent-2-glow: rgba(221, 106, 60, 0.16);
 
   /* Legacy aliases (kept so older references resolve to the token) */
   --color-accent-start: var(--color-accent);
   --color-accent-end: var(--color-accent);
 
-  /* Interactive */
-  --color-button-bg: #241606;
+  /* Interactive — primary button carries the blue accent */
+  --color-button-bg: #1e50a0;
   --color-button-text: #ffffff;
-  --color-button-hover: #1a0f04;
-  --color-button-secondary-bg: #f4f2ed;
-  --color-button-secondary-text: #241606;
-  --color-button-secondary-hover: #e9e5dc;
-  --color-button-outline-border: #e2ded5;
-  --color-button-outline-hover: #f4f2ed;
+  --color-button-hover: #163c7c;
+  --color-button-secondary-bg: #f5f7fb;
+  --color-button-secondary-text: #17233a;
+  --color-button-secondary-hover: #e9eef6;
+  --color-button-outline-border: #e4e9f1;
+  --color-button-outline-hover: #f5f7fb;
 
   /* Header */
   --color-header-bg: rgba(255, 255, 255, 0.92);
   --color-header-blur: rgba(255, 255, 255, 0.65);
 
-  /* Footer — permanent dark slab in light theme */
-  --color-footer-bg: #1a1a1a;
-  --color-footer-text: rgba(255, 255, 255, 0.7);
+  /* Footer — deep-blue slab in light theme */
+  --color-footer-bg: #1c3f77;
+  --color-footer-text: rgba(255, 255, 255, 0.72);
   --color-footer-text-strong: #ffffff;
   --color-footer-text-muted: rgba(255, 255, 255, 0.5);
-  --color-footer-border: rgba(255, 255, 255, 0.15);
+  --color-footer-border: rgba(255, 255, 255, 0.16);
 
   /* On-accent text (avatars, skip-link, badges over accent) */
   --color-on-accent: #ffffff;
@@ -135,9 +135,9 @@
   --transition-slow: 0.35s ease;
 
   /* ── Elevation / Shadows (theme-aware) ──────────────── */
-  --shadow-sm: 0 1px 2px rgba(36, 22, 6, 0.06);
-  --shadow-md: 0 4px 12px rgba(36, 22, 6, 0.08);
-  --shadow-lg: 0 12px 32px rgba(36, 22, 6, 0.12);
+  --shadow-sm: 0 1px 2px rgba(23, 35, 58, 0.06);
+  --shadow-md: 0 4px 12px rgba(23, 35, 58, 0.08);
+  --shadow-lg: 0 12px 32px rgba(23, 35, 58, 0.12);
 
   /* ── Sizing ─────────────────────────────────────────── */
   --header-height: 4rem;
@@ -172,11 +172,11 @@
   --feature-max-width: 75rem;
 
   /* ── Sunken surface (alternating editorial bands) ───── */
-  --color-surface-sunken: #efece4;
+  --color-surface-sunken: #f1f4f9;
 
   /* ── Causal-DAG motif tokens ────────────────────────── */
-  --dag-node-perception: var(--color-accent);   /* nodes = Perception (emerald) */
-  --dag-edge-reasoning: var(--color-accent-2);  /* edges = Reasoning (terracotta) */
+  --dag-node-perception: var(--color-accent);   /* nodes = Perception (blue) */
+  --dag-edge-reasoning: var(--color-accent-2);  /* edges = Reasoning (orange) */
   --dag-node-size: 0.875rem;
   --dag-node-size-lg: 1.25rem;
   --dag-edge-width: 2px;
@@ -193,46 +193,46 @@
 [data-theme="dark"] {
   color-scheme: dark;
 
-  --color-background: #16110b;
-  --color-surface: #1f1810;
-  --color-surface-alt: #261e14;
-  --color-border: #463827;
-  --color-border-grid: #463827;
-  --color-text-primary: #f3ece0;
-  --color-text-secondary: #c3b6a1;
-  --color-text-muted: #9a8c75;
+  --color-background: #0f1826;
+  --color-surface: #172231;
+  --color-surface-alt: #1e2b3d;
+  --color-border: #2c3a4e;
+  --color-border-grid: #2c3a4e;
+  --color-text-primary: #e9eef6;
+  --color-text-secondary: #aab7c9;
+  --color-text-muted: #7e8ca1;
 
-  --color-accent: #34d399;
-  --color-accent-text: #6ee7b7;
-  --color-accent-hover: #6ee7b7;
-  --color-accent-glow: rgba(52, 211, 153, 0.22);
-  --color-accent-contrast: #16110b; /* dark text reads on lightened accent */
+  --color-accent: #5b9df2;
+  --color-accent-text: #9ec5ff;
+  --color-accent-hover: #bcd6ff;
+  --color-accent-glow: rgba(91, 157, 242, 0.24);
+  --color-accent-contrast: #0f1826; /* dark text reads on lightened accent */
 
-  /* Secondary accent (warm terracotta) — dark-theme values */
-  --color-accent-2: #e8895f;
-  --color-accent-2-text: #f0a07a;
-  --color-accent-2-glow: rgba(232, 137, 95, 0.22);
+  /* Secondary accent (warm orange) — dark-theme values */
+  --color-accent-2: #ef8a5c;
+  --color-accent-2-text: #f4a37c;
+  --color-accent-2-glow: rgba(239, 138, 92, 0.24);
 
-  --color-button-bg: #34d399;
-  --color-button-text: #16110b;
-  --color-button-hover: #6ee7b7;
-  --color-button-secondary-bg: #1f1810;
-  --color-button-secondary-text: #f3ece0;
-  --color-button-secondary-hover: #261e14;
-  --color-button-outline-border: #352b1e;
-  --color-button-outline-hover: #1f1810;
+  --color-button-bg: #5b9df2;
+  --color-button-text: #0f1826;
+  --color-button-hover: #82b4f7;
+  --color-button-secondary-bg: #172231;
+  --color-button-secondary-text: #e9eef6;
+  --color-button-secondary-hover: #1e2b3d;
+  --color-button-outline-border: #2c3a4e;
+  --color-button-outline-hover: #172231;
 
-  --color-header-bg: rgba(22, 17, 11, 0.9);
-  --color-header-blur: rgba(22, 17, 11, 0.6);
+  --color-header-bg: rgba(15, 24, 38, 0.9);
+  --color-header-blur: rgba(15, 24, 38, 0.6);
 
   /* Footer reads as a raised surface in dark theme */
-  --color-footer-bg: #1f1810;
-  --color-footer-text: rgba(243, 236, 224, 0.75);
-  --color-footer-text-strong: #f3ece0;
-  --color-footer-text-muted: rgba(243, 236, 224, 0.5);
-  --color-footer-border: rgba(243, 236, 224, 0.12);
+  --color-footer-bg: #131d2c;
+  --color-footer-text: rgba(233, 238, 246, 0.75);
+  --color-footer-text-strong: #e9eef6;
+  --color-footer-text-muted: rgba(233, 238, 246, 0.5);
+  --color-footer-border: rgba(233, 238, 246, 0.12);
 
-  --color-on-accent: #16110b;
+  --color-on-accent: #0f1826;
 
   /* Shadows read poorly on dark — deepen them */
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
@@ -242,7 +242,7 @@
   --hero-motif-opacity: 0.12;
 
   /* Sunken surface reads as a recess below the dark background */
-  --color-surface-sunken: #120d08;
+  --color-surface-sunken: #0a121e;
 
   --color-overlay: rgba(0, 0, 0, 0.82);
 }
