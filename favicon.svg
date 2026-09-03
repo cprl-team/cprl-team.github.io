@@ -1,14 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="CPR causal graph mark">
   <style>
-    .bg { fill: #f4f2ed; }
-    .e  { stroke: #c25a3c; stroke-width: 2; fill: none; stroke-linecap: round; }
-    .n  { fill: #047857; }
-    .r  { fill: #c25a3c; }
+    .bg { fill: #eef2f8; }
+    .e  { stroke: #dd6a3c; stroke-width: 2; fill: none; stroke-linecap: round; }
+    .n  { fill: #1e50a0; }
+    .r  { fill: #dd6a3c; }
     @media (prefers-color-scheme: dark) {
-      .bg { fill: #1f1810; }
-      .e  { stroke: #e8895f; }
-      .n  { fill: #34d399; }
-      .r  { fill: #e8895f; }
+      .bg { fill: #172231; }
+      .e  { stroke: #ef8a5c; }
+      .n  { fill: #5b9df2; }
+      .r  { fill: #ef8a5c; }
     }
   </style>
   <rect class="bg" x="0" y="0" width="32" height="32" rx="7" />
