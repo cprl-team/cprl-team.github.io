@@ -2,7 +2,7 @@
   <style>
     .bg { fill: #eef2f8; }
     .e  { stroke: #dd6a3c; stroke-width: 2; fill: none; stroke-linecap: round; }
-    .n  { fill: #1e50a0; }
+    .n  { fill: #1a4480; }
     .r  { fill: #dd6a3c; }
     @media (prefers-color-scheme: dark) {
       .bg { fill: #172231; }
