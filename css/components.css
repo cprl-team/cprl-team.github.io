@@ -109,6 +109,10 @@ main { padding-bottom: var(--spacing-8); }
     display: flex; align-items: center; justify-content: center; font-weight: var(--font-weight-black); font-size: 2rem; letter-spacing: 0.02em;
 }
 .about__logo img { width: 4.4rem; height: 4.4rem; object-fit: contain; }
+/* The single-colour navy mark would vanish on the dark-navy ground;
+   render it white in dark theme (keys off the site's data-theme, not the OS). */
+[data-theme="dark"] .logo-img--header,
+[data-theme="dark"] .about__logo img { filter: brightness(0) invert(1); }
 .about__body { flex: 1; min-width: 16rem; }
 .about__name { margin-bottom: var(--spacing-1); }
 .about__tag { color: var(--color-text-muted); font-size: 1.05rem; margin-bottom: var(--spacing-4); }

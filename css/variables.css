@@ -25,10 +25,10 @@
 
   /* Accent (royal blue) — `accent` for non-text & large bold;
      `accent-text` is the AA-safe variant for body-sized links. */
-  --color-accent: #1e50a0;
-  --color-accent-text: #1a4794;
-  --color-accent-hover: #163c7c;
-  --color-accent-glow: rgba(30, 80, 160, 0.12);
+  --color-accent: #1a4480;
+  --color-accent-text: #163a6e;
+  --color-accent-hover: #102c54;
+  --color-accent-glow: rgba(26, 68, 128, 0.12);
   --color-accent-contrast: #ffffff; /* readable text laid over --color-accent */
 
   /* Secondary accent (warm orange) — the counterpart to the blue
@@ -43,9 +43,9 @@
   --color-accent-end: var(--color-accent);
 
   /* Interactive — primary button carries the blue accent */
-  --color-button-bg: #1e50a0;
+  --color-button-bg: #1a4480;
   --color-button-text: #ffffff;
-  --color-button-hover: #163c7c;
+  --color-button-hover: #102c54;
   --color-button-secondary-bg: #f5f7fb;
   --color-button-secondary-text: #17233a;
   --color-button-secondary-hover: #e9eef6;
@@ -57,7 +57,7 @@
   --color-header-blur: rgba(255, 255, 255, 0.65);
 
   /* Footer — deep-blue slab in light theme */
-  --color-footer-bg: #1c3f77;
+  --color-footer-bg: #16345f;
   --color-footer-text: rgba(255, 255, 255, 0.72);
   --color-footer-text-strong: #ffffff;
   --color-footer-text-muted: rgba(255, 255, 255, 0.5);
