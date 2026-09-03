@@ -15,10 +15,10 @@
 
   /* ── Colors (Light) — blue academic palette ─────────── */
   --color-background: #ffffff;
-  --color-surface: #eef2f8;
-  --color-surface-alt: #f7f9fc;
-  --color-border: #d8e0ec;
-  --color-border-grid: #d8e0ec;
+  --color-surface: #f5f7fb;
+  --color-surface-alt: #fbfcfe;
+  --color-border: #e4e9f1;
+  --color-border-grid: #e4e9f1;
   --color-text-primary: #17233a;
   --color-text-secondary: #46536b;
   --color-text-muted: #5f6a80;
@@ -46,11 +46,11 @@
   --color-button-bg: #1e50a0;
   --color-button-text: #ffffff;
   --color-button-hover: #163c7c;
-  --color-button-secondary-bg: #eef2f8;
+  --color-button-secondary-bg: #f5f7fb;
   --color-button-secondary-text: #17233a;
-  --color-button-secondary-hover: #e1e8f2;
-  --color-button-outline-border: #d8e0ec;
-  --color-button-outline-hover: #eef2f8;
+  --color-button-secondary-hover: #e9eef6;
+  --color-button-outline-border: #e4e9f1;
+  --color-button-outline-hover: #f5f7fb;
 
   /* Header */
   --color-header-bg: rgba(255, 255, 255, 0.92);
@@ -172,7 +172,7 @@
   --feature-max-width: 75rem;
 
   /* ── Sunken surface (alternating editorial bands) ───── */
-  --color-surface-sunken: #e7edf5;
+  --color-surface-sunken: #f1f4f9;
 
   /* ── Causal-DAG motif tokens ────────────────────────── */
   --dag-node-perception: var(--color-accent);   /* nodes = Perception (blue) */

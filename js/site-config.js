@@ -14,7 +14,7 @@ var SITE_CONFIG = {
        Paths are root-relative so they resolve from any depth
        (e.g. /members/vthuynh.html), on both localhost and the
        custom domain, which both serve from the site root. */
-    headerLogoSrc: '/logo.png',
+    headerLogoSrc: '/logo.svg',
     headerTitle: 'Causal Perception and Reasoning',
     /* Footer: full logo (the footer is a dark slab in both themes,
        so the light-on-dark logo is always valid) */
