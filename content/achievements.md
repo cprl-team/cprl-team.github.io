@@ -2,6 +2,11 @@
 
 ## Challenge Wins & Competitions
 
+### Sep 2026 | 🏆 Winner — Multi-Task Learning (MTL) Challenge
+event: 11th Affective Behavior Analysis in-the-wild (ABAW) Workshop @ ECCV 2026 · Team CPR
+team: Tung Hung Bui, **Hong Hai Nguyen**, **Van Thong Huynh**
+type: winner
+
 ### Oct 2023 | Engagement Estimation Challenge
 event: MultiMediate: Multi-modal Group Behaviour Analysis for Artificial Mediation, ACM MM'23
 team: **Ngoc Tu Vu**, **Van-Thong Huynh**, Soo-Hyung Kim, Hyung-Jeong Yang, M. Zaigham Zaheer, Shah Nawaz, Karthik Nandakumar
