@@ -8,16 +8,16 @@
 ## Who we're looking for
 
 ### PhD students
-You want to spend several years on one hard question about causal reasoning in perception, and turn it into a thesis and top-venue papers.
+You want to spend several years on one hard question in causal reasoning for perception, and to turn it into a thesis and papers at top venues.
 
 ### Master's students
-You want a focused one-to-two-year project in one of our research areas, with the aim of a workshop or conference paper.
+You want a focused project of one to two years in one of our research areas, aiming for a workshop or conference paper.
 
 ### Undergraduates
-You want a capstone or thesis project with real data and close supervision, and to learn how research is done.
+You want a capstone or thesis project with real data and close supervision, and you want to learn how research is done.
 
 ### Collaborators
-You are an academic or industry researcher working on video, documents, healthcare, physical systems, or LLM reasoning, and want to work on a shared problem.
+You are an academic or industry researcher working on video, documents, healthcare, physical systems, or LLM reasoning, and you want to work with us on a shared problem.
 
 ## How to apply
 
@@ -25,18 +25,18 @@ You are an academic or industry researcher working on video, documents, healthca
 Read the Research page and choose the area closest to what you want to work on.
 
 ### Email us
-Send a short note saying which area you chose and why, plus your CV, your transcript, and links to any code or papers.
+Send a short note on which area you chose and why, together with your CV, your transcript, and links to any code or papers.
 
 ### Talk with us
-If there is a fit, we will set up a short call to discuss a first project.
+If there is a good fit, we will arrange a short call to discuss a first project.
 
 ## FAQ
 
 ### Do I need research experience?
-No. Show us something you built or studied carefully, and tell us what you want to learn.
+No. Show us something you have built or studied in depth, and tell us what you want to learn.
 
 ### Can I join remotely?
-Write to us about your situation and we will tell you what is possible.
+Write to us about your situation, and we will tell you what is possible.
 
 ### Which areas have openings right now?
-Ask in your email. Openings change with projects and funding.
+Ask in your email. Openings depend on current projects and funding.
