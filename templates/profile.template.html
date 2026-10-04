@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- =====================================================================
+     MEMBER PROFILE TEMPLATE  (see templates/README.md)
+       1. Copy to members/<id>.html and replace every {{TOKEN}}
+       2. In content/people.md give the person "id: <id>",
+          "link: members/<id>.html" and every spelling of their name used
+          in papers under "aliases:". Their publications and challenge
+          results then fill in automatically (data-person below).
+     ===================================================================== -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f6f8fb" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0c1420" media="(prefers-color-scheme: dark)">
+
+    <!-- Set theme before paint to avoid a flash of the wrong theme -->
+    <script>
+        (function () {
+            try {
+                var t = localStorage.getItem('cprl-theme') ||
+                    (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                document.documentElement.setAttribute('data-theme', t);
+            } catch (e) {}
+        })();
+    </script>
+
+    <title>CPR — {{NAME}}</title>
+    <meta name="description" content="{{NAME}}, {{ROLE}} at the Causal Perception and Reasoning Research Group.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="canonical" href="https://cpr.ai.vn/members/{{ID}}.html">
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="profile">
+    <meta property="og:site_name" content="CPR — Causal Perception and Reasoning">
+    <meta property="og:title" content="CPR — {{NAME}}">
+    <meta property="og:description" content="{{NAME}}, {{ROLE}} at the Causal Perception and Reasoning Research Group.">
+    <meta property="og:url" content="https://cpr.ai.vn/members/{{ID}}.html">
+    <meta property="og:image" content="https://cpr.ai.vn/banner.jpg">
+    <meta property="og:image:alt" content="Causal Perception and Reasoning research group">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CPR — {{NAME}}">
+    <meta name="twitter:description" content="{{NAME}}, {{ROLE}} at the Causal Perception and Reasoning Research Group.">
+    <meta name="twitter:image" content="https://cpr.ai.vn/banner.jpg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Roboto+Mono:wght@400;500&display=swap">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/css/variables.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/components.css">
+    <noscript><style>.fade-in{opacity:1;transform:none}</style></noscript>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" href="/favicon.ico">
+</head>
+
+<body data-page="people" data-person="{{ID}}">
+    <a href="#main-content" class="skip-link">Skip to content</a>
+    <script src="/js/site.js"></script>
+
+    <main id="main-content">
+
+
+        <div class="container">
+
+            <!-- Profile hero -->
+            <header class="about fade-in">
+                <div class="about__media">
+                    <div class="profile-avatar">{{INITIALS}}</div> <!-- or <img class="profile-avatar" src="/images/people/{{ID}}.jpg" alt=""> -->
+                </div>
+                <div class="about__body">
+                    <h1 class="about__name">{{NAME}}</h1>
+                    <p class="about__alt">{{NAME_IN_VIETNAMESE}}</p>
+                    <p class="about__tag">{{ROLE}}, Causal Perception and Reasoning &middot; Ho Chi Minh City, Vietnam</p>
+                    <p class="about__lede">{{SHORT_BIO}}</p>
+                    <div class="about__contacts">
+                        <a href="mailto:{{EMAIL}}">{{EMAIL}}</a>
+                        <a href="{{SCHOLAR_URL}}" target="_blank" rel="noopener">Google Scholar</a>
+                        <a href="{{GITHUB_URL}}" target="_blank" rel="noopener">GitHub</a>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Research interests -->
+            <section class="section fade-in">
+                <h2 class="section-label">Research interests</h2>
+                <div class="chips">
+                    <span class="chip">{{INTEREST_1}}</span>
+                    <span class="chip">{{INTEREST_2}}</span>
+                </div>
+            </section>
+
+            <!-- Experience -->
+            <section class="section fade-in">
+                <h2 class="section-label">Experience</h2>
+                <div class="entry-list">
+                    <div class="entry cv-entry">
+                        <div class="cv-entry__main">
+                            <p class="cv-entry__role">{{POSITION}}</p>
+                            <p class="cv-entry__org">{{ORGANISATION}}</p>
+                        </div>
+                        <p class="cv-entry__meta">{{START}} &ndash; {{END}}</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Optional: copy the Teaching section from members/vthuynh.html -->
+
+            <!-- Awards and publications: listed automatically from content/ via people.md aliases -->
+            <section class="section fade-in">
+                <h2 class="section-label">Awards &amp; challenges</h2>
+                <div id="profile-awards"></div>
+            </section>
+
+            <section class="section fade-in">
+                <h2 class="section-label">Publications</h2>
+                <!-- Found automatically from content/publications.md via the aliases in content/people.md -->
+                <div id="profile-publications"></div>
+            </section>
+
+        </div>
+    </main>
+
+    <script src="/js/content.js" defer></script>
+    <script src="/js/ui.js" defer></script>
+    <script src="/js/pages.js" defer></script>
+</body>
+
+</html>

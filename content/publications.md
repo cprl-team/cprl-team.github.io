@@ -1,63 +1,60 @@
 # Publications
 
+<!-- ## sections set the type filter (Ongoing / Journal / Conference / Patent).
+     Each entry:
+       ### YEAR | Title          (use "Ongoing" instead of a year for work in preparation)
+       authors:     lab members in **bold** (also auto-highlighted via aliases in people.md)
+       venue:       full venue name
+       venue_short: short badge, e.g. CVPR 2026
+       series:      e.g. LNCS
+       link:        publisher page / DOI   ("Paper" button)
+       pdf / code / data / slides / video: extra buttons
+       project:     paper page on this site, e.g. pain-presence.html
+       award:       e.g. Best Paper Award (shown as a badge)
+       selected:    yes  -> also listed under Selected publications on Home
+       area:        research-area anchor from research.md, e.g. causal-ai-in-healthcare
+       note:        one extra line under the entry
+-->
+
 ## Ongoing Papers
 
 ### Ongoing | The Circumplex Degeneracy Behind the Rare-Class Limit in Affect Recognition
 authors: **Van Thong Huynh**, **Hong Hai Nguyen**, Soo-Hyung Kim
-venue: In preparation
-venue_short: In progress
 
 ### Ongoing | Faithful Action-unit Causal Reasoning for Counterfactually Faithful Emotion Explanations
 authors: **Van Thong Huynh**, **Hong Hai Nguyen**, **Thuy Pham**, **Trong Nghia Nguyen**, Soo-Hyung Kim
-venue: In preparation
-venue_short: In progress
 
 ### Ongoing | A Shared Latent for Partially-Labeled Multi-Task Facial Affect Recognition
 authors: **Hong Hai Nguyen**, Sy Phan Van, Soo-Hyung Kim, **Van-Thong Huynh**
-venue: In preparation
-venue_short: In progress
 
 ### Ongoing | From Recognition to Reasoning: A Survey of Audio-Visual Emotion Understanding with Multimodal Large Language Models
 authors: **Van Thong Huynh**, **Hong Hai Nguyen**, **Trong Nghia Nguyen**, **Quoc Tien Nguyen**, Hyung-Jeong Yang, Soo-Hyung Kim
-venue: In preparation
-venue_short: In progress
 
 ### Ongoing | Probing the Temporal Facial-Affect Content of Image and Video Foundation Representations
 authors: **Van Thong Huynh**, **Hong Hai Nguyen**, **Quoc Tien Nguyen**, Hyungjeong Yang, Soo-Hyung Kim
-venue: In preparation
-venue_short: In progress
 
 ### Ongoing | Subject Self-Calibration and Channel-Agnostic Encoding for Cross-Corpus Pain Assessment from Autonomic Signals
 authors: **Van Thong Huynh**, **Hong Hai Nguyen**, **Trong Nghia Nguyen**, **Quoc Tien Nguyen**, Hyungjeong Yang, Soo-Hyung Kim
-venue: In preparation
-venue_short: In progress
 
 ### Ongoing | AI-Driven Early Warning Systems in Emergency Care: Implementing a Multi-Gradient Network for Real-Time Clinical Deterioration Prediction
 authors: **Trong-Nghia Nguyen**, Soo-Hyung Kim, Bo-Gun Kho, Van-Thien Luong, **Hong-Hai Nguyen**, **Van Thong Huynh**
-venue: In preparation
-venue_short: In progress
+area: causal-ai-in-healthcare
 
 ### Ongoing | Trustworthy Multimodal Fusion of Physiological Signals for Pain Decoding
 authors: Thanh Tri Pham, **Hong Hai Nguyen**, **Thi Thuy Pham**, **Trong Nghia Nguyen**, **Van Thong Huynh**
-venue: In preparation
-venue_short: In progress
 
 ### Ongoing | Decomposing Facial Emotion Recognition Accuracy with a Leakage-Safe Instrument
 authors: **Hong Hai Nguyen**, Thanh Tri Pham, **Quoc Tien Nguyen**, Hyungjeong Yang, Soohyung Kim, **Van Thong Huynh**
-venue: In preparation
-venue_short: In progress
 
 ### Ongoing | Input Calibration and Algorithm Choice in Subject-Incremental EEG Emotion Recognition
 authors: Kim Truyen Huynh, **Hong Hai Nguyen**, **Van Thong Huynh**
-venue: In preparation
-venue_short: In progress
 
 ---
 
 ## Journal Papers
 
 ### 2025 | Dual-Channel Prior-Based Deep Unfolding with Contrastive Learning for Underwater Image Enhancement
-authors: **Thuy Thi Pham,** Truong Thanh Nhat Mai, Hansung Yu, Chul Lee
+authors: **Thuy Thi Pham**, Truong Thanh Nhat Mai, Hansung Yu, Chul Lee
 venue: Journal of Visual Communication and Image Representation
 venue_short: JVCIR 2025
 
@@ -153,6 +150,7 @@ venue: MIWAI 2025, Lecture Notes in Artificial Intelligence (Springer)
 venue_short: MIWAI 2025
 series: LNAI
 link: https://link.springer.com/chapter/10.1007/978-981-95-4963-4_10
+area: causal-ai-in-healthcare
 
 ### 2023 | Model-Driven Deep Unfolding Approach to Underwater Image Enhancement
 authors: **Thuy Thi Pham**, Truong Thanh Nhat Mai, Chul Lee

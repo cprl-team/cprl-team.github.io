@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!-- =====================================================================
+     PAGE TEMPLATE  (see templates/README.md)
+       - Copy to the repo root as <slug>.html and replace every {{TOKEN}}.
+       - <body data-page> highlights a menu item: home, research, people,
+         publications, join (or leave it empty).
+       - Build the body from the shared blocks in css/components.css:
+         .page-header, .section + .section-label, .card-grid + .card,
+         .entry-list + .entry, .dated-entry, .tag-row, .chips, .join-cta.
+       - To add it to the menu, edit SITE.nav in js/site.js.
+     ===================================================================== -->
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,22 +29,22 @@
         })();
     </script>
 
-    <title>CPR — Publications</title>
-    <meta name="description" content="Publications, patents, and challenge results of the Causal Perception and Reasoning Research Group.">
+    <title>CPR — {{PAGE_TITLE}}</title>
+    <meta name="description" content="{{META_DESCRIPTION}}">
     <meta name="robots" content="noindex, nofollow">
-    <link rel="canonical" href="https://cpr.ai.vn/publications.html">
+    <link rel="canonical" href="https://cpr.ai.vn/{{PAGE_SLUG}}.html">
 
     <!-- Open Graph / Twitter -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="CPR — Causal Perception and Reasoning">
-    <meta property="og:title" content="CPR — Publications">
-    <meta property="og:description" content="Publications, patents, and challenge results of the Causal Perception and Reasoning Research Group.">
-    <meta property="og:url" content="https://cpr.ai.vn/publications.html">
+    <meta property="og:title" content="CPR — {{PAGE_TITLE}}">
+    <meta property="og:description" content="{{META_DESCRIPTION}}">
+    <meta property="og:url" content="https://cpr.ai.vn/{{PAGE_SLUG}}.html">
     <meta property="og:image" content="https://cpr.ai.vn/banner.jpg">
     <meta property="og:image:alt" content="Causal Perception and Reasoning research group">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="CPR — Publications">
-    <meta name="twitter:description" content="Publications, patents, and challenge results of the Causal Perception and Reasoning Research Group.">
+    <meta name="twitter:title" content="CPR — {{PAGE_TITLE}}">
+    <meta name="twitter:description" content="{{META_DESCRIPTION}}">
     <meta name="twitter:image" content="https://cpr.ai.vn/banner.jpg">
 
     <!-- Fonts -->
@@ -52,25 +63,26 @@
     <link rel="icon" href="/favicon.ico">
 </head>
 
-<body data-page="publications">
+<body data-page="{{MENU_ID}}">
     <a href="#main-content" class="skip-link">Skip to content</a>
     <script src="/js/site.js"></script>
 
     <main id="main-content">
-        <div class="container pub-wide">
+        <div class="container">
             <div class="page-header fade-in">
-                <h1>Publications</h1>
-                <p>Papers, patents, and challenge results, newest first.</p>
+                <h1>{{PAGE_TITLE}}</h1>
+                <p>{{ONE_LINE_INTRO}}</p>
             </div>
 
-            <!-- Rendered from content/publications.md + content/awards.md -->
-            <div id="publications-content"></div>
+            <section class="section fade-in">
+                <h2 class="section-label">{{SECTION_TITLE}}</h2>
+                <div class="prose">
+                    <p>{{SECTION_TEXT}}</p>
+                </div>
+            </section>
         </div>
     </main>
 
-    <script src="/js/content.js" defer></script>
-    <script src="/js/ui.js" defer></script>
-    <script src="/js/pages.js" defer></script>
 </body>
 
 </html>
