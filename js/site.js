@@ -13,7 +13,7 @@
 var SITE = {
     name: 'Causal Perception and Reasoning',
     shortName: 'CPR',
-    tagline: 'Causal Perception and Reasoning Research Group, advancing causal AI research from Ho Chi Minh City, Vietnam.',
+    tagline: 'A research group in Ho Chi Minh City, Vietnam, working on causal reasoning for machine perception.',
     email: 'contact@cpr.ai.vn',
     /* Root-relative so they resolve from any depth (e.g. /members/x.html) */
     logo: '/logo.svg',
