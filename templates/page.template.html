@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- =====================================================================
+     PAGE TEMPLATE  (see templates/README.md)
+       - Copy to the repo root as <slug>.html and replace every {{TOKEN}}.
+       - <body data-page> highlights a menu item: home, research, people,
+         publications, join (or leave it empty).
+       - Build the body from the shared blocks in css/components.css:
+         .page-header, .section + .section-label, .card-grid + .card,
+         .entry-list + .entry, .dated-entry, .tag-row, .chips, .join-cta.
+       - To add it to the menu, edit SITE.nav in js/site.js.
+     ===================================================================== -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0f1826" media="(prefers-color-scheme: dark)">
+
+    <!-- Set theme before paint to avoid a flash of the wrong theme -->
+    <script>
+        (function () {
+            try {
+                var t = localStorage.getItem('cprl-theme') ||
+                    (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                document.documentElement.setAttribute('data-theme', t);
+            } catch (e) {}
+        })();
+    </script>
+
+    <title>CPR — {{PAGE_TITLE}}</title>
+    <meta name="description" content="{{META_DESCRIPTION}}">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="canonical" href="https://cpr.ai.vn/{{PAGE_SLUG}}.html">
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="CPR — Causal Perception and Reasoning">
+    <meta property="og:title" content="CPR — {{PAGE_TITLE}}">
+    <meta property="og:description" content="{{META_DESCRIPTION}}">
+    <meta property="og:url" content="https://cpr.ai.vn/{{PAGE_SLUG}}.html">
+    <meta property="og:image" content="https://cpr.ai.vn/banner.jpg">
+    <meta property="og:image:alt" content="Causal Perception and Reasoning research group">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CPR — {{PAGE_TITLE}}">
+    <meta name="twitter:description" content="{{META_DESCRIPTION}}">
+    <meta name="twitter:image" content="https://cpr.ai.vn/banner.jpg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Roboto+Mono:wght@400;500&display=swap">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/css/variables.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/components.css">
+    <noscript><style>.fade-in{opacity:1;transform:none}</style></noscript>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" href="/favicon.ico">
+</head>
+
+<body data-page="{{MENU_ID}}">
+    <a href="#main-content" class="skip-link">Skip to content</a>
+    <script src="/js/site.js"></script>
+
+    <main id="main-content">
+        <div class="container">
+            <div class="page-header fade-in">
+                <h1>{{PAGE_TITLE}}</h1>
+                <p>{{ONE_LINE_INTRO}}</p>
+            </div>
+
+            <section class="section fade-in">
+                <h2 class="section-label">{{SECTION_TITLE}}</h2>
+                <div class="prose">
+                    <p>{{SECTION_TEXT}}</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+</body>
+
+</html>

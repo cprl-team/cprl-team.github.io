@@ -4,7 +4,7 @@ Static website for the [Causal Perception and Reasoning (CPR)](https://cpr.ai.vn
 
 ## Run locally
 
-Pages load their content from `content/*.md` with `fetch`, so open the site through a local server, not straight from disk:
+Pages load their content from `content/*.md` with `fetch` and use root-relative paths, so open the site through a local server at the site root, not straight from disk:
 
 ```bash
 python3 -m http.server 8000
@@ -13,25 +13,29 @@ python3 -m http.server 8000
 
 ## Updating content
 
-Most edits only touch a markdown file in `content/`. The pages read these files at runtime, so the HTML does not need to change.
+Most edits only touch a markdown file in `content/`. Pages read these files in the browser, so the HTML does not change.
 
-| To update...                          | Edit                        | Shown on                         |
-| ------------------------------------- | --------------------------- | -------------------------------- |
-| Papers, ongoing work, patents         | `content/publications.md`   | Publications, Home → News, profiles |
-| Non-paper news (awards, talks, grants)| `content/home.md` → *Recent News* | Home → News                |
-| Research projects                     | `content/projects.md`       | Projects                         |
-| People                                | `content/members.md`        | Members                          |
-| Challenge wins and competitions       | `content/achievements.md`   | Achievements                     |
+| To update...                               | Edit                      | Shown on                                   |
+| ------------------------------------------ | ------------------------- | ------------------------------------------ |
+| Papers, ongoing work, patents              | `content/publications.md` | Publications, Home (News, Selected), Research, profiles |
+| Challenge results                          | `content/awards.md`       | Publications → Awards, Home (wins), profiles |
+| Other news (grants, talks, new members)    | `content/news.md`         | Home → News                                |
+| Research areas                             | `content/research.md`     | Research, Home (area cards)                |
+| People                                     | `content/people.md`       | People, author highlighting, profiles      |
+| Openings, how to apply, FAQ                | `content/join.md`         | Join Us                                    |
 
-Home → News merges the curated items in `home.md` with the newest accepted papers from `publications.md` (five items in total), so a new paper appears there with no extra edit.
+Each fact lives in one file and appears wherever it is needed:
 
-The home page intro and its research-area cards are written directly in `index.html`.
+- **Home → News** merges `news.md`, every 1st-place result in `awards.md`, and the newest accepted papers, then shows the 6 newest. A new paper or win appears there with no extra edit.
+- **Selected publications** on Home lists papers marked `selected: yes`. The section stays hidden until at least one paper is marked.
+- **Research** lists, under each area, the papers tagged `area: <area-anchor>`.
+- **Author highlighting and profiles** use the `aliases:` in `people.md`, so every spelling of a member's name (e.g. "Van Thong Huynh", "Van-Thong Huynh", "Huynh, V. T.") is recognised.
 
-`content/capstones.md` holds detailed student project briefs. No page renders it at the moment.
+Each file starts with a comment listing its fields.
 
 ### Entry format
 
-Every content file uses the same shape: `##` starts a section, `###` starts an entry, and `key: value` lines below it set fields. A publication looks like this:
+All content files share one shape: `##` starts a group, `###` starts an entry (`|` splits its heading), `key: value` lines set fields, and any other line is the entry's text. A publication:
 
 ```markdown
 ### 2026 | Paper Title
@@ -39,43 +43,42 @@ authors: **Member Name**, External Author
 venue: Full venue name
 venue_short: ABBR 2026
 link: https://doi.org/...
+code: https://github.com/...
+selected: yes
 ```
 
-Wrap lab members in `**bold**` in author lists. Use `Ongoing` in place of the year for work in preparation.
+Use `Ongoing` instead of the year for work in preparation.
 
-### Pages for people and papers
+### New pages
 
-- **Member profiles** live in `members/` (see `members/vthuynh.html`). Link one from `content/members.md` with `link: members/<name>.html`.
-- **Paper pages** start from `templates/paper-page.template.html`; `templates/README.md` has the steps. Link one from its publication with `project: <page>.html`.
+Start from `templates/`: a generic page, a member profile, or a paper page. `templates/README.md` lists the shared building blocks and the steps.
 
 ## Project structure
 
 ```
-├── index.html            Home: intro, news, research areas, join us
-├── publications.html     Publications with type/year filters
-├── projects.html         Research projects by area
-├── members.html          People
-├── achievements.html     Challenge wins and competitions
+├── index.html            Home: intro, news, research areas, selected papers, join
+├── research.html         Research areas with people and papers
+├── people.html           PI, members, collaborators, alumni
+├── publications.html     Papers + awards, with type/year filters
+├── join.html             Who we look for, how to apply, FAQ
 ├── pain-presence.html    Paper page (AI4Pain @ ACIIW 2026)
-├── members/              Individual profile pages
+├── members/              Member profile pages
+├── projects.html, members.html, achievements.html
+│                         Redirects from the old URLs
 ├── 404.html
-├── content/              Editable markdown content
+├── content/              Editable markdown content (see above)
 ├── css/
 │   ├── variables.css     Design tokens: colours, type, spacing, light/dark
 │   ├── base.css          Reset and typography
 │   ├── layout.css        Header, container, footer
-│   ├── components.css    Cards, lists, badges, page sections
-│   └── pages.css         (empty; styles live in the files above)
+│   └── components.css    Shared building blocks + page-specific blocks
 ├── js/
-│   ├── site-config.js    Logo, favicon, and header title for every page
-│   ├── content-loader.js Markdown parsers
-│   ├── content-renderer.js  Builds each page from the parsed content
-│   ├── theme.js          Light/dark toggle (saved in localStorage)
-│   ├── navigation.js     Active link and mobile menu
-│   ├── lightbox.js       Tap-to-enlarge figures on paper pages
-│   └── main.js           Fade-in animations and back-to-top
-├── templates/            Paper page template
-└── tools/                Local helper scripts
+│   ├── site.js           Menu, contact email, logo; writes header + footer; theme, mobile menu
+│   ├── content.js        Loads and parses content/*.md (one parser for all files)
+│   ├── ui.js             Shared blocks: paper, person, award, news item, area card
+│   ├── pages.js          Builds each page from content.js + ui.js
+│   └── lightbox.js       Tap-to-enlarge figures on paper pages
+└── templates/            Starting points for new pages
 ```
 
 ## Search engines
