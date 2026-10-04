@@ -2,228 +2,130 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0f1826" media="(prefers-color-scheme: dark)">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0f1826" media="(prefers-color-scheme: dark)">
 
-  <!-- Set theme before paint to avoid a flash of the wrong theme -->
-  <script>
-    (function () {
-      try {
-        var t = localStorage.getItem('cprl-theme') ||
-          (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-        document.documentElement.setAttribute('data-theme', t);
-      } catch (e) {}
-    })();
-  </script>
+    <!-- Set theme before paint to avoid a flash of the wrong theme -->
+    <script>
+        (function () {
+            try {
+                var t = localStorage.getItem('cprl-theme') ||
+                    (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                document.documentElement.setAttribute('data-theme', t);
+            } catch (e) {}
+        })();
+    </script>
 
-  <title>CPR — Causal Perception and Reasoning Research Group</title>
-  <meta name="description"
-    content="CPR is a research group based in HCMC, Vietnam. Our mission: true AI must move beyond correlation-based Perception to achieve Causal Reasoning.">
-  <meta name="robots" content="noindex, nofollow">
-  <link rel="canonical" href="https://cpr.ai.vn/">
+    <title>CPR — Causal Perception and Reasoning Research Group</title>
+    <meta name="description" content="CPR is a research group in Ho Chi Minh City, Vietnam, moving AI beyond correlation-based perception to causal reasoning.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="canonical" href="https://cpr.ai.vn/index.html">
 
-  <!-- Open Graph / Twitter -->
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="CPR — Causal Perception and Reasoning">
-  <meta property="og:title" content="CPR — Causal Perception and Reasoning Research Group">
-  <meta property="og:description" content="Advancing causal AI research from HCMC, Vietnam.">
-  <meta property="og:url" content="https://cpr.ai.vn/">
-  <meta property="og:image" content="https://cpr.ai.vn/banner.jpg">
-  <meta property="og:image:alt" content="Causal Perception and Reasoning research group">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="CPR — Causal Perception and Reasoning Research Group">
-  <meta name="twitter:description" content="Advancing causal AI research from HCMC, Vietnam.">
-  <meta name="twitter:image" content="https://cpr.ai.vn/banner.jpg">
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="CPR — Causal Perception and Reasoning">
+    <meta property="og:title" content="CPR — Causal Perception and Reasoning Research Group">
+    <meta property="og:description" content="CPR is a research group in Ho Chi Minh City, Vietnam, moving AI beyond correlation-based perception to causal reasoning.">
+    <meta property="og:url" content="https://cpr.ai.vn/index.html">
+    <meta property="og:image" content="https://cpr.ai.vn/banner.jpg">
+    <meta property="og:image:alt" content="Causal Perception and Reasoning research group">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CPR — Causal Perception and Reasoning Research Group">
+    <meta name="twitter:description" content="CPR is a research group in Ho Chi Minh City, Vietnam, moving AI beyond correlation-based perception to causal reasoning.">
+    <meta name="twitter:image" content="https://cpr.ai.vn/banner.jpg">
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Roboto+Mono:wght@400;500&display=swap">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Roboto+Mono:wght@400;500&display=swap">
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="css/variables.css">
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/pages.css">
-  <noscript>
-      <style>.fade-in{opacity:1;transform:none}</style>
-  </noscript>
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="icon" href="favicon.ico" id="site-favicon">
+    <!-- Styles -->
+    <link rel="stylesheet" href="/css/variables.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/components.css">
+    <noscript><style>.fade-in{opacity:1;transform:none}</style></noscript>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" href="/favicon.ico">
 
-  <!-- Structured data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Causal Perception and Reasoning (CPR)",
-    "alternateName": "CPRL",
-    "url": "https://cpr.ai.vn/",
-    "logo": "https://cpr.ai.vn/logo.png",
-    "description": "A research group based in HCMC, Vietnam advancing causal AI, moving beyond correlation-based perception to causal reasoning.",
-    "email": "contact@cpr.ai.vn",
-    "location": { "@type": "Place", "address": "Ho Chi Minh City, Vietnam" }
-  }
-  </script>
-
-  <script src="js/site-config.js" defer></script>
+    <!-- Structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Causal Perception and Reasoning (CPR)",
+        "url": "https://cpr.ai.vn/",
+        "logo": "https://cpr.ai.vn/logo.png",
+        "description": "A research group based in Ho Chi Minh City, Vietnam, moving AI beyond correlation-based perception to causal reasoning.",
+        "email": "contact@cpr.ai.vn",
+        "location": { "@type": "Place", "address": "Ho Chi Minh City, Vietnam" }
+    }
+    </script>
 </head>
 
-<body>
-  <a href="#main-content" class="skip-link">Skip to content</a>
+<body data-page="home">
+    <a href="#main-content" class="skip-link">Skip to content</a>
+    <script src="/js/site.js"></script>
 
-  <!-- Header -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <div class="header-left">
-        <a href="index.html" class="logo" data-logo="header">Causal Perception and Reasoning</a>
-      </div>
-      <nav class="main-nav" aria-label="Main navigation">
-        <a href="index.html">Home</a>
-        <a href="publications.html">Publications</a><a href="projects.html">Projects</a><a href="members.html">Members</a>
-        <a href="achievements.html">Achievements</a>
-      </nav>
-      <div class="header-right">
-        <button class="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">
-          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-            aria-hidden="true">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-          </svg>
-          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-            aria-hidden="true">
-            <circle cx="12" cy="12" r="5" />
-            <line x1="12" y1="1" x2="12" y2="3" />
-            <line x1="12" y1="21" x2="12" y2="23" />
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-            <line x1="1" y1="12" x2="3" y2="12" />
-            <line x1="21" y1="12" x2="23" y2="12" />
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
-          </svg>
-        </button>
-        <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="3" y1="6" x2="21" y2="6" />
-            <line x1="3" y1="12" x2="21" y2="12" />
-            <line x1="3" y1="18" x2="21" y2="18" />
-          </svg>
-        </button>
-      </div>
-    </div>
-  </header>
+    <main id="main-content">
+        <div class="container">
 
-  <!-- Main Content -->
-  <main id="main-content">
-    <div class="container">
+            <!-- Intro -->
+            <header class="about fade-in">
+                <div class="about__media">
+                    <div class="about__logo"><img src="/logo.svg" alt="CPR logo"></div>
+                </div>
+                <div class="about__body">
+                    <h1 class="about__name">Causal Perception and Reasoning</h1>
+                    <p class="about__tag">Causal AI research group &middot; Ho Chi Minh City, Vietnam</p>
+                    <p class="about__lede">We aim to move beyond correlation-based perception toward genuine causal reasoning, developing models that explain not only <em>what</em> happens but <em>why</em> it happens. Our research spans causal video understanding, document intelligence, healthcare, physics-informed modeling, and neuro-symbolic AI.</p>
+                    <div class="about__contacts">
+                        <a href="mailto:contact@cpr.ai.vn">contact@cpr.ai.vn</a>
+                    </div>
+                </div>
+            </header>
 
-      <!-- About -->
-      <header class="about fade-in">
-        <div class="about__media">
-          <div class="about__logo"><img src="logo.svg" alt="CPR logo"></div>
+            <!-- News: content/news.md + newest papers + challenge wins -->
+            <section class="section fade-in">
+                <h2 class="section-label">News</h2>
+                <div id="home-news"></div>
+            </section>
+
+            <!-- Research areas: content/research.md (summary field) -->
+            <section class="section fade-in">
+                <h2 class="section-label">Research areas</h2>
+                <div class="card-grid card-grid--wide" id="home-areas"></div>
+                <a class="section-cta" href="/research.html">More on our research &rarr;</a>
+            </section>
+
+            <!-- Selected publications: entries with "selected: yes" (hidden when none) -->
+            <section class="section fade-in">
+                <h2 class="section-label">Selected publications</h2>
+                <div id="home-selected"></div>
+                <a class="section-cta" href="/publications.html">All publications &rarr;</a>
+            </section>
+
+            <!-- Join -->
+            <section class="section fade-in">
+                <div class="join-cta">
+                    <h2>Join us</h2>
+                    <p>We welcome PhD, Master's, and undergraduate students drawn to the <em>why</em> behind AI, and academic partners who want to work on causal AI together.</p>
+                    <div class="btn-row">
+                        <a class="btn btn-primary btn-lg" href="/join.html">How to join</a>
+                        <a class="btn btn-secondary btn-lg" href="mailto:contact@cpr.ai.vn">Email us</a>
+                    </div>
+                </div>
+            </section>
+
         </div>
-        <div class="about__body">
-          <h1 class="about__name">Causal Perception and Reasoning</h1>
-          <p class="about__tag">Causal AI research group &middot; Ho Chi Minh City, Vietnam</p>
-          <p>We aim to move beyond correlation-based perception toward genuine causal reasoning, developing models that explain not only <em>what</em> happens but <em>why</em> it happens. Our research spans causal video understanding, document intelligence, healthcare, physics-informed modeling, and neuro-symbolic AI.</p>
-          <div class="about__contacts">
-            <a href="mailto:contact@cpr.ai.vn">contact@cpr.ai.vn</a>
-            <a href="https://cpr.ai.vn" target="_blank" rel="noopener">cpr.ai.vn</a>
-            <a href="publications.html">Publications</a>
-            <a href="members.html">Team</a>
-          </div>
-        </div>
-      </header>
+    </main>
 
-      <!-- News -->
-      <section class="section fade-in">
-        <h2 class="section-label">News</h2>
-        <div id="home-news"></div>
-        <a class="section-cta" href="publications.html">View all publications &rarr;</a>
-      </section>
-
-      <!-- Research areas -->
-      <section class="section fade-in">
-        <h2 class="section-label">Research areas</h2>
-        <div class="areas">
-          <a class="area" href="projects.html#project-causal-video-understanding"><h3>Causal Video Understanding</h3><p>Grounding video into events, then reasoning about the triggers that connect them.</p></a>
-          <a class="area" href="projects.html#project-causal-document-intelligence"><h3>Causal Document Intelligence</h3><p>Treating document layout and structure as a causal graph over text, tables, and figures.</p></a>
-          <a class="area" href="projects.html#project-causal-ai-in-healthcare"><h3>Causal AI in Healthcare</h3><p>ICU outcome prediction on MIMIC: leakage-free prediction, explanation, and counterfactuals.</p></a>
-          <a class="area" href="projects.html#project-physics-informed-causal-ai"><h3>Physics-Informed Causal AI</h3><p>Mechanistic models of physical processes, from prediction to intervention and digital twins.</p></a>
-          <a class="area" href="projects.html#project-foundations-of-causal-llms-and-neuro-symbolic-ai"><h3>Causal LLMs &amp; Neuro-Symbolic AI</h3><p>Do models infer cause and effect, or recall it? Pairing LLMs with symbolic reasoning.</p></a>
-        </div>
-        <a class="section-cta" href="projects.html">See all projects &rarr;</a>
-      </section>
-
-      <!-- Join -->
-      <section class="section fade-in">
-        <div class="join-cta">
-          <h2>Join us</h2>
-          <p>We are growing and welcome new collaborators. Prospective students (PhD, Master's, and undergraduate) drawn to the <em>why</em> behind AI, and academic partners in video understanding, document intelligence, healthcare, and physics-informed causal AI, are warmly encouraged to reach out.</p>
-          <a class="btn btn-primary btn-lg" href="mailto:contact@cpr.ai.vn">Get in touch</a>
-        </div>
-      </section>
-
-    </div>
-  </main>
-
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-inner">
-        <div class="footer-brand">
-          <a href="index.html" class="logo" data-logo="footer"></a>
-          <p>Causal Perception and Reasoning Research Group, advancing causal AI research from HCMC, Vietnam.</p>
-        </div>
-        <div class="footer-links">
-          <h4>Pages</h4>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="publications.html">Publications</a></li><li><a href="projects.html">Projects</a></li>
-            <li><a href="members.html">Members</a></li>
-            <li><a href="achievements.html">Achievements</a></li>
-          </ul>
-        </div>
-        <div class="footer-links">
-          <h4>Connect</h4>
-          <div class="footer-social">
-            <a href="https://cpr.ai.vn" aria-label="Website" data-tooltip="cpr.ai.vn" target="_blank"
-              rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10" />
-                <line x1="2" y1="12" x2="22" y2="12" />
-                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-              </svg></a>
-            <a href="mailto:contact@cpr.ai.vn" aria-label="Email" data-tooltip="contact@cpr.ai.vn" target="_blank"
-              rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                <polyline points="22,6 12,13 2,6" />
-              </svg></a>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 CPR — Causal Perception and Reasoning Research Group. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
-
-  <script src="js/content-loader.js"></script>
-  <script src="js/content-renderer.js"></script>
-  <script>
-    ContentRenderer.renderNews('home-news');
-  </script>
-  <script src="js/theme.js" defer></script>
-  <script src="js/navigation.js" defer></script>
-  <script src="js/main.js" defer></script>
+    <script src="/js/content.js" defer></script>
+    <script src="/js/ui.js" defer></script>
+    <script src="/js/pages.js" defer></script>
 </body>
 
 </html>
