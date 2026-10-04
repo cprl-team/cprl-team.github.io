@@ -447,7 +447,8 @@
             html += '<section class="project-section fade-in"><div class="project-grid">';
             for (var i = 0; i < items.length; i++) {
                 var p = items[i];
-                html += '<article class="project-card">';
+                var pid = 'project-' + (p.title || '').toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+                html += '<article class="project-card" id="' + pid + '">';
                 if (p.status) {
                     html += '<span class="project-status project-status--' + escapeHTML(p.status.toLowerCase()) + '">' + escapeHTML(p.status) + '</span>';
                 }
@@ -464,6 +465,10 @@
 
         container.innerHTML = html;
         revealFadeIns(container);
+        if (location.hash) {
+            var target = document.getElementById(location.hash.slice(1));
+            if (target) target.scrollIntoView();
+        }
     }
 
     /**

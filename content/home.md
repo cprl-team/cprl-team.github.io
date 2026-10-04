@@ -45,6 +45,10 @@ Investigate the causal reasoning capabilities (and failures) of LLMs and VLMs. D
      URL) to make the headline clickable. Curated items lead within their
      year; the whole list is capped at 5. -->
 
+### 2026 | 🏆 Winner of the ABAW Multi-Task Learning Challenge @ ECCV 2026
+Team CPR took first place in the MTL Challenge at the 11th Affective Behavior Analysis in-the-wild Workshop.
+link: achievements.html
+
 ---
 
 ## Call to Action

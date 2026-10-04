@@ -57,7 +57,7 @@ venue_short: In progress
 ## Journal Papers
 
 ### 2025 | Dual-Channel Prior-Based Deep Unfolding with Contrastive Learning for Underwater Image Enhancement
-authors: **Thuy Thi Pham,** Truong Thanh Nhat Mai, Hansung Yu, Chul Lee
+authors: **Thuy Thi Pham**, Truong Thanh Nhat Mai, Hansung Yu, Chul Lee
 venue: Journal of Visual Communication and Image Representation
 venue_short: JVCIR 2025
 

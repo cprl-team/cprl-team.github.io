@@ -112,6 +112,9 @@
 
 .footer-brand { max-width: 26rem; }
 .footer-brand .logo-img--footer { height: 1.5rem; width: auto; margin-bottom: var(--spacing-2); }
+/* The footer logo is light-on-dark artwork; the footer is only dark in the
+   dark theme, so render it as a dark mark everywhere else. */
+:root:not([data-theme="dark"]) .footer-brand .logo-img--footer { filter: brightness(0); opacity: 0.85; }
 .footer-brand p { color: var(--color-text-muted); font-size: var(--font-size-caption); }
 
 .footer-links h4 {

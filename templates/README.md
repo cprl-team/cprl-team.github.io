@@ -2,7 +2,7 @@
 
 `paper-page.template.html` is a starting point for a per-paper landing page,
 matching the style of `pain-presence.html`. It reuses the site's CSS tokens,
-so a new page inherits light/dark theming, the emerald brand, the header and
+so a new page inherits light/dark theming, the navy brand, the header and
 footer, fonts, and the tap-to-enlarge diagram system with no build step.
 
 ## Steps

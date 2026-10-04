@@ -16,8 +16,8 @@ var SITE_CONFIG = {
        custom domain, which both serve from the site root. */
     headerLogoSrc: '/logo.svg',
     headerTitle: 'Causal Perception and Reasoning',
-    /* Footer: full logo (the footer is a dark slab in both themes,
-       so the light-on-dark logo is always valid) */
+    /* Footer: full logo. The artwork is light-on-dark; layout.css
+       darkens it in the light theme so it stays visible. */
     footerLogoSrc: '/logo_full_dark.png',
     footerTitle: '',
     /* Shared */
