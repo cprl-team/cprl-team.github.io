@@ -78,6 +78,7 @@ Start from `templates/`: a generic page, a member profile, or a paper page. `tem
 │   ├── ui.js             Shared blocks: paper, person, award, news item, area card
 │   ├── pages.js          Builds each page from content.js + ui.js
 │   └── lightbox.js       Tap-to-enlarge figures on paper pages
+├── images/               causal-graph.svg (Home intro motif)
 └── templates/            Starting points for new pages
 ```
 

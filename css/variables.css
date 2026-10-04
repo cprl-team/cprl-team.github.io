@@ -14,11 +14,11 @@
   color-scheme: light;
 
   /* ── Colors (Light) — blue academic palette ─────────── */
-  --color-background: #ffffff;
-  --color-surface: #f5f7fb;
+  --color-background: #f6f8fb;   /* cool off-white page; cards sit on it in white */
+  --color-surface: #ffffff;
   --color-surface-alt: #fbfcfe;
-  --color-border: #e4e9f1;
-  --color-border-grid: #e4e9f1;
+  --color-border: #e2e7ef;
+  --color-border-grid: #e2e7ef;
   --color-text-primary: #17233a;
   --color-text-secondary: #46536b;
   --color-text-muted: #5f6a80;
@@ -46,7 +46,7 @@
   --color-button-bg: #1a4480;
   --color-button-text: #ffffff;
   --color-button-hover: #102c54;
-  --color-button-secondary-bg: #f5f7fb;
+  --color-button-secondary-bg: #ffffff;
   --color-button-secondary-text: #17233a;
   --color-button-secondary-hover: #e9eef6;
   --color-button-outline-border: #e4e9f1;
@@ -197,11 +197,11 @@
 [data-theme="dark"] {
   color-scheme: dark;
 
-  --color-background: #0f1826;
-  --color-surface: #172231;
+  --color-background: #0c1420;
+  --color-surface: #152031;
   --color-surface-alt: #1e2b3d;
-  --color-border: #2c3a4e;
-  --color-border-grid: #2c3a4e;
+  --color-border: #26354a;
+  --color-border-grid: #26354a;
   --color-text-primary: #e9eef6;
   --color-text-secondary: #aab7c9;
   --color-text-muted: #7e8ca1;

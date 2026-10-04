@@ -255,6 +255,30 @@ p.filter-count { margin: 0 0 var(--spacing-3); }
 /* ── Intro block: home "about" + member profile hero ── */
 .about { display: flex; gap: var(--spacing-8); align-items: center; flex-wrap: wrap; margin: var(--spacing-12) 0 var(--spacing-4); }
 .about__media { flex: 0 0 auto; }
+
+/* Home intro band: a soft accent wash that runs edge to edge behind the
+   intro, with the causal-graph motif in the right-hand margin. The motif is
+   a mask, so it takes the theme accent; it only shows where the margin is
+   wide enough to keep it clear of the text. */
+main { overflow-x: clip; }
+.hero-band { position: relative; isolation: isolate; margin-top: 0; padding: var(--spacing-12) 0 var(--spacing-10); }
+.hero-band::before {
+    content: ""; position: absolute; z-index: -2; top: 0; bottom: 0; left: 50%;
+    width: 100vw; transform: translateX(-50%);
+    background: linear-gradient(180deg, var(--color-accent-glow), transparent);
+    border-bottom: 1px solid var(--color-border);
+}
+.hero-band::after {
+    content: ""; position: absolute; z-index: -1; top: 50%; left: calc(100% + 2rem);
+    width: min(17rem, calc((100vw - 100%) / 2 - 4rem)); aspect-ratio: 10 / 9;
+    transform: translateY(-50%);
+    background-color: var(--color-accent); opacity: 0.3;
+    -webkit-mask: url("/images/causal-graph.svg") center / contain no-repeat;
+    mask: url("/images/causal-graph.svg") center / contain no-repeat;
+    pointer-events: none;
+}
+[data-theme="dark"] .hero-band::after { opacity: 0.35; }
+@media (max-width: 1199px) { .hero-band::after { display: none; } }
 .about__logo {
     width: 6.5rem; height: 6.5rem; border-radius: var(--radius-lg);
     background: var(--color-accent-glow);
