@@ -20,9 +20,9 @@ summary: Treating document layout as a causal graph over text, tables, and figur
 We treat document layout and structure as a causal graph. VLMs read the structure while LLMs reason over the content, so that the system can infer the logical and causal relationships between text, tables, and figures.
 
 ### Causal AI in Healthcare
-summary: ICU outcome prediction on MIMIC, from leakage-free prediction and explanation toward counterfactual analysis.
-team: **Trong-Nghia Nguyen**, **Hong-Hai Nguyen**, **Van-Thong Huynh**
-We predict ICU outcomes on the MIMIC critical-care databases (MIMIC-III and MIMIC-IV): in-hospital and ICU mortality, survival, and clinical deterioration. The current phase focuses on leakage-free prediction and model explanation; causal and counterfactual analysis follows in a later phase.
+summary: ICU outcome prediction and physiological pain assessment, from leakage-free prediction toward causal analysis.
+team: **Trong-Nghia Nguyen**, **Hong-Hai Nguyen**, **Thuy Thi Pham**, **Van-Thong Huynh**
+We predict ICU outcomes on the MIMIC critical-care databases (MIMIC-III and MIMIC-IV): in-hospital and ICU mortality, survival, and clinical deterioration. The current phase focuses on leakage-free prediction and model explanation; causal and counterfactual analysis follows in a later phase. We also study what peripheral physiological signals reveal about pain, separating what they can detect, such as the presence of pain, from what they cannot, such as its location.
 
 ### Physics-Informed Causal AI
 summary: Mechanistic models of physical processes, from prediction to intervention and digital twins.
