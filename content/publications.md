@@ -124,6 +124,7 @@ link: https://ieeexplore.ieee.org/document/9143078
 authors: **Hong Hai Nguyen**, **Thuy Thi Pham**, **Trong Nghia Nguyen**, **Van Thong Huynh**
 venue: 14th International Conference on Affective Computing and Intelligent Interaction Workshops and Demos (ACIIW), AI4Pain 2026 Grand Challenge
 venue_short: ACIIW 2026 (AI4Pain)
+link: https://doi.org/10.1109/ACIIW71585.2026.11712100
 project: pain-presence.html
 
 ### 2026 | KAN-SegFormer: Kolmogorov-Arnold Decoding for Brain Tumor Segmentation
