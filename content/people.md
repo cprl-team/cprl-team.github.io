@@ -39,12 +39,14 @@ aliases: Dang Xuan Tien; Tien X. Dang; Tien Dang
 ### Nguyễn Hồng Hải
 role: Member
 initials: NHH
+interests: Affective computing, multi-task facial affect recognition, physiological pain assessment
 link: https://hhnguyen.netlify.app
 aliases: Hong Hai Nguyen
 
 ### Phạm Thị Thủy
 role: Member
 initials: PTT
+interests: Image enhancement, deep unfolding networks, physiological signal analysis
 link: https://thithuypham.github.io
 aliases: Thuy Thi Pham; Thi Thuy Pham; Thuy T. Pham; Thuy Pham
 

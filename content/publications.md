@@ -127,6 +127,7 @@ venue_short: ACIIW 2026 (AI4Pain)
 link: https://doi.org/10.1109/ACIIW71585.2026.11712100
 project: pain-presence.html
 area: causal-ai-in-healthcare
+selected: yes
 
 ### 2026 | KAN-SegFormer: Kolmogorov-Arnold Decoding for Brain Tumor Segmentation
 authors: Van Hieu Dao, **Van Thong Huynh**
